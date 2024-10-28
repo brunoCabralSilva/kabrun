@@ -17,6 +17,7 @@ function App() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
+  setShowData(false)
   // const router = useRouter();
   // const {
   //   dataUser, setDataUser,
