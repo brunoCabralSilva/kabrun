@@ -17,7 +17,6 @@ function App() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-  setShowData(false)
   // const router = useRouter();
   // const {
   //   dataUser, setDataUser,
@@ -102,7 +101,10 @@ function App() {
                             type="email"
                             name="email"
                             id="email" 
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => {
+                              setEmail(e.target.value);
+                              setShowData(false);
+                            }}
                             className="break-words outline-none text-sm rounded w-full p-2.5 placeholder-gray-400 border-2 border-black text-center sm:text-left" placeholder="name@company.com"
                           />
                         </div>
