@@ -5,6 +5,7 @@ export default function Home() {
   return(
     <div>
       <Nav />
+      <p className="font-bold text-2xl p-2">{magics.length } Magias / Truques Adicionados</p>
       <div className="grid grid-cols-1 gap-2 p-2">
         {
           magics.map((magic: any, index: number) => (
