@@ -22,6 +22,7 @@ export default function Profile() {
   const [editEmail, setEditEmail] = useState(false);
   const [editImage, setEditImage] = useState(false);
   const router = useNavigate();
+  console.log(editImage);
   const {
     resetPopups,
     showMessage, setShowMessage,
