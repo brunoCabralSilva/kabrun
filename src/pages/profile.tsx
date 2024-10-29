@@ -9,7 +9,9 @@ import Footer from '../components/footer';
 import { TiEdit } from 'react-icons/ti';
 import ForgotPassword from '../components/forgotPassword';
 import ChangePassword from '../components/changePassword';
-import { getUserByEmail } from '../firebase/user';
+import { getUserByEmail, updateUserById } from '../firebase/user';
+import { IoIosCheckbox } from 'react-icons/io';
+import ChangeProfileImage from '../components/changeProfileImage';
 
 export default function Profile() {
   const [showData, setShowData] = useState(false);
@@ -17,26 +19,24 @@ export default function Profile() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [image, setImage] = useState(null);
+  const [id, setId] = useState('');
   const [editFirstName, setEditFirstName] = useState(false);
   const [editLastName, setEditLastName] = useState(false);
-  const [editEmail, setEditEmail] = useState(false);
-  const [editImage, setEditImage] = useState(false);
   const router = useNavigate();
-  console.log(editImage);
   const {
     resetPopups,
     showMessage, setShowMessage,
     showForgotPassword, setShowForgotPassword,
     showChangePassword, setShowChangePassword,
+    showChangeImage, setShowChangeImage,
   } = useContext(contexto);
   
-  useEffect(() => {
-    resetPopups();
-    const profile = async () => {
+  const updateProfile = async () => {
     const authData: any = await authenticate(setShowMessage);
     if (authData && authData.email && authData.displayName) {
       const user = await getUserByEmail(authData.email, setShowMessage);
-      const { email, firstName, lastName, imageURL } = user;
+      const { email, firstName, lastName, imageURL, id } = user;
+      setId(id);
       setFirstName(firstName);
       setLastName(lastName);
       setEmail(email);
@@ -44,8 +44,9 @@ export default function Profile() {
       setShowData(true);
     } else router('/login');
   }
-
-  profile();
+  useEffect(() => {
+    resetPopups();
+    updateProfile();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -69,17 +70,27 @@ export default function Profile() {
                         ? <input
                             value={firstName}
                             onChange={ (e: any) => setFirstName(e.target.value.toLowerCase()) }
-                            className="w-full text-black p-2"
+                            className="w-full text-black p-1 outline-none"
                           />
-                        : <p>{firstName}</p>
+                        : <p className="py-1">{firstName}</p>
                       }
                     </div>
                     <button
                       type="button"
-                      onClick={ () => setEditFirstName(!editFirstName) }
+                      onClick={ async () => {
+                        if (editFirstName) await updateUserById(
+                          { email, firstName, lastName, imageURL: image, id },
+                          setShowMessage,
+                        );
+                        setEditFirstName(!editFirstName)
+                      }}
                       className="text-2xl"
                     >
-                      <TiEdit  />
+                      {
+                        editFirstName
+                        ? <IoIosCheckbox />
+                        : <TiEdit  />
+                      }
                     </button>
                   </div>
                   <div className="pt-5">
@@ -91,36 +102,35 @@ export default function Profile() {
                           ? <input
                               value={lastName}
                               onChange={ (e: any) => setLastName(e.target.value.toLowerCase()) }
-                              className="w-full text-black p-2"
+                              className="w-full text-black p-1 outline-none"
                             />
-                          : <p>{lastName}</p>
+                          : <p className="py-1">{lastName}</p>
                         }
                       </div>
                       <button
                         type="button"
-                        onClick={ () => setEditLastName(!editLastName) }
+                        onClick={ async () => {
+                          if (editLastName) await updateUserById(
+                            { email, firstName, lastName, imageURL: image, id },
+                            setShowMessage,
+                          );
+                          setEditLastName(!editLastName);
+                        }}
                         className="text-2xl"
                       >
-                        <TiEdit  />
+                        {
+                          editLastName
+                          ? <IoIosCheckbox />
+                          : <TiEdit  />
+                        }
                       </button>
                     </div>
                   </div>
                   <p className="pt-5 w-full text-center sm:text-left">Email:</p>
                   <div className="flex">
                     <div className="w-full text-center sm:text-left text-white font-bold">
-                      {
-                        editEmail
-                        ? <input className="w-full" />
-                        : <p>{email}</p>
-                      }
+                     <p>{email}</p>
                     </div>
-                    <button
-                      type="button"
-                      onClick={ () => setEditEmail(!editEmail) }
-                      className="ml-5 text-2xl"
-                    >
-                      <TiEdit  />
-                    </button>
                   </div>
                   <button 
                     type="button"
@@ -147,7 +157,10 @@ export default function Profile() {
                     />
                     <button
                       type="button"
-                      onClick={ () => setEditImage(true) }
+                      onClick={ () => setShowChangeImage({ 
+                        show: true,
+                        user: { email, firstName, lastName, id },
+                      }) }
                       className="absolute top-0 right-0 text-2xl"
                     >
                       <TiEdit  />
@@ -157,6 +170,7 @@ export default function Profile() {
               </div>
               { showForgotPassword && <ForgotPassword /> }
               { showChangePassword.show && <ChangePassword /> }
+              { showChangeImage.show && <ChangeProfileImage updateProfile={updateProfile} /> }
             </div>
           </div>
         : <div className="text-white h-full flex items-center justify-center flex-col">

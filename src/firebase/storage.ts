@@ -1,4 +1,4 @@
-import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { deleteObject, getDownloadURL, getStorage, listAll, ref, uploadBytes } from "firebase/storage";
 import firebaseConfig from "./connection";
 import { doc, getDoc, getFirestore, runTransaction } from "firebase/firestore";
 
@@ -32,9 +32,7 @@ export async function createProfileImage(id: string, img: any, setShowMessage: a
     const downloadUrl = await getDownloadURL(storageRef);
     const userDocRef = doc(db, 'users', id);
     await runTransaction(db, async (transaction) => {
-      console.log('Aqui 1' + downloadUrl);
       const userDocSnapshot = await getDoc(userDocRef);
-      console.log(userDocSnapshot);
       if (userDocSnapshot.exists()) {
         console.log('Aqui 2: ' + downloadUrl);
         transaction.update(userDocRef, { imageURL: downloadUrl });
@@ -43,6 +41,24 @@ export async function createProfileImage(id: string, img: any, setShowMessage: a
     return downloadUrl;
   } catch (error: any) {
     setShowMessage({ show: true, text: "Erro ao fazer upload da mídia de imagem: " + error.message });
+    return error.message;
+  }
+}
+
+export async function updateProfileImage(id: string, newImage: any, setShowMessage: any) {
+  const storage = getStorage(firebaseConfig);
+  const folderRef = ref(storage, `images/users/${id}/`);
+  try {
+    const folderContents = await listAll(folderRef);
+    for (const itemRef of folderContents.items) {
+      await deleteObject(itemRef);
+    }
+    const newImageRef = ref(storage, `images/users/${id}/${newImage.name}`);
+    await uploadBytes(newImageRef, newImage);
+    const newImageUrl = await getDownloadURL(newImageRef);
+    return newImageUrl;
+  } catch (error: any) {
+    setShowMessage({ show: true, text: "Erro ao atualizar imagem: " + error.message });
     return error.message;
   }
 }

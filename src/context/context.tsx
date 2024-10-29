@@ -11,6 +11,8 @@ interface RecipesContext {
   setLogoutUser: (state: boolean) => void,
   showChangePassword: { show: boolean, email: string },
   setShowChangePassword: (state: { show: boolean, email: string }) => void,
+  showChangeImage: { show: boolean, user: any },
+  setShowChangeImage: (state: any) => void,
   resetPopups: () => void,
 }
 
@@ -23,6 +25,8 @@ const initialValue: RecipesContext = {
   setLogoutUser: () => {},
   showChangePassword: { show: false, email: '' },
   setShowChangePassword: () => {},
+  showChangeImage: { show: false, user: {} },
+  setShowChangeImage: () => {},
   scrollToBottom: () => {},
   resetPopups: () => {},
 }
