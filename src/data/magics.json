@@ -1,0 +1,600 @@
+[
+  {
+    "name": "Acalmar Emoções",
+    "level": 2,
+    "school": "Encantamento",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V, S",
+    "ritual": false,
+    "contentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Você tenta suprimir emoções fortes em um grupo de pessoas. Cada humanoide em uma esfera de 6 metros de raio, centrada em um ponto que você escolher dentro do alcance, deve realizar um teste de resistência de Carisma; uma criatura pode escolher falhar nesse teste, se desejar. Se uma criatura falhar na resistência, escolha um dentre os dois efeitos a seguir. Você pode suprimir qualquer efeito que esteja deixando a criatura enfeitiçada ou amedrontada. Quando essa magia terminar, qualquer efeito suprimido volta a funcionar, considerando que sua duração não tenha acabado nesse meio tempo. Alternativamente, você pode tornar um alvo indiferente às criaturas que você escolher que forem hostis a ele. Essa indiferença acaba se o alvo for atacado ou ferido por uma magia ou se ele testemunhar qualquer dos seus amigos sendo ferido. Quando a magia terminar, a criatura se tornará hostil novamente, a não ser que o Mestre diga o contrário."
+  },
+  {
+    "name": "Adivinhação",
+    "level": 4,
+    "school": "Adivinhação",
+    "casting_time": "1 ação",
+    "range": "Pessoal",
+    "components": "V, S, M (incenso e uma oferenda apropriada para sacrifício à sua religião, juntos valendo, no mínimo, 25 po, consumidos pela magia)",
+    "ritual": true,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Sua magia e uma oferenda colocam você em contato com um deus ou servo divino. Você faz uma única pergunta a respeito de um objetivo, evento ou atividade específico que irá ocorrer dentro de 7 dias. O Mestre oferece uma resposta confiável. A resposta deve ser uma frase curta, uma rima enigmática ou um presságio. A magia não leva em consideração qualquer possível circunstância que possa mudar o que está por vir, como a conjuração de magias adicionais ou a perda ou ganho de um companheiro. Se você conjurar a magia duas ou mais vezes antes de completar seu próximo descanso longo, existe uma chance cumulativa de 25 por cento de cada conjuração, depois da primeira que você fez, ter um resultado aleatório. O Mestre faz essa jogada secretamente."
+  },
+  {
+    "name": "Ajuda",
+    "level": 2,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, S, M (uma pequena fita de tecido branco)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "8 horas",
+    "description": "Sua magia inspira seus aliados com vigor e determinação. Escolha até três criaturas dentro do alcance. O máximo de pontos de vida e os pontos de vida atuais de cada alvo aumentam em 5, pela duração.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 3° nível ou superior, os pontos de vida dos alvos aumentam em 5 pontos adicionais para cada nível do espaço acima do 2°."
+  },
+  {
+    "name": "Alarme",
+    "level": 1,
+    "school": "Abjuração",
+    "casting_time": "1 minuto",
+    "range": "9 metros",
+    "components": "V, S, M (um pequeno sino e um pequeno fio de prata)",
+    "ritual": true,
+    "concentration": false,
+    "duration": "8 horas",
+    "description": "Você coloca um alarme para intrusos desavisados. Escolha uma porta, uma janela ou uma área dentro do alcance que não seja maior que 6 metros cúbicos. Até a magia acabar, um alarme alerta você sempre que uma criatura Miúda ou maior tocarem ou entrarem na área protegida. Quando você conjura a magia, você pode designar as criaturas que não ativarão o alarme. Você também escolhe se o alarme será mental ou audível. Um alarme mental alerta você com um silvo na sua mente, se você estiver a até de 1,5 quilômetro da área protegida. Esse silvo acordará você se você estiver dormindo. Um alarme audível produz o som de um sino de mão por 10 minutos num raio de 18 metros."
+  },
+  {
+    "name": "Aliado Planar",
+    "level": 6,
+    "school": "Conjuração",
+    "casting_time": "10 minutos",
+    "range": "18 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Você suplica a uma entidade transcendental por ajuda. O ser deve ser conhecido por você: seu deus, um primordial, um príncipe demônio ou algum outro ser de poder cósmico. Essa entidade envia um celestial, um corruptor ou um elemental leal a ela para ajudar você, fazendo a criatura aparecer em um espaço desocupado dentro do alcance. Se você conhecer o nome de uma criatura específica, você pode falar o nome quando conjurar essa magia para requisitar essa criatura, do contrário, você pode receber uma criatura diferente de qualquer forma (à escolha do Mestre). Quando a criatura aparecer, ela não está sob nenhuma compulsão para se comportar de um modo em particular. Você pode pedir a criatura que realize um serviço em troca de um pagamento, mas ela não é obrigada a fazê-lo. A tarefa solicitada pode variar de simples (carregue-nos voando para o outro lado do abismo ou nos ajude a lutar essa batalha) a complexa (espione nossos inimigos ou nos proteja durante nossa incursão na masmorra). Você deve ser capaz de se comunicar com a criatura para barganhar os serviços dela. O pagamento pode ser feito de várias formas. Um celestial pode requerer uma generosa doação de ouro ou itens mágicos para um templo aliado, enquanto que um corruptor pode exigir um sacrifício vivo ou uma parte dos espólios. Algumas criaturas podem trocar seus serviços por uma missão feita por você. Como regra geral, uma tarefa que possa ser medida em minutos, exigirá um pagamento de 100 po por minuto. Uma tarefa medida em horas exigirá 1.000 po por hora. E uma tarefa medida em dias (até 10 dias) exigirá 10.000 po por dia. O Mestre pode ajustar esses pagamentos baseado nas circunstâncias pelas quais a magia foi conjurada. Se a tarefa estiver de acordo com o caráter da criatura, o pagamento pode ser reduzido à metade, ou mesmo dispensado. Tarefas que não proporcionem perigo, tipicamente requerem apenas metade do pagamento sugerido, enquanto que tarefas especialmente perigosas podem exigir um grande presente. As criaturas raramente aceitarão tarefas que pareçam suicidas. Após a criatura completar a tarefa ou quando a duração acordada para o serviço expirar, a criatura retornará para seu plano natal depois de relatar sua partida a você, se apropriado para a tarefa e se possível. Se você não for capaz de acertar um preço para os serviços da criatura, ela imediatamente voltará para o seu plano natal. Uma criatura convidada para se juntar ao seu grupo, conta como um membro dele, recebendo sua parte total na premiação de pontos de experiência."
+  },
+  {
+    "name": "Aljava Veloz",
+    "level": 5,
+    "school": "Transmutação",
+    "casting_time": "1 ação bônus",
+    "range": "Toque",
+    "components": "V, S, M (uma aljava contendo, pelo menos, uma munição)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Você transmuta sua aljava para que ela produza um suprimento interminável de munições não-mágicas, que parecem saltar na sua mão quando você tenta pega-las. Em cada um dos seus turnos, até a magia acabar, você pode usar uma ação bônus para realizar dois ataques com uma arma que use munição de uma aljava. Cada vez que você fizer tais ataques à distância, sua aljava, magicamente, repõe a munição que você usou com uma munição não-mágica similar. Qualquer munição criada por essa magia se desintegra quando a magia acaba. Se a aljava não estiver mais com você, a magia acaba."
+  },
+  {
+    "name": "Alterar Forma",
+    "level": 9,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "Pessoal",
+    "components": "V, S, M (uma argola de jade valendo, no mínimo, 1.500 po, que você deve colocar na sua cabeça antes de conjurar a magia)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 hora",
+    "description": "Você assume a forma de uma criatura diferente, pela duração. A nova forma pode ser qualquer criatura com um nível de desafio igual ao seu nível ou menor. A criatura não pode ser nem um constructo nem um mortovivo e você deve ter visto esse tipo de criatura pelo menos uma vez. Você se transforma num exemplar médio da criatura, um sem quaisquer níveis de classe nem característica Conjuração. Suas estatísticas de jogo são substituídas pelas estatísticas da forma escolhida, no entanto, você mantém sua tendência e valores de Inteligência, Sabedoria e Carisma. Você também mantém suas proficiências em testes de resistência, além de ganhar as da nova criatura. Se a criatura tiver a mesma proficiência que você e o bônus listado nas estatísticas dela for maior que o seu, use os bônus da criatura no lugar do seu. Você não pode usar qualquer ação lendária ou de covil da nova forma. Você assume os pontos de vida e Dados de Vida da sua nova forma. Quando você reverter a sua forma normal, você retorna à quantidade de pontos de vida que tinha antes da transformação. Se você reverter como resultado de ter caído a 0 pontos de vida, qualquer dano excedente é recebido pela sua forma normal. Contanto que o dano excedente não reduza os pontos de vida da sua forma normal a 0, você não cairá inconsciente. Você mantém os benefícios de qualquer característica da sua classe, raça ou outra fonte e pode usá-las, considerando que sua nova forma é fisicamente capaz de fazê-lo. Você não pode usar quaisquer sentidos especiais que você possua (por exemplo, visão no escuro) a não ser que a nova forma também possua o sentido. Você só poderá falar se a nova forma, normalmente, puder falar. Quando você se transforma, você pode escolher se o seu equipamento cai no chão, é assimilado a sua nova forma ou é usado por ela. Equipamentos vestidos e carregados funcionam normalmente. O Mestre decide qual equipamento é viável para a nova forma vestir ou usar, baseado na forma e tamanho da criatura. O seu equipamento não muda de forma ou tamanho para se adaptar à nova forma e, qualquer equipamento que a nova forma não possa vestir deve, ou cair no chão ou ser assimilado por ela. Equipamentos assimilados não terão efeito nesse estado. Pela duração da magia, você pode usar sua ação para assumir uma forma diferente, seguindo as mesmas restrições e regras da forma anterior, com uma exceção: se sua nova forma tiver mais pontos de vida que sua forma atual, seus pontos de vida mantêm o valor atual."
+  },
+  {
+    "name": "Alterar-se",
+    "level": 2,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "Pessoal",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 hora",
+    "description": "Você assume uma forma diferente. Quando conjurar essa magia, escolha uma das seguintes opções, o efeito durará pela duração da magia. Enquanto a magia durar, você pode terminar uma opção com uma ação para ganhar os benefícios de uma diferente.",
+    "effects": [
+      {
+        "type": "Adaptação Aquática",
+        "description": "Você adapta seu corpo paraAdaptação Aquática. Você adapta seu corpo para um ambiente aquático, brotando guelras e crescendo membranas entre seus dedos. Você pode respirar embaixo d'água e ganha deslocamento de natação igual a seu deslocamento terrestre."
+      },
+      {
+        "type": "Mudar Aparência",
+        "description": "Você transformar sua aparência. Você decide com o que você parece, incluindo altura, peso, traços faciais, timbre da sua voz, comprimento do cabelo, coloração e características distintas, se tiverem. Você pode ficar parecido com um membro de outra raça, apesar de nenhuma de suas estatísticas mudar. Você também não pode parecer com uma criatura de um tamanho diferente do seu, e seu formado básico permanece o mesmo; se você for bípede, você não pode usar essa magia para se tornar quadrupede, por exemplo. A qualquer momento, pela duração da magia, você pode usar sua ação para mudar sua aparência dessa forma, novamente."
+      },
+      {
+        "type": "Armas Naturais",
+        "description": "Você faz crescerem garras, presas, espinhos, chifres ou armas naturais diferentes, à sua escolha. Seus ataques desarmados causam 1d6 de dano de concussão, perfurante ou cortante, como apropriado para a arma natural que você escolheu, e você é proficiente com seus ataques desarmados. Finalmente, a arma natural é mágica e você tem +1 de bônus nas jogadas de ataque e dano que você fizer com ela."
+      }
+    ]
+  },
+  {
+    "name": "Amizade",
+    "level": 0,
+    "school": "Encantamento",
+    "casting_time": "1 ação",
+    "range": "Pessoal",
+    "components": "S, M (uma pequena quantidade de maquiagem aplicada ao rosto durante a conjuração da magia)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Pela duração, você terá vantagem em todos os testes de Carisma direcionados a uma criatura, à sua escolha, que não seja hostil a você. Quando a magia acabar, a criatura perceberá que você usou magia para influenciar o humor dela, e ficará hostil a você. Uma criatura propensa a violência irá atacar você. Outra criatura pode buscar outras formas de retaliação (a critério do Mestre), dependendo da natureza da sua interação com ela."
+  },
+  {
+    "name": "Amizade Animal",
+    "level": 1,
+    "school": "Encantamento",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, S, M (um punhado de comida)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "24 horas",
+    "description": "Essa magia deixa você convencer uma besta que você não quer prejudicar. Escolha uma besta que você possa ver dentro do alcance. Ela deve ver e ouvir você. Se a Inteligência da besta for 4 ou maior, a magia falha. Do contrário, a besta deve ser bem sucedida num teste de resistência de Sabedoria ou ficará enfeitiçada por você pela duração da magia. Se você ou um dos seus companheiros ferir o alvo, a magia termina.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 2° nível ou superior, você pode afetar uma besta adicional para cada nível do espaço acima do 1°."
+  },
+  {
+    "name": "Ampliar Plantas",
+    "level": 3,
+    "school": "Transmutação",
+    "casting_time": "1 ação ou 8 horas",
+    "range": "45 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Essa magia canaliza vitalidade nas plantas dentro de uma área específica. Existem dois usos possíveis para essa magia, concedendo ou benefícios imediatos ou a longo prazo. Se você conjurar essa magia usando 1 ação, escolha um ponto dentro do alcance. Todas as plantas normais num raio de 30 metros centrado no ponto tornam-se espessas e carregadas. Uma criatura se movendo na área deve gastar 6 metros de movimento para cada 1,5 metro que se mover. Você pode excluir uma ou mais áreas de qualquer tamanho, dentro da área da magia, para não ser afetada. Se você conjurar essa magia ao longo de 8 horas, você fertiliza a terra. Todas as plantas num raio de 800 metros, centrado no ponto dentro do alcance, ficam enriquecidas por 1 ano. As plantas fornecerão o dobro da quantidade normal de comida quando colhidas."
+  },
+  {
+    "name": "Âncora Planar",
+    "level": 5,
+    "school": "Abjuração",
+    "casting_time": "1 hora",
+    "range": "18 metros",
+    "components": "V, S, M (uma joia valendo, no mínimo, 1.000 po, consumida pela magia)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "24 horas",
+    "description": "Com essa magia, você tenta obrigar um celestial, corruptor, elemental ou fada a servi-lo. A criatura deve estar dentro do alcance durante toda a conjuração da magia. (Tipicamente, a criatura, primeiramente, é invocada dentro de um círculo mágico invertido para mantê-la presa enquanto a magia é conjurada.) Ao completar a conjuração, o alvo deve realizar um teste de resistência de Carisma. Se falhar na resistência, ela é obrigada a servir você pela duração. Se a criatura foi invocada ou criada por outra magia, a duração da magia é estendida para se equiparar a dessa magia. Uma criatura obrigada deve seguir suas instruções da melhor forma que puder. Você poderia comandar a criatura a acompanhar você em uma aventura, a guardar um local ou a enviar uma mensagem. A criatura obedece ao pé da letra suas instruções, mas se a criatura for hostil a você, ela se esforçará para distorcer suas palavras para atingir seus próprios objetivos. Se a criatura atender suas instruções completamente antes da magia acabar, ela viajará até você para relatar esse fato se você estiver no mesmo plano de existência. Se você estiver em um plano de existência diferente, ela retornará para o lugar onde você a contatou e permanecerá lá até a magia acabar.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de nível superior, a duração aumenta para 10 dias com um espaço de 6° nível, para 30 dias com um espaço de 7° nível, para 180 dias com um espaço de 8° nível e para um ano com um espaço de magia de 9° nível."
+  },
+  {
+    "name": "Andar na Água",
+    "level": 3,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, S, M (uma rolha)",
+    "ritual": true,
+    "concentration": false,
+    "duration": "1 hora",
+    "description": "Essa magia concede a habilidade de se mover através de qualquer superfície líquida - como água, ácido, lama, neve, areia movediça ou lava - como se ela fosse chão sólido inofensivo (as criaturas atravessando lava derretida ainda podem sofrer dano do calor). Até dez criaturas voluntárias que você possa ver, dentro do alcance, ganham essa habilidade pela duração. Se você afetar uma criatura submersa em um líquido, a magia ergue o alvo para a superfície do líquido a uma taxa de 18 metros por rodada."
+  },
+  {
+    "name": "Animar Mortos",
+    "level": 3,
+    "school": "Necromancia",
+    "casting_time": "1 minuto",
+    "range": "3 metros",
+    "components": "V, S, M (uma gota de sangue, um pedaço de carne e um punhado de pó de osso)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Essa magia cria um servo morto-vivo. Escolha uma pilha de ossos ou um corpo de um humanoide Médio ou Pequeno dentro do alcance. Sua magia imbui o alvo com uma imitação corrompida de vida, erguendo-o como uma criatura morta-viva. O alvo se torna um esqueleto, se você escolheu ossos, ou um zumbi, se você escolheu um corpo (o Mestre tem as estatísticas de jogo da criatura). Em cada um dos seus turnos, você pode usar uma ação bônus para comandar mentalmente qualquer criatura que você criou com essa magia, se a criatura estiver a até 18 metros de você (se você controla diversas criaturas, você pode comandar qualquer uma ou todas elas ao mesmo tempo, emitindo o mesmo comando para cada uma). Você decide qual ação a criatura irá fazer e para onde ela irá se mover durante o próximo turno dela, ou você pode emitir um comando geral, como para guardar uma câmara ou corredor específico. Se você não der nenhum comando, as criaturas apenas se defenderão contra criaturas hostis. Uma vez que receba uma ordem, a criatura continuará a segui-la até a tarefa estar concluída. A criatura fica sob seu controle por 24 horas, depois disso ela para de obedecer aos seus comandos. Para manter o controle da criatura por mais 24 horas, você deve conjurar essa magia na criatura novamente, antes das 24 horas atuais terminarem. Esse uso da magia recupera seu controle sobre até quatro criaturas que você tenha animado com essa magia, ao invés de animar uma nova.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 4° nível ou superior, você pode animar ou recuperar o controle de duas criaturas mortas-vivas para cada nível do espaço acima do 3°. Cada uma dessas criaturas deve vir de um corpo ou pilha de ossos diferente."
+  },
+  {
+    "name": "Animar Objetos",
+    "level": 5,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "36 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Objetos ganham vida ao seu comando. Escolha até dez objetos não-mágicos dentro do alcance, que não estejam sendo vestidos ou carregados. Alvos Médios contam como dois objetos, alvos Grandes contam como quatro objetos e alvos Enormes contam como oito objetos. Você não pode animar um objeto maior que Enorme. Cada alvo se anima e torna-se uma criatura sob seu controle até o final da magia ou até ser reduzido a 0 pontos de vida. Com uma ação bônus, você pode comandar mentalmente qualquer criatura que você criar com essa magia se a criatura estiver a até 150 metros de você (se você controla várias criaturas, você pode comandar qualquer ou todas elas ao mesmo tempo, emitindo o mesmo comando para cada uma). Você decide qual ação a criatura irá fazer e para onde ela irá se mover durante o próximo turno dela, ou você pode emitir um comando geral, como para guardar uma câmara ou corredor específico. Se você não der nenhum comando, as criaturas apenas se defenderão contra criaturas hostis. Uma vez que receba uma ordem, a criatura continuará a segui-la até a tarefa estar concluída. Um objeto animado é um constructo com CA, pontos de vida, ataques, Força e Destreza determinados pelo seu tamanho. Sua Constituição é 10 e sua Inteligência e Sabedoria são 3 e seu Carisma é 1. Seu deslocamento é 9 metros; se o objeto não tiver pernas ou outros apêndices que ele possa usar para locomoção, ao invés, ele terá deslocamento de voo 9 metros e poderá planar. Se o objeto estiver firmemente preso a uma superfície ou objeto maior, como uma corrente presa a uma parede, seu deslocamento será 0. Ele tem percepção às cegas num raio de 9 metros e é cego além dessa distância. Quando o objeto animado cair a 0 pontos de vida, ele reverte a sua forma normal de objeto e qualquer dano restante é transferido para sua forma de objeto original. Se você ordenar a um objeto que ataque, ele pode realizar um único ataque corpo-a-corpo contra uma criatura a até 1,5 metro dele. Ele realiza um ataque de pancada com um bônus de ataque e dano de concussão determinado pelo seu tamanho. O Mestre pode definir que um objeto específico inflige dano cortante ou perfurante, baseado na forma dele.",
+    "higher_levels": "Se você conjurar essa magia usando um espaço de magia de 6° nível ou superior, você pode animar dois objetos adicionais para cada nível do espaço acima do 5°.",
+    "statistics": {
+      "type": "Objeto Animado",
+      "data": [
+        {
+          "size": "Miúdo",
+          "pv": 20,
+          "ca": 18,
+          "attack": 8,
+          "damage": "1d4 + 4",
+          "strength": 4,
+          "dexterity": 18
+        },
+        {
+          "size": "Pequeno",
+          "pv": 25,
+          "ca": 16,
+          "attack": 6,
+          "damage": "1d8 + 2",
+          "strength": 6,
+          "dexterity": 14
+        },
+        {
+          "size": "Médio",
+          "pv": 40,
+          "ca": 13,
+          "attack": 5,
+          "damage": "2d6 + 1",
+          "strength": 10,
+          "dexterity": 12
+        },
+        {
+          "size": "Grande",
+          "pv": 50,
+          "ca": 10,
+          "attack": 6,
+          "damage": "2d10 + 2",
+          "strength": 14,
+          "dexterity": 10
+        },
+        {
+          "size": "Enorme",
+          "pv": 80,
+          "ca": 10,
+          "attack": 8,
+          "damage": "2d12 + 4",
+          "strength": 18,
+          "dexterity": 6
+        }
+      ]
+    }
+  },
+  {
+    "name": "Antipatia/Simpatia",
+    "level": 8,
+    "school": "Encantamento",
+    "casting_time": "1 hora",
+    "range": "18 metros",
+    "components": "V, S, M (ou um pedaço de alume embebido em vinagre para o efeito de antipatia, ou uma gota de mel para o efeito de simpatia)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "10 dias",
+    "description": "Essa magia atrai ou repele as criaturas de sua escolha. Você escolhe um alvo dentro do alcance, tanto um objeto ou criatura Enorme ou menor ou uma área que não seja maior que 60 metros cúbicos. Então, especifica um tipo de criatura inteligente, como dragões vermelhos, goblins ou vampiros. Você envolve o alvo com uma aura que pode atrair ou repelir as criaturas especificas pela duração. Escolha antipatia ou simpatia como efeito da aura. Terminando o efeito: Se uma criatura afetada terminar se turno enquanto não estiver a até 18 metros do alvo ou não for capaz de vê-lo, a criatura faz um teste de resistência de Sabedoria. Em um sucesso, a criatura não estará mais afetada pelo alvo e reconhecerá o sentimento de repugnância ou atração como mágico. Além disso, uma criatura afetada pela magia tem direito a outro teste de resistência de Sabedoria a cada 24 horas enquanto a magia durar. Uma criatura que obtenha sucesso na resistência contra esse efeito ficará imune a ele por 1 minuto, depois desse tempo, ela pode ser afetada novamente.",
+    "effects": [
+      {
+        "type": "Antipatia",
+        "description": "O encantamento faz com que criaturas do tipo designado por você sintam-se fortemente impelidos em deixar a área e evitar o alvo. Quando uma dessas criaturas puder ver o alvo ou ficar a 18 metros dele, a criatura deve ser bem sucedida num teste de resistência de Sabedoria ou ficará amedrontada. A criatura continuará amedrontada enquanto puder ver o alvo ou permanecer a 18 metros dele. Enquanto estiver amedrontada pelo alvo, a criatura deve usar seu deslocamento para se mover para o local seguro mais próximo o qual ela não possa ver o alvo. Se a criatura se mover para mais de 18 metros do alvo e não puder vê-lo, a criatura não estará mais amedrontada, mas ela ficará amedrontada novamente se voltar a ver o alvo ou ficar a 18 metros dele."
+      },
+      {
+        "type": "Simpatia",
+        "description": "O encantamento faz com que as criaturas especificadas sintam-se fortemente impelidos a se aproximar do alvo enquanto estiverem a 18 metros dele ou puderem vê-lo. Quando uma dessas criaturas puder ver o alvo ou ficar a 18 metros dele, a criatura deve ser bem sucedida num teste de resistência de Vontade ou usará seu deslocamento em cada um dos seus turnos para entrar na área ou se mover até o alcance do alvo. Quando a criatura tiver feito isso, ela não poderá se afastar do alvo voluntariamente. Se o alvo causar dano ou ferir a criatura afetada de alguma forma, a criatura afetada pode realizar um novo teste de resistência de Sabedoria para terminar o efeito, como descrito abaixo."
+      }
+    ]
+  },
+  {
+    "name": "Aprimorar Habilidade",
+    "level": 2,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (pelo ou penas de uma besta)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 hora",
+    "description": "Você toca uma criatura e a agracia com aprimoramento mágico. Escolha um dos efeitos a seguir; o alvo ganha esse efeito até o fim da magia.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 3° nível ou superior, você pode afetar uma criatura adicional para cada nível do espaço acima do 2°",
+    "effects": [
+      {
+        "type": "Agilidade do Gato",
+        "description": "O alvo tem vantagem em testes de Destreza. Ele também não sofre dano ao cair de 6 metros ou menos, se não estiver incapacitado."
+      },
+      {
+        "type": "Esperteza da Raposa",
+        "description": "O alvo tem vantagem em testes de Inteligência."
+      },
+      {
+        "type": "Esplendor da Águia",
+        "description": "O alvo tem vantagem em testes de Carisma."
+      },
+      {
+        "type": "Força do Touro",
+        "description": "O alvo tem vantagem em testes de Força e sua capacidade de carga é dobrada."
+      },
+      {
+        "type": "Sabedoria da Coruja",
+        "description": "O alvo tem vantagem em testes de Sabedoria."
+      },
+      {
+        "type": "Vigor do Urso",
+        "description": "O alvo tem vantagem em testes de Constituição. Ele também recebe 2d6 pontos de vida temporários, que são perdidos quando a magia termina."
+      }
+    ]
+  },
+  {
+    "name": "Aprisionamento",
+    "level": 9,
+    "school": "Abjuração",
+    "casting_time": "1 minuto",
+    "range": "9 metros",
+    "components": "V, S, M (um pergaminho de representação ou uma estatueta esculpida para se parecer com o alvo e um componente especial, que varia de acordo com a versão da magia que você escolher, valendo, no mínimo, 500 po por Dado de Vida)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Até ser dissipada",
+    "description": "Você cria um impedimento mágico para imobilizar uma criatura que você possa ver, dentro do alcance. O alvo deve ser bem sucedido num teste de resistência de Sabedoria ou será vinculado à magia; se ele for bem sucedido, ele será imune a essa magia se você conjurá-la novamente. Enquanto estiver sob efeito dessa magia, a criatura não precisará respirar, comer ou beber e não envelhece. Magias de adivinhação não podem localizar ou perceber o alvo. Durante a conjuração da magia, em quaisquer das versões, você pode especificar uma condição que irá fazer a magia terminar e libertará o alvo. A condição pode ser o quão específica ou elaborada quanto você quiser, mas o Mestre deve concordar que a condição é razoável e tem uma probabilidade de acontecer. As condições podem ser baseadas no nome, identidade ou divindade da criatura mas, no mais, devem ser baseadas em ações ou qualidades observáveis e não em valores intangíveis tais como nível, classe e pontos de vida. A magia dissipar magia pode terminar a magia apenas se for conjurada como uma magia de 9° nível, tendo como alvo ou a prisão ou o componente especial usado para criá-la. Você pode usar um componente especial em particular para criar apenas uma prisão por vez. Se você conjurar essa magia novamente usando o mesmo componente, o alvo da primeira conjuração é, imediatamente, liberado do vínculo.",
+    "effects": [
+      {
+        "type": "Enterrar",
+        "description": "O alvo é sepultado bem fundo na terra em uma esfera de energia mágica que é grande o suficiente para conter o alvo. Nada pode atravessar a esfera e nenhuma criatura pode se teletransportar ou usar viagem planar para entrar ou sair dela. O componente especial para essa versão da magia é um pequeno globo de mitral"
+      },
+      {
+        "type": "Acorrentar",
+        "description": "Pesadas correntes, firmemente presas ao solo, matam o alvo no lugar. O alvo está impedido até a magia acabar e ele não pode se mover ou ser movido por nenhum meio, até lá. O componente especial para essa versão da magia é uma fina corrente de metal precioso."
+      },
+      {
+        "type": "Prisão Cercada",
+        "description": "A magia transporta o alvo para dentro de um pequeno semiplano que é protegido contra teletransporte e viagem planar. O semiplano pode ser um labirinto, uma jaula, uma torre ou qualquer estrutura ou área confinada similar, à sua escolha. O componente material especial para essa versão da magia é uma representação em miniatura da prisão, feita de jade."
+      },
+      {
+        "type": "Contenção Reduzida",
+        "description": "O alvo é reduzido até o tamanho de 30 centímetros e é aprisionado dentro de uma gema ou objeto similar. A luz pode passar através da gema normalmente (permitindo que o alvo veja o exterior e outras criaturas vejam o interior), mas nada mais pode atravessá-la, mesmo por meios de teletransporte ou viagem planar. A gema não pode ser partida ou quebrada enquanto a magia estiver efetiva. O componente especial para essa versão da magia é uma gema transparente grande, como um coríndon, diamante ou rubi."
+      },
+      {
+        "type": "Torpor",
+        "description": "O alvo cai no sono e não pode ser acordado. O componente especial para essa versão da magia consiste em ervas soporíferas raras."
+      }
+    ]
+  },
+  {
+    "name": "Arca Secreta de Leomund",
+    "level": 4,
+    "school": "Conjuração",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (um baú requintado, de 90 cm por 60 cm por 60 cm, construído com materiais raros valendo, no mínimo, 5.000 po e uma réplica miúda feita do mesmo material valendo, no mínimo, 50 po)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Você esconde um baú, e todo o seu conteúdo, no Plano Etéreo. Você deve tocar o baú e a réplica em miniatura que serve como componente material para a magia. O baú pode acomodar até 3,6 metros cúbicos de matéria inorgânica (90 cm por 60 cm por 60 cm). Enquanto o baú permanecer no Plano Etéreo, você pode usar uma ação e tocar a réplica para revocar o baú. Ele aparece em um espaço desocupado no chão a 1,5 metro de você. Você pode enviar o baú de volta ao Plano Etéreo usando uma ação e tocando tanto no baú quanto na réplica. Após 60 dias, existe 5 por cento de chance, cumulativa, por dia do efeito da magia terminar. Esse efeito termina se você conjurar essa magia novamente, se a pequena réplica do baú for destruída ou se você decidir terminar a magia usando uma ação. Se a magia terminar enquanto o baú maior estiver no Plano Etéreo, ele estará irremediavelmente perdido."
+  },
+  {
+    "name": "Área Escorregadia",
+    "level": 1,
+    "school": "Conjuração",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V, S, M (um pouco de pele de porco ou manteiga)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "1 minuto",
+    "description": "Graxa escorregadia cobre o solo em um quadrado de 3 metros centrado em um ponto, dentro do alcance, tornando essa área em terreno difícil pela duração. Quando a graxa aparece, cada criatura de pé na área deve ser bem sucedida num teste de resistência de Destreza ou cairá no chão. Uma criatura que entre na área ou termine seu turno nela, deve ser bem sucedida num teste de resistência de Destreza ou cairá no chão."
+  },
+  {
+    "name": "Arma Espiritual",
+    "level": 2,
+    "school": "Evocação",
+    "casting_time": "1 ação bônus",
+    "range": "18 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "1 minuto",
+    "description": "Você cria uma arma espectral flutuante, dentro do alcance, que permanece pela duração ou até você conjurar essa magia novamente. Quando você conjura essa magia, você pode realizar um ataque corpo-a-corpo com magia contra uma criatura a 1,5 metro da arma. Se atingir, o alvo sofre dano de energia igual a 1d8 + seu modificador de habilidade de conjuração. Com uma ação bônus, no seu turno, você pode mover a arma até 6 metros e repetir o ataque contra uma criatura a 1,5 metro dela. A arma pode ter a forma que você desejar. Clérigos de divindades associadas com uma arma em particular (como St. Cuthbert é conhecido por sua maça ou Thor por seu martelo) fazem o efeito dessa magia se assemelhar a essa arma.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 3° nível ou superior, o dano aumenta em 1d8 para cada dois níveis do espaço acima do 2°."
+  },
+  {
+    "name": "Arma Mágica",
+    "level": 2,
+    "school": "Transmutação",
+    "casting_time": "1 ação bônus",
+    "range": "Toque",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 hora",
+    "description": "Você toca uma arma não-mágica. Até a magia acabar, a arma se torna uma arma mágica com +1 de bônus nas jogadas de ataque e jogadas de dano.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 4° nível ou superior, o bônus aumenta para +2. Quando você usar um espaço de magia de 6° nível ou superior, o bônus aumenta para +3."
+  },
+  {
+    "name": "Armadura Arcana",
+    "level": 1,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (um pedaço de couro curado)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "8 horas",
+    "description": "Você toca uma criatura voluntária que não esteja vestindo armadura e uma energia mágica protetora a envolve até a magia acabar. A CA base do alvo se torna 13 + o modificador de Destreza dele. A magia acaba se o alvo colocar uma armadura ou se você dissipa-la usando uma ação."
+  },
+  {
+    "name": "Armadura de Agathys",
+    "level": 1,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "Pessoal",
+    "components": "V, S, M (um copo de água)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "1 hora",
+    "description": "Uma força mágica protetora envolve você, manifestando-se como um frio espectral que cobre você e seu equipamento. Você ganha 5 pontos de vida temporários pela duração. Se uma criatura atingir você com um ataque corpo-a-corpo enquanto estiver com esses pontos de vida, a criatura sofrerá 5 de dano de frio.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 2° nível ou superior, tanto os pontos de vida temporários quanto o dano de frio aumentam em 5 para cada nível do espaço acima do 1°."
+  },
+  {
+    "name": "Arrombar",
+    "level": 2,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Escolha um objeto que você possa ver, dentro do alcance. O objeto pode ser uma porta, uma caixa, um baú ou um par de algemas, um cadeado ou outro objeto que contenha um meio mundano ou mágico que previne o acesso. Um alvo que esteja fechado por uma fechadura mundana ou preso ou barrado torna-se destrancado, destravado ou desbloqueado. Se o objeto tiver múltiplas fechaduras, apenas uma delas é destrancada. Se você escolher um alvo que esteja travado pela magia tranca arcana, essa magia será suprimida por 10 minutos, durante esse período o alvo pode ser aberto e fechado normalmente. Quando você conjurar essa magia, uma batida forte, audível a até 90 metros de distância, emana do objeto alvo."
+  },
+  {
+    "name": "Assassino Fantasmagórico",
+    "level": 4,
+    "school": "Ilusão",
+    "casting_time": "1 ação",
+    "range": "36 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Você mexe com os pesadelos de uma criatura que você possa ver, dentro do alcance, e cria uma manifestação ilusória dos seus medos mais profundos, visível apenas para a criatura. O alvo deve realizar um teste de resistência de Sabedoria. Se falhar na resistência, ele ficará amedrontado pela duração. No final de cada turno do alvo, antes da magia acabar, ele deve ser bem sucedido num teste de resistência de Sabedoria ou sofrerá 4d10 de dano psíquico. Se passar na resistência, a magia acaba.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 5° nível ou superior, o dano aumenta em 1d10 para cada nível do espaço acima do 4°."
+  },
+  {
+    "name": "Ataque Certeiro",
+    "level": 0,
+    "school": "Adivinhação",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 rodada",
+    "description": "Você estende sua mão e aponta o dedo para um alvo no alcance. Sua magia garante a você uma breve intuição sobre as defesas do alvo. No seu próximo turno, você terá vantagem na primeira jogada de ataque contra o alvo, considerando que essa magia não tenha acabado."
+  },
+  {
+    "name": "Ataque Visual",
+    "level": 6,
+    "school": "Necromancia",
+    "casting_time": "1 ação",
+    "range": "Pessoal",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Pela duração da magia, seus olhos tornam-se manchas vazias imbuídas com poder terrível. Uma criatura, à sua escolha, a até de 18 metros de você que você puder ver, deve ser bem sucedida num teste de resistência de Sabedoria ou será afetada por um dos efeitos a seguir, à sua escolha, pela duração. A cada um dos seus turnos, até a magia acabar, você pode usar sua ação para afetar outra criatura, mas não pode afetar uma criatura novamente se ela tiver sido bem sucedida no teste de resistência contra essa conjuração de ataque visual.",
+    "effects": [
+      {
+        "type": "Adormecer",
+        "description": "O alvo cai inconsciente. Ele acorda se sofrer qualquer dano ou se outra criatura usar sua ação para sacudir o adormecido até acordá-lo."
+      },
+      {
+        "type": "Apavorar",
+        "description": "O alvo está amedrontado. Em cada um dos turnos dele, a criatura amedrontada deve realizar a ação de Disparada e se mover para longe de você pela rota segura mais curta disponível, a não ser que não haja lugar para se mover. Se o alvo se mover para um local a, pelo menos, 18 metros de distância de você onde ela não possa mais te ver, esse efeito termina."
+      },
+      {
+        "type": "Adoecer",
+        "description": "O alvo tem desvantagem nas jogadas de ataque e testes de habilidade. No final de cada um dos turnos dele, ele pode realizar outro teste de resistência de Sabedoria. Se for bem sucedido, o efeito termina."
+      }
+    ]
+  },
+  {
+    "name": "Augúrio",
+    "level": 2,
+    "school": "Adivinhação",
+    "casting_time": "1 minuto",
+    "range": "Pessoal",
+    "components": "V, S, M (varetas, ossos ou objetos similarmente marcados valendo, no mínimo, 25 po)",
+    "ritual": true,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Ao lançar varetas cravejados com gemas, rolar ossos de dragão, puxar cartas ornamentadas ou usar outro tipo de ferramenta de adivinhação, você recebe um presságio de uma entidade de outro mundo, sobre os resultados de cursos de ação específicos que você planeja tomar nos próximos 30 minutos. O Mestre escolhe dentre os possíveis presságios a seguir: Êxito (para resultados bons), Fracasso (para resultados maus), Êxito e Fracasso (para resultados bons e maus) ou Nada (para resultados que não são especialmente bons ou ruins). A magia não leva em conta qualquer possível circunstância que possa mudar o resultado, como a conjuração de magias adicionais ou a perda ou ganho de um companheiro. Se você conjurar a magia duas ou mais vezes antes de completar seu próximo descanso longo, existe uma chance cumulativa de 25 por cento de cada conjuração, depois da primeira que você fez, ter um resultado aleatório. O Mestre faz essa jogada secretamente."
+  },
+  {
+    "name": "Aumentar/Reduzir",
+    "level": 2,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, S, M (um pouco de pó de ferro)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Você faz com que uma criatura ou um objeto que você possa ver dentro do alcance, fique maior ou menor, pela duração. Escolha entre uma criatura ou um objeto que não esteja sendo carregado nem vestido. Se o alvo for involuntário, ele deve realizar um teste de resistência de Constituição. Se for bem sucedido, a magia não surte efeito. Se o alvo for uma criatura, tudo que ele esteja vestindo ou carregando muda de tamanho com ela. Qualquer item largado por uma criatura afetada retorna ao seu tamanho natural.",
+    "effects": [
+      {
+        "type": "aumentar",
+        "description": "O tamanho do alvo dobra em todas as dimensões e seu peso é multiplicado por oito. Esse aumento eleva seu tamanho em uma categoria - de Médio para Grande, por exemplo. Se não houver espaço suficiente para que o alvo dobre de tamanho, a criatura ou objeto alcança o tamanho máximo possível no espaço disponível. Até o fim da magia, o alvo também tem vantagem em testes de Força e testes de resistência de Força. O tamanho das armas do alvo crescem para se adequar ao seu novo tamanho. Quando essas armas são ampliadas, os ataques do alvo com elas causam 1d4 de dano extra."
+      },
+      {
+        "type": "reduzir",
+        "description": "O tamanho do alvo é reduzido à metade em todas as dimensões e seu peso é reduzido a um oitavo do normal. Essa redução diminui o tamanho do alvo em uma categoria - de Médio para Pequeno, por exemplo. Até o fim da magia, o alvo tem desvantagem em testes de Força e testes de resistência de Força. O tamanho das armas do alvo diminuem para se adequar ao seu novo tamanho. Quando essas armas são reduzidas, os ataques do alvo com elas causam 1d4 de dano a menos (isso não pode reduzir o dano a menos de 1)."
+      }
+    ]
+  },
+  {
+    "name": "Aura de Pureza",
+    "level": 4,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "Pessoal (9 metros de raio)",
+    "components": "V",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 10 minutos",
+    "description": "Energia purificante irradia de você em uma aura com 9 metros de raio. Até a magia acabar, a aura se move mantendo-se centrada em você. Todas as criaturas não hostis na aura (incluindo você) não podem ficar doentes, têm resistência a dano de veneno e têm vantagem em testes de resistência contra efeitos que deixem elas com qualquer das condições a seguir: amedrontado, atordoado, cego, enfeitiçado, envenenado, paralisado e surdo."
+  },
+  {
+    "name": "Aura de Vida",
+    "level": 4,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "Pessoal (9 metros de raio)",
+    "components": "V",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 10 minutos",
+    "description": "Energia de prevenção vital irradia de você em uma aura com 9 metros de raio. Até a magia acabar, a aura se move mantendo-se centrada em você. Todas as criaturas não-hostis na aura (incluindo você) têm resistência a dano necrótico e seu máximo de pontos de vida não pode ser reduzido. Além disso, uma criatura viva não-hostil recupera 1 ponto de vida quando começa seu turno na aura com 0 pontos de vida."
+  },
+  {
+    "name": "Aura de Vitalidade",
+    "level": 3,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "Pessoal (9 metros de raio)",
+    "components": "V",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Energia curativa irradia de você em uma aura com 9 metros de raio. Até a magia acabar, a aura se move mantendo-se centrada em você. Você pode usar uma ação bônus para fazer com que uma criatura na aura (incluindo você) recupere 2d6 pontos de vida."
+  },
+  {
+    "name": "Aura Mágica de Nystul",
+    "level": 2,
+    "school": "Ilusão",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (um pequeno quadrado de seda)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "24 horas",
+    "description": "Você coloca uma ilusão em uma criatura ou objeto que você tocar, então magias de adivinhação revelarão informações falsas sobre ele. O alvo pode ser uma criatura voluntária ou um objeto que não esteja sendo carregado ou vestido por outra criatura.",
+    "effects": [
+      {
+        "type": "aura falsa",
+        "description": "Você modifica a forma como o alvo aparece para magias e efeitos mágicos, como detectar magia, que detectam auras mágicas. Você pode fazer um objeto não-mágico parecer mágico ou mudar a aura mágica de um objeto para que ela pareça pertencer a outra escola de magia a sua escolha. Quando você usar esse efeito num objeto, você pode fazer a aura falsa aparente a qualquer criatura que manusear o item."
+      },
+      {
+        "type": "máscara",
+        "description": "Você modifica a forma como o alvo aparece para magias e efeitos que detectam tipos de criaturas, como o Sentido Divino do paladino ou o gatilho de um magia símbolo. Você escolhe o tipo de criatura e outras magias e efeitos mágicos consideram o alvo como se ele fosse uma criatura desse tipo ou tendência."
+      }
+    ]
+  },
+  {
+    "name": "Aura Sagrada",
+    "level": 8,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "Pessoal",
+    "components": "V, S, M (um minúsculo relicário valendo, no mínimo, 1.000 po, contendo uma relíquia sagrada, como um pedaço de tecido do robe de um santo ou um pedaço de pergaminho de um texto religioso)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Luz divina emana de você e adere em uma aureola suave num raio de 9 metros, em volta de você. As criaturas de sua escolha, no raio, quando você conjurar essa magia, emitem penumbra num raio de 1,5 metro e têm vantagem em todos os testes de resistência, enquanto as outras criaturas têm desvantagem nas jogadas de ataque contra elas, até a magia acabar. Além disso, quando um corruptor ou morto-vivo atingir uma criatura afetada com um ataque corpo-a-corpo, a aura lampeja com luz plena. O atacante deve ser bem sucedido num teste de resistência de Constituição ou ficará cego até a magia acabar."
+  },
+  {
+    "name": "Auxílio Divino",
+    "level": 1,
+    "school": "Evocação",
+    "casting_time": "1 ação bônus",
+    "range": "Pessoal",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Sua oração fortalece você com radiação divina. Até o fim da magia, seus ataques com arma causam 1d4 de dano radiante extra ao atingirem."
+  }
+]

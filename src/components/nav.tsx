@@ -50,9 +50,9 @@ export default function Nav() {
         onClick={ () => setShowMenu(!showMenu) }
         className="bg-black px-2 pt-2 pb-1 rounded cursor-pointer fixed right-0 top-0 sm:mt-1 sm:mr-2 flex flex-col z-40"
       >
-        <div className={`h-1 w-9 bg-white mb-1 ${barra1()}`} />
-        <div className={`h-1 w-9 bg-white mb-1 ${barra2()}`} />
-        <div className={`h-1 w-9 bg-white mb-1 ${barra3()}`} />
+        <div className={`h-1 w-7 bg-white mb-1 ${barra1()}`} />
+        <div className={`h-1 w-7 bg-white mb-1 ${barra2()}`} />
+        <div className={`h-1 w-7 bg-white mb-1 ${barra3()}`} />
       </div>
       { showMenu &&
         <ul
