@@ -75,7 +75,6 @@ function App() {
   return(
     <section className="bg-ritual bg-cover break-words bg-dice bg-center h-screen w-full items-center justify-center">
       { showMessage.show && <MessageToUser /> }
-      {/* <Nav /> */}
       <div className="flex flex-col items-center justify-center h-full">
         {
           !showData 
