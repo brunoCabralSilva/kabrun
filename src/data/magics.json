@@ -1,6 +1,8 @@
 [
   {
     "name": "Acalmar Emoções",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 215,
     "level": 2,
     "school": "Encantamento",
     "casting_time": "1 ação",
@@ -13,6 +15,8 @@
   },
   {
     "name": "Adivinhação",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 215,
     "level": 4,
     "school": "Adivinhação",
     "casting_time": "1 ação",
@@ -25,6 +29,8 @@
   },
   {
     "name": "Ajuda",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 215,
     "level": 2,
     "school": "Abjuração",
     "casting_time": "1 ação",
@@ -38,6 +44,8 @@
   },
   {
     "name": "Alarme",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 215,
     "level": 1,
     "school": "Abjuração",
     "casting_time": "1 minuto",
@@ -50,6 +58,8 @@
   },
   {
     "name": "Aliado Planar",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 215,
     "level": 6,
     "school": "Conjuração",
     "casting_time": "10 minutos",
@@ -62,6 +72,8 @@
   },
   {
     "name": "Aljava Veloz",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 216,
     "level": 5,
     "school": "Transmutação",
     "casting_time": "1 ação bônus",
@@ -74,6 +86,8 @@
   },
   {
     "name": "Alterar Forma",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 216,
     "level": 9,
     "school": "Transmutação",
     "casting_time": "1 ação",
@@ -86,6 +100,8 @@
   },
   {
     "name": "Alterar-se",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 216,
     "level": 2,
     "school": "Transmutação",
     "casting_time": "1 ação",
@@ -112,6 +128,8 @@
   },
   {
     "name": "Amizade",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 216,
     "level": 0,
     "school": "Encantamento",
     "casting_time": "1 ação",
@@ -124,6 +142,8 @@
   },
   {
     "name": "Amizade Animal",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 217,
     "level": 1,
     "school": "Encantamento",
     "casting_time": "1 ação",
@@ -137,6 +157,8 @@
   },
   {
     "name": "Ampliar Plantas",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 217,
     "level": 3,
     "school": "Transmutação",
     "casting_time": "1 ação ou 8 horas",
@@ -149,6 +171,8 @@
   },
   {
     "name": "Âncora Planar",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 217,
     "level": 5,
     "school": "Abjuração",
     "casting_time": "1 hora",
@@ -162,6 +186,8 @@
   },
   {
     "name": "Andar na Água",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 217,
     "level": 3,
     "school": "Transmutação",
     "casting_time": "1 ação",
@@ -174,6 +200,8 @@
   },
   {
     "name": "Animar Mortos",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 217,
     "level": 3,
     "school": "Necromancia",
     "casting_time": "1 minuto",
@@ -187,6 +215,8 @@
   },
   {
     "name": "Animar Objetos",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 218,
     "level": 5,
     "school": "Transmutação",
     "casting_time": "1 ação",
@@ -250,6 +280,8 @@
   },
   {
     "name": "Antipatia/Simpatia",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 218,
     "level": 8,
     "school": "Encantamento",
     "casting_time": "1 hora",
@@ -272,6 +304,8 @@
   },
   {
     "name": "Aprimorar Habilidade",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 219,
     "level": 2,
     "school": "Transmutação",
     "casting_time": "1 ação",
@@ -311,6 +345,8 @@
   },
   {
     "name": "Aprisionamento",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 219,
     "level": 9,
     "school": "Abjuração",
     "casting_time": "1 minuto",
@@ -345,6 +381,8 @@
   },
   {
     "name": "Arca Secreta de Leomund",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 219,
     "level": 4,
     "school": "Conjuração",
     "casting_time": "1 ação",
@@ -357,6 +395,8 @@
   },
   {
     "name": "Área Escorregadia",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 220,
     "level": 1,
     "school": "Conjuração",
     "casting_time": "1 ação",
@@ -369,6 +409,8 @@
   },
   {
     "name": "Arma Espiritual",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 220,
     "level": 2,
     "school": "Evocação",
     "casting_time": "1 ação bônus",
@@ -382,6 +424,8 @@
   },
   {
     "name": "Arma Mágica",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 220,
     "level": 2,
     "school": "Transmutação",
     "casting_time": "1 ação bônus",
@@ -395,6 +439,8 @@
   },
   {
     "name": "Armadura Arcana",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 220,
     "level": 1,
     "school": "Abjuração",
     "casting_time": "1 ação",
@@ -407,6 +453,8 @@
   },
   {
     "name": "Armadura de Agathys",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 220,
     "level": 1,
     "school": "Abjuração",
     "casting_time": "1 ação",
@@ -420,6 +468,8 @@
   },
   {
     "name": "Arrombar",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 220,
     "level": 2,
     "school": "Transmutação",
     "casting_time": "1 ação",
@@ -432,6 +482,8 @@
   },
   {
     "name": "Assassino Fantasmagórico",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 220,
     "level": 4,
     "school": "Ilusão",
     "casting_time": "1 ação",
@@ -445,6 +497,8 @@
   },
   {
     "name": "Ataque Certeiro",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 221,
     "level": 0,
     "school": "Adivinhação",
     "casting_time": "1 ação",
@@ -457,6 +511,8 @@
   },
   {
     "name": "Ataque Visual",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 221,
     "level": 6,
     "school": "Necromancia",
     "casting_time": "1 ação",
@@ -483,6 +539,8 @@
   },
   {
     "name": "Augúrio",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 221,
     "level": 2,
     "school": "Adivinhação",
     "casting_time": "1 minuto",
@@ -495,6 +553,8 @@
   },
   {
     "name": "Aumentar/Reduzir",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 221,
     "level": 2,
     "school": "Transmutação",
     "casting_time": "1 ação",
@@ -517,6 +577,8 @@
   },
   {
     "name": "Aura de Pureza",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 221,
     "level": 4,
     "school": "Abjuração",
     "casting_time": "1 ação",
@@ -529,6 +591,8 @@
   },
   {
     "name": "Aura de Vida",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 222,
     "level": 4,
     "school": "Abjuração",
     "casting_time": "1 ação",
@@ -541,6 +605,8 @@
   },
   {
     "name": "Aura de Vitalidade",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 222,
     "level": 3,
     "school": "Evocação",
     "casting_time": "1 ação",
@@ -553,6 +619,8 @@
   },
   {
     "name": "Aura Mágica de Nystul",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 222,
     "level": 2,
     "school": "Ilusão",
     "casting_time": "1 ação",
@@ -575,6 +643,8 @@
   },
   {
     "name": "Aura Sagrada",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 222,
     "level": 8,
     "school": "Abjuração",
     "casting_time": "1 ação",
@@ -587,6 +657,8 @@
   },
   {
     "name": "Auxílio Divino",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 222,
     "level": 1,
     "school": "Evocação",
     "casting_time": "1 ação bônus",
@@ -596,5 +668,588 @@
     "concentration": true,
     "duration": "Até 1 minuto",
     "description": "Sua oração fortalece você com radiação divina. Até o fim da magia, seus ataques com arma causam 1d4 de dano radiante extra ao atingirem."
-  }
+  },
+  {
+    "name": "Banimento",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 222,
+    "level": 4,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, S, M (um item desagradável ao alvo)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Você tenta enviar uma criatura que você pode ver dentro do alcance, para outro plano de existência. O alvo deve ser bem sucedido num teste de resistência de Carisma ou será banido. Se o alvo for nativo do plano de existência que você está, você bane o alvo para um semiplano inofensivo. Enquanto estiver lá, a criatura estará incapacitada. Ela permanece lá até a magia acabar, a partir desse ponto, o alvo reaparece no espaço em que ela deixou ou no espaço desocupado mais próximo, se o espaço dela estiver ocupado. Se o alvo for nativo de um plano de existência diferente do que você está, o alvo é banido em um lampejo sutil, retornando para o seu plano natal. Se a magia acabar antes de 1 minuto se passar, o alvo reaparece no lugar em que estava ou no espaço desocupado mais próximo, se o espaço dela estiver ocupado. Do contrário, o alvo não retorna.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 5° nível ou superior, você pode afetar uma criatura adicional para cada nível do espaço acima do 4°."
+  },
+  {
+    "name": "Banquete de Heróis",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 222,
+    "level": 6,
+    "school": "Conjuração",
+    "casting_time": "10 minutos",
+    "range": "9 metros",
+    "components": "V, S, M (uma tigela encrustada de gemas valendo, no mínimo, 1.000 po, que é consumida pela magia)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Você traz um grande banquete, incluindo comida e bebida magníficas. O banquete leva 1 hora para ser consumido e desaparece ao final desse tempo, e os efeitos benéficos não se aplicam até essa hora terminar. Até doze criaturas podem participar do banquete. Uma criatura que participe do banquete ganha diversos benefícios. A criatura é curada de todas as doenças e venenos, torna-se imune a veneno e a ser amedrontada e faz todos os seus testes de resistência de Sabedoria com vantagem. Seu máximo de pontos de vida também aumenta em 2d10 e ela ganha a mesma quantidade de pontos de vida. Esses benefícios duram por 24 horas."
+  },
+  {
+    "name": "Barreira de Lâminas",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 223,
+    "level": 6,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "24 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 10 minutos",
+    "description": "Você cria uma muralha vertical de lâminas giratórias, afiadas como navalhas, feitas de energia mágica. A muralha aparece dentro do alcance e permanece pela duração. Você pode fazer uma muralha reta de até 30 metros de comprimento por 6 metros de altura e 1,5 metro de largura ou uma muralha anelar com até 18 metros de diâmetro, 6 metros de altura e 1,5 metro de largura. A muralha confere três-quartos de cobertura a criaturas atrás dela e seu espaço é terreno difícil. Quando uma criatura entrar a área da muralha pela primeira vez em um turno, ou começar seu turno nela, a criatura deve realizar um teste de resistência de Destreza. Se falhar, a criatura sofrerá 6d10 de dano cortante. Em um sucesso, a criatura sofre metade desse dano."
+  },
+  {
+    "name": "Bênção",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 223,
+    "level": 1,
+    "school": "Encantamento",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, S, M (um borrifo de água benta)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Você abençoa até três criaturas, à sua escolha, dentro do alcance. Sempre que um alvo realizar uma jogada de ataque ou teste de resistência antes da magia acabar, o alvo pode jogar um d4 e adicionar o valor jogado ao ataque ou teste de resistência.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 2° nível ou superior, você pode afetar uma criatura adicional para cada nível do espaço acima do 1°."
+  },
+  {
+    "name": "Boca Encantada",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 223,
+    "level": 2,
+    "school": "Ilusão",
+    "casting_time": "1 minuto",
+    "range": "9 metros",
+    "components": "V, S, M (um pedaço de favo de mel e pó de jade valendo, no mínimo, 10 po, consumidos pela magia)",
+    "ritual": true,
+    "concentration": false,
+    "duration": "Até ser dissipada",
+    "description": "Você implanta uma mensagem em um objeto dentro do alcance, que é pronunciada quando uma condição de ativação é satisfeita. Escolha um objeto que você possa ver e não esteja sendo vestido ou carregado por outra criatura. Fale a mensagem, que deve conter 25 palavras ou menos, e determine a circunstância que ativará a magia. Quando essa circunstância ocorrer, a boca encantada aparecerá no objeto e recitará a mensagem com sua voz e no mesmo volume que você falou. Se o objeto escolhido tiver uma boca, a boca mágica aparecerá lá. A circunstância de ativação pode ser tão genérica ou detalhada quanto você quiser, mas deve ser baseada em condições visuais ou audíveis que ocorram a até 9 metros do objeto. Por exemplo, a boca pode falar quando uma criatura se aproximar a menos de 9 metros do objeto."
+  },
+  {
+    "name": "Bola de Fogo",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 223,
+    "level": 3,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "45 metros",
+    "components": "V, S, M (uma minúscula bola de guano de morcego e enxofre)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Um veio brilhante lampeja na ponta do seu dedo em direção a um ponto que você escolher dentro do alcance e então eclode com um estampido baixo, explodindo em chamas. Cada criatura em uma esfera de 6 metros de raio, centrada no ponto, deve realizar um teste de resistência de Destreza. Um alvo sofre 8d6 de dano de fogo se falhar na resistência, ou metade desse dano se obtiver sucesso. O fogo se espalha, dobrando esquinas e incendeia objetos inflamáveis na área que não estejam sendo vestidos ou carregados.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 4° nível ou superior, o dano aumenta em 1d6 para cada nível do espaço acima do 3°."
+  },
+  {
+    "name": "Bola de Fogo Controlável",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 223,
+    "level": 7,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "45 metros",
+    "components": "V, S, M (uma minúscula bola de guano de morcego e enxofre)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Um feixe de luz amarelada é disparado da ponta do seu dedo, então se condensa e aguarda no ponto escolhido, dentro do alcance, como uma conta brilhante, pela duração. Quando a magia termina, seja por sua concentração ter sido interrompida ou por você ter decidido terminá-la, a conta eclode com um estampido baixo, explodindo em chamas que se espalham, dobrando esquinas. Cada criatura numa esfera com 6 metros de raio, centrada na conta, deve realizar um teste de resistência de Destreza. Uma criatura sofre dano igual ao total de dano acumulado se falhar na resistência, ou metade do total se obtiver sucesso. O dano base da magia é 12d6. Se até o final do seu turno, a conta ainda não tiver sido detonada, o dano aumenta em 1d6. Se a conta brilhante for tocada antes do intervalo expirar, a criatura que a tocou deve realizar um teste de resistência de Destreza. Se falhar na resistência, a magia termina imediatamente, fazendo a conta explodir em chamas. Se obtiver sucesso na resistência, a criatura pode arremessar a conta a até 12 metros. Quando ela atinge uma criatura ou objeto sólido, a magia termina e a conta explode. O fogo danifica objetos na área e incendeia objetos inflamáveis que não estejam sendo vestidos ou carregados.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 8° nível ou superior, o dano base aumenta em 1d6 para cada nível do espaço acima do 7°."
+  },
+  {
+    "name": "Bom Fruto",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 224,
+    "level": 1,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (um raminho de visco)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Até dez frutos aparecem na sua mão e são infundidos com magia pela duração. Uma criatura pode usar sua ação para comer um fruto. Comer um fruto restaura 1 ponto de vida e um fruto produz nutrientes suficientes para sustentar uma criatura por um dia. Os frutos perdem seu potencial se não forem consumidos dentro de 24 horas da conjuração dessa magia."
+  },
+  {
+    "name": "Bordão Místico",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 224,
+    "level": 0,
+    "school": "Transmutação",
+    "casting_time": "1 ação bônus",
+    "range": "Toque",
+    "components": "V, S, M (visco, uma folha de trevo e uma clava ou bordão)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "1 minuto",
+    "description": "A madeira de uma clava ou bordão, que você esteja segurando, é imbuída com o poder da natureza. Pela duração, você pode usar sua habilidade de conjuração ao invés da sua Força para as jogadas de ataque e dano corpo-a-corpo usando essa arma, e o dado de dano da arma se torna um d8. A arma também se torna mágica, se ela já não for. A magia acaba se você conjura-la novamente ou se você soltar a arma."
+  },
+  {
+    "name": "Braços de Hadar",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 224,
+    "level": 1,
+    "school": "Conjuração",
+    "casting_time": "1 ação",
+    "range": "Pessoal (3 metros de raio)",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Você invoca o poder de Hadar, o Faminto Sombrio. Tentáculos de energia negra brotam de você e golpeiam todas as criaturas a até 3 metros de você. Cada criatura na área deve realizar um teste de resistência de Força. Se falhar, o alvo sofre 2d6 de dano necrótico e não pode fazer reações até o próximo turno dela. Em um sucesso, uma criatura sofre metade do dano e não sofre qualquer outro efeito."
+  },
+  {
+    "name": "Bruxaria",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 225,
+    "level": 1,
+    "school": "Encantamento",
+    "casting_time": "1 ação bônus",
+    "range": "18 metros",
+    "components": "V, S, M (o olho petrificado de um tritão)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 hora",
+    "description": "Você coloca uma maldição em uma criatura que você possa ver, dentro do alcance. Até a magia acabar, você causa 1d6 de dano necrótico extra no alvo sempre que atingí-lo com um ataque. Além disso, escolha uma habilidade quando você conjurar a magia. O alvo tem desvantagem em testes de habilidade feitos com a habilidade escolhida. Se o alvo cair a 0 pontos de vida antes da magia acabar, você pode usar uma ação bônus, em um turno subsequente, para amaldiçoar outra criatura. Uma magia remover maldição conjurada no alvo acaba com a magia prematuramente."
+  },
+  {
+    "name": "Caminhar em Árvores",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 225,
+    "level": 5,
+    "school": "Conjuração",
+    "casting_time": "1 ação",
+    "range": "Pessoal",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Você adquire a habilidade de entrar em uma árvore e se mover de dentro dela para dentro de outra árvore do mesmo tipo a até 150 metros. Ambas as árvores devem estar vivas e ter, pelo menos, o mesmo tamanho que você. Você deve usar 1,5 metro de deslocamento para entrar em uma árvore. Você sabe instantaneamente a localização de todas as outras árvores do mesmo tipo a 150 metros e pode passar por uma dessas árvores ou sair da árvore em que está. Você aparece a 1,5 metro da árvore destino, usando outro movimento de 1,5 metro. Você pode usar essa habilidade de transporte uma vez por rodada pela duração e deve terminar cada turno fora da árvore."
+  },
+  {
+    "name": "Caminhar no Vento",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 225,
+    "level": 6,
+    "school": "Transmutação",
+    "casting_time": "1 minuto",
+    "range": "9 metros",
+    "components": "V, S, M (fogo e água benta)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "8 horas",
+    "description": "Você e até dez criaturas voluntárias que você possa ver, dentro do alcance, assumem uma forma gasosa pela duração, parecidas com pedaços de nuvem. Enquanto estiver na forma de nuvem, uma criatura tem deslocamento de voo de 90 metros e tem resistência a dano de concussão, cortante e perfurante de ataques não mágicos. As únicas ações que uma criatura pode realizar nessa forma são a ação de Disparada ou para reverter a sua forma normal. Reverter leva 1 minuto, período pelo qual a criatura estará incapacitada e não poderá se mover. Até a magia acabar, uma criatura pode reverter para a forma de nuvem, o que também requer a transformação de 1 minuto. Se uma criatura estiver na forma de nuvem e voando quando o efeito acabar, a criatura descerá a 18 metros por rodada por 1 minuto, até aterrissar no solo, o que é feito com segurança. Se ela não puder aterrissar em 1 minuto, a criatura cairá a distância restante."
+  },
+  {
+    "name": "Campo Antimagia",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 225,
+    "level": 3,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "Área de 9 metros de raio centrada em você",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 hora",
+    "description": "Você cria uma área em que a magia é suprimida. Enquanto a magia durar, qualquer mágica de 3° nível ou inferior lançada dentro da área é automaticamente cancelada. Além disso, criaturas dentro da área não podem lançar magias e devem fazer um teste de resistência de Inteligência toda vez que forem alvo de uma magia lançada fora da área. Se falharem, não poderão usar magia enquanto estiverem na área.",
+    "effects": [
+      {
+        "type": "Suprimir Magia",
+        "description": "Qualquer magia de 3° nível ou inferior lançada dentro da área é automaticamente cancelada."
+      },
+      {
+        "type": "Restrição de Magia",
+        "description": "Criaturas dentro da área não podem lançar magias."
+      },
+      {
+        "type": "Teste de Resistência",
+        "description": "Criaturas devem fazer um teste de resistência de Inteligência toda vez que forem alvo de uma magia lançada fora da área. Se falharem, não poderão usar magia enquanto estiverem na área."
+      }
+    ]
+  },
+  {
+    "name": "Cão Fiel de Mordenkainen",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 0,
+    "level": 4,
+    "school": "Conjuração",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, S, M (um minúsculo apito de prata, um pedaço de osso e um fio)",
+    "duration": "8 horas",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você conjura um cão de guarda fantasma em um espaço desocupado que você possa ver, dentro do alcance, que permanece pela duração, até você dissipá-lo com uma ação ou até você se mover para mais de 30 metros dele. O cão é invisível para todas as criaturas, exceto para você, e não pode ser ferido. Quando uma criatura Pequena ou maior se aproximar a 9 metros sem, primeiramente, falar a senha que você especifica quando conjura a magia, o cão começa a latir muito alto. O cão vê criaturas invisíveis e pode ver no Plano Etéreo. Ele ignora ilusões. No começo de cada um dos seus turnos, o cão tenta morder uma criatura a 1,5 metro dele que seja hostil a você. O bônus de ataque do cão é igual ao seu modificador de habilidade de conjuração + seu bônus de proficiência. Se atingir, ele causa 4d8 de dano perfurante."
+  },
+  {
+    "name": "Cativar",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 226,
+    "level": 2,
+    "casting_time": "1 ação",
+    "school": "Encantamento",
+    "range": "18 metros",
+    "components": "V, S",
+    "duration": "1 minuto",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você tece um cordão de palavras distrativas, fazendo as criaturas, à sua escolha, que você puder ver dentro do alcance e que puderem ouvir você, realizarem um teste de resistência de Sabedoria. Qualquer criatura que não puder ser enfeitiçada, passa automaticamente nesse teste de resistência e, se você ou seus companheiros estiverem lutando com a criatura, ela terá vantagem na resistência. Se falhar na resistência, a criatura terá desvantagem em testes de Sabedoria (Percepção) feitos para notar qualquer criatura além de você, até a magia acabar ou até o alvo não poder mais ouvir você. A magia acaba se você estiver incapacitado ou incapaz de falar."
+  },
+  {
+    "name": "Carne para Pedra",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 226,
+    "level": 6,
+    "casting_time": "1 ação",
+    "school": "Transmutação",
+    "range": "18 metros",
+    "components": "V, S, M (uma pitada de cal, água e terra)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Você tenta transformar uma criatura que você possa ver, dentro do alcance, em pedra. Se o corpo do alvo for feito de carne, a criatura deve realizar um teste de resistência de Constituição. Em caso de falha, ela ficará impedida, à medida que sua carne começa a endurecer. Se obtiver sucesso, a criatura não é afetada. Uma criatura impedida por essa magia deve realizar outro teste de resistência de Constituição no final de cada um dos turnos dela. Se obtiver sucesso na resistência contra essa magia três vezes, a magia termina. Se ela falhar no teste de resistência três vezes, ela se torna pedra e é afetada pela condição petrificado pela duração. Os sucessos e falhas não precisam ser consecutivos; anote ambos os resultados até o alvo acumular três de mesmo tipo. Se a criatura for quebrada fisicamente enquanto petrificada, ela sofre deformidades similares se for revertida ao seu estado original. Se você mantiver sua concentração nessa magia durante toda a duração possível, a criatura é transformada em pedra até o efeito ser removido."
+  },
+  {
+    "name": "Cegueira/Surdez",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 226,
+    "level": 2,
+    "school": "Necromancia",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V",
+    "ritual": false,
+    "concentration": false,
+    "duration": "1 minuto",
+    "description": "Você pode cegar ou ensurdecer um oponente. Escolha uma criatura que você possa ver dentro do alcance para fazer um teste de resistência de Constituição. Se ela falhar, ficará ou cega ou surda (à sua escolha) pela duração. No final de cada um dos turnos dela, o alvo pode realizar um teste de resistência de Constituição. Se obtiver sucesso, a magia termina.",
+    "higher_levels": "Se você conjurar essa magia usando um espaço de magia de 3° nível ou superior, você pode afetar uma criatura adicional para cada nível de espaço acima do 2°."
+  },
+  {
+    "name": "Chama Contínua",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 226,
+    "level": 2,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (pó de rubi no valor de 50 po, consumido pela magia)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Até ser dissipada",
+    "description": "Uma chama, que produz iluminação equivalente a uma tocha, surge de um objeto que você tocar. O efeito é parecido com o de uma chama normal, mas ele não produz calor e não consome oxigênio. Uma chama continua pode ser coberta ou escondida, mas não sufocada ou extinta."
+  },
+  {
+    "name": "Chama Sagrada",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 226,
+    "level": 0,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Radiação similar a uma chama desce sobre uma criatura que você possa ver, dentro do alcance. O alvo deve ser bem sucedido num teste de resistência de Destreza ou sofrerá 1d8 de dano radiante. O alvo não recebe qualquer benefício de cobertura contra esse teste de resistência. O dano da magia aumenta em 1d8 quando você alcança o 5° nível (2d8), 11° nível (3d8) e 17° nível (4d8)."
+  },
+  {
+    "name": "Chicote de Espinhos",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 226,
+    "level": 0,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, S, M (um muda de uma planta com espinhos)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Você cria um longo chicote de vinhas coberto por espinhos que chicoteia, ao seu comando, em direção de uma criatura dentro do alcance. Realize um ataque corpo-a-corpo com magia contra o alvo. Se o ataque atingir, a criatura sofrerá 1d6 de dano perfurante e, se a criatura for Grande ou menor, você a puxa até 3 metros para perto de você. O dano dessa magia aumenta em 1d6 quando você alcança o 5° nível (2d6), 11° nível (3d6) e 17° nível (4d6)."
+  },
+  {
+    "name": "Chuva de Meteoros",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 227,
+    "level": 9,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "1.5 km",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Esferas de fogo incandescentes atingem o solo em quatro pontos diferentes que você possa ver, dentro do alcance. Cada criatura numa esfera de 12 metros de raio, centrada em cada ponto escolhido por você, deve realizar um teste de resistência de Destreza. A esfera se espalha, dobrando esquinas. Uma criatura sofre 20d6 de dano de fogo e 20d6 de dano de concussão se falhar na resistência ou metade desse dano se obtiver sucesso. Uma criatura na área de mais de uma explosão de chamas é afetada apenas uma vez. A magia causa dano aos objetos na área e incendeia objetos inflamáveis que não estejam sendo vestidos ou carregados."
+  },
+  {
+    "name": "Círculo da Morte",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 227,
+    "level": 6,
+    "school": "Necromancia",
+    "casting_time": "1 ação",
+    "range": "45 metros",
+    "components": "V, S, M (o pó de uma pérola negra esmagada valendo, no mínimo, 500 po)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Uma esfera de energia negativa ondula em um raio de 18 metros de um ponto ao alcance. Cada criatura na área deve realizar um teste de resistência de Constituição. Um alvo sofre 8d6 de dano necrótico se falhar no seu teste de resistência, ou metade desse dano se passar. Em Níveis Superiores.",
+    "higher_levels": "Se você conjurar essa magia usando um espaço de magia de 7° nível ou superior, o dano aumenta em 2d6 para cada nível do espaço acima do 6°."
+  },
+  {
+    "name": "Círculo de Poder",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 227,
+    "level": 5,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "Pessoal (9 metros de raio)",
+    "components": "V",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 10 minutos",
+    "description": "Energia divina irradia de você, distorcendo e espalhando energia mágica a até 9 metros de você. Até a magia acabar, a esfera se move com você, centrada em você. Pela duração, cada criatura amigável na área (incluindo você) tem vantagem em testes de resistência contra magias e outros efeitos mágicos. Além disso, quando uma criatura afetada for bem sucedida num teste de resistência contra uma magia ou efeito mágico realizado para sofrer apenas metade do dano, ao invés disso, ela não sofrerá dano nenhum se passar na resistência."
+  },
+  {
+    "name": "Círculo de Teletransporte",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 227,
+    "level": 5,
+    "school": "Conjuração",
+    "casting_time": "1 minuto",
+    "range": "3 metros",
+    "components": "V, M (giz e tintas raros infundidos com pedras preciosas no valor de 50 po, consumidos pela magia)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "1 turno",
+    "description": "À medida que você conjura essa magia, você desenha um círculo de 3 metros de diâmetro no chão, inscrevendo selos que conectam sua localização a um círculo de teletransporte permanente, à sua escolha, cuja sequência de selos você conheça e esteja no mesmo plano de existência que você. Um portal cintilante se abre dentro do círculo que você desenhou e permanece aberto até o final do seu próximo turno. Qualquer criatura que entrar no portal, instantaneamente, aparecerá a 1,5 metro do círculo de destino ou no espaço desocupado mais próximo, se o espaço estiver ocupado. Muitos templos principais, guildas e outros locais importantes possuem círculos de teletransporte permanentes inscritos em algum lugar dos seus confins. Cada círculo desse inclui uma sequência única de selos - uma sequência de runas mágicas dispostas em um padrão específico. Quando você adquire a capacidade de conjurar essa magia pela primeira vez, você aprende a sequência de selos de dois destinos no Plano Material, determinadas pelo Mestre. Você pode aprender sequências de selos adicionais durante suas aventuras. Você pode consignar uma nova sequência de selos à memória após estudá-la por 1 minuto. Você pode criar um círculo de teletransporte permanente ao conjurar essa magia no mesmo local a cada dia por um ano. Você não precisa usar o círculo para se teletransportar quando você conjurar a magia desse modo."
+  },
+  {
+    "name": "Círculo Mágico",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 227,
+    "level": 3,
+    "school": "Abjuração",
+    "casting_time": "1 minuto",
+    "range": "3 metros",
+    "components": "V, S, M (água benta ou pó de prata e ferro valendo, no mínimo, 100 po, consumidos pela magia)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "1 hora",
+    "description": "Você cria um cilindro de energia mágica de 3 metros de raio por 6 metros de altura, centrado num ponto no solo que você possa ver, dentro do alcance. Runas brilhantes aparecem toda vez que o cilindro toca o chão ou outra superfície. Escolha um ou mais dos tipos de criaturas seguintes: celestiais, corruptores, elementais, fadas ou mortos-vivos. O círculo afeta uma criatura do tipo escolhido das seguintes maneiras: - A criatura não consegue entrar no cilindro voluntariamente por meios não-mágicos. Se a criatura tentar usar teletransporte ou viagem interplanar para fazê-lo, ela deve, primeiro, ser bem sucedida num teste de resistência de Carisma. - A criatura tem desvantagem nas jogadas de ataque contra alvos dentro do cilindro. - Alvos dentro do cilindro não podem ser enfeitiçados, amedrontados ou possuídos pela criatura. Quando você conjurar essa magia, você pode decidir que a mágica dela opere na direção reversa, prevenindo que uma criatura de um tipo específico saia do cilindro e protegendo os alvos fora dele.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 4° nível ou superior, a duração aumenta em 1 hora para cada nível do espaço acima do 3°."
+  },
+  {
+    "name": "Clarividência",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 227,
+    "level": 3,
+    "school": "Adivinhação",
+    "casting_time": "10 minutos",
+    "range": "1,5 km",
+    "components": "V, S, M (um foco valendo, no mínimo, 100 po, também um chifre cravejado de joias para ouvir ou um olho de vidro para ver)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 10 minutos",
+    "description": "Você cria um sensor invisível, dentro do alcance, em um local familiar a você (um local que você tenha visitado ou visto antes) ou em um local óbvio que não seja familiar a você (como atrás de uma porta, ao redor de um canto ou em um bosque de árvores). O sensor se mantém no local pela duração e não pode ser atacado ou manipulado de outra forma. Quando você conjurar essa magia, escolhe visão ou audição. Você pode escolher sentir através do sensor como se você estivesse no espaço dele. Com sua ação, você pode trocar entre visão e audição. Uma criatura que puder ver o sensor (como uma criatura beneficiada por ver o invisível ou visão verdadeira) vê um globo luminoso e intangível do tamanho do seu olho."
+  },
+  {
+    "name": "Clone",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 228,
+    "level": 8,
+    "school": "Necromancia",
+    "casting_time": "1 hora",
+    "range": "Toque",
+    "components": "V, S, M (um diamante valendo, no mínimo, 1.000 po e, no mínimo 3 centímetros cúbicos de carne da criatura que será clonada, consumida pela magia, e um receptáculo valendo, no mínimo, 2.000 po que tenha uma tampa selada e seja grande o suficiente para comportar uma criatura Média, como uma urna enorme, um caixão, um cisto cheio de lama no solo ou um recipiente de cristal cheio de água salgada)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Essa magia produz uma duplicata inerte de uma criatura viva como uma garantia contra a morte. Esse clone é formado dentro de um receptáculo selado e cresce ao seu tamanho total, atingindo a maturidade após 120 dias. Você também pode escolher que o clone seja uma versão mais jovem da mesma criatura. Ele permanece inerte e dura indefinidamente, enquanto seu receptáculo permanecer intocado. A qualquer momento, após o clone amadurecer, se a criatura original morrer, sua alma é transferida para o clone, considerando que a alma está livre e deseje retornar. O clone é fisicamente idêntico ao original e tem a mesma personalidade, memórias e habilidades, mas não possui qualquer equipamento do original. O físico da criatura original permanece, se ainda existir, se tornando inerte e não podendo, consequentemente, ser trazido de volta à vida, já que a alma da criatura está em outro lugar."
+  },
+  {
+    "name": "Coluna de Chamas",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 228,
+    "level": 5,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V, S, M (uma pitada de enxofre)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Uma coluna vertical de fogo divino emerge de baixo para os céus, no local que você especificar. Cada criatura num cilindro de 3 metros de raio por 12 metros de altura, centrado num ponto dentro do alcance, deve realizar um teste de resistência de Destreza. Uma criatura sofre 4d6 de dano de fogo e 4d6 de dano radiante se falhar na resistência, ou metade desse dano se obtiver sucesso.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 6° nível ou superior, o dano de fogo ou o dano radiante (à sua escolha) aumenta em 1d6 por nível do espaço acima do 5°."
+  },
+  {
+    "name": "Comando",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 228,
+    "level": 1,
+    "school": "Encantamento",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V",
+    "ritual": false,
+    "concentration": false,
+    "duration": "1 rodada",
+    "description": "Você pronuncia uma palavra de comando para uma criatura que você possa ver dentro do alcance. O alvo deve ser bem sucedido em um teste de resistência de Sabedoria ou seguirá seu comando no próximo turno. A magia não tem efeito se o alvo for um morto-vivo, se não entender seu idioma ou se o comando for diretamente nocivo a ele. Comandos típicos incluem: 'Aproxime-se' (move-se para perto de você), 'Largue' (larga o que está segurando), 'Fuja' (move-se para longe de você), 'Deite-se' (deita-se no chão), e 'Parado' (não se move nem realiza ações).",
+    "higher_levels": "Se conjurada com um espaço de magia de 2° nível ou superior, pode afetar uma criatura adicional por nível acima do 1°, desde que estejam a 9 metros entre si.",
+    "effects": [
+      {
+        "type": "Aproxime-se",
+        "description": "O alvo se move para próximo de você o máximo que puder."
+      },
+      {
+        "type": "Largue",
+        "description": "O alvo larga o que quer que esteja segurando."
+      },
+      {
+        "type": "Fuja",
+        "description": "O alvo se move para longe de você da forma mais rápida possível."
+      },
+      {
+        "type": "Deite-se",
+        "description": "O alvo deita-se no chão."
+      },
+      {
+        "type": "Parado",
+        "description": "O alvo não se move e não realiza nenhuma ação."
+      }
+    ]
+  },
+  {
+    "name": "Compreender Idiomas",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 228,
+    "level": 1,
+    "school": "Adivinhação",
+    "casting_time": "1 ação",
+    "range": "Pessoal",
+    "components": "V, S, M (uma pitada de fuligem e sal)",
+    "ritual": true,
+    "concentration": false,
+    "duration": "1 hora",
+    "description": "Pela duração, você compreende o significado literal de qualquer idioma falado que você ouvir. Você também compreende qualquer idioma escrito que vir, mas deve tocar a superfície onde as palavras estão escritas. Leva, aproximadamente, 1 minuto para ler uma página de texto. Essa magia não decifra mensagens secretas em textos ou glifos, como um selo arcano, que não seja parte de um idioma escrito."
+  },
+  {
+    "name": "Compulsão",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 228,
+    "level": 4,
+    "school": "Encantamento",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Criaturas, à sua escolha, que você puder ver dentro do alcance e que puderem ouvir você, devem realizar um teste de resistência de Sabedoria. Um alvo passa automaticamente nesse teste de resistência se ele não puder ser enfeitiçado. Se falhar no teste, um alvo é afetado por essa magia. Até a magia acabar, você pode usar uma ação bônus em cada um dos seus turnos para designar uma direção horizontal a você. Cada criatura afetada deve se mover, da melhor forma possível, para essa direção no próximo turno dela. Ela pode realizar sua ação antes de se mover. Depois de se mover, pode realizar outra resistência de Sabedoria para tentar acabar com o efeito. Um alvo não é obrigado a se mover em direção a um perigo obviamente mortal, como uma fogueira ou abismo, mas ele provocará ataques de oportunidade ao se mover na direção designada."
+  },
+  {
+    "name": "Comunhão",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 229,
+    "level": 5,
+    "school": "Adivinhação",
+    "casting_time": "1 minuto",
+    "range": "Pessoal",
+    "components": "V, S, M (incenso e um frasco de água benta ou profana)",
+    "ritual": true,
+    "concentration": false,
+    "duration": "1 minuto",
+    "description": "Você contata sua divindade ou um representante divino e faz até três perguntas que podem ser respondidas com um sim ou não. Você deve fazer suas perguntas antes da magia terminar. Você recebe uma resposta correta para cada pergunta. Seres divinos não são necessariamente oniscientes, portanto, você pode receber “incerto” como uma resposta se uma pergunta disser respeito a uma informação além do conhecimento da divindade. Em caso de uma resposta de única palavra que puder levar ao engano ou contrariar os interesses da divindade, o Mestre pode oferecer uma frase curta como resposta, no lugar. Se você conjurar essa magia duas ou mais vezes antes de terminar um descanso longo, existe uma chance cumulativa de 25% de cada conjuração, depois da primeira que você fez, ter um resultado aleatório. O Mestre faz essa jogada secretamente."
+  },
+  {
+    "name": "Comunhão com a Natureza",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 229,
+    "level": 5,
+    "school": "Adivinhação",
+    "casting_time": "1 minuto",
+    "range": "Pessoal",
+    "components": "V, S",
+    "ritual": true,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Você, momentaneamente, se torna uno com a natureza e ganha conhecimento do território ao seu redor. Ao ar livre, a magia lhe oferece conhecimento do terreno a até 4,5 quilômetros de você. Em cavernas e outras formações subterrâneas naturais, o raio é limitado a 150 metros. A magia não funciona onde a natureza foi substituída por construções, como em masmorras ou cidades. Você instantaneamente adquire conhecimento de até três fatos, à sua escolha, sobre qualquer dos assuntos a seguir, relacionados à Terrenos e corpos de água, Plantas, minérios, animais e povo predominante, Celestiais, fadas, corruptores, elementais ou mortos-vivos mais poderosos, Influência de outros planos de existência e Construções. Por exemplo, você poderia determinar a localização de um morto-vivo poderoso na área, a localização da maior fonte de água potável e a localização de quaisquer cidades próximas."
+  },
+  {
+    "name": "Cone de Frio",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 229,
+    "level": 5,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "Pessoal (cone de 18 metros)",
+    "components": "V, S, M (um pequeno cristal ou cone de vidro)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Uma explosão de ar gelado irrompe das suas mãos. Cada criatura dentro do cone de 18 metros deve realizar um teste de resistência de Constituição. Uma criatura sofre 8d8 de dano de frio se falhar na resistência, ou metade desse dano se passar. Uma criatura morta por essa magia se torna uma estátua congelada até derreter.",
+    "higher_levels": "Se você conjurar essa magia usando um espaço de magia de 6° nível ou superior, o dano aumenta em 1d8 para cada nível do espaço acima do 5°."
+  },
+  {
+    "name": "Confusão",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 229,
+    "level": 4,
+    "school": "Encantamento",
+    "casting_time": "1 ação",
+    "range": "27 metros",
+    "components": "V, S, M (três cascas de noz)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Concentração, até 1 minuto",
+    "description": "Essa magia ataca e embaralha as mentes das criaturas, gerando delírios e provocando ações descontroladas. Cada criatura em uma esfera com 3 metros de raio, centrada num ponto, à sua escolha, dentro do alcance, deve ser bem sucedida em um teste de resistência de Sabedoria, quando você conjurar essa magia ou for afetada por ela. Um alvo afetado não pode realizar reações e deve rolar um d10 no início de cada um dos seus turnos para determinar seu comportamento nesse turno. Ao final de cada um dos seus turnos, um alvo afetado pode realizar um teste de resistência de Sabedoria. Se for bem sucedido, esse efeito acaba nesse alvo.",
+    "higher_levels": "Se você conjurar essa magia usando um espaço de magia de 5° nível ou superior, o raio da esfera aumenta em 1,5 metro para cada nível do espaço acima do 4°.",
+    "effects": [
+      {
+        "type": "1",
+        "description" : "A criatura usa todo seu deslocamento para se mover em uma direção aleatória. Para determinar a direção, role um d8 e atribua uma direção a cada face do dado. A criatura não realiza uma ação nesse turno."
+      },
+      {
+        "type": "2-6",
+        "description": "A criatura não se move ou realiza ações nesse turno."
+      },
+      {
+        "type": "7-8",
+        "description": "A criatura usa sua ação para realizar um ataque corpo-a-corpo contra uma criatura, determinada aleatoriamente, ao seu alcance. Se não houver criaturas dentro do alcance, a criatura não faz nada nesse turno."
+      },
+      {
+        "type": "9-10",
+        "description": "A criatura pode agir e se mover normalmente."
+      }
+    ]
+  },
+  {
+    "name": "Conhecimento Lendário",
+    "book": "D&D 5E - Livro do Jogador",
+    "pg": 229,
+    "level": 5,
+    "school": "Adivinhação",
+    "casting_time": "10 minutos",
+    "range": "Pessoal",
+    "components": "V, S, M (incenso valendo, no mínimo, 250 po, consumido pela magia e quatro tiras de marfim valendo, no mínimo, 50 po cada)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Nomeie ou descreva uma pessoa, local ou objeto. A magia traz a sua mente um breve resumo do conhecimento significativo sobre a coisa que você nomeou. O conhecimento deve consistir em contos atuais, histórias esquecidas ou, até mesmo, conhecimento secreto que nunca foi amplamente divulgado. Se a coisa que você nomeou não for de importância lendária, você não recebe qualquer informação sobre ela. Quanto mais informação você possuir sobre a coisa, mais precisa e detalhada será a informação que você receberá. A informação que você aprende é precisa, mas pode ser redigida em linguagem figurada. Por exemplo, se você possuir um misterioso machado mágico na mão, a magia pode proporcionar essa informação: 'Ai do malfeitor cuja mão toca o machado, até mesmo seu cabo corta a mão dos malignos. Só um verdadeiro Filho da Pedra, adorador e adorado de Moradin, pode despertar os verdadeiros poderes do machado e apenas com a palavra sagrada Rudnogg nos lábios.'"
+  }  
 ]
