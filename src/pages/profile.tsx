@@ -12,6 +12,7 @@ import ChangePassword from '../components/changePassword';
 import { getUserByEmail, updateUserById } from '../firebase/user';
 import { IoIosCheckbox } from 'react-icons/io';
 import ChangeProfileImage from '../components/changeProfileImage';
+import Loading from '../components/loading';
 
 export default function Profile() {
   const [showData, setShowData] = useState(false);
@@ -174,7 +175,7 @@ export default function Profile() {
             </div>
           </div>
         : <div className="text-white h-full flex items-center justify-center flex-col">
-            <span className="loader z-50" />
+            <Loading />
           </div>
       }
       <Footer />
