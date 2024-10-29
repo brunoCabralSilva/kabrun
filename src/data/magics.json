@@ -227,56 +227,56 @@
     "duration": "Até 1 minuto",
     "description": "Objetos ganham vida ao seu comando. Escolha até dez objetos não-mágicos dentro do alcance, que não estejam sendo vestidos ou carregados. Alvos Médios contam como dois objetos, alvos Grandes contam como quatro objetos e alvos Enormes contam como oito objetos. Você não pode animar um objeto maior que Enorme. Cada alvo se anima e torna-se uma criatura sob seu controle até o final da magia ou até ser reduzido a 0 pontos de vida. Com uma ação bônus, você pode comandar mentalmente qualquer criatura que você criar com essa magia se a criatura estiver a até 150 metros de você (se você controla várias criaturas, você pode comandar qualquer ou todas elas ao mesmo tempo, emitindo o mesmo comando para cada uma). Você decide qual ação a criatura irá fazer e para onde ela irá se mover durante o próximo turno dela, ou você pode emitir um comando geral, como para guardar uma câmara ou corredor específico. Se você não der nenhum comando, as criaturas apenas se defenderão contra criaturas hostis. Uma vez que receba uma ordem, a criatura continuará a segui-la até a tarefa estar concluída. Um objeto animado é um constructo com CA, pontos de vida, ataques, Força e Destreza determinados pelo seu tamanho. Sua Constituição é 10 e sua Inteligência e Sabedoria são 3 e seu Carisma é 1. Seu deslocamento é 9 metros; se o objeto não tiver pernas ou outros apêndices que ele possa usar para locomoção, ao invés, ele terá deslocamento de voo 9 metros e poderá planar. Se o objeto estiver firmemente preso a uma superfície ou objeto maior, como uma corrente presa a uma parede, seu deslocamento será 0. Ele tem percepção às cegas num raio de 9 metros e é cego além dessa distância. Quando o objeto animado cair a 0 pontos de vida, ele reverte a sua forma normal de objeto e qualquer dano restante é transferido para sua forma de objeto original. Se você ordenar a um objeto que ataque, ele pode realizar um único ataque corpo-a-corpo contra uma criatura a até 1,5 metro dele. Ele realiza um ataque de pancada com um bônus de ataque e dano de concussão determinado pelo seu tamanho. O Mestre pode definir que um objeto específico inflige dano cortante ou perfurante, baseado na forma dele.",
     "higher_levels": "Se você conjurar essa magia usando um espaço de magia de 6° nível ou superior, você pode animar dois objetos adicionais para cada nível do espaço acima do 5°.",
-    "statistics": {
+    "statistics": [{
       "type": "Objeto Animado",
       "data": [
         {
-          "size": "Miúdo",
-          "pv": 20,
-          "ca": 18,
-          "attack": 8,
-          "damage": "1d4 + 4",
-          "strength": 4,
-          "dexterity": 18
+          "Tamanho": "Miúdo",
+          "PV": 20,
+          "CA": 18,
+          "Ataque": 8,
+          "Dano": "1d4 + 4",
+          "Força": 4,
+          "Destreza": 18
         },
         {
-          "size": "Pequeno",
-          "pv": 25,
-          "ca": 16,
-          "attack": 6,
-          "damage": "1d8 + 2",
-          "strength": 6,
-          "dexterity": 14
+          "Tamanho": "Pequeno",
+          "PV": 25,
+          "CA": 16,
+          "Ataque": 6,
+          "Dano": "1d8 + 2",
+          "Força": 6,
+          "Destreza": 14
         },
         {
-          "size": "Médio",
-          "pv": 40,
-          "ca": 13,
-          "attack": 5,
-          "damage": "2d6 + 1",
-          "strength": 10,
-          "dexterity": 12
+          "Tamanho": "Médio",
+          "PV": 40,
+          "CA": 13,
+          "Ataque": 5,
+          "Dano": "2d6 + 1",
+          "Força": 10,
+          "Destreza": 12
         },
         {
-          "size": "Grande",
-          "pv": 50,
+          "Tamanho": "Grande",
+          "PV": 50,
+          "CA": 10,
+          "Ataque": 6,
+          "Dano": "2d10 + 2",
+          "Força": 14,
+          "Destreza": 10
+        },
+        {
+          "Tamanho": "Enorme",
+          "PV": 80,
           "ca": 10,
-          "attack": 6,
-          "damage": "2d10 + 2",
-          "strength": 14,
-          "dexterity": 10
-        },
-        {
-          "size": "Enorme",
-          "pv": 80,
-          "ca": 10,
-          "attack": 8,
-          "damage": "2d12 + 4",
-          "strength": 18,
-          "dexterity": 6
+          "Ataque": 8,
+          "Dano": "2d12 + 4",
+          "Força": 18,
+          "Destreza": 6
         }
       ]
-    }
+    }]
   },
   {
     "name": "Antipatia/Simpatia",
@@ -1545,24 +1545,24 @@
         "type": "Precipitação",
         "data": [
           {
-            "stage": "1",
-            "condition": "Céu Claro"
+            "Estágio": "1",
+            "Condição": "Céu Claro"
           },
           {
-            "stage": "2",
-            "condition": "Parcialmente encoberto"
+            "Estágio": "2",
+            "Condição": "Parcialmente encoberto"
           },
           {
-            "stage": "3",
-            "condition": "Céu escuro ou nublado"
+            "Estágio": "3",
+            "Condição": "Céu escuro ou nublado"
           },
           {
-            "stage": "4",
-            "condition": "Chuva, granizo ou neve"
+            "Estágio": "4",
+            "Condição": "Chuva, granizo ou neve"
           },
           {
-            "stage": "5",
-            "condition": "Chuva torrencial, tempestade de granizo ou nevasca"
+            "Estágio": "5",
+            "Condição": "Chuva torrencial, tempestade de granizo ou nevasca"
           }
         ]
       },
@@ -1570,28 +1570,28 @@
         "type": "Temperatura",
         "data": [
           {
-            "stage": "1",
-            "condition": "Calor insuportável"
+            "Estágio": "1",
+            "Condição": "Calor insuportável"
           },
           {
-            "stage": "2",
-            "condition": "Quente"
+            "Estágio": "2",
+            "Condição": "Quente"
           },
           {
-            "stage": "3",
-            "condition": "Morno"
+            "Estágio": "3",
+            "Condição": "Morno"
           },
           {
-            "stage": "4",
-            "condition": "Frio"
+            "Estágio": "4",
+            "Condição": "Frio"
           },
           {
-            "stage": "5",
-            "condition": "Gelado"
+            "Estágio": "5",
+            "Condição": "Gelado"
           },
           {
-            "stage": "6",
-            "condition": "Frio ártico"
+            "Estágio": "6",
+            "Condição": "Frio ártico"
           }
         ]
       },
@@ -1599,24 +1599,24 @@
         "type": "Vento",
         "data": [
           {
-            "stage": "1",
-            "condition": "Calmo"
+            "Estágio": "1",
+            "Condição": "Calmo"
           },
           {
-            "stage": "2",
-            "condition": "Vento moderado"
+            "Estágio": "2",
+            "Condição": "Vento moderado"
           },
           {
-            "stage": "3",
-            "condition": "Vento forte"
+            "Estágio": "3",
+            "Condição": "Vento forte"
           },
           {
-            "stage": "4",
-            "condition": "Ventania"
+            "Estágio": "4",
+            "Condição": "Ventania"
           },
           {
-            "stage": "5",
-            "condition": "Temporal"
+            "Estágio": "5",
+            "Condição": "Temporal"
           }
         ]
       }
@@ -1735,7 +1735,7 @@
     "duration": "Especial",
     "description": "Você puxa mechas de matéria sombria da Umbra para criar objetos inanimados de matéria vegetal dentro do alcance: bens finos, cordas, madeira ou algo similar. Você também pode usar a magia para criar objetos minerais como pedra, cristal ou metal. O objeto criado não pode ser maior que um cubo de 1,5 metro e o objeto deve ser de um material que você já tenha visto antes. Usar qualquer material criado por essa magia como componente material de outra magia faz com que a magia falhe.",
     "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 6° nível ou superior, o tamanho do cubo aumenta em 1,5 metro para cada nível do espaço de magia acima do 5°.",
-    "statistics": {
+    "statistics": [{
       "type": "",
       "data": [
         {
@@ -1759,7 +1759,7 @@
           "duration": "1 minuto"
         }
       ]
-    }
+    }]
   },
   {
     "name": "Criar Alimentos",
@@ -3462,7 +3462,8 @@
     "ritual": false,
     "concentration": true,
     "duration": "Até 1 minuto",
-    "description": "Da próxima vez que você atingir uma criatura com um ataque com arma, antes do fim da magia, a arma cintilará com radiação astral quando você golpear. O ataque causa 2d6 de dano radiante extra ao alvo, que se torna visível, se estava invisível, e o alvo emite penumbra em um raio de 1,5 metro e não pode ficar invisível até a magia acabar."
+    "description": "Da próxima vez que você atingir uma criatura com um ataque com arma, antes do fim da magia, a arma cintilará com radiação astral quando você golpear. O ataque causa 2d6 de dano radiante extra ao alvo, que se torna visível, se estava invisível, e o alvo emite penumbra em um raio de 1,5 metro e não pode ficar invisível até a magia acabar.",
+    "higher_levels": "Se você conjurar essa magia usando um espaço de magia de 3° nível ou superior, o dano extra aumenta em 1d6 para cada nível do espaço acima do 2°"
   },
   {
     "name": "Marca do Caçador",
@@ -3476,7 +3477,8 @@
     "ritual": false,
     "concentration": true,
     "duration": "Até 1 hora",
-    "description": "Você escolhe uma criatura que possa ver, dentro do alcance e a marca misticamente como sua presa. Até a magia acabar, você causa 1d6 de dano extra ao alvo sempre que você o atingir com um ataque com arma e você tem vantagem em quaisquer testes de Sabedoria (Percepção) ou Sabedoria (Sobrevivência) feitos para encontrá-la. Se o alvo cair a 0 pontos de vida antes da magia acabar, você pode usar uma ação bônus, no seu turno subsequente para marcar uma nova criatura."
+    "description": "Você escolhe uma criatura que possa ver, dentro do alcance e a marca misticamente como sua presa. Até a magia acabar, você causa 1d6 de dano extra ao alvo sempre que você o atingir com um ataque com arma e você tem vantagem em quaisquer testes de Sabedoria (Percepção) ou Sabedoria (Sobrevivência) feitos para encontrá-la. Se o alvo cair a 0 pontos de vida antes da magia acabar, você pode usar uma ação bônus, no seu turno subsequente para marcar uma nova criatura.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 3° ou 4° nível, você poderá manter sua concentração na magia por até 8 horas. Quando você usar um espaço de magia de 5° nível ou superior, você poderá manter sua concentração na magia por até 24 horas."
   },
   {
     "name": "Medo",
@@ -3504,6 +3506,49 @@
     "ritual": true,
     "concentration": false,
     "duration": "24 horas",
-    "description": "Através dessa magia, você usa um animal para entregar uma mensagem. Escolha uma besta Miúda que você possa ver dentro do alcance, como um esquilo, um gaio-azul ou um morcego. Você especifica um local, que você já deve ter visitado, e um remetente com uma descrição geral, como 'um homem ou mulher vestido em um uniforme da guarda da cidade' ou 'um anão ruivo vestindo um chapéu pontudo'. Você também fala uma mensagem com até vinte e cinco palavras. A besta alvo viaja pela duração da magia para o local específico, cobrindo 75 quilômetros em 24 horas para um mensageiro voador ou 37,5 quilômetros para outros animais. Quando o mensageiro chegar, ele entrega sua mensagem para a criatura que você descreveu, repetindo o som da sua voz. O mensageiro fala apenas para uma criatura que tenha uma descrição compatível com a que ele recebeu. Se o mensageiro não alcançar o destino antes do fim da magia, a mensagem é perdida e a besta faz seu caminho de volta para onde você conjurou a magia."
+    "description": "Através dessa magia, você usa um animal para entregar uma mensagem. Escolha uma besta Miúda que você possa ver dentro do alcance, como um esquilo, um gaio-azul ou um morcego. Você especifica um local, que você já deve ter visitado, e um remetente com uma descrição geral, como 'um homem ou mulher vestido em um uniforme da guarda da cidade' ou 'um anão ruivo vestindo um chapéu pontudo'. Você também fala uma mensagem com até vinte e cinco palavras. A besta alvo viaja pela duração da magia para o local específico, cobrindo 75 quilômetros em 24 horas para um mensageiro voador ou 37,5 quilômetros para outros animais. Quando o mensageiro chegar, ele entrega sua mensagem para a criatura que você descreveu, repetindo o som da sua voz. O mensageiro fala apenas para uma criatura que tenha uma descrição compatível com a que ele recebeu. Se o mensageiro não alcançar o destino antes do fim da magia, a mensagem é perdida e a besta faz seu caminho de volta para onde você conjurou a magia.",
+    "higher_levels": "Se você conjurar essa magia usando um espaço de magia de 3° nível ou superior, a duração da magia aumenta em 48 horas para cada nível do espaço acima do 2°"
+  },
+  {
+    "name": "Mensagem",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 258,
+    "level": 0,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "36 metros",
+    "components": "V, S, M (um pedaço curto de fio de cobre)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "1 rodada",
+    "description": "Você aponta seu dedo para uma criatura dentro do alcance e sussurra uma mensagem. O alvo (e apenas ele) ouve a mensagem e pode responder com um sussurro que apenas você pode ouvir. Você pode conjurar essa magia através de objetos sólidos se tiver familiaridade com o alvo. Silêncio mágico, 30 centímetros de rocha, 2,5 centímetros de metal comum, uma fina camada de chumbo, ou 90 centímetros de madeira ou terra bloqueiam a magia. A magia não precisa seguir uma linha reta e pode viajar livremente, dobrando esquinas ou através de aberturas."
+  },
+  {
+    "name": "Mesclar-se às Rochas",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 258,
+    "level": 3,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S",
+    "ritual": true,
+    "concentration": false,
+    "duration": "8 horas",
+    "description": "Você entra em um objeto ou superfície rochoso, grande o suficiente para comportar seu corpo inteiro, mesclando-se, junto com todo o equipamento que você esteja carregando, com a rocha pela duração. Usando seu movimento, você entra na rocha num ponto que você possa tocar. Nada da sua presença ficará visível ou detectável por sentidos não-mágicos. Enquanto estiver imerso na rocha, você não pode ver o que está ocorrendo do lado de fora e, qualquer teste de Sabedoria (Percepção) que fizer para ouvir os sons do lado de fora é feito com desvantagem. Você continua consciente do tempo transcorrido e pode conjurar magias em si enquanto estiver imerso na rocha. Você pode usar seu movimento para sair da rocha onde entrou, o que termina a magia. Do contrário, você não pode se mover. Pequenos danos físicos à rocha não ferem você, mas destruição parcial ou uma mudança no formato (fazendo com que você já não caiba mais dentro dela) expelirá você causando-lhe 6d6 de dano de concussão. A destruição completa da rocha (ou transmutação em uma substância diferente) expelirá você causando-lhe 50 de dano de concussão. Se você for expelido, ficará caído no chão em um espaço desocupado perto de onde entrou pela primeira vez."
+  },
+  {
+    "name": "Metamorfose",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 258,
+    "level": 4,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V, S, M (um casulo de lagarta)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 hora",
+    "description": "Essa magia transforma uma criatura que você possa ver, dentro do alcance, em uma nova forma. Uma criatura involuntária deve realizar um teste de resistência de Sabedoria para evitar o efeito. Um metamorfo obtém sucesso automaticamente nesse teste de resistência. A transformação permanece pela duração, ou até o alvo cair a 0 pontos de vida ou morrer. A nova forma pode ser qualquer besta cujo nível de desafio seja igual ou menor que o do alvo (ou o nível do alvo, se ele não possuir um nível de desafio). As estatísticas de jogo do alvo, incluindo seus valores de habilidades mentais, são substituídas pelas estatísticas da besta escolhida. Ele mantém sua tendência e personalidade. O alvo assume os pontos de vida da sua nova forma. Quando ele reverter à sua forma normal, a criatura retorna à quantidade de pontos de vida que ela tinha antes da transformação. Se ela reverter como resultado de ter caído a 0 pontos de vida, qualquer dano excedente é recebido pela sua forma normal. Contanto que o dano excedente não reduza os pontos de vida da forma normal da criatura a 0, ela não cairá inconsciente. Essa magia não pode afetar um alvo com 0 pontos de vida. A criatura é limitada em suas ações pela natureza da sua nova forma e não pode falar, conjurar magias ou realizar qualquer outra ação que precise de mãos ou de vocalização. O equipamento do alvo mescla-se à sua nova forma, e ele não pode ativar, empunhar ou se beneficiar de qualquer de seus equipamentos."
   }
 ]
