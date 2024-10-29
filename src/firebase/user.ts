@@ -17,16 +17,14 @@ export async function registerUser(
   const db = getFirestore(firebaseConfig);
   
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
-    const imageURL = await createProfileImage(user.uid, image, setShowMessage);
+    await createUserWithEmailAndPassword(auth, email, password);
     const collectionRef = collection(db, 'users'); 
-    await addDoc(collectionRef, {
+    const newUser = await addDoc(collectionRef, {
       email,
       firstName,
       lastName,
-      imageURL,
     });
+    await createProfileImage(newUser.id, image, setShowMessage);
     setShowMessage({ show: true, text: 'Usuário registrado com sucesso!' });
     return true;
   } catch (error: any) {

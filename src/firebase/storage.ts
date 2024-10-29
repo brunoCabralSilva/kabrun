@@ -1,6 +1,6 @@
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import firebaseConfig from "./connection";
-import { doc, getFirestore, runTransaction } from "firebase/firestore";
+import { doc, getDoc, getFirestore, runTransaction } from "firebase/firestore";
 
 export async function createSessionImage(id: string, data: any, setShowMessage: any) {
   const db = getFirestore(firebaseConfig);
@@ -32,14 +32,17 @@ export async function createProfileImage(id: string, img: any, setShowMessage: a
     const downloadUrl = await getDownloadURL(storageRef);
     const userDocRef = doc(db, 'users', id);
     await runTransaction(db, async (transaction) => {
-      const userDocSnapshot = await transaction.get(userDocRef);
+      console.log('Aqui 1' + downloadUrl);
+      const userDocSnapshot = await getDoc(userDocRef);
+      console.log(userDocSnapshot);
       if (userDocSnapshot.exists()) {
+        console.log('Aqui 2: ' + downloadUrl);
         transaction.update(userDocRef, { imageURL: downloadUrl });
       } else throw new Error("Usuário não encontrado.");
     });
     return downloadUrl;
   } catch (error: any) {
     setShowMessage({ show: true, text: "Erro ao fazer upload da mídia de imagem: " + error.message });
-    return false;
+    return error.message;
   }
 }
