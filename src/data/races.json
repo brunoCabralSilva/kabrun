@@ -176,7 +176,7 @@
     ],
     "subraces": [
       {
-        "name": "Pés Leves",
+        "name": "Halfling Pés Leves",
         "attribute": "charisma",
         "skills": [
           {
@@ -186,7 +186,7 @@
         ]
       },
       {
-        "name": "Robustos",
+        "name": "Halfling Robusto",
         "attribute": "constitution",
         "skills": [
           {
