@@ -10,6 +10,7 @@ export default function Home() {
   const [showData, setShowData] = useState(false);
   const { setShowMessage } = useContext(contexto);
   const router = useNavigate();
+
   useEffect(() => {
     const authUser = async () => {
       const auth = await authenticate(setShowMessage);
@@ -19,6 +20,15 @@ export default function Home() {
     };
     authUser();
   }, []);
+
+  const returnGrid = (magic: any) => {
+    switch(magic.name) {
+      case "Animar Objetos": return 'grid-cols-7';
+      case "Teletransporte": return 'grid-cols-5';
+      default: return 'grid-cols-2';
+    }
+  }
+
   return(
     <div>
       {
@@ -74,7 +84,7 @@ export default function Home() {
                           magic.statistics.map((statistic: any, index2: number) => (
                             <div key={ index2 } className="">
                               <p className="pt-3 font-bold">{ statistic.type }</p>
-                              <div className={`font-bold grid border-2 mt-2 ${ Object.keys(statistic.data[0]).includes("CA") ? 'grid-cols-7' : 'grid-cols-2' }`}>
+                              <div className={`font-bold grid border-2 mt-2 ${ returnGrid(magic) }`}>
                                 {
                                   Object.keys(statistic.data[0]).map((item: any, index4: number) => (
                                   <div key={index4} className="text-center border-l">{ item }</div>))
@@ -83,7 +93,7 @@ export default function Home() {
                               { 
                                 statistic.data.map((dataItem: any, index3: number) => (
                                 <div key={index3} className={``}>
-                                  <div className={`grid border-2 mt-1 ${ Object.keys(statistic.data[0]).includes("CA") ? 'grid-cols-7' : 'grid-cols-2' }`}>
+                                  <div className={`grid border-2 mt-1 ${returnGrid(magic)}`}>
                                     {
                                       Object.keys(dataItem).map((item: any, index4: number) => (
                                       <div className="text-center border-l" key={ index4 }>

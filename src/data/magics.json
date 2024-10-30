@@ -4537,7 +4537,7 @@
     "components": "V, S, M (água benta ou pó de prata e ferro, consumidos pela magia)",
     "ritual": false,
     "concentration": true,
-    "duration": "Concentração, até 10 minutos",
+    "duration": "Até 10 minutos",
     "description": "Até a magia acabar, uma criatura voluntária que você tocar estará protegida contra certos tipos de criaturas: aberrações, celestiais, corruptores, elementais, fadas e mortos-vivos. A proteção garante diversos benefícios. As criaturas desse tipo têm desvantagem nas jogadas de ataque contra o alvo. O alvo não pode ser enfeitiçado, amedrontado ou possuído por elas. Se o alvo já estiver enfeitiçado, amedrontado ou possuído por uma dessas criaturas, o alvo terá vantagem em qualquer novo teste de resistência contra o efeito relevante."
   },
   {
@@ -4553,5 +4553,1563 @@
     "concentration": false,
     "duration": "1 hora",
     "description": "Você toca uma criatura. Se ela estiver envenenada, você neutraliza o veneno. Se mais de um veneno estiver afligindo o alvo, você neutraliza um veneno, que você saiba estar presente, ou neutraliza um aleatório. Pela duração, o alvo terá vantagem em testes de resistência para não envenenado e terá resistência a dano de veneno."
+  },
+  {
+    "name": "Proteger Fortaleza",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 273,
+    "level": 6,
+    "school": "Abjuração",
+    "casting_time": "10 minutos",
+    "range": "Toque",
+    "components": "V, S, M (incenso aceso, uma porção de enxofre e óleo, uma corda amarrada, uma porção de sangue de tribulo brutal e um pequeno bastão de prata valendo, no mínimo, 10 po)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "24 horas",
+    "description": "Você cria uma defesa que protege até 225 metros quadrados de espaço (uma área de um quadrado de 15 metros ou cem quadrados de 1,5 metro ou vinte e cinco quadrados de 3 metros). A área protegida pode ter até 6 metros de altura, no formado que você desejar. Você pode proteger diversos armazéns de uma fortaleza dividindo a área entre eles, contanto que você possa andar em cada área contígua enquanto estiver conjurando a magia. Quando você conjura essa magia, você pode especificar indivíduos que não serão afetados por qualquer dos efeitos que você escolher. Você também pode especificar uma senha que, ao ser falada em voz alta, deixa o orador imune aos efeitos. Proteger fortaleza cria dentro da área protegida os efeitos descritos abaixo. A área protegida inteira irradia magia. Uma dissipar magia conjurada em uma área especifica, se for bem sucedida, remove apenas aquele efeito. Você pode criar uma estrutura, permanentemente, afetada por proteger fortaleza ao conjurar essa magia nela a cada dia por um ano.",
+    "effects": [
+        {
+            "type": "Corredores",
+            "description": "Névoa preenche todos os corredores protegidos, tornando-os área de escuridão densa. Há 50% de chance de criaturas diferentes do conjurador acreditarem estar indo na direção oposta à escolhida em cada interseção ou passagem."
+        },
+        {
+            "type": "Portas",
+            "description": "Todas as portas na área protegida são magicamente trancadas, como pela magia tranca arcana. Até dez portas podem ser cobertas com uma ilusão para parecerem partes da parede."
+        },
+        {
+            "type": "Escadas",
+            "description": "Teias preenchem todas as escadas na área protegida, como a magia teia. As teias se regeneram em 10 minutos se forem queimadas ou partidas enquanto a magia durar."
+        },
+        {
+            "type": "Outros Efeitos de Magia",
+            "description": "Você pode escolher um dos seguintes efeitos mágicos adicionais na área protegida: Colocar globos de luz em quatro corredores (Você pode designar uma programação simples que as luzes repetem enquanto proteger fortaleza durar), Colocar boca encantada em duas localizações, Colocar névoa fétida em duas localizações (Os vapores aparecem nos locais que você designar; eles retornam dentro de 10 minutos, se forem dispersados por um vento, enquanto proteger fortaleza durar), Colocar uma lufada de vento constante em um corredor ou aposento ou Colocar uma sugestão em uma localização (Você seleciona uma área de um quadrado de 1,5 metro e, qualquer criatura que entrar ou passar através dessa área recebe a sugestão mentalmente)."
+        }
+    ]
+  },
+  {
+    "name": "Purificar Alimentos",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 273,
+    "level": 1,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "3 metros",
+    "components": "V, S",
+    "ritual": true,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Toda comida e bebida não-mágica dentro de uma esfera de 1,5 metro de raio centrada num ponto, à sua escolha, dentro do alcance é purificada e se livrada de venenos ou doenças."
+  },
+  {
+    "name": "Queda Suave",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 273,
+    "level": 1,
+    "school": "Transmutação",
+    "casting_time": "1 reação, que você realiza quando você ou uma criatura a até 18 metros cair",
+    "range": "18 metros",
+    "components": "V, M (uma pequena pena ou penugem similar)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "1 minuto",
+    "description": "Escolha até cinco criaturas caindo, dentro do alcance. A taxa de descendência de uma criatura caindo é reduzida para 18 metros por rodada, até o fim da magia. Se a criatura aterrissar antes da magia acabar, ela não sofre nenhum dano de queda, pode aterrissar em pé e a magia termina para essa criatura."
+  },
+  {
+    "name": "Raio Adoecente",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 273,
+    "level": 1,
+    "school": "Necromancia",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Um raio adoecente de energia esverdeada chicoteia na direção de uma criatura dentro do alcance. Faça um ataque à distância com magia contra o alvo. Se atingir, o alvo sofrerá 2d8 de dano de veneno e deve realizar um teste de resistência de Constituição. Se falhar na resistência, ele também ficará envenenado até o final do seu próximo turno. Metamorfos não são afetados.",
+    "higher_levels": "Quando conjurada usando um espaço de magia de 2° nível ou superior, o dano aumenta em 1d8 para cada nível do espaço acima do 1°."
+  },
+  {
+    "name": "Raio Ardente",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 273,
+    "level": 2,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "36 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Você cria três raios de fogo e os arremessa em alvos dentro do alcance. Você pode arremessa-los em um alvo ou em vários. Realize um ataque à distância com magia para cada raio. Se atingir, o alvo sofrerá 2d6 de dano de fogo.",
+    "higher_levels": "Quando conjurada usando um espaço de magia de 3° nível ou superior, você cria um raio adicional para cada nível do espaço acima do 2°."
+  },
+  {
+    "name": "Raio de Bruxa",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 273,
+    "level": 1,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, S, M (um galho de uma árvore que tenha sido atingida por um relâmpago)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Um raio crepitante de energia azul é arremessado em uma criatura dentro do alcance, formando um arco elétrico contínuo entre você e o alvo. Faça um ataque à distância com magia contra a criatura. Se atingir, o alvo sofrerá 1d12 de dano elétrico e, em cada um dos seus turnos, pela duração, você pode usar sua ação para causar 1d12 de dano elétrico ao alvo, automaticamente. A magia acaba se você usar sua ação para fazer qualquer outra coisa. A magia também acaba se o alvo estiver fora do alcance da magia ou se você tiver cobertura total para ele. Metamorfos não são afetados.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 2° nível ou superior, o dano inicial aumenta em 1d12 para cada nível do espaço acima do 1°."
+  },
+  {
+    "name": "Raio de Fogo",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 274,
+    "level": 0,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "36 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Você arremessa um cisco de fogo em uma criatura ou objeto dentro do alcance. Faça um ataque à distância com magia contra o alvo. Se atingir, o alvo sofre 1d10 de dano de fogo. Um objeto inflamável atingido por essa magia, incendeia se não estiver sendo vestido ou carregado. Metamorfos não são afetados. O dano dessa magia aumenta em 1d10 quando você alcança o 5° nível (2d10), 11° nível (3d10) e 17° nível (4d10)."
+  },
+  {
+    "name": "Raio de Gelo",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 274,
+    "level": 0,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Um raio frigido de luz azul clara parte em direção de uma criatura, dentro do alcance. Realize um ataque à distância com magia contra o alvo. Se atingir, ele sofre 1d8 de dano de frio e seu deslocamento é reduzido em 3 metros até o começo do seu próximo turno. Metamorfos não são afetados. O dano da magia aumenta em 1d8 quando você alcança o 5° nível (2d8), 11° nível (3d8) e 17° nível (4d8)."
+  },
+  {
+    "name": "Raio do Enfraquecimento",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 274,
+    "level": 2,
+    "school": "Necromancia",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Um raio negro de energia enervante parte do seu dedo em direção a uma criatura, dentro do alcance. Faça um ataque à distância com magia contra o alvo. Se atingir, o alvo causará metade do dano com ataques com armas que usem Força, até a magia acabar. No final de cada um dos turnos do alvo, ele pode realizar um teste de resistência de Constituição contra a magia. Se obtiver sucesso, a magia acaba."
+  },
+  {
+    "name": "Raio Guiador",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 274,
+    "level": 1,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "36 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "1 rodada",
+    "description": "Um lampejo de luz se lança em direção de uma criatura, à sua escolha, dentro do alcance. Realize um ataque à distância com magia contra o alvo. Se atingir, o alvo sofre 4d6 de dano radiante e, a próxima jogada de ataque contra esse alvo, antes do final do seu próximo turno, terá vantagem, graças a penumbra mística cintilando no alvo, até então. Metamorfos não são afetados.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 2° nível ou superior, o dano aumenta em 1d6 para cada nível do espaço acima do 1°."
+  },
+  {
+    "name": "Raio Lunar",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 275,
+    "level": 2,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "36 metros",
+    "components": "V, S, M (várias sementes de qualquer planta lunar e um pedaço de feldspato opalescente)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Um raio prateado de luz pálida brilha para baixo em um cilindro com 1,5 metro de raio e 12 metros de altura, centrado num ponto dentro do alcance. Até a magia acabar, penumbra preenche o cilindro. Quando uma criatura entrar na área da magia pela primeira vez em um turno, ou começar seu turno lá, ela é engolfada por chamas fantasmagóricas que causam dores lancinantes e ela deve realizar um teste de resistência de Constituição. Ela sofre 2d10 de dano radiante se falhar na resistência ou metade desse dano se passar. Um metamorfo faz seu teste de resistência com desvantagem. Se ele falhar, ele, também, reverte instantaneamente para sua forma original e não pode assumir uma forma diferente até deixar a luz da magia. Em cada um dos seus turnos após conjurar essa magia, você pode usar uma ação para mover o raio até 18 metros em qualquer direção. Metamorfos não são afetados.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 3° nível ou superior, o dano aumenta em 1d10 para cada nível do espaço acima do 2°."
+  },
+  {
+    "name": "Raio Solar",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 275,
+    "level": 6,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "Pessoal (linha de 18 metros)",
+    "components": "V, S, M (uma lente de aumento)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Um raio de luz brilhante surge da sua mão em uma linha de 18 metros de comprimento por 1,5 metro de largura. Cada criatura na linha deve realizar um teste de resistência de Constituição. Se falhar na resistência, uma criatura sofrerá 6d8 de dano radiante e ficará cega até seu próximo turno. Se passar na resistência, ela sofrerá metade desse dano e não ficará cega pela magia. Mortos-vivos e limos têm desvantagem nos seus testes de resistência. Você pode criar uma linha de radiação com sua ação em qualquer turno, até a magia acabar. Pela duração, uma fagulha de radiação luminosa brilha na sua mão. Ela emite luz plena num raio de 9 metros e penumbra por 9 metros adicionais. Essa luz é luz do sol.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 7° nível ou superior, o dano aumenta em 1d8 para cada nível do espaço acima do 6°."
+  },
+  {
+    "name": "Rajada de Veneno",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 275,
+    "level": 0,
+    "school": "Conjuração",
+    "casting_time": "1 ação",
+    "range": "3 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Você ergue sua mão em direção de uma criatura que você possa ver, dentro do alcance e projeta um sopro de gás tóxico da sua palma. A criatura deve ser bem sucedida num teste de resistência de Constituição ou sofrerá 1d12 de dano de veneno. O dano dessa magia aumenta em 1d12 quando você alcança o 5° nível (2d12), 11° nível (3d12) e 17° nível (4d12)."
+  },
+  {
+    "name": "Rajada Mística",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 275,
+    "level": 0,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "36 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Um feixe de energia crepitante vai em direção a uma criatura dentro do alcance. Realize uma jogada de ataque à distância com magia contra o alvo. Se atingir, o alvo sofre 1d10 de dano de energia. A magia cria mais de um feixe quando você alcança níveis elevados: dois feixes no 5° nível, três feixes no 11° nível e quatro feixes no 17° nível. Você pode direcionar os feixes para o mesmo alvo ou para alvos diferentes. Realize jogadas de ataque separadas para cada feixe."
+  },
+  {
+    "name": "Rajada Prismática",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 275,
+    "level": 7,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "Pessoal (cone de 18 metros)",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Oito raios de luz multicoloridos lampejam da sua mão. Cada raio é uma cor diferente e tem poderes e propósitos diferentes. Cada criatura em um cone de 18 metros deve realizar um teste de resistência de Destreza. Para cada alvo, role um d8 para determinar qual cor de raio afetou ele.",
+    "effects": [
+        {
+            "color": "Vermelho",
+            "damage": "10d6 de dano de fogo",
+            "save": "Metade do dano em caso de sucesso."
+        },
+        {
+            "color": "Laranja",
+            "damage": "10d6 de dano de ácido",
+            "save": "Metade do dano em caso de sucesso."
+        },
+        {
+            "color": "Amarelo",
+            "damage": "10d6 de dano elétrico",
+            "save": "Metade do dano em caso de sucesso."
+        },
+        {
+            "color": "Verde",
+            "damage": "10d6 de dano de veneno",
+            "save": "Metade do dano em caso de sucesso."
+        },
+        {
+            "color": "Azul",
+            "damage": "10d6 de dano de frio",
+            "save": "Metade do dano em caso de sucesso."
+        },
+        {
+            "color": "Anil",
+            "effect": "Se falhar na resistência, o alvo ficará impedido e deve fazer um teste de resistência de Constituição a cada um dos seus turnos.",
+            "condition": "Se falhar três vezes, a criatura é petrificada."
+        },
+        {
+            "color": "Violeta",
+            "effect": "Se falhar na resistência, o alvo ficará cego e deve realizar um teste de resistência de Sabedoria no início do seu próximo turno.",
+            "consequence": "Se falhar, a criatura é transportada para outro plano de existência."
+        },
+        {
+            "color": "Especial",
+            "effect": "O alvo é atingido por dois raios. Role mais duas vezes e jogue novamente qualquer 8."
+        }
+    ]
+  },
+  {
+    "name": "Recipiente Arcano",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 277,
+    "level": 6,
+    "school": "Necromancia",
+    "casting_time": "1 minuto",
+    "range": "Pessoal",
+    "components": "V, S, M (uma gema, cristal, relicário ou algum outro tipo de recipiente ornamental valendo, no mínimo, 500 po)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Até ser dissipada",
+    "description": "Seu corpo entra em um estado catatônico, enquanto sua alma o abandona e entra num recipiente que você usa como componente material da magia. Enquanto sua alma permanecer no recipiente, você estará ciente do seu entorno como se você estivesse no espaço do recipiente. Você não pode se mover ou usar reações. A única ação que você pode realizar é projetar sua alma a até 30 metros do recipiente, tanto para retornar para o seu corpo (terminando a magia) ou para tentar possuir um corpo humanoide. Você pode tentar possuir qualquer humanoide a até 30 metros de você que você possa ver (criaturas protegidas pelas magias proteção contra o bem e mal ou círculo mágico não podem ser possuídas). O alvo deve realizar um teste de resistência de Carisma. Se falhar, sua alma se move para o corpo do alvo e a alma do alvo fica aprisionada no recipiente. Se obtiver sucesso, o alvo resiste aos seus esforços em possuí-lo e você não poderá tentar possuí-lo novamente por 24 horas. Uma vez que tenha possuído o corpo de uma criatura, você a controla. Suas estatísticas de jogo são substituídas pelas estatísticas da criatura, no entanto, você mantem sua tendência e seus valores de Inteligência, Sabedoria e Carisma. Você mantem os benefícios das suas características de classe. Se o alvo tiver quaisquer níveis de classe, você não pode usar quaisquer das características de classe dele. Nesse período, a alma da criatura possuída pode perceber do recipiente usando os sentidos dela, mas, no mais, não pode se mover ou realizar quaisquer ações. Enquanto estiver possuindo um corpo, você pode usar sua ação para retornar do corpo do hospedeiro para o recipiente se ele estiver a até 30 metros de você, devolvendo a alma da criatura hospedeira para o corpo dela. Se o corpo do hospedeiro morrer enquanto você estiver dentro dele, a criatura morre e você deve realizar um teste de resistência de Carisma contra a sua CD de conjuração. Se obtiver sucesso, você retorna ao recipiente se ele estiver a até 30 metros de você. Caso contrário, você morre. Se o recipiente for destruído ou a magia acabar, sua alma, imediatamente, retorna para o seu corpo. Se seu corpo estiver a mais de 30 metros de você ou se seu corpo estiver morto quando você tentar retornar para ele, você morre. Se a alma de outra criatura estiver no recipiente quando ele for destruído, a alma da criatura volta para o corpo dela se o corpo estiver vivo e a até 30 metros dela. Caso contrário, a criatura morre. Quando a magia acabar, o recipiente é destruído."
+  },
+  {
+    "name": "Recuo Acelerado",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 277,
+    "level": 1,
+    "school": "Transmutação",
+    "casting_time": "1 ação bônus",
+    "range": "Pessoal",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 10 minutos",
+    "description": "Essa magia permite que você se mova a um ritmo incrível. Quando você conjura essa magia e, a partir de então, com uma ação bônus em cada um dos seus turnos, até a magia acabar, você pode realizar a ação de Disparada."
+  },
+  {
+    "name": "Reencarnação",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 277,
+    "level": 5,
+    "school": "Transmutação",
+    "casting_time": "1 hora",
+    "range": "Toque",
+    "components": "V, S, M (óleos e unguentos raros valendo, no mínimo, 1.000 po, consumidos pela magia)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Você toca um humanoide morto ou um pedaço de um humanoide morto. Considerando que a criatura não esteja morta a mais de 10 dias, a magia forma um novo corpo adulto para ele e então, chama a alma para entrar no corpo. Se a alma do alvo não estiver livre ou deseje fazê-lo, a magia falha. A magia forma um novo corpo para que a criatura habite, o que, provavelmente, fará com que a raça da criatura mude. O Mestre rola um d100 e consulta a tabela seguinte para determinar qual forma a criatura terá quando voltar à vida, ou o Mestre pode escolher uma forma. A criatura reencarnada lembra-se da sua vida e experiências anteriores. Ela mantém as capacidades que a sua forma original tinha, exceto por trocar sua raça original pela nova e mudar suas características raciais adequadamente.",
+    "statistics": [{
+      "type:": "",
+      "data": [
+        { 
+          "d100": "01-04",
+          "Raça": "Draconato"
+        },
+        {
+          "d100": "05-13",
+          "Raça": "Anão, colina"
+        },
+        {
+          "d100": "14-21",
+          "Raça": "Anão, montanha"
+        },
+        {
+          "d100": "22-25",
+          "Raça": "Elfo, negro"
+        },
+        {
+          "d100": "26-34",
+          "Raça": "Elfo, alto"
+        },
+        {
+          "d100": "35-42",
+          "Raça": "Elfo, floresta"
+        },
+        {
+          "d100": "43-46",
+          "Raça": "Gnomo, floresta"
+        },
+        {
+          "d100": "47-52",
+          "Raça": "Gnomo, rochas"
+        },
+        {
+          "d100": "53-56",
+          "Raça": "Meio-elfo"
+        },
+        {
+          "d100": "57-60",
+          "Raça": "Meio-orc"
+        },
+        {
+          "d100": "61-68",
+          "Raça": "Halfling, pés leves"
+        },
+        {
+          "d100": "69-76",
+          "Raça": "Halfling, robusto"
+        },
+        {
+          "d100": "77-96",
+          "Raça": "Humano"
+        },
+        {
+          "d100": "97-00",
+          "Raça": "Tiefling"
+        }
+      ]
+    }]
+  },
+  {
+    "name": "Reflexos",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 277,
+    "level": 2,
+    "school": "Ilusão",
+    "casting_time": "1 ação",
+    "range": "Pessoal",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "1 minuto",
+    "description": "Três duplicatas ilusórias de você aparecem no seu espaço. Até a magia acabar, as duplicatas se movem com você e copiam as suas ações, trocando de posição, tornando impossível rastrear qual imagem é real. Você pode usar sua ação para dissipar as duplicatas ilusórias. Cada vez que uma criatura mirar você com um ataque enquanto a magia durar, role um d20 para determinar se o ataque, em vez de você, mira uma das suas duplicatas. Se você tiver três duplicatas, você deve rolar um 6 ou maior para mudar o alvo do ataque para uma duplicata. Com duas duplicatas, você deve rolar um 8 ou maior. Com uma duplicata, você deve rolar um 11 ou maior. A CA de uma duplicata é igual a 10 + seu modificador de Destreza. Se um ataque atingir uma duplicata, ela é destruída. Uma duplicata só pode ser destruída por um ataque que a atinja. Ela ignora todos os outros danos e efeitos. A magia acaba quando todas as três duplicatas forem destruídas. Uma criatura não pode ser afetada por essa magia se não puder enxergar, se ela contar com outros sentidos além da visão, como percepção às cegas, ou se ela puder perceber ilusões como falsas, como com visão verdadeira."
+  },
+  {
+    "name": "Regeneração",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 278,
+    "level": 7,
+    "school": "Transmutação",
+    "casting_time": "1 minuto",
+    "range": "Toque",
+    "components": "V, S, M (uma conta de oração e água benta)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "1 hora",
+    "description": "Você toca uma criatura e estimula sua habilidade de cura natural. O alvo recupera 4d8 + 15 pontos de vida. Pela duração da magia, o alvo recupera 1 ponto de vida no início de cada turno dela (10 pontos de vida por minuto). Os membros decepados do corpo do alvo (dedos, pernas, rabos e assim por diante), se tiver algum, são restaurados após 2 minutos. Se você tiver a parte decepada e segurá-la contra o toco, a magia instantaneamente faz com que o membro se grude ao toco."
+  },
+  {
+    "name": "Relâmpago",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 278,
+    "level": 3,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "Pessoal (linha de 30 metros)",
+    "components": "V, S, M (um pouco de pelo e uma haste de âmbar, cristal ou vidro)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Um relâmpago forma uma linha de 30 metros de comprimento e 1,5 metro de largura que é disparado por você em uma direção, à sua escolha. Cada criatura na linha deve realizar um teste de resistência de Destreza. Uma criatura sofre 8d6 de dano elétrico se falhar na resistência ou metade desse dano se obtiver sucesso. O relâmpago incendeia objetos inflamáveis na área que não estejam sendo vestidos ou carregados.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 4° nível ou superior, o dano aumenta em 1d6 para cada nível do espaço acima do 3°."
+  },
+  {
+    "name": "Remover Maldição",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 278,
+    "level": 3,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Ao seu toque, todas as maldições afetando uma criatura ou objeto terminam. Se o objeto for um item mágico amaldiçoado, sua maldição persiste, mas a magia rompe a sintonia do portador com o objeto, então permitindo que ele o remova ou descarte."
+  },
+  {
+    "name": "Repouso Tranquilo",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 278,
+    "level": 2,
+    "school": "Necromancia",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (uma pitada de sal e uma peça de cobre colocada em cada um dos olhos do corpo, que devem permanecer ai pela duração)",
+    "ritual": true,
+    "concentration": false,
+    "duration": "10 dias",
+    "description": "Você toca um corpo ou outros restos mortais. Pela duração, o alvo estará protegido de decomposição e não pode se tornar um morto-vivo. A magia também estende, efetivamente, o limite de tempo para que o alvo seja trazido de volta a vida, já que os dias passados sob a influência dessa magia não contam no tempo limite de tais magias, como reviver os mortos."
+  },
+  {
+    "name": "Repreensão Infernal",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 278,
+    "level": 1,
+    "school": "Evocação",
+    "casting_time": "1 reação, que você faz em resposta ao sofre dano de uma criatura a até 18 metros de você e que você possa ver",
+    "range": "18 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Você aponta seu dedo e a criatura que causou dano a você é, momentaneamente, envolta por chamas infernais. A criatura deve realizar um teste de resistência de Destreza. Ela sofre 2d10 de dano de fogo se falhar na resistência ou metade desse dano se obtiver sucesso.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 2° nível ou superior, o dano aumenta em 1d10 para cada nível do espaço acima do 1°."
+  },
+  {
+    "name": "Resistência",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 278,
+    "level": 0,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (um manto em miniatura)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Você toca uma criatura voluntária. Uma vez, antes da magia acabar, o alvo pode rolar um d4 e adicionar o valor jogado a um teste de resistência de sua escolha. Ele pode rolar o dado antes ou depois de realizar o teste de resistência. Então, a magia termina."
+  },
+  {
+    "name": "Respirar na Água",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 278,
+    "level": 3,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, S, M (um pedaço de cana ou palha)",
+    "duration": "24 horas",
+    "ritual": true,
+    "concentration": false,
+    "description": "Essa magia concede a até dez criaturas voluntárias que você possa ver, dentro do alcance, a habilidade de respirar embaixo d'água até a magia acabar. As criaturas afetadas também mantêm sua forma normal de respiração."
+  },
+  {
+    "name": "Ressurreição",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 278,
+    "level": 7,
+    "school": "Necromancia",
+    "casting_time": "1 hora",
+    "range": "Toque",
+    "components": "V, S, M (um diamante valendo, no mínimo, 1.000 po, consumido pela magia)",
+    "duration": "Instantânea",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você toca uma criatura morta que não esteja assim a mais de um século, que não tenha morrido por velhice e que não seja um morto-vivo. Se a alma da criatura estiver disposta e livre, o alvo volta à vida com todos os seus pontos de vida. Essa magia neutraliza quaisquer venenos e cura doenças normais que afetavam a criatura no momento da morte. Essa magia, no entanto, não remove doenças mágicas, maldições ou efeitos similares; se eles não tiverem sido removidos antes da conjuração da magia, eles voltam a afetar a criatura quando ela volta a viver. Essa magia fecha todos os ferimentos mortais e restaura partes do corpo perdidas. Voltar dos mortos é um calvário. O alvo sofre -4 de penalidade em todas as suas jogadas de ataque, testes de resistência e testes de habilidade. A cada vez que o alvo terminar um descanso longo, as penalidades são reduzidas em 1, até desaparecerem. Conjurar essa magia para trazer de volta à vida uma criatura que tenha morrido há um ano ou mais tempo é extremamente desgastante para você. Até você terminar um descanso longo, você não pode conjurar magias novamente e terá desvantagem em todas as jogadas de ataque, testes de habilidade e testes de resistência."
+  },
+  {
+    "name": "Ressurreição Verdadeira",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 279,
+    "level": 9,
+    "school": "Necromancia",
+    "casting_time": "1 hora",
+    "range": "Toque",
+    "components": "V, S, M (um borrifo de água benta e diamantes valendo, no mínimo, 25.000 po, consumidos pela magia)",
+    "duration": "Instantânea",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você toca uma criatura morta que não esteja assim a mais de 200 anos e que tenha morrido por qualquer motivo, exceto velhice. Se a alma da criatura estiver disposta e livre, o alvo volta à vida com todos os seus pontos de vida. Essa magia fecha todos os ferimentos, neutraliza quaisquer venenos, cura todas as doenças e suspende quaisquer maldições que afligiam a criatura quando ela morreu. A magia recupera órgãos e membros danificados ou perdidos. Se a criatura for um morto-vivo, ela é restaurada para sua forma não-morta-viva. Essa magia pode, até mesmo, prover um novo corpo, se o original não existir mais; nesse caso, você deve falar o nome da criatura. Ela aparece em um espaço desocupado, à sua escolha, a até 3 metros de você."
+  },
+  {
+    "name": "Restauração Maior",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 272,
+    "level": 5,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (pó de diamante valendo, no mínimo, 100 po, consumido pela magia)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Você imbui uma criatura que você toca com energia positiva para desfazer um efeito debilitante. Você pode reduzir a exaustão do alvo em um nível ou remover um dos seguintes do alvo:",
+    "effects": [
+      {
+        "type": "",
+        "description": "Um efeito que enfeitice ou petrifique o alvo"
+      },
+      {
+        "type": "",
+        "description": "Uma maldição, incluindo a sintonização do alvo com um item mágico amaldiçoado"
+      },
+      {
+        "type": "",
+        "description": "Qualquer redução a um dos valores de habilidade do alvo"
+      },
+      {
+        "type": "",
+        "description": "Um efeito que esteja reduzindo o máximo de pontos de vida do alvo"
+      }
+    ]
+  },
+  {
+    "name": "Restauração Menor",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 279,
+    "level": 2,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S",
+    "duration": "Instantânea",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você toca uma criatura e pode acabar com uma doença ou uma condição que a esteja afligindo. A condição pode ser cega, surda, paralisada ou envenenada."
+  },
+  {
+    "name": "Reviver os Mortos",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 279,
+    "level": 5,
+    "school": "Necromancia",
+    "casting_time": "1 hora",
+    "range": "Toque",
+    "components": "V, S, M (um diamante valendo, no mínimo, 500 po, consumido pela magia)",
+    "duration": "Instantânea",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você traz uma criatura morta que você tocar de volta à vida, considerando que ela não esteja morta há mais de 10 dias. Se a alma da criatura estiver tanto disposta quanto livre para juntar-se ao corpo dela, a criatura volta à vida com 1 ponto de vida. Essa magia neutraliza quaisquer venenos e cura doenças não-mágicas que afetavam a criatura no momento da morte. A magia não pode trazer uma criatura morta-viva de volta à vida. A magia fecha todos os ferimentos mortais, mas não restaura partes do corpo perdidas. Se a criatura não tiver uma parte do corpo ou órgão fundamental para sua sobrevivência, a magia falha automaticamente."
+  },
+  {
+    "name": "Revivificar",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 279,
+    "level": 3,
+    "school": "Necromancia",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (um diamante no valor de 300 po, consumido pela magia)",
+    "duration": "Instantânea",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você toca uma criatura que tenha morrido dentro do último minuto. Essa criatura volta à vida com 1 ponto de vida. Essa magia não pode trazer de volta à vida criaturas que tenham morrido de velhice nem pode restaurar quaisquer partes do corpo perdidas."
+  },
+  {
+    "name": "Riso Histérico de Tasha",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 279,
+    "level": 1,
+    "school": "Encantamento",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, S, M (pequenas tortas e uma pena que é balançada no ar)",
+    "duration": "Até 1 minuto",
+    "ritual": false,
+    "concentration": true,
+    "description": "Uma criatura, à sua escolha, que você possa ver, dentro do alcance, acha tudo hilariantemente engraçado e cai na gargalhada, se essa magia a afetar. O alvo deve ser bem-sucedido em um teste de resistência de Sabedoria ou cairá no chão, ficando incapacitado e incapaz de se levantar pela duração. Uma criatura com valor de Inteligência 4 ou inferior não é afetada. Ao final de cada um dos turnos dela e toda vez que sofrer dano, o alvo pode realizar outro teste de resistência de Sabedoria. O alvo terá vantagem no teste de resistência se ele for garantido por ter sofrido dano. Se obtiver sucesso, a magia acaba."
+  },
+  {
+    "name": "Rogar Maldição",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 279,
+    "level": 3,
+    "school": "Necromancia",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Você toca uma criatura e a criatura deve ser bem sucedida em um teste de resistência de Sabedoria ou será amaldiçoada pela duração da magia. Quando você conjura essa magia, escolha a natureza da maldição dentre as opções abaixo. Uma magia remover maldição termina esse efeito. Com a permissão do Mestre, você pode escolher um efeito alternativo de maldição, mas ele não deve ser mais poderoso que os descritos acima. O Mestre tem a palavra final sobre o efeito de uma maldição. Em Níveis Superiores. Se você conjurar essa magia usando um espaço de magia de 4° nível, a duração da concentração sobe para 10 minutos. Se você usar um espaço de magia de 5° ou 6° nível, a duração será de 8 horas. Se você usar um espaço de magia de 7° ou 8° nível, a duração será de 24 horas. Se você usar um espaço de magia de 9° nível, a magia dura até ser dissipada. Usar um espaço de magia de 5° nível ou superior faz com que a duração não necessite de concentração.",
+    "effects": [
+      {
+        "type": "",
+        "description": "Escolha um valor de habilidade. Enquanto amaldiçoado, o alvo tem desvantagem em testes de habilidade e testes de resistência feitos com esse valor de habilidade."
+      },
+      {
+        "type": "",
+        "description": "Enquanto amaldiçoado, o alvo tem desvantagem nas jogadas de ataque contra você."
+      },
+      {
+        "type": "",
+        "description": "Enquanto amaldiçoado, o alvo deve realizar um teste de resistência de Sabedoria no começo de cada um dos turnos dela. Se ela falhar, ela perderá sua ação aquele turno, não fazendo nada."
+      },
+      {
+        "type": "",
+        "description": "Enquanto o alvo estiver amaldiçoado, seus ataques e magias causam 1d8 de dano necrótico extra a ele."
+      }
+    ]
+  },
+  {
+    "name": "Salto",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 280,
+    "level": 1,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (uma perna de gafanhoto)",
+    "duration": "1 minuto",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você toca uma criatura. A distância de salto da criatura é triplicada até a magia acabar."
+  },
+  {
+    "name": "Santuário",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 280,
+    "level": 1,
+    "school": "Abjuração",
+    "casting_time": "1 ação bônus",
+    "range": "9 metros",
+    "components": "V, S, M (um pequeno espelho de prata)",
+    "duration": "1 minuto",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você protege uma criatura, dentro do alcance, contra ataques. Até a magia acabar, qualquer criatura que tentar atacar ou usar magias que causem dano contra a criatura protegida deve, primeiro, realizar um teste de resistência de Sabedoria. Se falhar na resistência, a criatura deve escolher um novo alvo ou perderá o ataque ou magia. Essa magia não protege a criatura contra efeitos de área, como a explosão de uma bola de fogo. Se a criatura protegida realizar um ataque ou conjurar uma magia que afete uma criatura inimiga, essa magia acaba."
+  },
+  {
+    "name": "Santuário Particular de Mordenkainen",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 280,
+    "level": 4,
+    "school": "Abjuração",
+    "casting_time": "10 minutos",
+    "range": "36 metros",
+    "components": "V, S, M (uma folha de chumbo, um pedaço de vidro opaco, um chumaço de algodão ou pano e pó de crisólita)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "24 horas",
+    "description": "Você deixa uma área, dentro do alcance, magicamente segura. A área é um cubo que pode ser tão pequeno quanto 1,5 metro ou tão grande quanto 30 metros de cada lado. A magia permanece pela duração ou até você usar uma ação para dissipá-la. Conjurar essa magia no mesmo lugar, a cada dia, por um ano, torna o efeito permanente. Quando você conjura essa magia, você decide que tipo de segurança ela fornecerá, escolhendo qualquer ou todas as propriedades a seguir:",
+    "effects": [
+      {
+        "type": "",
+        "description": "Sons não podem atravessar a barreira na fronteira da área protegida."
+      },
+      {
+        "type": "",
+        "description": "A barreira da área protegida escura e nebulosa, impedindo visão (inclusive visão no escuro) através dela."
+      },
+      {
+        "type": "",
+        "description": "Sensores criados por magia de adivinhação não podem aparecer dentro da área protegida ou atravessar a barreira no perímetro."
+      },
+      {
+        "type": "",
+        "description": "As criaturas na área não podem ser alvo de magias de adivinhação."
+      },
+      {
+        "type": "",
+        "description": "Nada pode se teletransportar para dentro ou para fora da área protegida."
+      },
+      {
+        "type": "",
+        "description": "Viagem planar está bloqueada para dentro da área protegida."
+      }
+    ],
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 5° nível ou superior, você pode aumentar o tamanho do cubo em 30 metros de cada lado para cada nível do espaço acima do 4°. Então, você poderia proteger um cubo de até 60 metros de lado usando um espaço de magia de 5° nível."
+  },
+  {
+    "name": "Saraivada de Espinhos",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 280,
+    "level": 1,
+    "school": "Conjuração",
+    "casting_time": "1 ação bônus",
+    "range": "Pessoal",
+    "components": "V",
+    "duration": "Até 1 minuto",
+    "ritual": false,
+    "concentration": true,
+    "description": "Da próxima vez que você atingir uma criatura com um ataque à distância com arma, antes da magia acabar, essa magia cria uma chuva de espinhos que brota da sua arma à distância ou munição. Além do efeito normal do ataque, o alvo do ataque e cada criatura a até 1,5 metro dele devem realizar um teste de resistência de Destreza. Uma criatura sofre 1d10 de dano perfurante se falhar na resistência ou metade desse dano se obtiver sucesso.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 2° nível ou superior, o dano aumenta em 1d10 para cada nível do espaço acima do 1° (até o máximo de 6d10)."
+  },
+  {
+    "name": "Semiplano",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 280,
+    "level": 8,
+    "school": "Conjuração",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V",
+    "duration": "1 hora",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você cria uma porta umbral em uma superfície sólida e lisa que você possa ver, dentro do alcance. A porta é grande o suficiente para permitir a passagem de criaturas Médias sem dificuldade. Quando aberta, a porta levará a um semiplano que parece uma sala vazia de 9 metros quadrados de dimensão, feita de madeira ou pedra. Quando a magia termina, a porta desaparece e qualquer criatura ou objeto dentro do semiplano permanecerá preso lá, à medida que a porta desaparece do outro lado. Cada vez que você conjura essa magia, você pode criar um novo semiplano ou fazer a porta umbral se conectar a um semiplano que você tenha criado em uma conjuração anterior dessa magia. Além disso, se você conhecer a natureza e conteúdo do semiplano criado através da conjuração dessa magia por outra criatura, você pode fazer com que a porta umbral se conecte a esse semiplano."
+  },
+  {
+    "name": "Sentido Bestial",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 281,
+    "level": 2,
+    "school": "Adivinhação",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "S",
+    "duration": "Até 1 hora",
+    "ritual": true,
+    "concentration": true,
+    "description": "Você toca uma besta voluntária. Pela duração da magia, você pode usar sua ação para ver através dos olhos e ouvir através dos ouvidos da besta e continua a fazê-lo até você usar sua ação para retornar aos seus sentidos normais. Enquanto estiver utilizando os sentidos da besta, você ganha os benefícios de qualquer sentido especial possuído pela criatura, no entanto, você estará cego e surdo em relação aos seus próprios sentidos."
+  },
+  {
+    "name": "Servo Invisível",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 281,
+    "level": 1,
+    "school": "Conjuração",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V, S, M (um pedaço de barbante e um pouco de madeira)",
+    "duration": "1 hora",
+    "ritual": true,
+    "concentration": false,
+    "description": "Essa magia cria uma força invisível, sem mente e sem forma que realiza tarefas simples, ao seu comando, até a magia acabar. O servo aparece do nada em um espaço desocupado no chão, dentro do alcance. Ele tem CA 10, 1 ponto de vida, Força 2 e não pode atacar. Se ele cair a 0 pontos de vida, a magia acaba. Uma vez em cada um dos seus turnos, com uma ação bônus, você pode comandar, mentalmente, o servo para se mover até 4,5 metros e interagir com um objeto. O servo pode realizar tarefas simples que um serviçal humano faria, como buscar coisas, limpar, consertar, dobrar roupas, acender chamas, servir comida ou derramar vinho. Uma vez que um comando seja dado, o servo realiza a tarefa da melhor forma possível, até completar a tarefa, então esperará o seu próximo comando. Se você comandar o servo a realizar uma tarefa que poderia afastá-lo a mais de 18 metros de você, a magia termina."
+  },
+  {
+    "name": "Sexto Sentido",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 281,
+    "level": 9,
+    "school": "Adivinhação",
+    "casting_time": "1 minuto",
+    "range": "Toque",
+    "components": "V, S, M (uma pena de colibri)",
+    "duration": "8 horas",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você toca uma criatura voluntária e a abençoa com uma habilidade limitada de ver o futuro iminente. Pela duração, o alvo não pode ser surpreendido e tem vantagem nas jogadas de ataque, testes de habilidade e testes de resistência. Além disso, outras criaturas têm desvantagem nas jogadas de ataque contra o alvo, pela duração. Essa magia termina imediatamente se você conjurá-la novamente antes da duração acabar."
+  },
+  {
+    "name": "Silêncio",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 281,
+    "level": 2,
+    "school": "Ilusão",
+    "casting_time": "1 ação",
+    "range": "36 metros",
+    "components": "V, S",
+    "duration": "Até 10 minutos",
+    "ritual": true,
+    "concentration": true,
+    "description": "Pela duração, nenhum som pode ser criado dentro ou atravessar uma esfera de 6 metros de raio centrada num ponto, à sua escolha, dentro do alcance. Qualquer criatura ou objeto totalmente dentro da esfera é imune a dano trovejante e as criaturas estarão surdas enquanto estiverem completamente dentro dela. Conjurar magias que incluam a componente verbal é impossível aí."
+  },
+  {
+    "name": "Símbolo",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 281,
+    "level": 7,
+    "school": "Abjuração",
+    "casting_time": "1 minuto",
+    "range": "Toque",
+    "components": "V, S, M (mercúrio, fósforo e pó de diamante e opala, com um valor total de, no mínimo, 1.000 po, consumidos pela magia)",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Até ser dissipada ou ativada",
+    "description": "Quando você conjura essa magia, você inscreve um glifo nocivo, tanto sobre uma superfície (como uma secção de piso, uma parede ou mesa) quanto dentro de um objeto que possa ser fechado (como um livro, um pergaminho ou um baú de tesouro). Se você escolher uma superfície, o glifo pode cobrir uma área da superfície não superior a 3 metros de diâmetro. Se você escolher um objeto, o objeto deve permanecer no seu local; se ele for movido mais de 3 metros de onde você conjurou essa magia, o glifo será quebrado e a magia termina sem ser ativada. O glifo é quase invisível e requer um teste de Inteligência (Investigação) contra a CD da magia para ser encontrado. Você define o que ativa o glifo quando você conjura a magia. Para glifos inscritos em uma superfície, os gatilhos mais típicos incluem tocar ou ficar sobre o glifo, remover outro objeto cobrindo o glifo, aproximar-se a uma certa distância do glifo ou manipular um objeto onde o glifo esteja inscrito. Para glifos inscritos dentro de objetos, os gatilhos mais comuns incluem abrir o objeto, aproximarse a uma certa distância do objeto ou ver ou ler o glifo. Você pode posteriormente, aperfeiçoar o gatilho para que a magia se ative apenas sob certas circunstâncias ou de acordo com as características físicas (como altura ou peso), tipo de criatura (por exemplo, a proteção poderia ser definida para afetar aberrações ou drow) ou tendência. Você pode, também, definir condições para criaturas não ativarem o glifo, como aqueles que falarem determinada senha. Quando você inscreve o glifo, escolha uma das opções abaixo para seu efeito. Uma vez ativado, o glifo brilha, preenchendo uma esfera de 18 metros de raio com penumbra por 10 minutos, após esse tempo, a magia termina. Cada criatura na esfera, quando o glifo é ativado, é afetada por seu efeito, assim como uma criatura que entrar na esfera a primeira vez num turno ou termina seu turno nela.",
+    "effects": [
+      {
+        "type": "Atordoamento",
+        "description": "Cada alvo deve realizar um teste de resistência de Sabedoria e ficará atordoada por 1 minuto se falhar na resistência."
+      },
+      {
+        "type": "Desespero",
+        "description": "Cada alvo deve realizar um teste de resistência de Carisma. Com uma falha na resistência, o alvo será consumido pelo desespero por 1 minuto. Durante esse período, ele não poderá atacar ou afetar qualquer criatura com habilidades, magias ou outros efeitos mágicos nocivos."
+      },
+      {
+        "type": "Discórdia",
+        "description": "Cada alvo deve realizar um teste de resistência de Sabedoria. Com uma falha na resistência, um alvo irá brigar e discutir com outras criaturas por 1 minuto. Durante esse período, ele será incapaz de se comunicar compreensivamente e terá desvantagem nas jogadas de ataque e testes de habilidade."
+      },
+      {
+        "type": "Dor",
+        "description": "Cada alvo deve realizar um teste de resistência de Constituição e ficará incapacitada com dores excruciantes por 1 minuto se falhar na resistência."
+      },
+      {
+        "type": "Insanidade",
+        "description": "Cada alvo deve realizar um teste de resistência de Inteligência. Com uma falha na resistência, o alvo é levado à loucura por 1 minuto. Uma criatura insana não pode realizar ações, não entende o que as outras criaturas dizem, não pode ler e fala apenas coisas sem sentido. O Mestre controla seus movimentos, que serão erráticos."
+      },
+      {
+        "type": "Medo",
+        "description": "Cada alvo deve realizar um teste de resistência de Sabedoria e ficará amedrontado por 1 minuto se falhar na resistência. Enquanto estiver amedrontado, o alvo largará o que quer que esteja segurando e deve se afastar, pelo menos 9 metros do glifo em cada um dos seus turnos, se for capaz."
+      },
+      {
+        "type": "Morte",
+        "description": "Cada alvo deve realizar um teste de resistência de Constituição, sofrendo 10d10 de dano necrótico se falhar na resistência ou metade desse dano se passar na resistência."
+      },
+      {
+        "type": "Sono",
+        "description": "Cada alvo deve realizar um teste de resistência de Sabedoria e cairá inconsciente por 10 minutos se falhar na resistência. Uma criatura acorda se sofrer dano ou se alguém usar sua ação para sacudi-la e estapeá-la até ela acordar."
+      }
+    ]
+  },
+  {
+    "name": "Similaridade",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 282,
+    "level": 5,
+    "school": "Ilusão",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, S",
+    "duration": "8 horas",
+    "ritual": false,
+    "concentration": false,
+    "description": "Essa magia permite que você mude a aparência de qualquer quantidade de criaturas que você possa ver, dentro do alcance. Você dá a cada alvo que você escolheu uma nova aparência ilusória. Um alvo involuntário pode realizar um teste de resistência de Carisma; se for bem-sucedido, a magia não o afetará. A magia disfarça a aparência física, assim como roupa, armadura, armas e equipamentos. Você pode fazer com que cada criatura pareça 30 centímetros mais baixa ou alta e aparente ser magra, gorda ou entre. Você não pode mudar o tipo do seu corpo, portanto, você deve adotar uma forma que tenha a mesma disposição básica de membros. No mais, a extensão da sua ilusão cabe a você. A magia permanece pela duração, a menos que você use sua ação para dissipa-la precocemente. As mudanças criadas por essa magia não conseguem se sustentar perante uma inspeção física. Por exemplo, se você usar essa magia para adicionar um chapéu ao seu visual, objetos que passarem pelo chapéu e qualquer um que tocá-lo não sentirá nada ou sentirá sua cabeça e cabelo. Se você usar essa magia para aparentar ser mais magro do que é, a mão de alguém que a erguer para tocar em você irá esbarrar em você enquanto ainda está, aparentemente, está no ar. Uma criatura pode usar a ação dela para inspecionar um alvo e fazer um teste de Inteligência (Investigação) contra a CD da sua magia. Se for bem-sucedido, ela estará ciente de que o alvo está disfarçado."
+  },
+  {
+    "name": "Simulacro",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 282,
+    "level": 7,
+    "school": "Ilusão",
+    "casting_time": "12 horas",
+    "range": "Toque",
+    "components": "V, S, M (neve ou gelo em quantidade suficiente para fazer uma cópia em tamanho real da criatura duplicada; algum cabelo, recortes de unha ou outro pedaço do corpo da criatura, colocado dentro da neve ou gelo; e pó de rubi no valor de 1.500 po, polvilhado sobre a duplicata e consumido pela magia)",
+    "duration": "Até ser dissipada",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você modela uma duplicata ilusória de uma besta ou humanoide, dentro do alcance, durante todo o tempo de conjuração da magia. A duplicada é uma criatura, parcialmente real, formada de gelo ou neve e pode realizar ações e, no mais, ser tratada como uma criatura normal. Ela aparenta ser igual ao original, mas tem metade do máximo de pontos de vida da criatura e é formada sem qualquer equipamento. No mais, a ilusão usa todas as estatísticas da criatura que ela copiou. O simulacro é amigável a você e às criaturas que você designar. Ele obedece aos seus comandos verbais, se movendo e agindo de acordo com seus desejos, agindo no seu turno em combate. O simulacro não possui capacidade de aprender ou de se tornar mais poderoso, portanto, ele nunca subirá de nível ou ganhará outras habilidades, nem poderá recuperar espaços de magia gastos. Se o simulacro sofrer dano, você pode repara-lo em um laboratório alquímico, usando ervas e minerais raros no valor de 100 po por ponto de vida recuperado. O simulacro dura até cair a 0 pontos de vida, no momento em que ele volta a ser neve e derrete instantaneamente. Se você conjurar essa magia novamente, qualquer duplicata atualmente ativa, que você criou com essa magia, é instantaneamente destruída."
+  },
+  {
+    "name": "Sinal de Esperança",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 282,
+    "level": 3,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, S",
+    "duration": "Até 1 minuto",
+    "ritual": false,
+    "concentration": true,
+    "description": "Essa magia confere esperança e vitalidade. Escolha qualquer quantidade de criaturas dentro do alcance. Pela duração, cada alvo tem vantagem em testes de resistência de Sabedoria e testes de resistência contra a morte e recuperam o máximo de pontos de vida possível em qualquer cura."
+  },
+  {
+    "name": "Sonho",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 282,
+    "level": 5,
+    "school": "Ilusão",
+    "casting_time": "1 minuto",
+    "range": "Especial",
+    "components": "V, S, M (um punhado de areia, um pouco de tinta e uma pena de escrita arrancada de um pássaro adormecido)",
+    "duration": "8 horas",
+    "ritual": false,
+    "concentration": false,
+    "description": "Essa magia molda os sonhos de uma criatura. Escolha uma criatura que você conheça como alvo dessa magia. O alvo deve estar no mesmo plano de existência que você. Criaturas que não dormem, como elfos, não podem ser contatados por essa magia. Você, ou uma criatura voluntária que você tocar, entram em um estado de transe. Enquanto estiver me transe, o mensageiro está ciente dos seus arredores, mas não pode realizar ações ou se mover. Se o alvo estiver dormindo, o mensageiro aparece no sonho do alvo e pode conversar com o alvo enquanto ele estiver dormindo, até o limite da duração da magia. O mensageiro também pode modificar o meio ambiente do sonho, criando paisagens, objetos e outras imagens. O mensageiro pode sair do transe a qualquer momento, terminando o efeito da magia prematuramente. O alvo se lembra do sonho perfeitamente quando acorda. Se o alvo estiver acordado quando a magia for conjurada, o mensageiro saberá disso e pode, tanto terminar o transe (e a magia) quanto esperar o alvo cair no sono, no momento em que o mensageiro aparecerá nos sonhos do alvo. Você pode fazer o mensageiro parecer monstruoso e aterrorizante para o alvo. Se o fizer, o mensageiro pode enviar uma mensagem de não mais que dez palavras, então o alvo deve realizar um teste de resistência de Sabedoria. Se falhar na resistência, ecos da monstruosidade fantasmagórica criarão um pesadelo que permanecerá pela duração do sono do alvo e impede o alvo de ganhar qualquer benefício do descanso. Além disso, quando o alvo acordar, ele sofrerá 3d6 de dano psíquico. Se você tiver uma parte do corpo, mecha de cabelo, recorte de unha ou porção similar do corpo do alvo, o alvo realiza seu teste de resistência com desvantagem."
+  },
+  {
+    "name": "Sono",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 283,
+    "level": 1,
+    "school": "Encantamento",
+    "casting_time": "1 ação",
+    "range": "36 metros",
+    "components": "V, S, M (um punhado de areia fina, pétalas de rosas ou um grilo)",
+    "duration": "1 minuto",
+    "ritual": false,
+    "concentration": false,
+    "description": "Essa magia põe as criaturas num entorpecimento mágico. Jogue 5d8; o total é a quantidade de pontos de vida de criaturas afetadas pela magia. As criaturas numa área de 6 metros de raio, centrada no ponto escolhido, dentro do alcance, são afetadas em ordem ascendente dos pontos de vida atuais delas (ignorando criaturas inconscientes). Começando com as criaturas com menos pontos de vida atuais, cada criatura afetada por essa magia cai inconsciente até a magia acabar, sofrer dano ou alguém usar sua ação para sacudi-la ou esbofeteá-la até acordar. Subtraia os pontos de vida de cada criatura do total antes de seguir para a próxima criatura com menos pontos de vida atuais. Os pontos de vida atuais da criatura devem ser iguais ou menores que o valor restante para que a criatura possa ser afetada. Mortos-vivos e criaturas imunes a serem enfeitiçadas não são afetadas por essa magia.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 2º nível ou superior, jogue 2d8 adicionais para cada nível do espaço acima do 1°."
+  },
+  {
+    "name": "Sugestão",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 283,
+    "level": 2,
+    "school": "Encantamento",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V, M (uma língua de cobra e, ou um pedaço de favo de mel ou uma gota de azeite doce)",
+    "duration": "Até 8 horas",
+    "ritual": false,
+    "concentration": true,
+    "description": "Você sugere um curso de atividade (limitado a uma ou duas sentenças) e, magicamente, influencia uma criatura que você possa ver, dentro do alcance, e que possa ouvir e compreender você. Criaturas que não podem ser enfeitiçadas são imunes a esse efeito. A sugestão deve ser formulada de modo que o curso de ação soe razoável. Dizer para a criatura se esfaquear, se arremessar em uma lança, tocar fogo em si mesma ou fazer algum outro ato obviamente nocivo anulará o efeito da magia. O alvo deve realizar um teste de resistência de Sabedoria. Se falhar na resistência, ele seguirá o curso de ação que você descreveu, da melhor forma possível. O curso de ação sugerido pode continuar por toda a duração. Se a atividade sugerida puder ser completada em um tempo menor, a magia termina quando o alvo completar o que lhe foi dito para que fizesse. Você pode, também, especificar condições que irão ativar uma atividade especial pela duração. Por exemplo, você poderia sugerir a um cavaleiro que entregasse seu cavalo de guerra ao primeiro mendigo que ele encontrar. Se a condição não for satisfeita antes da magia expirar, a atividade não será concluída. Se você ou um dos seus companheiros causar dano a uma criatura afetada por essa magia, a magia termina."
+  },
+  {
+    "name": "Sugestão em Massa",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 283,
+    "level": 6,
+    "school": "Encantamento",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V, M (uma língua de cobra e, ou um pedaço de favo de mel ou uma gota de azeite doce)",
+    "duration": "24 horas",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você sugere um curso de atividade (limitado a uma ou duas sentenças) e, magicamente, influencia até doze criaturas, à sua escolha, que você possa ver dentro do alcance e que possam ouvir e compreender você. Criaturas que não podem ser enfeitiçadas são imunes a esse efeito. A sugestão deve ser formulada de modo que o curso de ação soe razoável. Dizer para a criatura se esfaquear, se arremessar em uma lança, tocar fogo em si mesma ou fazer algum outro ato obviamente nocivo anulará o efeito da magia. Cada alvo deve realizar um teste de resistência de Sabedoria. Se falhar na resistência, ele seguirá o curso de ação que você descreveu, da melhor forma possível. O curso de ação sugerido pode continuar por toda a duração. Por exemplo, você poderia sugerir a um grupo de soldados que deem todo o seu dinheiro para o primeiro mendigo que encontrarem. Se a condição não for atingida antes da magia acabar, a atividade não é realizada. Se você ou um dos seus companheiros causar dano a uma criatura afetada por essa magia, a magia termina para aquela criatura.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 7° nível, a duração será de 10 dias. Quando você usar um espaço de magia de 8° nível, a duração será de 30 dias. Quando você usar um espaço de magia de 9° nível, a duração será de 1 ano e 1 dia."
+  },
+  {
+    "name": "Sussurros Dissonantes",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 283,
+    "level": 1,
+    "school": "Encantamento",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V",
+    "duration": "Instantânea",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você sussurra uma melodia dissonante que apenas uma criatura, à sua escolha, dentro do alcance pode ouvir, causando-lhe uma terrível dor. O alvo deve realizar um teste de resistência de Sabedoria. Se falhar na resistência, ele sofrerá 3d6 de dano psíquico e deve, imediatamente, usar sua reação, se disponível, para se mover para o mais longe possível de você. A criatura não se moverá para um terreno obviamente perigoso, como uma fogueira ou abismo. Se obtiver sucesso na resistência, o alvo sofre metade do dano e não precisa se afastar de você. Uma criatura surda obtém sucesso automaticamente na sua resistência.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 2° nível ou superior, o dano aumenta em 1d6 para cada nível do espaço acima do 1°."
+  },
+  {
+    "name": "Taumaturgia",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 284,
+    "level": 0,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "9 metros",
+    "components": "V",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Até 1 minuto",
+    "description": "Você manifesta pequenas maravilhas, um sinal de poder sobrenatural, dentro do alcance. Você cria um dos seguintes efeitos mágicos dentro do alcance.",
+    "effects": [
+        {
+            "type": "Voz ressonante",
+            "description": "Sua voz ressoa com o triplo do volume normal por 1 minuto."
+        },
+        {
+            "type": "Tremores",
+            "description": "Você provoca tremores inofensivos no solo por 1 minuto."
+        },
+        {
+            "type": "Som",
+            "description": "Você cria, instantaneamente, um som que se origina de um ponto, à sua escolha, dentro do alcance, como o barulho de um trovão, o gralhar de um corvo ou sussurros sinistros."
+        },
+        {
+            "type": "Abertura/Fechamento",
+            "description": "Você, instantaneamente, faz uma porta ou janela destrancada se abrir ou se fechar."
+        },
+        {
+            "type": "Alteração da aparência",
+            "description": "Você altera a aparência dos seus olhos por 1 minuto."
+        }
+    ]
+  },
+  {
+    "name": "Teia",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 284,
+    "level": 2,
+    "school": "Conjuração",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V, S, M (um pedaço de teia de aranha)",
+    "duration": "Até 1 hora",
+    "ritual": false,
+    "concentration": true,
+    "description": "Você conjura uma massa de teias espessas e pegajosas num ponto, à sua escolha, dentro do alcance. As teias preenchem um cubo de 6 metros naquele ponto, pela duração. As teias são terreno difícil e causam escuridão leve na área delas. Se as teias não estiverem sendo suportadas por duas massas sólidas (como duas paredes ou árvores) ou em camadas sobre um chão, parede ou teto, a teia conjurada desaba sobre si mesma e a magia termina no início do seu próximo turno. As teias em camadas sobre uma superfície plana terão 1,5 metro de profundidade. Cada criatura que começar seu turno nas teias ou entrar nelas durante seu turno, deve realizar um teste de resistência de Destreza. Se falhar na resistência, a criatura estará impedida enquanto permanecer nas teias ou até se libertar. Uma criatura impedida pelas teias pode usar sua ação para realizar um teste de Força contra a CD da magia. Se obtiver sucesso, ela não estará mais impedida. As teias são inflamáveis. Qualquer cubo de 1,5 metro de teia exposto ao fogo, é consumida por ele em 1 rodada, causando 2d4 de dano de fogo a qualquer criatura que começar seu turno nas chamas."
+  },
+  {
+    "name": "Telecinesia",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 284,
+    "level": 5,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 10 minutos",
+    "description": "Você adquire a habilidade de mover ou manipular criaturas ou objetos através do pensamento. Quando você conjura a magia e, com sua ação a cada turno, pela duração, você pode exercer sua vontade sobre uma criatura ou objeto que você possa ver, dentro do alcance, causando os efeitos apropriados abaixo. Você pode afetar o mesmo alvo rodada após rodada, ou escolher um novo a qualquer momento. Se você mudar de alvos, o alvo anterior não será mais afetado pela magia.",
+    "effects": [
+        {
+            "type": "Criatura",
+            "description": "Você pode tentar mover uma criatura Enorme ou menor. Faça um teste de habilidade com sua habilidade de conjuração resistido por um teste de Força da criatura. Se você vencer a disputa, você move a criatura até 9 metros em qualquer direção, incluindo para cima, mas não além do alcance da magia. Até o final do seu próximo turno, a criatura estará impedida pelo seu agarrão telecinético. Uma criatura erguida para cima estará suspensa no ar. Em rodadas subsequentes, você pode usar sua ação para tentar manter seu agarrão telecinético na criatura repetindo o teste resistido."
+        },
+        {
+            "type": "Objeto",
+            "description": "Você pode tentar mover um objeto pesando até 500 quilos. Se o objeto não estiver sendo vestido ou carregado, você o move, automaticamente, até 9 metros em qualquer direção, mas não além do alcance dessa magia. Se o objeto estiver sendo vestido ou carregado por uma criatura, você deve realizar um teste de habilidade com sua habilidade de conjuração resistido por um teste de Força da criatura. Se você for bem-sucedido, você arranca o objeto da criatura e o move até 9 metros, em qualquer direção, mas não além do alcance dessa magia. Você pode exercer um controle refinado sobre os objetos com seu agarrão telecinético, como manipular ferramentas simples, abrir uma porta ou um recipiente, guardar ou recuperar um item de um recipiente aberto ou derramar o conteúdo de um frasco."
+        }
+    ]
+  },
+  {
+    "name": "Telepatia",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 284,
+    "level": 8,
+    "school": "Adivinhação",
+    "casting_time": "1 ação",
+    "range": "Ilimitado",
+    "components": "V, S, M (um par de anéis de prata unidos)",
+    "duration": "24 horas",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você cria uma ligação telepática entre você e uma criatura voluntária com a qual você seja familiarizado. A criatura pode estar em qualquer lugar no mesmo plano de existência que você. A magia termina se você ou o alvo não estiver mais no mesmo plano. Até a magia acabar, você e o alvo podem, instantaneamente, compartilhar palavras, imagens, sons e outras mensagens sensoriais uma com a outra através da ligação e o alvo reconhece que é você a criatura que está se comunicando com ele. A magia permite que uma criatura com valor de Inteligência mínimo de 1 compreenda o sentido das suas palavras e capta o sentido geral de qualquer mensagem sensorial que você enviar."
+  },
+  {
+    "name": "Teletransporte",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 286,
+    "level": 7,
+    "school": "Conjuração",
+    "casting_time": "1 ação",
+    "range": "3 metros",
+    "components": "V",
+    "ritual": false,
+    "concentration": false,
+    "duration": "Instantânea",
+    "description": "Essa magia, instantaneamente, transporta você e até oito criaturas voluntárias, à sua escolha, que você possa ver dentro do alcance ou um único objeto que você possa ver no alcance, para um destino que você selecionou. Se você for afetar um objeto, ele deve ser capaz de caber inteiro dentro de um cubo de 3 metros e não pode estar sendo empunhado ou carregado por uma criatura involuntária. O destino que você escolher deve ser conhecido por você e deve ser no mesmo plano de existência que você está. Sua familiaridade com o destino determina se você chegará nele com sucesso. O Mestre rola um d100 e consulta a tabela.",
+    "effects": [
+        {
+            "type": "Familiaridade",
+            "description": "“Círculo permanente” significa um círculo de teletransporte permanente o qual você conhece a sequência de selos. “Objeto associado” significa que você possui um objeto retirado do destino desejado nos últimos seis meses, como um livro da biblioteca do mago, roupa de cama de uma suíte real ou um pedaço de mármore da tumba secreta do lich. “Muito familiar” é um lugar que você já tenha ido muitas vezes, um lugar que você estudou cuidadosamente ou um local que você possa ver enquanto conjura a magia. “Visto casualmente” é algum lugar que você tenha visto mais de uma vez, mas que não seja muito familiar. “Visto uma vez” é um lugar que você só viu uma vez, possivelmente através de magia. “Descrição” é um lugar cuja localização e aparência você conhece através da descrição de outrem, talvez através de um mapa. “Destino falso” é um local que não existe. Talvez você tenha tentado espionar o santuário de um inimigo, mas, ao invés, viu uma ilusão ou você está tentando se teletransportar para um local familiar que não existe mais."
+        },
+        {
+            "type": "No Alvo",
+            "description": "Você e seu grupo (ou objeto alvo) aparecem onde você queria."
+        },
+        {
+            "type": "Fora do Alvo",
+            "description": "Você e seu grupo (ou objeto alvo) aparecem a uma distância aleatória fora do destino em uma direção aleatória. A distância do alvo é 1d10 x 1d10 por cento da distância que você viajou. Por exemplo, se você tentou viajar 180 quilômetros, mas apareceu fora do alvo e rolou um 5 e um 3 nos dois d10s, então você saiu do alvo 15 por cento ou 27 quilômetros. O Mestre determina a direção de fora do alvo aleatoriamente rolando um d8 e designando 1 como norte, 2 como nordeste, 3 como leste e assim por diante ao redor dos pontos cardeais. Se você seria teletransportado para uma cidade costeira, podendo cair a 27 quilômetros dela, no mar, você poderia ter problemas."
+        },
+        {
+            "type": "Área Similar",
+            "description": "Você e seu grupo (ou objeto alvo) aparecem em uma área diferente que, visualmente ou tematicamente, é similar a área alvo. Se você estava indo para o laboratório na sua casa, por exemplo, você pode parar em outro laboratório de mago ou em uma loja de suprimentos alquímicos que terá muitas ferramentas iguais às encontradas no seu laboratório. Geralmente, você aparecerá no local similar mais próximo, mas já que a magia não tem limite de alcance, você pode, concebivelmente, viajar para qualquer lugar no plano."
+        },
+        {
+            "type": "Fiasco",
+            "description": "A mágica imprevisível da magia resulta em uma jornada difícil. Cada criatura teletransportada (ou o objeto alvo) sofrem 3d10 de dano de energia e o Mestre rola novamente a tabela para ver onde você foi parar (fiascos múltiplos podem ocorrer, causando dano a cada vez)."
+        }
+    ],
+    "statistics": [
+      {
+        "type": "Teletransporte",
+        "data": [
+          {
+            "Familiaridade": "Círculo Permanente",
+            "Fiasco": "-",
+            "Área Similar": "-",
+            "Fora do Alvo": "-",
+            "No Alvo": "01-100"
+          },
+          {
+            "Familiaridade": "Objeto Associado",
+            "Fiasco": "-",
+            "Área Similar": "-",
+            "Fora do Alvo": "-",
+            "No Alvo": "01-100"
+          },
+          {
+            "Familiaridade": "Muito Familiar",
+            "Fiasco": "01-05",
+            "Área Similar": "06-13",
+            "Fora do Alvo": "14-24",
+            "No Alvo": "25-100"
+          },
+          {
+            "Familiaridade": "Visto Casualmente",
+            "Fiasco": "01-33",
+            "Área Similar": "34-43",
+            "Fora do Alvo": "44-53",
+            "No Alvo": "54-100"
+          },
+          {
+            "Familiaridade": "Visto uma Vez",
+            "Fiasco": "01-43",
+            "Área Similar": "44-53",
+            "Fora do Alvo": "54-73",
+            "No Alvo": "74-100"
+          },
+          {
+            "Familiaridade": "Descrição",
+            "Fiasco": "01-43",
+            "Área Similar": "44-53",
+            "Fora do Alvo": "54-73",
+            "No Alvo": "74-100"
+          },
+          {
+            "Familiaridade": "Descrição Falsa",
+            "Fiasco": "01-50",
+            "Área Similar": "51-100",
+            "Fora do Alvo": "-",
+            "No Alvo": "-"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Teletransporte por Árvores",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 286,
+    "level": 6,
+    "school": "Conjuração",
+    "casting_time": "1 ação",
+    "range": "3 metros",
+    "components": "V, S",
+    "duration": "1 rodada",
+    "ritual": false,
+    "concentration": false,
+    "description": "Essa magia cria uma ligação mágica entre uma planta inanimada Grande ou maior, dentro do alcance, e outra planta a qualquer distância, no mesmo plano de existência. Você deve ter visto ou tocado a planta de destino, pelo menos uma vez antes. Pela duração, qualquer criatura pode entrar na planta alvo e sair da planta destino usando 1,5 metro de movimento."
+  },
+  {
+    "name": "Tempestade da Vingança",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 286,
+    "level": 9,
+    "school": "Conjuração",
+    "casting_time": "1 ação",
+    "range": "Visão",
+    "components": "V, S",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Uma agitada nuvem tempestuosa se forma, centrada num ponto que você possa ver e se espalha num raio de 108 metros. Relâmpagos riscam a área, trovões ressoam e ventos fortes silvam. Cada criatura embaixo da nuvem (a não mais de 1.500 metros abaixo da nuvem) quando ela aparece deve realizar um teste de resistência de Constituição. Com uma falha na resistência, uma criatura sofre 2d6 de dano trovejante e ficará surda por 5 minutos. A cada rodada que você mantiver a concentração nessa magia, a tempestade produzirá efeitos adicionais no seu turno.",
+    "effects": [
+        {
+            "type": "Rodada 2",
+            "description": "Chuva ácida cai da nuvem. Cada criatura e objeto abaixo dela nuvem sofre 1d6 de dano ácido."
+        },
+        {
+            "type": "Rodada 3",
+            "description": "Você convoca seis relâmpagos da nuvem para atingir seis criaturas ou objetos, à sua escolha, abaixo da nuvem. Uma mesma criatura ou objeto não pode ser atingido por mais de um raio. Uma criatura atingida deve realizar um teste de resistência de Destreza. A criatura sofrerá 10d6 de dano elétrico se falhar na resistência ou metade desse dano se passar."
+        },
+        {
+            "type": "Rodada 4",
+            "description": "Granizo chove da nuvem. Cada criatura abaixo da nuvem sofre 2d6 de dano de concussão."
+        },
+        {
+            "type": "Rodada 5-10",
+            "description": "Ventos e chuva gelados atacam a área abaixo da nuvem. A área se torna terreno difícil e de escuridão densa. Cada criatura sofre 1d6 de dano de frio. Ataques com armas à distância na área são impossíveis. O vento e chuva contam como uma distração grave com os propósitos de manter a concentração em magias. Finalmente, ventos fortes (entre 30 e 75 quilômetros por hora) automaticamente dispersam nevoa, neblina e fenômenos similares na área, independentemente de serem mundanos ou mágicos."
+        }
+    ]
+  },
+  {
+    "name": "Tempestade de Fogo",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 287,
+    "level": 7,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "45 metros",
+    "components": "V, S",
+    "duration": "Instantânea",
+    "ritual": false,
+    "concentration": false,
+    "description": "Uma tempestade feita de camadas de chamas crepitantes aparece num local, à sua escolha, dentro do alcance. A área da tempestade consiste de até dez cubos de 3 metros, que você pode organizar como desejar. Cada cubo deve ter, pelo menos, uma face adjacente à face de outro cubo. Cada criatura na área deve realizar um teste de resistência de Destreza. Ela sofre 7d10 de dano de fogo se falhar na resistência, ou metade desse dano se obtiver sucesso. O fogo causa dano aos objetos na área e incendeia objetos inflamáveis que não estejam sendo vestidos ou carregados. Se desejar, a vida vegetal na área pode não ser afetada por essa magia."
+  },
+  {
+    "name": "Tempestade de Gelo",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 287,
+    "level": 4,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "90 metros",
+    "components": "V, S, M (um pouco de poeira e algumas gotas de água)",
+    "duration": "Instantânea",
+    "ritual": false,
+    "concentration": false,
+    "description": "Uma rajada de pedras de gelo bate no chão em um cilindro de 6 metros de raio por 12 metros de altura, centrado num ponto dentro do alcance. Cada criatura no cilindro deve realizar um teste de resistência de Destreza. Uma criatura sofre 2d8 de dano de concussão e 4d6 de dano de frio se falhar na resistência ou metade desse dano se obtiver sucesso. O granizo torna a área da tempestade em terreno difícil até o final do seu próximo turno.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 5° nível ou superior, o dano de concussão aumenta em 1d8 para cada nível do espaço acima do 4°."
+  },
+  {
+    "name": "Tentáculos Negros de Evard",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 287,
+    "level": 4,
+    "school": "Conjuração",
+    "casting_time": "1 ação",
+    "range": "27 metros",
+    "components": "V, S, M (um pedaço de tentáculo de um polvo gigante ou lula gigante)",
+    "duration": "Até 1 minuto",
+    "ritual": false,
+    "concentration": true,
+    "description": "Tentáculos negros retorcidos preenchem um quadrado de 6 metros no chão, que você possa ver dentro do alcance. Pela duração, esses tentáculos transformam o solo na área em terreno difícil. Quando uma criatura adentrar a área afetada pela primeira vez em um turno ou começar o turno dela lá, a criatura deve ser bem-sucedida num teste de resistência de Destreza ou sofrerá 3d6 de dano de concussão e estará impedida pelos tentáculos até o fim da magia. Uma criatura que começar seu turno na área e já estiver impedida pelos tentáculos sofre 3d6 de dano de concussão. Uma criatura impedida pelos tentáculos pode usar sua ação para realizar um teste de Força ou Destreza (à escolha dela) contra a CD da sua magia. Se ela obtiver sucesso, ela se libertará."
+  },
+  {
+    "name": "Terremoto",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 287,
+    "level": 8,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "150 metros",
+    "components": "V, S, M (um pouco de poeira, uma pedra e um pedaço de barro)",
+    "ritual": false,
+    "concentration": true,
+    "duration": "Até 1 minuto",
+    "description": "Você cria um distúrbio sísmico num ponto no solo, que você possa ver dentro do alcance. Pela duração, um tremor intenso rompe o solo em um círculo com 30 metros de raio centrado no ponto e sacode criaturas e estruturas em contato com o chão na área. O solo na área torna-se terreno difícil. Cada criatura no solo que estiver se concentrando, deve realizar um teste de resistência de Constituição. Se falha na resistência, a concentração da criatura é interrompida. Quando você conjura essa magia, e ao final de cada turno que você gastar se concentrando nela, cada criatura no solo na área deve realizar um teste de resistência de Destreza. Se falhar na resistência, a criatura será derrubada no chão. Essa magia pode ter efeitos adicionais a depender do terreno na área, como determinado pelo Mestre.",
+    "effects": [
+        {
+            "type": "Fissuras",
+            "description": "Fissuras se abrem por toda área da magia, no começo do seu próximo turno, após você conjurar a magia. Um total de 1d6 dessas fissuras se abrem em locais escolhidos pelo Mestre. Cada um tem 1d10 x 3 metros de profundidade, 3 metros de largura e se estende de uma extremidade até o lado oposto da área da magia. Uma criatura que estiver em um ponto onde uma fissura se abriu deve ser bem sucedido num teste de resistência de Destreza ou cairá dentro dela. Uma criatura que obtenha sucesso na resistência se move com a margem da fissura, à medida que ela se abre. Uma fissura que se abra abaixo de uma estrutura faz com que ela, automaticamente, desmorone."
+        },
+        {
+            "type": "Estruturas",
+            "description": "O tremor causa 50 de dano de concussão a qualquer estrutura em contato com o solo na área, quando você conjurar a magia e, no início de cada turno até a magia terminar. Se a estrutura cair a 0 pontos de vida, ela desmorona e, potencialmente, fere criaturas próximas. Uma criatura a uma distância inferior a metade da altura da estrutura deve realizar um teste de resistência de Destreza. Se falhar na resistência, a criatura sofrerá 5d6 de dano de concussão, cairá no chão e estará soterrada nos escombros, precisando de um teste de Força (Atletismo) com CD 20, usando uma ação, para escapar. O Mestre pode ajustar a CD para cima ou para baixo, dependendo da natureza dos escombros. Se obtiver sucesso na resistência, a criatura sofre metade do dano e não estará caída ou soterrada."
+        }
+    ]
+  },
+  {
+    "name": "Terreno Alucinatório",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 287,
+    "level": 4,
+    "school": "Ilusão",
+    "casting_time": "10 minutos",
+    "range": "90 metros",
+    "components": "V, S, M (uma pedra, um galho e um pouco de planta verde)",
+    "duration": "24 horas",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você faz com que um terreno natural num cubo de 45 metros dentro do alcance pareça, soe e cheire com outro tipo de terreno natural. Portanto, campos abertos ou uma estrada podem ser modificados para se assemelharem a um pântano, colina, fenda ou algum outro tipo de terreno difícil ou intransponível. Uma lagoa pode ser modificada para se parecer com um prado, um precipício com um declive suave ou um barranco pedregoso com uma estrada larga e lisa. Estruturas manufaturadas, equipamentos e criaturas dentro da área não têm suas aparências modificadas. As características táteis do terreno são inalteradas, portanto, as criaturas que adentrarem na área estão suscetíveis de ver através da ilusão. Se a diferença não for óbvia ao toque, uma criatura que examine a ilusão cuidadosamente pode realizar um teste de Inteligência (Investigação) contra a CD da magia para desacreditá-la. Uma criatura que discernir a ilusão do que ela é a enxerga como uma imagem vaga sobrepondo o terreno."
+  },
+  {
+    "name": "Toque Arrepiado",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 287,
+    "level": 0,
+    "school": "Necromancia",
+    "casting_time": "1 ação",
+    "range": "36 metros",
+    "components": "V, S",
+    "duration": "1 rodada",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você cria uma mão esquelética fantasmagórica no espaço de uma criatura, dentro do alcance. Realize um ataque à distância com magia contra a criatura para afetá-la com o frio sepulcral. Se atingir, a criatura sofre 1d8 de dano necrótico e não poderá recuperar pontos de vida até o início do seu próximo turno. Até lá, a mão ficará presa ao alvo. Se você atingir um alvo morto-vivo, ele terá desvantagem nas jogadas de ataque contra você até o final do seu próximo turno.",
+    "higher_levels": "O dano dessa magia aumenta em 1d8 quando você alcança o 5° nível (2d8), 11° nível (3d8) e 17° nível (4d8)."
+  },
+  {
+    "name": "Toque Chocante",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 288,
+    "level": 0,
+    "school": "Evocação",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S",
+    "duration": "Instantânea",
+    "ritual": false,
+    "concentration": false,
+    "description": "Eletricidade surge da sua mão para transmitir um choque em uma criatura que você tentar tocar. Faça um ataque corpo-a-corpo com magia contra o alvo. Você tem vantagem na jogada de ataque se o alvo estiver vestindo qualquer armadura de metal. Se atingir, o alvo sofre 1d8 de dano elétrico e não pode usar reações até o início do próximo turno dele.",
+    "higher_levels": "O dano da magia aumenta em 1d8 quando você alcança o 5° nível (2d8), 11° nível (3d8) e 17° nível (4d8)."
+  },
+  {
+    "name": "Toque Vampírico",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 288,
+    "level": 3,
+    "school": "Necromancia",
+    "casting_time": "1 ação",
+    "range": "Pessoal",
+    "components": "V, S",
+    "duration": "Até 1 minuto",
+    "ritual": false,
+    "concentration": true,
+    "description": "O toque da sua mão coberta de sombras pode drenar a força vital dos outros para curar seus ferimentos. Realize um ataque corpo-a-corpo com magia contra uma criatura ao seu alcance. Se atingir, o alvo sofre 3d6 de dano necrótico e você recupera pontos de vida igual à metade do dano necrótico causado. Até a magia acabar, você pode realizar o ataque novamente, no seu turno, com uma ação.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 4° nível ou superior, o dano aumenta em 1d6 para cada nível do espaço acima do 3°."
+  },
+  {
+    "name": "Tranca Arcana",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 288,
+    "level": 2,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (pó de ouro valendo, no mínimo, 25 po, consumido pela magia)",
+    "duration": "Até ser dissipada",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você toca uma porta, janela, portão, baú ou outra entrada fechada e ela ficará trancada pela duração. Você e as criaturas que você designar, quando você conjurar essa magia, podem abrir o objeto normalmente. Você também pode definir uma senha que, quando falada a 1,5 metro do objeto, suprime a magia por 1 minuto. De outra forma, ele é intransponível até ser quebrado ou a magia seja dissipada ou suprimida. Conjurar arrombar no objeto suprime a tranca arcana por 10 minutos. Enquanto estiver sob efeito dessa magia, o objeto é mais difícil de quebrar ou de forçar para abrir; a CD para quebrá-lo ou arrombá-lo aumenta em 10."
+  },
+  {
+    "name": "Truque de Corda",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 288,
+    "level": 2,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (pó de extrato de milho e um laço de pergaminho trançado)",
+    "duration": "1 hora",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você toca um pedaço de corda que tenha até 18 metros de comprimento. Uma ponta da corda então, se ergue no ar até toda a corda estar erguida e perpendicular ao solo. Na ponta de cima da corda, uma entrada invisível se abre para um espaço extradimensional que permanece até a magia acabar. O espaço extradimensional pode ser alcançado escalando a corda até o topo. O espaço pode abrigar até oito criaturas Médias ou menores. A corda pode ser puxada para dentro do buraco, fazendo-a desaparecer para os observadores do lado de fora do espaço. Ataques e magias não podem ultrapassar a entrada, entrando ou saindo do espaço extradimensional, mas quem está dentro pode ver o lado de fora, como se estivesse olhando por uma janela de 0,9 metro por 1,5 metro, centrada na corda. Tudo que estiver dentro do espaço extradimensional cai quando a magia acabar."
+  },
+  {
+    "name": "Tsunami",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 288,
+    "level": 8,
+    "school": "Conjuração",
+    "casting_time": "1 minuto",
+    "range": "Visão",
+    "components": "V, S",
+    "duration": "Até 6 rodadas",
+    "ritual": false,
+    "concentration": true,
+    "description": "Uma muralha de água aparece do nada num ponto, à sua escolha, dentro do alcance. Você pode fazer a muralha ter até 90 metros de comprimento, 90 metros de altura e 15 metros de espessura. A muralha permanece pela duração. Quando a muralha aparece, cada criatura dentro da área deve realizar um teste de resistência de Força. Se falhar na resistência, uma criatura sofrerá 6d10 de dano de concussão ou metade desse dano se passar na resistência. No início de cada um dos seus turnos, após a muralha aparecer, ela, junto com qualquer criatura nela, se afasta 15 metros de você. Qualquer criatura Enorme ou menor dentro da muralha ou no espaço que a muralha entrar quando ela se mover, deve ser bem sucedida num teste de resistência de Força ou sofrerá 5d6 de dano de concussão. Uma criatura pode sofrer esse dano apenas uma vez por rodada. No final do turno, a altura da muralha é reduzida em 15 metros e o dano que as criaturas sofrem da magia nas rodadas subsequentes é reduzido em 1d10. Quando a muralha chegar a 0 metro de altura, a magia acaba. Uma criatura pega pela muralha, pode se mover nadando. Devido à força da onda, no entanto, a criatura deve realizar um teste de Força (Atletismo) contra a CD da magia para conseguir se mover. Se ela falhar no teste, não conseguirá se mover. Uma criatura que se mova para fora da área, cairá no chão."
+  },
+  {
+    "name": "Velocidade",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 289,
+    "level": 3,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V, S, M (uma raspa de raiz de alcaçuz)",
+    "duration": "Até 1 minuto",
+    "ritual": false,
+    "concentration": true,
+    "description": "Escolha uma criatura voluntária que você possa ver, dentro do alcance. Até a magia acabar, o deslocamento do alvo é dobrado, ele ganha +2 de bônus na CA, ele tem vantagem em testes de resistência de Destreza e ganha uma ação adicional em cada um dos turnos dele. A ação pode ser usada apenas para realizar as ações de Ataque (um ataque com arma, apenas), Disparada, Desengajar, Esconder ou Usar um Objeto. Quando a magia acabar, o alvo não poderá se mover ou realizar ações até depois do seu próximo turno, à medida que uma onda de letargia toma conta dele."
+  },
+  {
+    "name": "Ver o Invisível",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 289,
+    "level": 2,
+    "school": "Adivinhação",
+    "casting_time": "1 ação",
+    "range": "Pessoal",
+    "components": "V, S, M (um pouco de talco e um pó de prata polvilhado)",
+    "duration": "1 hora",
+    "ritual": false,
+    "concentration": false,
+    "description": "Pela duração, você vê criaturas e objetos invisíveis como se eles fossem visíveis e você pode ver no Plano Etéreo. Criaturas e objetos etéreos parecem espectrais e translúcidos."
+  },
+  {
+    "name": "Viagem Planar",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 289,
+    "level": 7,
+    "school": "Conjuração",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (uma haste metálica bifurcada valendo, no mínimo, 250 po, sintonizada com um plano de existência em particular)",
+    "duration": "Instantânea",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você e até oito criaturas voluntárias, que estejam de mãos dadas em um círculo, são transportadas para um plano de existência diferente. Você pode especificar o destino alvo em termos gerais, como a Cidade de Bronze do Plano Elemental do Fogo ou o palácio de Dispater na segunda camada dos Nove Infernos e você aparece no ou perto do destino. Se você estiver tentando chegar a Cidade de Bronze, por exemplo, você poderia chegar na Estrada de Aço dela, em frente aos Portões de Cinzas ou contemplando a cidade do outro lado do Mar de Fogo, à critério do Mestre. Alternativamente, se você conhecer a sequência de selos do círculo de teletransporte em outro plano de existência, essa magia pode leva-lo para esse círculo. Se o círculo de teletransporte for muito pequeno para comportar as criaturas que você está transportando, elas aparecerão no espaço desocupado mais próximo do círculo. Você pode usar essa magia para banir uma criatura involuntária para outro plano. Escolha uma criatura ao seu alcance e realize um ataque corpo-a-corpo com magia contra ela. Se atingir, a criatura deve realizar um teste de resistência de Carisma. Se a criatura falhar na resistência, ela é transportada para um local aleatório no plano de existência que você especificou. Uma criatura, uma vez transportada, deve encontrar seu próprio meio de retornar para seu plano de existência atual."
+  },
+  {
+    "name": "Vidência",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 289,
+    "level": 5,
+    "school": "Adivinhação",
+    "casting_time": "10 minutos",
+    "range": "Pessoal",
+    "components": "V, S, M (um foco valendo, no mínimo, 1.000 po, como uma bola de cristal, espelho de prata ou fonte cheia de água benta)",
+    "duration": "Até 10 minutos",
+    "ritual": false,
+    "concentration": true,
+    "description": "Você pode ver e ouvir uma criatura em particular, à sua escolha, que esteja no mesmo plano de existência que você. O alvo deve realizar um teste de resistência de Sabedoria, que é modificado de acordo com o quão bem você conhece o alvo e o tipo de conexão física que você tem com ele. Se um alvo souber que você está conjurando essa magia, ele pode falhar no teste de resistência voluntariamente, se ele quiser ser observado. Com um sucesso na resistência, o alvo não é afetado e você não pode usar essa magia contra ele novamente por 24 horas. Se falhar na resistência, a magia cria um sensor invisível a até 3 metros do alvo. Você pode ver e ouvir através do sensor, como se você estivesse onde ele está. O sensor se move com o alvo, permanecendo a 3 metros dele pela duração. Uma criatura que puder ver objetos invisíveis verá o sensor como um globo luminoso do tamanho de um punho. Ao invés de focar em uma criatura, você pode escolher um local que você já tenha visto antes como alvo dessa magia. Quando fizer isso, o sensor aparece no local e não se move.",
+    "statistics":[
+      {
+        "type": "Conhecimento",
+        "data": [
+          {
+            "Conhecimento": "Segunda mão (você ouviu falar do alvo)",
+            "Modificador de Resistência": "+5"
+          },
+          {
+            "Conhecimento": "Primeira mão (você foi apresentado ao alvo)",
+            "Modificador de Resistência": "+0"
+          },
+          {
+            "Conhecimento": "Familiar (você conhece bem o alvo)",
+            "Modificador de Resistência": "-5"
+          }
+        ]
+      },
+      {
+        "type": "Conexão",
+        "data": [
+          {
+            "Conexão": "Descrição ou foto",
+            "Modificador de Resistência": "-2"
+          },
+          {
+            "Conexão": "Pertences ou roupas",
+            "Modificador de Resistência": "-4"
+          },
+          {
+            "Conexão": "Parte do corpo, mexa de cabelo, recorte de unha ou simular",
+            "Modificador de Resistência": "-10"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Vínculo Protetor",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 289,
+    "level": 2,
+    "school": "Abjuração",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (um par de anéis de platina valendo, no mínimo, 50 po cada, que você e o alvo devem usar pela duração)",
+    "duration": "1 hora",
+    "ritual": false,
+    "concentration": false,
+    "description": "Essa magia protege uma criatura voluntária que você tocar e cria uma conexão mística entre você e o alvo até a magia acabar. Enquanto o alvo estiver a até 18 metros de você, ele recebe +1 de bônus na CA, nos testes de resistência e terá resistência a todos os danos. No entanto, a cada vez que ele sofrer dano, você sofrerá a mesma quantidade de dano. A magia acaba se você cair a 0 pontos de vida ou se você e o alvo ficarem separados a mais de 18 metros. Ela também termina se a magia for conjurada novamente em quaisquer das criaturas conectadas. Você também pode dissipar a magia com uma ação."
+  },
+  {
+    "name": "Vinha Esmagadora",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 290,
+    "level": 4,
+    "school": "Conjuração",
+    "casting_time": "1 ação bônus",
+    "range": "9 metros",
+    "components": "V, S",
+    "duration": "Até 1 minuto",
+    "ritual": false,
+    "concentration": true,
+    "description": "Você conjura uma vinha que brota do chão em um espaço desocupado, à sua escolha, que você possa ver dentro do alcance. Quando você conjura essa magia, você pode direcionar a vinha para que ela enlace uma criatura a até 9 metros dela que você possa ver. Essa criatura deve ser bem sucedida num teste de resistência de Destreza ou será arrastada 6 metros na direção da vinha. Até o fim da magia, você pode direcionar a vinha para enlaçar a mesma criatura ou uma diferente, com uma ação bônus, em cada um dos seus turnos."
+  },
+  {
+    "name": "Visão da Verdade",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 290,
+    "level": 6,
+    "school": "Adivinhação",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (unguento para os olhos no valor de 25 po; ele é feito de pó de cogumelo, açafrão e gordura; e é consumido pela magia)",
+    "duration": "1 hora",
+    "ritual": false,
+    "concentration": false,
+    "description": "Essa magia concede a uma criatura voluntária tocada a habilidade de ver as coisas como elas realmente são. Pela duração, a criatura terá visão verdadeira, percebendo portas secretas escondidas por magia e podendo ver no Plano Etéreo, tudo num alcance de até 36 metros."
+  },
+  {
+    "name": "Visão no Escuro",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 290,
+    "level": 2,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (ou um pedaço de cenoura seca ou uma ágata)",
+    "duration": "8 horas",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você toca uma criatura voluntária para conceder a ela a habilidade de ver nas trevas. Pela duração, a criatura terá visão no escuro com alcance de 18 metros."
+  },
+  {
+    "name": "Vitalidade Falsa",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 290,
+    "level": 1,
+    "school": "Necromancia",
+    "casting_time": "1 ação",
+    "range": "Pessoal",
+    "components": "V, S, M (uma pequena quantidade de álcool ou bebidas destiladas)",
+    "duration": "1 hora",
+    "ritual": false,
+    "concentration": false,
+    "description": "Reforçando-se com uma vitalidade necromântica ilusória, você ganha 1d4 + 4 pontos de vida temporários pela duração.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 2° nível ou superior, você ganha 5 pontos de vida temporários adicionais para cada nível do espaço de magia acima do 1°."
+  },
+  {
+    "name": "Voo",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 290,
+    "level": 3,
+    "school": "Transmutação",
+    "casting_time": "1 ação",
+    "range": "Toque",
+    "components": "V, S, M (uma pena da asa de qualquer pássaro)",
+    "duration": "Até 10 minutos",
+    "ritual": false,
+    "concentration": true,
+    "description": "Você toca uma criatura voluntária. O alvo ganha deslocamento de voo de 18 metros, pela duração. Quando a magia acabar, o alvo cai se ainda estiver no ar, a não ser que ele possa impedir a queda.",
+    "higher_levels": "Quando você conjurar essa magia usando um espaço de magia de 4° nível ou superior, você pode afetar uma criatura adicional para cada nível do espaço acima do 3°."
+  },
+  {
+    "name": "Zombaria Viciosa",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 290,
+    "level": 0,
+    "school": "Encantamento",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V",
+    "duration": "Instantânea",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você libera uma série de insultos atados com encantamentos sutis numa criatura que você possa ver, dentro do alcance. Se o alvo puder ouvir você (apesar de não precisar compreende-lo), ele deve ser bem sucedido num teste de resistência de Sabedoria ou sofrerá 1d4 de dano psíquico e terá desvantagem na próxima jogada de ataque que ele fizer antes do final do próximo turno dele.",
+    "higher_levels": "O dano dessa magia aumenta em 1d4 quando você alcança o 5° nível (2d4), 11° nível (3d4) e 17° nível (4d4)."
+  },
+  {
+    "name": "Zona da Verdade",
+    "book": "Dungeons & Dragons - Player's Handbook",
+    "pg": 290,
+    "level": 2,
+    "school": "Encantamento",
+    "casting_time": "1 ação",
+    "range": "18 metros",
+    "components": "V, S",
+    "duration": "10 minutos",
+    "ritual": false,
+    "concentration": false,
+    "description": "Você cria uma zona mágica protegida contra enganação, numa esfera com 4,5 metros de raio, centrada num ponto, à sua escolha, dentro do alcance. Até a magia acabar, uma criatura que entrar na área da magia pela primeira vez num turno ou começar seu turno nela, deve realizar um teste de resistência de Carisma. Se falhar na resistência, a criatura não poderá mentir deliberadamente enquanto estiver no raio. Você saberá cada criatura que passou ou falhou nesse teste de resistência. Uma criatura afetada está ciente da magia e pode, portanto, evitar responder perguntas as quais ela normalmente responderia com uma mentira. Tais criaturas podem ser evasivas em suas respostas, contanto que permaneçam dentro dos limites da verdade."
   }
 ]
