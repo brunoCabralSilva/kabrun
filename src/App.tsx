@@ -3,6 +3,8 @@ import Login from './pages/login';
 import Register from './pages/register';
 import Home from './pages/home';
 import Profile from './pages/profile';
+import Races from './pages/Races';
+import Magics from './pages/magics';
 
 export default function App() {
   return (
@@ -12,6 +14,8 @@ export default function App() {
         <Route path="/register" element={ <Register /> } />
         <Route path="/home" element={ <Home /> } />
         <Route path="/profile" element={ <Profile /> } />
+        <Route path="/magics" element={ <Magics /> } />
+        <Route path="/races" element={ <Races /> } />
         <Route path="*" element={ <Login /> } />
       </Routes>
     </div>

@@ -68,6 +68,24 @@ export default function Nav() {
             </Link>
           </li>
           <li className="pt-4">
+            <Link
+              to="/magics"
+              onClick={ () => setShowMenu(!showMenu) }
+              className="text-white transition duration-1000 px-2 hover:underline hover:underline-offset-4"
+            >
+              Magias
+            </Link>
+          </li>
+          <li className="pt-4">
+            <Link
+              to="/races"
+              onClick={ () => setShowMenu(!showMenu) }
+              className="text-white transition duration-1000 px-2 hover:underline hover:underline-offset-4"
+            >
+              Raças
+            </Link>
+          </li>
+          <li className="pt-4">
             <Link to="/profile"
               onClick={ () => setShowMenu(!showMenu) }
               className="text-white transition duration-1000 px-2 hover:underline hover:underline-offset-4"

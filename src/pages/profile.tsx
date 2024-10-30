@@ -1,4 +1,3 @@
-'use client'
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import contexto from '../context/context';

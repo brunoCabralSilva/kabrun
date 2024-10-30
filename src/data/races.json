@@ -1,6 +1,6 @@
 [
   {
-    "name": "anões",
+    "name": "anão",
     "attribute": [{ "name": "constitution", "value": 2 }],
     "age": "Anões tornam-se maduros na mesma proporção que os humanos, mas são considerados jovens até atingirem a idade de 50 anos. Em média, eles vivem 350 anos",
     "alignment": "A maioria dos anões é leal, pois acreditam firmemente nos benefícios de uma sociedade bem organizada. Eles tendem para o bem, com um forte senso de honestidade e uma crença de que todos merecem compartilhar os benefícios de uma ordem social justa",
@@ -38,7 +38,7 @@
     "subraces": [
       {
         "name": "Anão da Colina",
-        "attribute": [{ "name": "wisdom", "value": 1 }],
+        "attribute": "wisdom",
         "skills": [
           {
             "name": "Tenacidade Anã",
@@ -47,9 +47,8 @@
         ]
       },
       {
-        "name": "Anão da Colina",
-        "attribute": [{ "name": "strength", "value": 1 }],
-
+        "name": "Anão da Montanha",
+        "attribute": "strength",
         "skills": [
           {
             "name": "Treinamento Anão com Armaduras",
@@ -61,7 +60,7 @@
     ]
   },
   {
-    "name": "elfos",
+    "name": "elfo",
     "attribute": [{ "name": "dexterity", "value": 2 }],
     "age": "Embora os elfos atinjam a maturidade física com praticamente a mesma idade dos humanos, a compreensão élfica da idade adulta vai além da maturidade física, abrangendo sua experiência sobre o mundo. Um elfo tipicamente assume a idade adulta e um nome adulto com cerca de 100 anos de idade e pode viver 750 anos.",
     "alignment": "Elfos amam a liberdade, a diversidade e a expressão pessoal, então eles inclinam-se forte e suavemente para aspectos do caos. Eles valorizam e protegem a liberdade dos outros como a sua própria, e são geralmente mais bondosos que o contrário. Os drow são exceção. Seu exílio no Subterrâneo fez deles perversos e perigosos. Drow são geralmente mais maus que o contrário.",
@@ -153,7 +152,7 @@
     ]
   },
   {
-    "name": "halflings",
+    "name": "halfling",
     "attribute": [{ "name": "dexterity", "value": 2 }],
     "age": "Um halfling atinge a idade adulta aos 20 anos e pode chegar a 150 anos.",
     "alignment": "A maioria dos halflings é leal e boa. Via de regra, eles possuem um bom coração e são amáveis, odeiam ver o sofrimento dos outros e não toleram a opressão. Eles também são muito ordeiros e tradicionais, fortemente apegados à sua comunidade e ao conforto de suas antigas tradições",
@@ -258,11 +257,11 @@
           }
         ],
         "types": [
-          { "dragon": "Dragão Negro", "damage": "Ácido", "type": "linha", "size": 9 },
-          { "dragon": "Dragão Azul", "damage": "Elétrico", "type": "linha", "size": 9 },
-          { "dragon": "Dragão Verde", "damage": "Venenoso", "type": "linha", "size": 9 },
-          { "dragon": "Dragão Vermelho", "damage": "Fogo", "type": "linha", "size": 9 },
-          { "dragon": "Dragão Branco", "damage": "Congelante", "type": "linha", "size": 9 }
+          { "dragon": "Negro", "damage": "Ácido", "type": "linha", "size": 9 },
+          { "dragon": "Azul", "damage": "Elétrico", "type": "linha", "size": 9 },
+          { "dragon": "Verde", "damage": "Venenoso", "type": "linha", "size": 9 },
+          { "dragon": "Vermelho", "damage": "Fogo", "type": "linha", "size": 9 },
+          { "dragon": "Branco", "damage": "Congelante", "type": "linha", "size": 9 }
         ]
       },
       {
@@ -283,11 +282,11 @@
           }
         ],
         "types": [
-          { "dragon": "Dragão de Latão", "damage": "Fogo", "type": "cone", "size": 4.5 },
-          { "dragon": "Dragão de Bronze", "damage": "Elétrico", "type": "cone", "size": 4.5 },
-          { "dragon": "Dragão de Cobre", "damage": "Ácido", "type": "cone", "size": 4.5 },
-          { "dragon": "Dragão de Ouro", "damage": "Fogo", "type": "cone", "size": 4.5 },
-          { "dragon": "Dragão de Prata", "damage": "Congelante", "type": "cone", "size": 4.5 }
+          { "dragon": "Latão", "damage": "Fogo", "type": "cone", "size": 4.5 },
+          { "dragon": "Bronze", "damage": "Elétrico", "type": "cone", "size": 4.5 },
+          { "dragon": "Cobre", "damage": "Ácido", "type": "cone", "size": 4.5 },
+          { "dragon": "Ouro", "damage": "Fogo", "type": "cone", "size": 4.5 },
+          { "dragon": "Prata", "damage": "Congelante", "type": "cone", "size": 4.5 }
         ]
       },
       {
@@ -308,11 +307,11 @@
           }
         ],
         "types": [
-          { "dragon": "Dragão de Ametista", "damage": "Energético", "type": "cone", "size": 4.5 },
-          { "dragon": "Dragão de Cristal", "damage": "Radiante", "type": "cone", "size": 4.5 },
-          { "dragon": "Dragão de Esmeralda", "damage": "Psíquico", "type": "cone", "size": 4.5 },
-          { "dragon": "Dragão de Safira", "damage": "Trovejante", "type": "cone", "size": 4.5 },
-          { "dragon": "Dragão de Topázio", "damage": "Necrótico", "type": "cone", "size": 4.5 }
+          { "dragon": "Ametista", "damage": "Energético", "type": "cone", "size": 4.5 },
+          { "dragon": "Cristal", "damage": "Radiante", "type": "cone", "size": 4.5 },
+          { "dragon": "Esmeralda", "damage": "Psíquico", "type": "cone", "size": 4.5 },
+          { "dragon": "Safira", "damage": "Trovejante", "type": "cone", "size": 4.5 },
+          { "dragon": "Topázio", "damage": "Necrótico", "type": "cone", "size": 4.5 }
         ]
       }
     ]

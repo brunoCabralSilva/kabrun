@@ -26,11 +26,24 @@ export default function Provider({children }: IProvider) {
     setShowChangeImage({ show: false, user: {} });
   }
 
+  const returnAttribute = (attribute: string) => {
+    switch(attribute) {
+      case 'strength': return 'Força';
+      case 'dexterity': return 'Destreza';
+      case 'intelligence': return 'Inteligência';
+      case 'constitution': return 'Constituição';
+      case 'charisma': return 'Carisma';
+      case "wisdom": return "Sabedoria";
+      default: return 'Outro';
+    }
+  }
+
   return (
     <contexto.Provider
       value={{
         scrollToBottom,
         resetPopups,
+        returnAttribute,
         showMessage, setShowMessage,
         showForgotPassword, setShowForgotPassword,
         logoutUser, setLogoutUser,

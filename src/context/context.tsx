@@ -14,6 +14,7 @@ interface RecipesContext {
   showChangeImage: { show: boolean, user: any },
   setShowChangeImage: (state: any) => void,
   resetPopups: () => void,
+  returnAttribute: (attribute: string) => string,
 }
 
 const initialValue: RecipesContext = {
@@ -29,6 +30,7 @@ const initialValue: RecipesContext = {
   setShowChangeImage: () => {},
   scrollToBottom: () => {},
   resetPopups: () => {},
+  returnAttribute: () => '',
 }
 
 const contexto = createContext(initialValue);
