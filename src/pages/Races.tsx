@@ -1,10 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Nav from "../components/nav";
 import races from '../data/races.json';
 import contexto from "../context/context";
 
 export default function Races() {
   const { returnAttribute } = useContext(contexto);
+  useEffect(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   return(
     <div>
       <Nav />

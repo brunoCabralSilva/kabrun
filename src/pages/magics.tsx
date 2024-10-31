@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import Nav from "../components/nav";
 import magics from '../data/magics.json';
 
 export default function Magics() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   const returnGrid = (magic: any) => {
     switch(magic.name) {
       case "Animar Objetos": return 'grid-cols-7';
