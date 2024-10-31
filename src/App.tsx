@@ -4,7 +4,7 @@ import Register from './pages/register';
 import Home from './pages/home';
 import Profile from './pages/profile';
 import Magics from './pages/magics';
-import Races from './pages/races';
+import Races from './pages/newRaces';
 import Sessions from './pages/sessions';
 import Classes from './pages/classes';
 import Equipments from './pages/equipments';
