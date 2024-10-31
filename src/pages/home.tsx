@@ -5,8 +5,8 @@
 // import contexto from "../context/context";
 // import Loading from "../components/loading";
 
-import imageWpp from '../../src/assets/dragon.png';
-import imageWpp2 from '../../src/assets/dragon.png';
+import letters from '../../src/assets/dnd.png';
+import arrowDown from '../../src/assets/arrow-down.png';
 
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
@@ -42,12 +42,12 @@ export default function Home() {
         <div className={`absolute w-full h-full bg-black/50`} />
         <div className="h-screen w-full z-10 flex flex-col justify-center items-center">
           <img
-            src={imageWpp}
-            alt="Nome 'Werewolf the Apocalypse' em formato de imagem"
+            src={letters}
+            alt="Nome 'Dungeons & Dragons' em formato de imagem"
             className="h-50vh sm:h-70vh md:h-50vh w-10/12 sm:w-3/5 md:w-1/2 xl:w-5/12 object-contain"
           />
           <img
-            src={imageWpp2}
+            src={arrowDown}
             alt="seta para baixo"
             className="sm:h-30vh w-20 object-contain animate-pulse cursor-pointer"
             onClick={scrollToComponent}

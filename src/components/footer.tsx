@@ -18,7 +18,7 @@ export default function Footer() {
         /> */}
       </div>
       <div className="sm:w-3/4 text-sm">
-        <p className="text-center sm:text-right w-full">© Paradox Interactive. Trademarks belong to their respective owners. All rights reserved.</p>
+        <p className="text-center sm:text-right w-full">© Wizards of the Coast. Trademarks belong to their respective owners. All rights reserved.</p>
         <p
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className={`pt-3 pb-2 sm:py-0 text-center sm:text-right w-full cursor-pointer hover:text-orange-600 text-orange-400 transition-colors duration-700`}
