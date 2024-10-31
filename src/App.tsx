@@ -4,7 +4,6 @@ import Register from './pages/register';
 import Home from './pages/home';
 import Profile from './pages/profile';
 import Magics from './pages/magics';
-import Races from './pages/newRaces';
 import Sessions from './pages/sessions';
 import Classes from './pages/classes';
 import Equipments from './pages/equipments';
@@ -12,6 +11,7 @@ import Lore from './pages/lore';
 import Monsters from './pages/Monsters';
 import Talents from './pages/talents';
 import About from './pages/about';
+import Races from './pages/races';
 
 export default function App() {
   return (
