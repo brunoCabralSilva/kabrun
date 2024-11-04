@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Nav from "../components/nav";
 
 export default function Lore() {
   useEffect(() => {
@@ -7,6 +8,7 @@ export default function Lore() {
 
   return(
     <div>
+      <Nav />
       Lore
     </div>
   );

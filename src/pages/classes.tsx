@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Nav from "../components/nav";
 
 export default function Classes() {
   useEffect(() => {
@@ -7,6 +8,7 @@ export default function Classes() {
   
   return(
     <div>
+      <Nav />
       Classes
     </div>
   );

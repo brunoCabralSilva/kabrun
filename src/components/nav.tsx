@@ -69,11 +69,20 @@ export default function Nav() {
           </li>
           <li className="pt-4">
             <Link
-              to="/magics"
+              to="/sessions"
               onClick={ () => setShowMenu(!showMenu) }
               className="text-white transition duration-1000 px-2 hover:underline hover:underline-offset-4"
             >
-              Magias
+              Sessões
+            </Link>
+          </li>
+          <li className="pt-4">
+            <Link
+              to="/lore"
+              onClick={ () => setShowMenu(!showMenu) }
+              className="text-white transition duration-1000 px-2 hover:underline hover:underline-offset-4"
+            >
+              Lore
             </Link>
           </li>
           <li className="pt-4">
@@ -86,11 +95,55 @@ export default function Nav() {
             </Link>
           </li>
           <li className="pt-4">
+            <Link
+              to="/classes"
+              onClick={ () => setShowMenu(!showMenu) }
+              className="text-white transition duration-1000 px-2 hover:underline hover:underline-offset-4"
+            >
+              Classes
+            </Link>
+          </li>
+          <li className="pt-4">
+            <Link
+              to="/magics"
+              onClick={ () => setShowMenu(!showMenu) }
+              className="text-white transition duration-1000 px-2 hover:underline hover:underline-offset-4"
+            >
+              Magias
+            </Link>
+          </li>
+          <li className="pt-4">
+            <Link
+              to="/monsters"
+              onClick={ () => setShowMenu(!showMenu) }
+              className="text-white transition duration-1000 px-2 hover:underline hover:underline-offset-4"
+            >
+              Monstros
+            </Link>
+          </li>
+          <li className="pt-4">
+            <Link
+              to="/equipments"
+              onClick={ () => setShowMenu(!showMenu) }
+              className="text-white transition duration-1000 px-2 hover:underline hover:underline-offset-4"
+            >
+              Equipamentos
+            </Link>
+          </li>
+          <li className="pt-4">
             <Link to="/profile"
               onClick={ () => setShowMenu(!showMenu) }
               className="text-white transition duration-1000 px-2 hover:underline hover:underline-offset-4"
             >
               Perfil
+            </Link>
+          </li>
+          <li className="pt-4">
+            <Link to="/about"
+              onClick={ () => setShowMenu(!showMenu) }
+              className="text-white transition duration-1000 px-2 hover:underline hover:underline-offset-4"
+            >
+              Quem Somos
             </Link>
           </li>
           <li className="pt-10">

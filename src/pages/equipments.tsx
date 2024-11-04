@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Nav from "../components/nav";
 
 export default function Equipments() {
   useEffect(() => {
@@ -7,6 +8,7 @@ export default function Equipments() {
 
   return(
     <div>
+      <Nav />
       Equipments
     </div>
   );
