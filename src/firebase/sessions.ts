@@ -43,9 +43,12 @@ export const createSession = async (
       name: nameSession.toLowerCase(),
       creationDate: dateMessage,
       gameMaster: email,
+      principles: [],
+      images: [ { profile: '', list: [] }],
+      books: [],
+      maps: [],
       anotations: '',
       description,
-      principles: [],
     });
     const newSessionRef = doc(db, 'sessions', newSession.id);
     await runTransaction(db, async (transaction) => {

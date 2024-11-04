@@ -12,6 +12,7 @@ import Monsters from './pages/Monsters';
 import Talents from './pages/talents';
 import About from './pages/about';
 import Races from './pages/races';
+import SessionId from './pages/sessionId';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
       <Route path="/magics" element={ <Magics /> } />
       <Route path="/races" element={ <Races /> } />
       <Route path="/sessions" element={ <Sessions /> } />
+      <Route path="/sessions/:id" element={ <SessionId /> } />
       <Route path="/classes" element={ <Classes /> } />
       <Route path="/equipments" element={ <Equipments /> } />
       <Route path="/lore" element={ <Lore /> } />
