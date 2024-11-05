@@ -31,6 +31,21 @@ export default function Messages() {
     return 'w-8 object-contain';
   }
 
+  const returnListDices = (list: any) => {
+    const countMap: { [key: number]: number } = {};
+    for (const dice of list) {
+        if (countMap[dice.faces]) countMap[dice.faces] += 1;
+        else countMap[dice.faces] = 1;
+    }
+    const phrases: string[] = [];
+    for (const faces in countMap) {
+        const count = countMap[faces];
+        phrases.push(`${count}d${faces}`);
+    }
+    if (phrases.length > 1) return `${phrases.join(' + ')}`;
+    return phrases[0] || '';
+  }
+
   const generateMessage = (msg: any, color: string, index: number) => {
     switch(msg.type) {
       case 'notification':
@@ -65,8 +80,10 @@ export default function Messages() {
                   }
                 </div>
                 <div className="mt-2">
-                  <span className="pr-1 font-bold">Bônus:</span>
-                  <span>{ msg.rolls.sum }</span>
+                  <span className="pr-1 font-bold">Dados:</span>
+                  <span>{ returnListDices(msg.rolls.list) }</span>
+                  <span>{ msg.rolls.sum > 0 && ` + ${msg.rolls.sum}` }</span>
+                  <span>{ msg.rolls.sum < 0 && ` - ${msg.rolls.sum + (msg.rolls.sum * -2)}` }</span>
                 </div>
                 <div className="">
                   <span className="pr-1 font-bold">Resultado Total:</span>
