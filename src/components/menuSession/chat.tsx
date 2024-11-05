@@ -6,7 +6,7 @@ import { registerMessage } from "../../firebase/chats";
 
 export default function Chat() {
   const [text, setText] = useState('');
-  const { scrollToBottom, setShowMessage, sessionId } = useContext(contexto);
+  const { scrollToBottom, setShowMessage, session } = useContext(contexto);
 
   return(
     <div>
@@ -20,7 +20,7 @@ export default function Chat() {
           value={text}
           onKeyDown={ async (event) => {
             if (event.key === 'Enter' && text !== '' && text !== ' ') {
-              await registerMessage(sessionId, { type: 'text', message: text }, null, setShowMessage);
+              await registerMessage(session.id, { type: 'text', message: text }, null, setShowMessage);
               setText('');
               scrollToBottom();
             }
@@ -37,7 +37,7 @@ export default function Chat() {
               title="Enviar uma mensagem"
               onClick={ async () => {
                 if (text !== '' && text !== ' ') {
-                  await registerMessage(sessionId, { type: 'text', message: text }, null, setShowMessage);
+                  await registerMessage(session.id, { type: 'text', message: text }, null, setShowMessage);
                   setText('');
                   scrollToBottom();
                 }

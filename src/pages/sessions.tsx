@@ -9,6 +9,7 @@ import Footer from "../components/footer";
 import { IoIosInformationCircle, IoMdAdd } from "react-icons/io";
 import { getSessions } from "../firebase/sessions";
 import CreateSection from "../components/createSection";
+import VerifySession from "../components/verifySession";
 
 export default function Sessions() {
   const [showData, setShowData] = useState(false);
@@ -16,6 +17,7 @@ export default function Sessions() {
   const {
     showMessage, setShowMessage,
     showCreateSession, setShowCreateSession,
+    dataSession, setDataSession,
     setUserEmail,
     resetPopups,
   } = useContext(contexto);
@@ -44,6 +46,7 @@ export default function Sessions() {
   return(
     <div className="h-screen bg-ritual bg-cover bg-top">
       { showMessage.show && <MessageToUser /> }
+      { dataSession.show && <VerifySession />}
       <Nav />
       {
         showData
@@ -74,32 +77,18 @@ export default function Sessions() {
               </button>
               {
                 sessions.map((session: any, index: number) =>
-                <button
-                  type="button"
-                  key={ index }
-                  // onClick={ () => setDataSession({ show: true, id: session.id })}
-                  className=" border-2 border-white text-white h-28 cursor-pointer bg-ritual bg-cover capitalize"
-                  >
-                    <button
+                  <button
+                    key={ index }
                       type="button"
-                      onClick={ () => router('/sessions/' + session.id) }
+                      onClick={ () => setDataSession({ show: true, id: session.id })}
                       className="w-full h-full bg-black/60 p-2 px-4 flex flex-col items-center justify-center font-bold">
-                      {/* <Image
-                        src="/images/gifts/Dons Nativos.png"
-                        alt="Glifo de um lobo"
-                        className="w-12 relative object-contain mb-2"
-                        width={35}
-                        height={400}
-                      /> */}
                       { session.name }
-                    </button>
                   </button>
                 )
               }
             </div>
             { showCreateSession && <CreateSection /> }
-            {/* { showInfoSessions && <Info /> }
-            { dataSession.show && <VerifySession /> } */}
+            {/* { showInfoSessions && <Info /> } */}
           </section>
         : <div className="text-white h-full flex items-center justify-center flex-col">
           <Loading />

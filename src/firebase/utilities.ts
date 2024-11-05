@@ -17,6 +17,13 @@ export const capitalize = (string: string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
+export const capitalizeFirstLetter = (str: string): String => {
+  switch(str) {
+    default: return str.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+  }
+};
+
 // export const playerSheet = {
 //   advantagesAndFlaws: {
 //     flaws: [],

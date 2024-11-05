@@ -7,16 +7,46 @@ import MenuSession from "../components/menuSession";
 import Nav from "../components/nav";
 import { FaAngleDoubleLeft } from "react-icons/fa";
 import Grid from "../components/grid";
+import { getSessionById } from "../firebase/sessions";
+import { useCollectionData, useDocumentData } from "react-firebase-hooks/firestore";
+import { collection, doc, getFirestore, query, where } from "firebase/firestore";
+import firestoreConfig from "../firebase/connection";
+import MessageToUser from "../components/messageToUser";
+import LeaveSession from "../components/menuSession/leaveSession";
 
 export default function SessionId() {
-  const { id } = useParams();
+  let { id } = useParams();
+  if (!id) id = '';
   const [showData, setShowData] = useState(false);
   const {
-    setShowMessage, setSessionId,
+    setSession,
+    removeFromSession,
+    showMessage, setShowMessage,
     showMenuSession, setShowMenuSession,
-    setUserEmail,
+    userEmail, setUserEmail,
+    setListNotification, 
   } = useContext(contexto);
   const router = useNavigate();
+
+  const db = getFirestore(firestoreConfig);
+  const dataRefSession = doc(db, "sessions", id);
+  let [dataSession, loadingSession] = useDocumentData(dataRefSession, { idField: "id" } as any);
+  if (!dataSession) dataSession = [];
+
+  useEffect(() => {
+    if (dataSession && !loadingSession) setSession(dataSession);
+  }, [dataSession, loadingSession, userEmail, setSession]);
+
+  const sessionRef = collection(db, 'notifications');
+  const querySession = query(sessionRef, where('sessionId', '==', id));
+  const [notifications] = useCollectionData(querySession, { idField: 'id' } as any);
+
+  useEffect(() => {
+    if (notifications) {
+      const allLists = notifications.flatMap(notification => notification.list || []);
+      setListNotification(allLists);
+    }
+  }, [notifications, setListNotification]);
 
   const fetchData = async (): Promise<void> => {
     try {
@@ -24,7 +54,10 @@ export default function SessionId() {
       if (authData && authData.email && authData.displayName) {
         setShowData(true);
         setUserEmail(authData.email);
-        if (id) setSessionId(id);
+        if (id) {
+          const session = await getSessionById(id, setShowMessage);
+          setSession(session);
+        }
       } else router('/login');
     } catch (error) {
       setShowMessage({ show: true, text: 'Ocorreu um erro ao obter acesso à Sessão: ' + error });
@@ -40,6 +73,8 @@ export default function SessionId() {
   return(
     <div className="flex flex-col w-full h-screen relative">
       <Nav />
+      { showMessage.show && <MessageToUser /> }
+      { removeFromSession.show && <LeaveSession /> }
       <div id="grid-container" className="relative h-screen">
         {
           showData

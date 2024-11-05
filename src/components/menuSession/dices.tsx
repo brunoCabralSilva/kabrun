@@ -27,7 +27,7 @@ export default function Dices() {
 
   const {
     setShowMessage,
-    sessionId,
+    session,
     userEmail,
     showMenuSession, setShowMenuSession
   } = useContext(contexto);
@@ -52,7 +52,7 @@ export default function Dices() {
       dicesList.filter((dice: any) => dice.quant > 0),
       advantage,
       disadvantage,
-      sessionId,
+      session.id,
       userEmail,
       setShowMessage,
     );

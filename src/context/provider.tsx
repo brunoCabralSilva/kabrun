@@ -12,9 +12,15 @@ export default function Provider({children }: IProvider) {
   const [showChangeImage, setShowChangeImage] = useState({ show: false, user: {} });
   const [showCreateSession, setShowCreateSession] = useState(false);
   const [showMenuSession, setShowMenuSession] = useState('');
-  const [sessionId, setSessionId] = useState('');
+  const [session, setSession] = useState({});
   const [userEmail, setUserEmail] = useState('');
   const [showMenuDices, setShowMenuDices] = useState(false);
+  const [showEditPrinciple, setShowEditPrinciple] = useState({ show: false, description: '' });
+  const [showDeletePrinciple, setShowDeletePrinciple] = useState({ show: false, description: '' });
+  const [showChangeGameMaster, setShowChangeGameMaster] = useState({ show: false, data: {} });
+  const [removeFromSession, setRemoveFromSession] = useState({ show: false, gm: false });
+  const [dataSession, setDataSession] = useState({ show: false, id: '' });
+  const [listNotification, setListNotification] = useState([]);
 
   const scrollToBottom = () => {
     const messagesContainer = document.getElementById('grid-container');
@@ -51,7 +57,7 @@ export default function Provider({children }: IProvider) {
         scrollToBottom,
         resetPopups,
         returnAttribute,
-        sessionId, setSessionId,
+        session, setSession,
         userEmail, setUserEmail,
         showMessage, setShowMessage,
         showForgotPassword, setShowForgotPassword,
@@ -61,6 +67,12 @@ export default function Provider({children }: IProvider) {
         showCreateSession, setShowCreateSession,
         showMenuSession, setShowMenuSession,
         showMenuDices, setShowMenuDices,
+        showEditPrinciple, setShowEditPrinciple,
+        showDeletePrinciple, setShowDeletePrinciple,
+        showChangeGameMaster, setShowChangeGameMaster,
+        removeFromSession, setRemoveFromSession,
+        dataSession, setDataSession,
+        listNotification, setListNotification,
       }}
     >
       {children}

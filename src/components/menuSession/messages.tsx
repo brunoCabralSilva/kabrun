@@ -7,12 +7,12 @@ import Loading from "../loading";
 import { diceImages } from "../../firebase/diceImage";
 
 export default function Messages() {
-  const { sessionId, userEmail } = useContext(contexto);
+  const { session, userEmail } = useContext(contexto);
   const endOfMessagesRef = useRef<HTMLDivElement>(null);
 
   const db = getFirestore(firestoreConfig);
   const dataRef = collection(db, "chats");
-  const queryData = query(dataRef, where("sessionId", "==", sessionId));
+  const queryData = query(dataRef, where("sessionId", "==", session.id));
   const [chat] = useCollectionData(queryData, { idField: "id" } as any);
 
   useEffect(() => {
