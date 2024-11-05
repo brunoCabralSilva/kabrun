@@ -15,7 +15,7 @@ export default function MenuSessions() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
-  const { showMenuSession, setShowMenuSession } = useContext(contexto);
+  const { showMenuSession, setShowMenuSession, listNotification } = useContext(contexto);
 
   const returnMenu = () => {
     switch(showMenuSession) {
@@ -78,7 +78,13 @@ export default function MenuSessions() {
             onClick={ () => setShowMenuSession('notifications') }
             className="text-white text-3xl cursor-pointer"
           >
-            <IoIosNotifications />
+            <div className="relative">
+              {
+                listNotification.length > 0 &&
+                <div className="absolute top-0 right-0 text-white text-xs bg-red-500 rounded-full w-4 h-4">{listNotification.length}</div>
+              }
+              <IoIosNotifications />
+            </div>
           </button>          
           <button
             type="button"

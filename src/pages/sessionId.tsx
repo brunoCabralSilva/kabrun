@@ -24,7 +24,8 @@ export default function SessionId() {
     showMessage, setShowMessage,
     showMenuSession, setShowMenuSession,
     userEmail, setUserEmail,
-    setListNotification, 
+    setListNotification,
+    setDataSession,
   } = useContext(contexto);
   const router = useNavigate();
 
@@ -68,6 +69,7 @@ export default function SessionId() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     fetchData();
+    setDataSession({ show: false, id: '' });
   }, []);
 
   return(
