@@ -29,8 +29,8 @@ export default function MenuSessions() {
   };
   
   return(
-    <div className="relative h-full w-full flex flex-col">
-      <div className="my-2">
+    <div className="relative h-screen w-full flex flex-col">
+      <div className="my-2 h-6vh">
         <div className="flex justify-center items-center w-full gap-5">
           <button
             type="button"
@@ -90,7 +90,7 @@ export default function MenuSessions() {
           </button>
         </div>
       </div>
-      <div className="bg-gray-600 h-full w-full">
+      <div className="h-full w-full">
         { returnMenu() }
       </div>
     </div> 

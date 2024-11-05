@@ -1,14 +1,17 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate,
+  // useParams
+} from 'react-router-dom';
 import Loading from "../components/loading";
 import { authenticate } from "../firebase/authenticate";
 import contexto from "../context/context";
 import MenuSession from "../components/menuSession";
 import Nav from "../components/nav";
 import { FaAngleDoubleLeft } from "react-icons/fa";
+import Grid from "../components/grid";
 
 export default function SessionId() {
-  const { id } = useParams();
+  // const { id } = useParams();
   const [showData, setShowData] = useState(false);
   const {
     setShowMessage,
@@ -39,13 +42,12 @@ export default function SessionId() {
       <div id="grid-container" className="relative h-screen">
         {
           showData
-          ? <div className="flex w-full h-screen"> 
-              <div className="h-screen w-full bg-gray-500 overflow-y-auto pt-2 px-2 flex">
-                Mapa da Sessão { id }
+          ? <div className="flex h-screen bg-black"> 
+              <div className={`${showMenuSession === '' ? 'w-full ': 'w-8/12'} h-screen`}><Grid />
               </div>
               {
                 showMenuSession !== ''
-                ? <div className="w-full md:w-3/5 bg-gray-700 p-2 flex flex-col gap-2 justify-center items-center">
+                ? <div className="w-4/12 h-screen bg-gray-whats-dark p-2 flex flex-col gap-2 justify-center items-center">
                   <MenuSession />
                 </div>
                 : <button

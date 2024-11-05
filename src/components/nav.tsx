@@ -1,16 +1,15 @@
 import { useContext, useEffect, useState } from "react";
 import contexto from "../context/context";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authenticate } from "../firebase/authenticate";
 import Logout from "./logout";
 
 export default function Nav() {
   const [showMenu, setShowMenu] = useState(false);
   const [loginLogout, setLoginLogout] = useState('');
+  const [routeName] = useState(useLocation().pathname.includes('/sessions/'));
   const router = useNavigate();
-  const {
-    logoutUser, setLogoutUser,
-    setShowMessage } = useContext(contexto);
+  const { logoutUser, setLogoutUser, setShowMessage } = useContext(contexto);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,7 +47,7 @@ export default function Nav() {
       { logoutUser && <Logout /> }
       <div
         onClick={ () => setShowMenu(!showMenu) }
-        className="bg-black px-2 pt-2 pb-1 rounded cursor-pointer fixed right-0 top-0 sm:mt-1 sm:mr-2 flex flex-col z-40"
+        className={`bg-black px-2 pt-2 pb-1 rounded cursor-pointer fixed ${routeName ? 'left-1' : 'right-0'} top-0 sm:mt-1 sm:mr-2 flex flex-col z-40`}
       >
         <div className={`h-1 w-7 bg-white mb-1 ${barra1()}`} />
         <div className={`h-1 w-7 bg-white mb-1 ${barra2()}`} />
@@ -56,7 +55,7 @@ export default function Nav() {
       </div>
       { showMenu &&
         <ul
-          className={`overflow-y-auto fixed top-0 right-0 opacity-1 z-30 w-full sm:w-1/2 md:w-1/4 h-screen items-center pt-2 transition duration-500 flex flex-col text-white justify-center bg-black font-extrabold`}
+          className={`overflow-y-auto fixed top-0 ${routeName ? 'left-0' : 'right-0'} opacity-1 z-30 w-full sm:w-1/2 md:w-1/4 h-screen items-center pt-2 transition duration-500 flex flex-col text-white justify-center bg-black font-extrabold`}
         >
           <li>
             <Link

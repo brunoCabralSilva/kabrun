@@ -9,7 +9,15 @@ module.exports = {
       backgroundImage: {
         'background': "url('/src/assets/dragon.png')",
       },
+      colors: {
+        'gray-whats': '#202C33',
+        'green-whats': '#005C4B',
+        'green-whats-dark': '#013027',
+        'gray-whats-dark': '#0c1114',
+      },
       spacing: {
+        '5vh': '5vh',
+        '6vh': '6vh',
         '10vh': '10vh',
         '15vh': '15vh',
         '20vh': '20vh',
@@ -23,9 +31,13 @@ module.exports = {
         '70vh': '70vh',
         '75vh': '75vh',
         '80vh': '80vh',
+        '82vh': '82vh',
         '85vh': '85vh',
         '90vh': '90vh',
       },
+      gridTemplateColumns: {
+        '30': 'repeat(30, minmax(0, 1fr))',
+      }
     },
   },
   plugins: [],
