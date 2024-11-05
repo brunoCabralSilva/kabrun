@@ -12,9 +12,11 @@ export default function Provider({children }: IProvider) {
   const [showChangeImage, setShowChangeImage] = useState({ show: false, user: {} });
   const [showCreateSession, setShowCreateSession] = useState(false);
   const [showMenuSession, setShowMenuSession] = useState('');
+  const [sessionId, setSessionId] = useState('');
+  const [userEmail, setUserEmail] = useState('');
 
   const scrollToBottom = () => {
-    const messagesContainer = document.getElementById('messages-container');
+    const messagesContainer = document.getElementById('grid-container');
     if (messagesContainer) {
       messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
@@ -48,6 +50,8 @@ export default function Provider({children }: IProvider) {
         scrollToBottom,
         resetPopups,
         returnAttribute,
+        sessionId, setSessionId,
+        userEmail, setUserEmail,
         showMessage, setShowMessage,
         showForgotPassword, setShowForgotPassword,
         logoutUser, setLogoutUser,

@@ -1,17 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import contexto from "../../context/context";
 import { IoIosSend } from "react-icons/io";
 import Messages from "./messages";
+import { registerMessage } from "../../firebase/chats";
 
 export default function Chat() {
   const [text, setText] = useState('');
-  const { scrollToBottom } = useContext(contexto);
+  const { scrollToBottom, setShowMessage, sessionId } = useContext(contexto);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
-  
   return(
     <div>
       <div className="h-82vh overflow-y-auto">
@@ -24,7 +20,7 @@ export default function Chat() {
           value={text}
           onKeyDown={ async (event) => {
             if (event.key === 'Enter' && text !== '' && text !== ' ') {
-              // await registerMessage(sessionId, { type: 'text', message: text }, null, setShowMessage);
+              await registerMessage(sessionId, { type: 'text', message: text }, null, setShowMessage);
               setText('');
               scrollToBottom();
             }
@@ -41,7 +37,7 @@ export default function Chat() {
               title="Enviar uma mensagem"
               onClick={ async () => {
                 if (text !== '' && text !== ' ') {
-                  // await registerMessage(sessionId, { type: 'text', message: text }, null, setShowMessage);
+                  await registerMessage(sessionId, { type: 'text', message: text }, null, setShowMessage);
                   setText('');
                   scrollToBottom();
                 }

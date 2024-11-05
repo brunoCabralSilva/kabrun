@@ -1,7 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate,
-  // useParams
-} from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Loading from "../components/loading";
 import { authenticate } from "../firebase/authenticate";
 import contexto from "../context/context";
@@ -11,11 +9,12 @@ import { FaAngleDoubleLeft } from "react-icons/fa";
 import Grid from "../components/grid";
 
 export default function SessionId() {
-  // const { id } = useParams();
+  const { id } = useParams();
   const [showData, setShowData] = useState(false);
   const {
-    setShowMessage,
+    setShowMessage, setSessionId,
     showMenuSession, setShowMenuSession,
+    setUserEmail,
   } = useContext(contexto);
   const router = useNavigate();
 
@@ -24,6 +23,8 @@ export default function SessionId() {
       const authData: any = await authenticate(setShowMessage);
       if (authData && authData.email && authData.displayName) {
         setShowData(true);
+        setUserEmail(authData.email);
+        if (id) setSessionId(id);
       } else router('/login');
     } catch (error) {
       setShowMessage({ show: true, text: 'Ocorreu um erro ao obter acesso à Sessão: ' + error });

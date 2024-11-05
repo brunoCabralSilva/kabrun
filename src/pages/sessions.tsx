@@ -16,7 +16,7 @@ export default function Sessions() {
   const {
     showMessage, setShowMessage,
     showCreateSession, setShowCreateSession,
-    // setShowInfoSessions,
+    setUserEmail,
     resetPopups,
   } = useContext(contexto);
   const router = useNavigate();
@@ -31,6 +31,7 @@ export default function Sessions() {
     try {
       const authData: any = await authenticate(setShowMessage);
       if (authData && authData.email && authData.displayName) {
+        setUserEmail(authData.email);
         const sessionsList = await getSessions();
         setSessions(sessionsList);
         setShowData(true);
@@ -79,7 +80,10 @@ export default function Sessions() {
                   // onClick={ () => setDataSession({ show: true, id: session.id })}
                   className=" border-2 border-white text-white h-28 cursor-pointer bg-ritual bg-cover capitalize"
                   >
-                    <div className="w-full h-full bg-black/60 p-2 px-4 flex flex-col items-center justify-center font-bold">
+                    <button
+                      type="button"
+                      onClick={ () => router('/sessions/' + session.id) }
+                      className="w-full h-full bg-black/60 p-2 px-4 flex flex-col items-center justify-center font-bold">
                       {/* <Image
                         src="/images/gifts/Dons Nativos.png"
                         alt="Glifo de um lobo"
@@ -88,7 +92,7 @@ export default function Sessions() {
                         height={400}
                       /> */}
                       { session.name }
-                    </div>
+                    </button>
                   </button>
                 )
               }
