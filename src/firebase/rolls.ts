@@ -8,6 +8,8 @@ export const roll = async (
   email: string,
   setShowMessage: any,
 ) => {
+  console.log(advantage);
+  console.log(disadvantage);
   const list = [];
   let sum = 0;
   const result = [];
