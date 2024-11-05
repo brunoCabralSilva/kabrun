@@ -53,7 +53,7 @@ export default function SessionId() {
                 </div>
                 : <button
                     type="button"
-                    className="fixed bottom-2 right-2 p-2 text-xl bg-black text-white rounded-full"
+                    className="fixed bottom-2 right-6 border-2 border-white p-2 text-xl bg-black text-white rounded-full"
                     onClick={ () => setShowMenuSession('yes') }
                   >
                     <FaAngleDoubleLeft />

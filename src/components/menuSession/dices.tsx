@@ -83,7 +83,7 @@ export default function Dices() {
   }
   
   return(
-    <div className={`w-full flex flex-col items-center ${ showMenuSession ? 'h-95vh' : 'h-screen' } z-50 top-0 right-0 overflow-y-auto pr-2`}>
+    <div className={`w-full flex flex-col items-center ${ showMenuSession ? 'h-95vh' : 'h-screen' } z-50 top-0 right-0 overflow-y-auto p-4`}>
       <div className="grid grid-cols-3 w-full mt-2 gap-1">
         <div className="text-center w-full font-bold text-white border border-white p-2">Quantidade</div>
         <div className="text-center w-full font-bold text-white border border-white p-2">Tipo de Dado</div>
