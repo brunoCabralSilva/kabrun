@@ -2,7 +2,6 @@ import { useEffect, useState, useContext } from "react";
 import { GiD10, GiD12, GiD4, GiDiceTwentyFacesTwenty, GiPerspectiveDiceSixFacesOne } from "react-icons/gi";
 import { roll } from "../../firebase/rolls";
 import contexto from "../../context/context";
-// import { FaMinus, FaPlus } from "react-icons/fa";
 
 export default function Dices() {
   const [quantD4, setQuantD4] = useState(0);
@@ -19,14 +18,19 @@ export default function Dices() {
   const [sumD20, setSumD20] = useState(0);
   const [quantD100, setQuantD100] = useState(0);
   const [sumD100, setSumD100] = useState(0);
-  const [other, setOther] = useState(false);
   const [quantOther, setQuantOther] = useState(0);
   const [sumOther, setSumOther] = useState(0);
   const [valueOther, setValueOther] = useState(0);
   const [advantage, setAdvantage] = useState(false);
   const [disadvantage, setDisadvantage] = useState(false);
+  const [other, setOther] = useState(false);
 
-  const { setShowMessage, sessionId, userEmail, setShowMenuSession } = useContext(contexto);
+  const {
+    setShowMessage,
+    sessionId,
+    userEmail,
+    showMenuSession, setShowMenuSession
+  } = useContext(contexto);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -70,7 +74,6 @@ export default function Dices() {
     setValueOther(0);
     setSumOther(0);
     setQuantOther(0);
-    setOther(false);
     setAdvantage(false);
     setDisadvantage(false);
   };
@@ -80,58 +83,12 @@ export default function Dices() {
   }
   
   return(
-    <div className="w-full flex flex-col items-center h-90vh z-50 top-0 right-0 overflow-y-auto pr-2">
-      <button
-        className="text-white bg-black hover:border-red-800 border-2 border-white  transition-colors cursor-pointer w-full p-2 mt-2 font-bold"
-        onClick={ () => {
-          setOther(!other);
-          setValueOther(0);
-          setSumOther(0);
-          setQuantOther(0);
-        }}
-      >
-        { `${other ? 'Remover' : 'Utilizar'} Dado com Faces Personalizadas` }
-      </button>
-      {
-        other &&
-        <div className="grid grid-cols-3 w-full mt-2 gap-1">
-          <div className="text-center w-full font-bold text-white border border-white p-2">Quantidade</div>
-          <div className="text-center w-full font-bold text-white border border-white p-2">Face do Dado</div>
-          <div className="text-center w-full font-bold text-white border border-white p-2">Bônus</div>
-          <input
-            type="number"
-            className="p-2 bg-gray-whats-dark border border-white text-center text-white w-full outline-none"
-            value={quantOther}
-            onChange={(e: any) => {
-              if (e.target.value === '' || e.target.value <= 0) setQuantOther(0);
-              else setQuantOther(e.target.value);
-            }}
-          />
-          <input
-            type="number"
-            className="p-2 bg-gray-whats-dark border border-white text-center text-white w-full outline-none"
-            value={valueOther}
-            onChange={(e: any) => {
-              if (e.target.value === '' || e.target.value <= 0) setValueOther(0);
-              else setValueOther(e.target.value) }}
-          />
-          <input
-            type="number"
-            className="p-2 bg-gray-whats-dark border border-white text-center text-white w-full outline-none"
-            value={sumOther}
-            onChange={(e: any) => {
-              if (e.target.value === '') setSumOther(0);
-              else setSumOther(e.target.value) }}
-          />
-        </div>
-      }
-      { !other &&
-        <div className="grid grid-cols-3 w-full mt-2 gap-1">
-          <div className="text-center w-full font-bold text-white border border-white p-2">Quantidade</div>
-          <div className="text-center w-full font-bold text-white border border-white p-2">Tipo de Dado</div>
-          <div className="text-center w-full font-bold text-white border border-white p-2">Bônus</div>
-        </div>
-      }
+    <div className={`w-full flex flex-col items-center ${ showMenuSession ? 'h-95vh' : 'h-screen' } z-50 top-0 right-0 overflow-y-auto pr-2`}>
+      <div className="grid grid-cols-3 w-full mt-2 gap-1">
+        <div className="text-center w-full font-bold text-white border border-white p-2">Quantidade</div>
+        <div className="text-center w-full font-bold text-white border border-white p-2">Tipo de Dado</div>
+        <div className="text-center w-full font-bold text-white border border-white p-2">Bônus</div>
+      </div>
       <div className="grid grid-cols-3 w-full mt-2 gap-1">
         <input
           type="number"
@@ -300,7 +257,47 @@ export default function Dices() {
             else setSumD100(e.target.value) }}
         />
       </div>
-      
+      {
+        other &&
+        <div className="grid grid-cols-3 w-full mt-2 gap-1">
+          <input
+            type="number"
+            className="p-2 bg-gray-whats-dark border border-white text-center text-white w-full outline-none"
+            value={quantOther}
+            onChange={(e: any) => {
+              if (e.target.value === '' || e.target.value <= 0) setQuantOther(0);
+              else setQuantOther(e.target.value);
+            }}
+          />
+          <input
+            type="number"
+            className="p-2 bg-gray-whats-dark border border-white text-center text-white w-full outline-none"
+            value={valueOther}
+            onChange={(e: any) => {
+              if (e.target.value === '' || e.target.value <= 0) setValueOther(0);
+              else setValueOther(e.target.value) }}
+          />
+          <input
+            type="number"
+            className="p-2 bg-gray-whats-dark border border-white text-center text-white w-full outline-none"
+            value={sumOther}
+            onChange={(e: any) => {
+              if (e.target.value === '') setSumOther(0);
+              else setSumOther(e.target.value) }}
+          />
+        </div>
+      }
+      <button
+        className="text-white bg-black hover:border-red-800 border-2 border-white  transition-colors cursor-pointer w-full p-2 mt-2 font-bold"
+        onClick={ () => {
+          setOther(!other);
+          setValueOther(0);
+          setSumOther(0);
+          setQuantOther(0);
+        }}
+      >
+        { `${other ? 'Remover' : 'Utilizar'} Dado com Faces Personalizadas` }
+      </button>
       <button
         className={`${advantage ? 'bg-red-500' : 'text-white bg-black hover:border-red-800' } border-2 border-white  transition-colors cursor-pointer w-full p-2 mt-2 font-bold`}
         onClick={ () => {
@@ -320,7 +317,7 @@ export default function Dices() {
         {`${ disadvantage ? 'Remover Desvantagem' : 'Realizar Teste Com Desvantagem'}`}
       </button>
       <button
-        className={`${disableRoll() ? 'text-black bg-gray-400 ' : 'text-white bg-black hover:border-red-800 ' } border-2 border-white  transition-colors cursor-pointer w-full p-2 mt-6 mb-2 font-bold`}
+        className={`${disableRoll() ? 'text-black bg-gray-400 ' : 'text-white bg-black hover:border-red-800 ' } border-2 border-white  transition-colors cursor-pointer w-full p-2 mt-2 mb-2 font-bold`}
         onClick={ () => {
           setShowMenuSession('chat');
           rollDices();

@@ -14,6 +14,7 @@ export default function Provider({children }: IProvider) {
   const [showMenuSession, setShowMenuSession] = useState('');
   const [sessionId, setSessionId] = useState('');
   const [userEmail, setUserEmail] = useState('');
+  const [showMenuDices, setShowMenuDices] = useState(false);
 
   const scrollToBottom = () => {
     const messagesContainer = document.getElementById('grid-container');
@@ -59,6 +60,7 @@ export default function Provider({children }: IProvider) {
         showChangeImage, setShowChangeImage,
         showCreateSession, setShowCreateSession,
         showMenuSession, setShowMenuSession,
+        showMenuDices, setShowMenuDices,
       }}
     >
       {children}

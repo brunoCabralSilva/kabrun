@@ -34,6 +34,9 @@ module.exports = {
         '82vh': '82vh',
         '85vh': '85vh',
         '90vh': '90vh',
+        '95vh': '95vh',
+        '97vh': '97vh',
+        '98vh': '98vh',
       },
       gridTemplateColumns: {
         '30': 'repeat(30, minmax(0, 1fr))',
