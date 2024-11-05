@@ -10,7 +10,7 @@ export default function Chat() {
 
   return(
     <div>
-      <div className="h-82vh overflow-y-auto">
+      <div className="h-82vh overflow-y-auto pr-1">
         <Messages />
       </div>
       <div className="flex w-full items-end bottom-0 mt-2">
