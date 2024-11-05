@@ -4,14 +4,14 @@ import { getOfficialTimeBrazil } from "./utilities";
 import { createNotificationData } from "./notifications";
 import { createChatData } from "./chats";
 import { createPlayersData } from "./players";
+import { createMaps } from "./maps";
 
 export const getSessions = async () => {
   const db = getFirestore(firebaseConfig);
   const collectionRef = collection(db, 'sessions');
   const querySnapshot = await getDocs(collectionRef);
   const sessionsList = querySnapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
+    id: doc.id, ...doc.data(),
   }));
   return sessionsList;
 };
@@ -45,8 +45,7 @@ export const createSession = async (
       gameMaster: email,
       principles: [],
       images: [ { profile: '', list: [] }],
-      books: [],
-      maps: [],
+      books: ["Dungeons & Dragons - Player's Handbook"],
       anotations: '',
       description,
     });
@@ -57,6 +56,7 @@ export const createSession = async (
     await createNotificationData(newSession.id, setShowMessage);
     await createPlayersData(newSession.id, setShowMessage);
     await createChatData(newSession.id, setShowMessage);
+    await createMaps(newSession.id, setShowMessage);
     return newSession.id;
   } catch (err: any) {
     setShowMessage({ show: true, text: 'Ocorreu um erro ao criar uma sessão: ' + err.message });

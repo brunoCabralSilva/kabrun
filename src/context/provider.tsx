@@ -11,6 +11,7 @@ export default function Provider({children }: IProvider) {
   const [showChangePassword, setShowChangePassword] = useState({ show: false, email: '' });
   const [showChangeImage, setShowChangeImage] = useState({ show: false, user: {} });
   const [showCreateSession, setShowCreateSession] = useState(false);
+  const [showMenuSession, setShowMenuSession] = useState('');
 
   const scrollToBottom = () => {
     const messagesContainer = document.getElementById('messages-container');
@@ -26,6 +27,7 @@ export default function Provider({children }: IProvider) {
     setShowChangePassword({ show: false, email: '' });
     setShowChangeImage({ show: false, user: {} });
     setShowCreateSession(false);
+    setShowMenuSession('');
   }
 
   const returnAttribute = (attribute: string) => {
@@ -52,6 +54,7 @@ export default function Provider({children }: IProvider) {
         showChangePassword, setShowChangePassword,
         showChangeImage, setShowChangeImage,
         showCreateSession, setShowCreateSession,
+        showMenuSession, setShowMenuSession,
       }}
     >
       {children}
