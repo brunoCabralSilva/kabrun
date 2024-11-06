@@ -41,8 +41,9 @@ export const createSheet = async (email: string, user: string, session: any, set
   await runTransaction(db, async (transaction: any) => {
     const playerDocSnapshot = await transaction.get(playerDocRef);
     const playerData = playerDocSnapshot.data();
-    const filterByEmail = playerData.list.filter((user: any) => user.email === email);
+    const filterByEmail = playerData.list.filter((user: any) => user.emails.includes(email));
     const sheet = {
+      id: playerData.list.length + 1,
       sheet: playerSheet(`Personagem ${filterByEmail.length + 1}`),
       emails: [email],
       user,

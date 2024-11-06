@@ -22,6 +22,7 @@ export default function Provider({children }: IProvider) {
   const [dataSession, setDataSession] = useState({ show: false, id: '' });
   const [players, setPlayers] = useState([]);
   const [listNotification, setListNotification] = useState([]);
+  const  [showSheet, setShowSheet] = useState({ show: false, id: '' });
 
   const scrollToBottom = () => {
     const messagesContainer = document.getElementById('grid-container');
@@ -75,6 +76,7 @@ export default function Provider({children }: IProvider) {
         dataSession, setDataSession,
         listNotification, setListNotification,
         players, setPlayers,
+        showSheet, setShowSheet,
       }}
     >
       {children}

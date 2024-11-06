@@ -19,14 +19,12 @@ export default function SessionId() {
   if (!id) id = '';
   const [showData, setShowData] = useState(false);
   const {
-    setSession,
-    setDataSession,
-    setListNotification,
+    session, setSession,
     removeFromSession,
-    players, setPlayers,
     showMessage, setShowMessage,
     showMenuSession, setShowMenuSession,
-    userEmail, setUserEmail,
+    setDataSession, setListNotification,
+    setPlayers, setUserEmail,
   } = useContext(contexto);
   const router = useNavigate();
 
@@ -37,15 +35,16 @@ export default function SessionId() {
   if (!dataSession) dataSession = [];
   useEffect(() => {
     if (dataSession && !loadingSession) setSession(dataSession);
-  }, [dataSession, loadingSession, userEmail, setSession]);
+  }, [dataSession, loadingSession, session, setSession]);
 
-  //Listenning Players
+  // //Listenning Players
   const dataRefPlayer = collection(db, "players");
   const queryDataPlayer = query(dataRefPlayer, where("sessionId", "==", id));
   const [data, loading] = useCollectionData(queryDataPlayer, { idField: "id" } as any);
   useEffect(() => {
-    if (data) setPlayers(data[0].list);     
-  }, [data, loading, setPlayers, players]);
+    if (data && !loading) setPlayers(data[0].list);
+  }, [data, loading, setPlayers]);
+  
 
   //Listenning Notifications
   const sessionRef = collection(db, 'notifications');

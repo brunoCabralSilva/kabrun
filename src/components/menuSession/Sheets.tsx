@@ -11,7 +11,13 @@ const allColors = [
 
 export default function Sheets() {
   const [colors, setColors] = useState<any>([]);
-  const { session, setShowMessage, players, userEmail } = useContext(contexto);
+  const {
+    session,
+    players,
+    userEmail,
+    setShowSheet,
+    setShowMessage,
+  } = useContext(contexto);
 
   useEffect(() => {
     const availableColors = [...allColors];
@@ -37,7 +43,7 @@ export default function Sheets() {
   };
   
   return (
-    <div className="h-90vh overflow-y-auto">
+    <div className="h-90vh overflow-y-auto pr-1 flex flex-col justify-start">
       <button
         type="button"
         onClick={addSheet}
@@ -45,38 +51,44 @@ export default function Sheets() {
       >
         Nova Ficha
       </button>
-      {players
-        .filter((player: any) => {
-          if (userEmail === session.gameMaster) return true;
-          return player.emails.includes(userEmail);
-        })
-        .sort((a: any, b: any) => {
-          const aHasEmail = a.emails.includes(userEmail);
-          const bHasEmail = b.emails.includes(userEmail);
-          return bHasEmail - aHasEmail;
-        })
-        .map((player: any, index: number) => (
-          <div
-            key={index}
-            className="bg-black border border-white rounded text-white font-bold p-2 w-full mt-2 cursor-pointer text-center flex justify-between"
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gray-200"></div>
-              {player.sheet.name}
-            </div>
-            <div className="flex items-center">
-              {player.emails.map((itemPlayer: any, index: number) => {
-                const color: any = colors.find((item: any) => item.player === itemPlayer);
-                return (
-                  <div
-                    key={index}
-                    className={`w-3 h-3 rounded-full ${color && color.color}`}
-                  ></div>
-                );
-              })}
-            </div>
-          </div>
-        ))}
+      {
+        players
+          .filter((player: any) => {
+            if (userEmail === session.gameMaster) return true;
+            return player.emails.includes(userEmail);
+          })
+          .sort((a: any, b: any) => {
+            const aHasEmail = a.emails.includes(userEmail);
+            const bHasEmail = b.emails.includes(userEmail);
+            return bHasEmail - aHasEmail;
+          })
+          .map((player: any, index: number) => (
+            <button
+              type="button"
+              onClick={ () => setShowSheet({ show: true, id: player.id}) }
+              key={index}
+              className="bg-black border border-white rounded text-white font-bold p-2 w-full mt-2 cursor-pointer text-center flex justify-between items-center"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gray-200"></div>
+                {player.sheet.name}
+              </div>
+              <div className="flex items-center">
+                {
+                  player.emails.map((itemPlayer: any, index: number) => {
+                    const color: any = colors.find((item: any) => item.player === itemPlayer);
+                    return (
+                      <div
+                        key={index}
+                        className={`w-3 h-3 rounded-full ${color && color.color}`}
+                      />
+                    );
+                  })
+                }
+              </div>
+            </button>
+          ))
+      }
     </div>
   );
 }
