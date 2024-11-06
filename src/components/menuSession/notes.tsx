@@ -1,7 +1,10 @@
 'use client'
 import { BsCheckSquare } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
-import { useState } from "react";
+import {
+  // useContext, useEffect,
+  useState
+} from "react";
 // import contexto from "../../context/context";
 
 export default function Notes() {
