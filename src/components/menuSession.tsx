@@ -4,7 +4,7 @@ import { IoBookSharp, IoChatboxEllipsesOutline } from "react-icons/io5";
 import { PiBooksLight } from "react-icons/pi";
 import { FaMap, FaRegImages } from "react-icons/fa";
 import { IoIosCloseCircle, IoIosInformationCircle, IoIosNotifications } from "react-icons/io";
-import Sheets from "./menuSession/sheets";
+import Sheets from "./menuSession/sheetsData";
 import Images from "./menuSession/images";
 import Notes from "./menuSession/notes";
 import Details from "./menuSession/details";
