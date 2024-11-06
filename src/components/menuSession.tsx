@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import contexto from "../context/context";
 import { IoBookSharp, IoChatboxEllipsesOutline } from "react-icons/io5";
 import { PiBooksLight } from "react-icons/pi";
-import { FaRegImages } from "react-icons/fa";
+import { FaMap, FaRegImages } from "react-icons/fa";
 import { IoIosCloseCircle, IoIosInformationCircle, IoIosNotifications } from "react-icons/io";
 import Sheets from "./menuSession/Sheets";
 import Images from "./menuSession/images";
@@ -10,6 +10,7 @@ import Notes from "./menuSession/notes";
 import Details from "./menuSession/details";
 import Chat from "./menuSession/chat";
 import Notifications from "./menuSession/notifications";
+import Maps from "./menuSession/maps";
 
 export default function MenuSessions() {
   useEffect(() => {
@@ -22,6 +23,7 @@ export default function MenuSessions() {
       case 'sheet': return <Sheets />;
       case 'images': return <Images />;
       case 'anotations': return <Notes />;
+      case 'maps': return <Maps />;
       case 'details': return <Details />;
       case 'notifications': return <Notifications />
       default: return <Chat />;
@@ -55,6 +57,14 @@ export default function MenuSessions() {
             className="text-white text-3xl cursor-pointer"
           >
             <FaRegImages />
+          </button>
+          <button
+            type="button"
+            title="Mapas"
+            onClick={ () => setShowMenuSession('maps') }
+            className="text-white text-3xl cursor-pointer"
+          >
+            <FaMap />
           </button>
           <button
             type="button"

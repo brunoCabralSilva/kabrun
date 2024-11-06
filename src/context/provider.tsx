@@ -20,6 +20,7 @@ export default function Provider({children }: IProvider) {
   const [showChangeGameMaster, setShowChangeGameMaster] = useState({ show: false, data: {} });
   const [removeFromSession, setRemoveFromSession] = useState({ show: false, gm: false });
   const [dataSession, setDataSession] = useState({ show: false, id: '' });
+  const [players, setPlayers] = useState([]);
   const [listNotification, setListNotification] = useState([]);
 
   const scrollToBottom = () => {
@@ -73,6 +74,7 @@ export default function Provider({children }: IProvider) {
         removeFromSession, setRemoveFromSession,
         dataSession, setDataSession,
         listNotification, setListNotification,
+        players, setPlayers,
       }}
     >
       {children}

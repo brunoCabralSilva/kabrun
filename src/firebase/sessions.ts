@@ -43,6 +43,30 @@ export const getSessionById = async (sessionId: string, setShowMessage: any) => 
   }
 };
 
+export const getNameAndDmFromSessions = async (sessionId: string) => {
+  const db = getFirestore(firebaseConfig);
+  const sessionsCollectionRef = collection(db, 'sessions');
+  const sessionDocRef = doc(sessionsCollectionRef, sessionId);
+  const sessionDocSnapshot = await getDoc(sessionDocRef);
+  if (sessionDocSnapshot.exists()) {
+    return sessionDocSnapshot.data();
+  } return null;
+};
+
+export const getPlayersInSession = async (id: string, setShowMessage: any) => {
+  try {
+    const db = getFirestore(firebaseConfig);
+    const sessionsCollectionRef = collection(db, 'sessions');
+    const sessionDocRef = doc(sessionsCollectionRef, id);
+    const sessionDocSnapshot = await getDoc(sessionDocRef);
+    if (sessionDocSnapshot.exists()) {
+      return sessionDocSnapshot.data().players;
+    } return null;
+  } catch (error) {
+    setShowMessage({show: true, text: 'Ocorreu um erro ao buscar a Sessão. Por favor, atualize a página e tente novamente: ' + error });
+  }
+}
+
 export const createSession = async (
   nameSession: string,
   description: string,
@@ -169,14 +193,4 @@ export const leaveFromSession = async (session: any, email: string, name: string
   } catch (err: any) {
     setShowMessage({ show: true, text: 'Ocorreu um erro ao atualizar os dados do Jogador: ' + err.message });
   }
-};
-
-export const getNameAndDmFromSessions = async (sessionId: string) => {
-  const db = getFirestore(firebaseConfig);
-  const sessionsCollectionRef = collection(db, 'sessions');
-  const sessionDocRef = doc(sessionsCollectionRef, sessionId);
-  const sessionDocSnapshot = await getDoc(sessionDocRef);
-  if (sessionDocSnapshot.exists()) {
-    return sessionDocSnapshot.data();
-  } return null;
 };

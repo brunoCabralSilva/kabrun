@@ -4,9 +4,8 @@ import contexto from "../context/context";
 import Loading from "./loading";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { authenticate } from "../firebase/authenticate";
-import { getPlayersBySession } from "../firebase/players";
 import { getNotificationBySession, requestApproval } from "../firebase/notifications";
-import { getNameAndDmFromSessions } from "../firebase/sessions";
+import { getNameAndDmFromSessions, getPlayersInSession } from "../firebase/sessions";
 
 export default function VerifySession() {
   const router = useNavigate();
@@ -27,9 +26,8 @@ export default function VerifySession() {
           const getData = await getNameAndDmFromSessions(dataSession.id);
           if (getData) {
             setName(getData.name);
-            if (email === getData.gameMaster) {
-              router(`/sessions/${dataSession.id}`);
-            } else {
+            if (email === getData.gameMaster) router(`/sessions/${dataSession.id}`);
+            else {
               const notifications = await getNotificationBySession(dataSession.id, setShowMessage);
               let authNotification = false;
               notifications.forEach((notification: { email: string, type: string }) => {
@@ -39,9 +37,10 @@ export default function VerifySession() {
                 setPopup('waiting');
               } else {
                 let auth = false;
-                const getPlayers = await getPlayersBySession(dataSession.id, setShowMessage);
+                const getPlayers = await getPlayersInSession(dataSession.id, setShowMessage);
+                console.log(getPlayers);
                 getPlayers.forEach((player: { email: string }) => {
-                  if (player.email === email) auth = true;
+                  if (player === email) auth = true;
                 });
                 if (auth) {
                   router(`/sessions/${dataSession.id}`);

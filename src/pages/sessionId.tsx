@@ -20,28 +20,37 @@ export default function SessionId() {
   const [showData, setShowData] = useState(false);
   const {
     setSession,
+    setDataSession,
+    setListNotification,
     removeFromSession,
+    players, setPlayers,
     showMessage, setShowMessage,
     showMenuSession, setShowMenuSession,
     userEmail, setUserEmail,
-    setListNotification,
-    setDataSession,
   } = useContext(contexto);
   const router = useNavigate();
 
+  //Listenning Sessions
   const db = getFirestore(firestoreConfig);
   const dataRefSession = doc(db, "sessions", id);
   let [dataSession, loadingSession] = useDocumentData(dataRefSession, { idField: "id" } as any);
   if (!dataSession) dataSession = [];
-
   useEffect(() => {
     if (dataSession && !loadingSession) setSession(dataSession);
   }, [dataSession, loadingSession, userEmail, setSession]);
 
+  //Listenning Players
+  const dataRefPlayer = collection(db, "players");
+  const queryDataPlayer = query(dataRefPlayer, where("sessionId", "==", id));
+  const [data, loading] = useCollectionData(queryDataPlayer, { idField: "id" } as any);
+  useEffect(() => {
+    if (data) setPlayers(data[0].list);     
+  }, [data, loading, setPlayers, players]);
+
+  //Listenning Notifications
   const sessionRef = collection(db, 'notifications');
   const querySession = query(sessionRef, where('sessionId', '==', id));
   const [notifications] = useCollectionData(querySession, { idField: 'id' } as any);
-
   useEffect(() => {
     if (notifications) {
       const allLists = notifications.flatMap(notification => notification.list || []);

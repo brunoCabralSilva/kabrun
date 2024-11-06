@@ -183,8 +183,8 @@ export default function Details() {
                       setBooks(allBooks);
                       updateBooks(allBooks);
                     } else if (e.target.value === 'remove') {
-                      setBooks(["Dungeons & Dragons - Player's Handbook"]);
-                      updateBooks(["Dungeons & Dragons - Player's Handbook"]);
+                      setBooks(["Player's Handbook"]);
+                      updateBooks(["Player's Handbook"]);
                     } else {
                       setBooks(
                         [...books, e.target.value]
@@ -229,7 +229,7 @@ export default function Details() {
                   >
                     <div>{ book }</div>
                     {
-                      book !== "Dungeons & Dragons - Player's Handbook" && gm &&
+                      book !== "Player's Handbook" && gm &&
                       <button
                         type="button"
                         className="text-2xl"
