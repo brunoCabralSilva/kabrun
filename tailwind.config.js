@@ -40,6 +40,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         '30': 'repeat(30, minmax(0, 1fr))',
+        '20': 'repeat(20, minmax(0, 1fr))',
       }
     },
   },

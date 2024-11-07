@@ -93,7 +93,7 @@ export default function SessionId() {
               </div>
               {
                 showMenuSession !== ''
-                ? <div className="w-4/12 h-screen bg-gray-whats-dark p-2 flex flex-col gap-2 justify-center items-center">
+                ? <div className="w-4/12 h-screen bg-gray-whats-dark flex flex-col gap-2 justify-center items-center">
                   <MenuSession />
                 </div>
                 : <button

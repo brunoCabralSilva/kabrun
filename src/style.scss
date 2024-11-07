@@ -1,0 +1,67 @@
+$line-width: 0.18rem;
+$line-color: rgba(255,255,255,1);
+
+.box {
+  height: 3rem;
+  width: 100%;
+  position: relative;
+}
+.box-image {
+  height: 8rem;
+  width: 100%;
+  position: relative;
+}
+.box-select {
+  width: 100%;
+  position: relative;
+}
+.box__line {
+  position: absolute;
+  background: $line-color;
+  &--top,
+  &--bottom {
+    height: $line-width;
+    width: 100%;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: $line-width;
+      height: $line-width;
+      background: $line-color;
+    }
+  }
+  &--top {
+    top: -$line-width;
+    &::before {
+      left: 0;
+      bottom: -$line-width;      
+    }
+    &::after {
+      right: 0;
+      bottom: -$line-width;
+    }
+  }
+  &--bottom {
+    bottom: -$line-width;
+    &::before {
+      left: 0;
+      top: -$line-width;      
+    }
+    &::after {
+      right: 0;
+      top: -$line-width;
+    }
+  }
+  &--left,
+  &--right {
+    width: $line-width;
+    height: 100%;
+  }
+  &--left {
+    left: -$line-width;
+  }
+  &--right {
+    right: -$line-width;
+  }
+}

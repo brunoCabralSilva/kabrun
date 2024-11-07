@@ -1,6 +1,6 @@
 [
   {
-    "name": "anão",
+    "name": "Anão",
     "attribute": [{ "name": "constitution", "value": 2 }],
     "age": "Anões tornam-se maduros na mesma proporção que os humanos, mas são considerados jovens até atingirem a idade de 50 anos. Em média, eles vivem 350 anos",
     "alignment": "A maioria dos anões é leal, pois acreditam firmemente nos benefícios de uma sociedade bem organizada. Eles tendem para o bem, com um forte senso de honestidade e uma crença de que todos merecem compartilhar os benefícios de uma ordem social justa",
@@ -60,7 +60,7 @@
     ]
   },
   {
-    "name": "elfo",
+    "name": "Elfo",
     "attribute": [{ "name": "dexterity", "value": 2 }],
     "age": "Embora os elfos atinjam a maturidade física com praticamente a mesma idade dos humanos, a compreensão élfica da idade adulta vai além da maturidade física, abrangendo sua experiência sobre o mundo. Um elfo tipicamente assume a idade adulta e um nome adulto com cerca de 100 anos de idade e pode viver 750 anos.",
     "alignment": "Elfos amam a liberdade, a diversidade e a expressão pessoal, então eles inclinam-se forte e suavemente para aspectos do caos. Eles valorizam e protegem a liberdade dos outros como a sua própria, e são geralmente mais bondosos que o contrário. Os drow são exceção. Seu exílio no Subterrâneo fez deles perversos e perigosos. Drow são geralmente mais maus que o contrário.",
@@ -152,7 +152,7 @@
     ]
   },
   {
-    "name": "halfling",
+    "name": "Halfling",
     "attribute": [{ "name": "dexterity", "value": 2 }],
     "age": "Um halfling atinge a idade adulta aos 20 anos e pode chegar a 150 anos.",
     "alignment": "A maioria dos halflings é leal e boa. Via de regra, eles possuem um bom coração e são amáveis, odeiam ver o sofrimento dos outros e não toleram a opressão. Eles também são muito ordeiros e tradicionais, fortemente apegados à sua comunidade e ao conforto de suas antigas tradições",
@@ -198,7 +198,7 @@
     ]
   },
   {
-    "name": "humano",
+    "name": "Humano",
     "attribute": [{ "name": "all", "value": 1 }],
     "age": "Os humanos chegam à idade adulta no final da adolescência e vivem menos de um século.",
     "alignment": "Os humanos não possuem inclinação a nenhuma tendência em especial. Os melhores e os piores são encontrados entre eles.",
@@ -224,7 +224,7 @@
     ]
   },
   {
-    "name": "draconato",
+    "name": "Draconato",
     "attribute": [{ "name": "strength", "value": 2 }],
     "age": "Draconatos jovens crescem rapidamente. Eles caminham horas após nascerem, adquirindo o tamanho e desenvolvimento semelhante a de uma criança humana de 10 anos com 3 anos de idade e alcançam a maturidade aos 15. Eles costumam viver até os 80",
     "alignment": "Os draconatos tendem aos extremos, realizando uma escolha consciente de um lado ou do outro da guerra cósmica entre o bem e o mal (representada por Bahamut e Tiamat, respectivamente). A maioria dos draconatos é boa, mas os que vão para o lado de Tiamat podem se tornar vilões terríveis.",
