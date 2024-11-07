@@ -1,23 +1,35 @@
 import { useContext, useEffect, useState } from "react";
 import contexto from "../../context/context";
 import Loading from "../loading";
-import DefaultData from "./defaultData";
-import races from '../../data/races.json';
-import classList from '../../data/classes.json';
 import { FiEdit } from "react-icons/fi";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { FaRegSave } from "react-icons/fa";
 import { FaCircleDown, FaCircleUp } from "react-icons/fa6";
+import { GoPlus } from "react-icons/go";
+import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
+import races from '../../data/races.json';
+import classList from '../../data/classes.json';
+import listLanguages from '../../data/languages.json';
 
 export default function General() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
   const { session, showSheet, players } = useContext(contexto);
   const [name, setName] = useState('');
   const [race, setRace] = useState('');
+  const [xp, setXp] = useState('');
   const [subRace, setSubRace] = useState('');
+  const [alignment, setAlignment] = useState('');
   const [classPlayer, setClassPlayer] = useState('');
+  const [languagesNotAdded, setLanguagesNotAdded] = useState<any>([]);
+  const [languagesAdded, setLanguagesAdded] = useState<any>([]);
+  const [newLanguage, setNewLanguage] = useState('');
   const [editName, setEditName] = useState(false);
   const [editRaceAndClass, setEditRaceAndClass] = useState(false);
+  const [editXp, setEditXp] = useState(false);
+  const [editLanguages, setEditLanguages] = useState(false);
+  const [colorDeathSaves, setColorDeathSaves] = useState(false);
+
+  var conditions = [{ name: 'weakness', color: 'bg-pink-700' }, { name: 'weakness', color: 'bg-yellow-700' }, { name: 'weakness', color: 'bg-orange-700' }, { name: 'weakness', color: 'bg-blue-700' }, { name: 'weakness', color: 'bg-green-700' }, ];
 
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
@@ -26,13 +38,21 @@ export default function General() {
     setRace(findPlayer.sheet.race);
     setSubRace(findPlayer.sheet.subRace);
     setClassPlayer(findPlayer.sheet.class);
+    setAlignment(findPlayer.sheet.alignment);
+    setXp(findPlayer.sheet.xp);
+    const filteredLanguages = listLanguages.filter(language => !findPlayer.sheet.languages.includes(language.name)).map((language: any) => language.name).sort();
+    setLanguagesNotAdded(filteredLanguages);
+    setLanguagesAdded(findPlayer.sheet.languages);
   }, [session, players]);
 
   const returnHitPoints = () => {
     const total = dataPlayer.sheet.hitPoints.total + dataPlayer.sheet.hitPoints.temporary;
     const actual = dataPlayer.sheet.hitPoints.actual;
+    const temporary = dataPlayer.sheet.hitPoints.temporary;
     const percentage = (actual / total) * 100;
-    const filledSquares = Math.floor((percentage / 100) * 20);
+    const filledSquares = Math.floor((percentage / 100) * 30);
+    const tempSquares = Math.floor((temporary / total) * 30);
+  
     let color = 'bg-green-700';
     if (total * 0.3 >= actual) color = 'bg-red-700';
     else if (total * 0.5 >= actual) color = 'bg-yellow-800';
@@ -41,24 +61,25 @@ export default function General() {
       <div className="col-span-3 w-full border-t-2 border-r-2 border-b-2 text-right rounded-r">
         <div
           title="Alterar Pontos de Vida"
-          className="h-7 w-full grid grid-cols-20 relative cursor-pointer"
+          className="h-7 w-full grid grid-cols-30 relative cursor-pointer"
         >
-          <div className="absolute w-full h-full flex justify-start items-center pl-2 text-md">
-            {dataPlayer.sheet.hitPoints.actual} / {dataPlayer.sheet.hitPoints.total} {dataPlayer.sheet.hitPoints.temporary > 0 && `+ ${dataPlayer.sheet.hitPoints.temporary}`}
+          <div className={`absolute w-full h-full flex ${total * 0.5 <= actual ? 'justify-start pl-2' : 'justify-end pr-2'} items-center  text-md`}>
+            {dataPlayer.sheet.hitPoints.actual} / {dataPlayer.sheet.hitPoints.total} {temporary > 0 && `+ ${temporary}`}
           </div>
           {
-            Array(20).fill(null).map((_, index) => (
+            Array(30).fill(null).map((_, index) => (
               <div
                 key={index}
-                className={`w-full h-full ${index < filledSquares ? color : ''} ${index === filledSquares - 1 ? 'rounded-r' : ''}`}
+                className={`w-full h-full ${
+                  index < filledSquares ? color : index < filledSquares + tempSquares ? 'bg-blue-700' : ''
+                } ${index === filledSquares + tempSquares - 1 ? 'rounded-r' : ''}`}
               />
             ))
           }
         </div>
       </div>
     );
-  };
-  
+  };  
 
   return(
     <div className="">
@@ -66,6 +87,7 @@ export default function General() {
         dataPlayer && dataPlayer.sheet
         ? <div className="px-2">
             <div className="grid grid-cols-4 mt-2 text-sm">
+              {/* Images */}
               <div className="z-50 box-image flex items-center justify-center w-full col-span-1 mt-2">
                 <div className="box__line box__line--top" />
                 <div className="box__line box__line--right" />
@@ -194,20 +216,43 @@ export default function General() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-4 gap-4 mt-2 text-sm">
-              <div className="mt-4"> 
+            {/* Condições */}
+            <div className="w-full flex flex-wrap justify-start my-4 gap-1">
+              <button
+                type="button"
+                title="Adicionar uma Condição"
+                className={`w-6 h-6 rounded-full bg-gray-whats-dark hover:bg-white transition-colors duration-400 border-2 border-white text-white hover:text-black flex items-center justify-center text-xl cursor-pointer`}
+              >
+                <GoPlus />
+              </button>
+              {
+                conditions.map((condition: any, index: number) => (
+                <div key={index} className={`w-6 h-6 rounded-full ${condition.color}`}>
+
+                </div>
+                ))
+              }
+            </div>
+            <div className="grid grid-cols-4 gap-4 text-sm">
+              {/* Iniciativa */}
+              <button
+                type="button"
+                className="hover:bg-white hover:text-gray-whats-dark transition-colors duration-400"
+                title={`Rolar Iniciativa (1d20 + Mod. Destreza ${dataPlayer.sheet.attributes.dexterity.mod})`}
+              > 
                 <div className="box flex items-center justify-center w-full col-span-1">
                   <div className="box__line box__line--top"></div>
                   <div className="box__line box__line--right"></div>
                   <div className="box__line box__line--bottom"></div>
                   <div className="box__line box__line--left"></div>
                   <div className="flex flex-col items-center justify-center">
-                    <p className="text-2xl font-bold">{ dataPlayer.sheet.iniciative }</p>
+                    <p className="text-2xl font-bold">{ dataPlayer.sheet.attributes.dexterity.mod }</p>
                     <p className="text-xs pb-1">Iniciativa</p>
                   </div>
                 </div>
-              </div>
-              <div className="mt-4"> 
+              </button>
+              {/* Armor Class */}
+              <div className=""> 
                 <div className="box flex items-center justify-center w-full col-span-1">
                   <div className="box__line box__line--top"></div>
                   <div className="box__line box__line--right"></div>
@@ -219,7 +264,8 @@ export default function General() {
                   </div>
                 </div>
               </div>
-              <div className="mt-4"> 
+              {/* Deslocamento */}
+              <div className=""> 
                 <div className="box flex items-center justify-center w-full col-span-1">
                   <div className="box__line box__line--top"></div>
                   <div className="box__line box__line--right"></div>
@@ -231,7 +277,8 @@ export default function General() {
                   </div>
                 </div>
               </div>
-              <div className="mt-4"> 
+              {/* Inspiração */}
+              <div className=""> 
                 <div className="box flex items-center justify-center w-full col-span-1">
                   <div className="box__line box__line--top"></div>
                   <div className="box__line box__line--right"></div>
@@ -243,8 +290,70 @@ export default function General() {
                   </div>
                 </div>
               </div>
+              {/* Testes contra a Morte */}
+              <button
+                type="button"
+                title="Realizar Teste de Morte"
+                onMouseEnter ={ () => setColorDeathSaves(true)}
+                onMouseLeave={ () => setColorDeathSaves(false)}
+                className="flex col-span-2 hover:bg-white hover:text-gray-whats-dark transition-colors duration-400"
+              >
+                <div className="h-full relative flex items-center justify-center w-full">
+                  <div className="box__line box__line--top"></div>
+                  <div className="box__line box__line--right"></div>
+                  <div className="box__line box__line--bottom"></div>
+                  <div className="box__line box__line--left"></div>
+                  <div className="flex flex-col">
+                    <div className="w-full text-center mt-2">
+                      Testes contra a Morte
+                    </div>
+                    <div className="p-2 grid grid-cols-2 gap-2">
+                      <div className="text-xs">
+                          <p className="pb-1 w-full text-center">Sucessos</p>
+                          <div className="flex gap-1 justify-center">
+                            <div
+                              className={`w-4 h-4 ${colorDeathSaves ? 'border-black' : 'border-white' } border rounded-full ${ dataPlayer.sheet.deathSaves.successes >= 1 && 'bg-green-700'}`}
+                            />
+                            <div
+                              className={`w-4 h-4 ${colorDeathSaves ? 'border-black' : 'border-white' } border rounded-full ${ dataPlayer.sheet.deathSaves.successes >= 2 && 'bg-green-700'}`}
+                            />
+                            <div
+                              className={`w-4 h-4 ${colorDeathSaves ? 'border-black' : 'border-white' } border rounded-full ${ dataPlayer.sheet.deathSaves.successes === 3 && 'bg-green-700'}`}
+                            />
+                          </div>
+                        </div>
+                      <div className={`text-xs border-l ${colorDeathSaves ? 'border-black' : 'border-white' } pl-3`}>
+                        <p className="pb-1 w-full text-center">Falhas</p>
+                        <div className="flex gap-1  justify-center">
+                          <div
+                            className={`w-4 h-4 ${colorDeathSaves ? 'border-black' : 'border-white' } border rounded-full ${ dataPlayer.sheet.deathSaves.failures >= 1 && 'bg-red-700'}`}
+                          />
+                          <div
+                            className={`w-4 h-4 ${colorDeathSaves ? 'border-black' : 'border-white' } border rounded-full ${ dataPlayer.sheet.deathSaves.failures >= 2 && 'bg-red-700'}`}
+                          />
+                          <div
+                            className={`w-4 h-4 ${colorDeathSaves ? 'border-black' : 'border-white' } border rounded-full ${ dataPlayer.sheet.deathSaves.failures === 3 && 'bg-red-700'}`}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              {/* Capacidade de Carga */}
+              <div className="col-span-2"> 
+                <div className="h-full relative flex items-center justify-center w-full col-span-1">
+                  <div className="box__line box__line--top"></div>
+                  <div className="box__line box__line--right"></div>
+                  <div className="box__line box__line--bottom"></div>
+                  <div className="box__line box__line--left"></div>
+                  <div className="flex flex-col items-center justify-center">
+                    <p className="text-2xl font-bold">0 / { dataPlayer.sheet.inspiration }</p>
+                    <p className="text-xs pb-1">Capacidade de Carga</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            
             {/* Edição de Raça e Classe */}
             <div>
               {
@@ -282,9 +391,10 @@ export default function General() {
                       </div>
                       <button
                         type="button"
+                        className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
                         onClick={ () => {} }
                       >
-                        <IoIosInformationCircleOutline className="text-3xl mt-2 cursor-pointer" />
+                        <IoIosInformationCircleOutline />
                       </button>
                     </div>
                   </div>
@@ -322,11 +432,10 @@ export default function General() {
                       </div>
                       <button
                         type="button"
+                        className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
                         onClick={ () => {} }
                       >
-                        <IoIosInformationCircleOutline
-                          className="text-3xl mt-2 cursor-pointer"
-                        />
+                        <IoIosInformationCircleOutline />
                       </button>
                     </div>
                     </div>
@@ -362,44 +471,235 @@ export default function General() {
                       </div>
                       <button
                         type="button"
+                        className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
                         onClick={ () => {} }
                       >
-                        <IoIosInformationCircleOutline
-                          className="text-3xl mt-2 cursor-pointer"
-                        />
+                        <IoIosInformationCircleOutline />
                       </button>
                     </div>
                   </div>
                 </div>
               }
             </div>
-            <div className="grid grid-cols-2 w-full mt-5 gap-3">
+            {/* Alinhamento */}
+            <div className="mt-3 capitalize w-full">
+              <span className="pr-3 mb-3">Alinhamento</span>
+              <div className="flex items-center gap-2">
+                <div className="box-select flex items-center justify-center w-full col-span-1 mt-2">
+                  <div className="box__line box__line--top" />
+                  <div className="box__line box__line--right" />
+                  <div className="box__line box__line--bottom" />
+                  <div className="box__line box__line--left" />
+                  <select
+                    className="w-full text-center py-1 bg-gray-whats-dark cursor-pointer outline-none"
+                    value={alignment}
+                    onChange={ (e) => {
+                      setAlignment(e.target.value);
+                    }}
+                  >
+                    <option disabled value="">Escolha um Alinhamento</option>
+                    <option
+                      title="É a tendência de criaturas que se pode contar para fazer o que é correto como é esperado pela sociedade. Dragões dourados, paladinos e muitos anões são ordeiros e bons."
+                      value="Ordeiro e Bom"
+                    >
+                      Ordeiro e Bom
+                    </option>
+                    <option
+                      title="É a tendência do povo que faz o melhor que pode para ajudar outros de acordo com suas necessidades. Muitos celestiais, alguns gigantes das nuvens, e grande parte dos gnomos são neutros e bons"
+                      value="Neutro e Bom"
+                      >
+                      Neutro e Bom
+                    </option>
+                    <option
+                      title="É a tendência de criaturas que agem de acordo com sua própria consciência, se importando pouco com as expectativas dos outros. Dragões de cobre, muitos elfos e unicórnios são caóticos e bons"
+                      value="Caótico e Bom"
+                    >
+                      Caótico e Bom
+                    </option>
+                    <option
+                      title="É a tendência dos indivíduos que agem de acordo com as leis, tradições ou códigos pessoais. Muitos monges e alguns magos são ordeiros e neutros"
+                      value="Ordeiro e Neutro"
+                    >
+                      Ordeiro e Neutro
+                    </option>
+                    <option
+                      title="É a tendência daqueles que preferem manter distância de questões morais e não tomar partido, fazendo o que aparenta ser melhor conforme a situação. O povo lagarto, muitos druidas e diversos humanos são neutros."
+                      value="Neutro"
+                    >
+                      Neutro
+                    </option>
+                    <option
+                      title="É a tendência das criaturas que seguem seus caprichos, mantendo sua liberdade pessoal acima de tudo. Muitos bárbaros e ladinos, e alguns  bardos, são caóticos e neutros"
+                      value="Caótico e Neutro"
+                    >
+                      Caótico e Neutro
+                    </option>
+                    <option
+                      title="É a tendência das criaturas que conseguem metodicamente tudo o que querem, dentro dos limites de uma tradição, lei ou ordem. Diabos, dragões azuis e hobgoblins são ordeiros e maus."
+                      value="Ordeiro e Mau"
+                    >
+                      Ordeiro e Mau
+                    </option>
+                    <option
+                      title="É a tendência daqueles que farão tudo o que quiserem, sem compaixão ou remorso. Muitos drow, alguns gigantes das nuvens e yugoloths são neutros e maus"
+                      value="Neutro e Mau"
+                    >
+                      Neutro e Mau
+                    </option>
+                    <option
+                      title="É a tendência de criaturas que agem com violência arbitrária, estimulada por sua ganância, ódio ou sede de sangue. Demônios, dragões vermelhos e orcs são caóticos e maus"
+                      value="Caótico e Mau"
+                    >
+                      Caótico e Mau
+                    </option>
+                  </select>
+                </div>
+                <button
+                  type="button"
+                  className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
+                  onClick={ () => {} }
+                >
+                  <IoIosInformationCircleOutline />
+                </button>
+              </div>
             </div>
-              <DefaultData
-                value={ dataPlayer.sheet.deathSaves.successes + dataPlayer.sheet.deathSaves.failures }
-                title="Testes contra a Morte"
-              />
-              <DefaultData
-                value={ dataPlayer.sheet.carryingCapacity }
-                title="Carga"
-              />
-              <DefaultData
-                value={ dataPlayer.sheet.languages }
-                title="Linguagens"
-              />
-              <DefaultData
-                value={ dataPlayer.sheet.alignment }
-                title="Alinhamento"
-              />
-              <DefaultData
-                value={ dataPlayer.sheet.conditions }
-                title="Condições"
-              />
-              <DefaultData
-                value={ dataPlayer.sheet.xp }
-                title="XP"
-              />
-            
+            {/* Idiomas */}
+            <div className="mt-3 capitalize w-full">
+              <div className="pr-1 flex w-full justify-between mt-5">
+                Idiomas
+                { 
+                  editLanguages
+                  ? 
+                    <button
+                      type="button"
+                      onClick={(e:any) => {
+                        // updateValue('name', dataPlayer.name);
+                        setEditLanguages(false);
+                        e.stopPropagation();
+                      }}
+                    >
+                      <FaRegSave className="text-2xl" />
+                    </button>
+                  : <button
+                      type="button"
+                      title="Alterar Raça e Classe"
+                      onClick={ (e:any) => {
+                        setEditLanguages(true);
+                        e.stopPropagation();
+                      }}
+                    >
+                      <FiEdit className="text-2xl" />
+                    </button>
+                }
+              </div>
+              <div className="">
+                {
+                  editLanguages &&
+                  <div className="flex items-center gap-2">
+                    <div className="box-select flex items-center justify-center w-full col-span-1 mt-2">
+                      <div className="box__line box__line--top" />
+                      <div className="box__line box__line--right" />
+                      <div className="box__line box__line--bottom" />
+                      <div className="box__line box__line--left" />
+                      <select
+                        className="w-full text-center py-1 bg-gray-whats-dark cursor-pointer outline-none"
+                        value={newLanguage}
+                        onChange={ (e) => setNewLanguage(e.target.value) }
+                      >
+                        <option disabled value="">Escolha um Idioma</option>
+                        {
+                          languagesNotAdded.map((language: any, index: number) => 
+                            <option value={language} key={index}>
+                              { language }
+                            </option>
+                          )
+                        }
+                      </select>
+                    </div>
+                    <button
+                      type="button"
+                      className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
+                      onClick={ () => {
+                        setLanguagesAdded([...languagesAdded, newLanguage].sort());
+                        setLanguagesNotAdded(languagesNotAdded.filter((language: any) => language !== newLanguage).sort());
+                        setNewLanguage('');
+                      }}
+                    >
+                      <CiCirclePlus />
+                    </button>
+                  </div>
+                }
+                <div className="w-full flex flex-col mt-2">
+                  {
+                    languagesAdded.map((language: any, index: number) => (
+                      <div key={index} className="flex items-center pl-3">
+                        <p className="w-full">{language}</p>
+                        <button
+                          type="button"
+                          onClick={ () => {
+                            setLanguagesAdded(languagesAdded.filter((languageItem: any) => languageItem !== language).sort());
+                            setLanguagesNotAdded([...languagesNotAdded, language].sort());
+                            setNewLanguage('');
+                          }}
+                          className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
+                        >
+                          <CiCircleMinus />
+                        </button>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
+            {/* Pontos de Experiência */}
+            <div className="grid grid-cols-4 mt-5">
+              <div className="box flex items-center justify-center w-full col-span-1">
+                <div className="box__line box__line--top"></div>
+                <div className="box__line box__line--right"></div>
+                <div className="box__line box__line--bottom"></div>
+                <div className="box__line box__line--left"></div>
+                { 
+                  editXp
+                  ? <input
+                      type="number"
+                      className="text-white w-full h-full text-2xl bg-black text-center outline-none p-1 pl-3"
+                      placeholder="XP"
+                      value={ xp }
+                      onChange={ (e) => setXp(e.target.value) }
+                    />
+                  : <div className="w-full h-full flex items-center justify-center text-2xl">{ xp }</div>
+                }
+              </div>
+              <div className="py-2 col-span-3 w-full">
+                <div className="border-t-2 border-r-2 border-b-2 w-full pl-4 pr-2 py-1 rounded-r flex justify-bewteen items-center">
+                  <p className="w-full">Pontos de Experiência</p>
+                  { 
+                    editXp
+                    ? 
+                      <button
+                        type="button"
+                        onClick={(e:any) => {
+                          // updateValue('name', dataPlayer.name);
+                          setEditXp(false);
+                          e.stopPropagation();
+                        }}
+                      >
+                        <FaRegSave className="text-2xl" />
+                      </button>
+                    : <button
+                        type="button"
+                        title="Alterar Pontos de Experiência"
+                        onClick={ (e:any) => {
+                          setEditXp(true);
+                          e.stopPropagation();
+                        }}
+                      >
+                        <FiEdit className="text-2xl" />
+                      </button>
+                  }
+                </div>
+              </div>
+            </div>
             <button
               type="button"
               className="mt-5 mb-2 p-2 w-full text-center border-2 border-white text-white bg-red-800 cursor-pointer font-bold hover:bg-red-900 transition-colors"
