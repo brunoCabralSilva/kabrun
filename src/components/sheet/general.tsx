@@ -563,94 +563,6 @@ export default function General() {
                 </button>
               </div>
             </div>
-            {/* Idiomas */}
-            <div className="mt-3 capitalize w-full">
-              <div className="pr-1 flex w-full justify-between mt-5">
-                Idiomas
-                { 
-                  editLanguages
-                  ? 
-                    <button
-                      type="button"
-                      onClick={(e:any) => {
-                        // updateValue('name', dataPlayer.name);
-                        setEditLanguages(false);
-                        e.stopPropagation();
-                      }}
-                    >
-                      <FaRegSave className="text-2xl" />
-                    </button>
-                  : <button
-                      type="button"
-                      title="Alterar Raça e Classe"
-                      onClick={ (e:any) => {
-                        setEditLanguages(true);
-                        e.stopPropagation();
-                      }}
-                    >
-                      <FiEdit className="text-2xl" />
-                    </button>
-                }
-              </div>
-              <div className="">
-                {
-                  editLanguages &&
-                  <div className="flex items-center gap-2">
-                    <div className="box-select flex items-center justify-center w-full col-span-1 mt-2">
-                      <div className="box__line box__line--top" />
-                      <div className="box__line box__line--right" />
-                      <div className="box__line box__line--bottom" />
-                      <div className="box__line box__line--left" />
-                      <select
-                        className="w-full text-center py-1 bg-gray-whats-dark cursor-pointer outline-none"
-                        value={newLanguage}
-                        onChange={ (e) => setNewLanguage(e.target.value) }
-                      >
-                        <option disabled value="">Escolha um Idioma</option>
-                        {
-                          languagesNotAdded.map((language: any, index: number) => 
-                            <option value={language} key={index}>
-                              { language }
-                            </option>
-                          )
-                        }
-                      </select>
-                    </div>
-                    <button
-                      type="button"
-                      className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
-                      onClick={ () => {
-                        setLanguagesAdded([...languagesAdded, newLanguage].sort());
-                        setLanguagesNotAdded(languagesNotAdded.filter((language: any) => language !== newLanguage).sort());
-                        setNewLanguage('');
-                      }}
-                    >
-                      <CiCirclePlus />
-                    </button>
-                  </div>
-                }
-                <div className="w-full flex flex-col mt-2">
-                  {
-                    languagesAdded.map((language: any, index: number) => (
-                      <div key={index} className="flex items-center pl-3">
-                        <p className="w-full">{language}</p>
-                        <button
-                          type="button"
-                          onClick={ () => {
-                            setLanguagesAdded(languagesAdded.filter((languageItem: any) => languageItem !== language).sort());
-                            setLanguagesNotAdded([...languagesNotAdded, language].sort());
-                            setNewLanguage('');
-                          }}
-                          className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
-                        >
-                          <CiCircleMinus />
-                        </button>
-                      </div>
-                    ))
-                  }
-                </div>
-              </div>
-            </div>
             {/* Pontos de Experiência */}
             <div className="grid grid-cols-4 mt-5">
               <div className="box flex items-center justify-center w-full col-span-1">
@@ -697,6 +609,96 @@ export default function General() {
                         <FiEdit className="text-2xl" />
                       </button>
                   }
+                </div>
+              </div>
+            </div>
+            {/* Idiomas */}
+            <div className="flex items-center gap-2 mt-2">
+              <div className="box-select flex items-center justify-center w-full col-span-1 mt-2 p-2">
+                <div className="box__line box__line--top" />
+                <div className="box__line box__line--right" />
+                <div className="box__line box__line--bottom" />
+                <div className="box__line box__line--left" />
+                <div className="mt-3 capitalize w-full">
+                  <div className="flex w-full justify-between">
+                    Idiomas
+                    { 
+                      editLanguages
+                      ? 
+                        <button
+                          type="button"
+                          onClick={(e:any) => {
+                            // updateValue('name', dataPlayer.name);
+                            setEditLanguages(false);
+                            e.stopPropagation();
+                          }}
+                        >
+                          <FaRegSave className="text-2xl mr-1" />
+                        </button>
+                      : <button
+                          type="button"
+                          title="Alterar Raça e Classe"
+                          onClick={ (e:any) => {
+                            setEditLanguages(true);
+                            e.stopPropagation();
+                          }}
+                        >
+                          <FiEdit className="text-2xl" />
+                        </button>
+                    }
+                  </div>
+                  <div className="">
+                    {
+                      editLanguages &&
+                      <div className="flex items-center gap-2">
+                        <select
+                          className="w-full text-left py-1 bg-gray-whats-dark cursor-pointer outline-none"
+                          value={newLanguage}
+                          onChange={ (e) => setNewLanguage(e.target.value) }
+                        >
+                          <option disabled value="">Escolha um Idioma</option>
+                          {
+                            languagesNotAdded.map((language: any, index: number) => 
+                              <option value={language} key={index}>
+                                { language }
+                              </option>
+                            )
+                          }
+                        </select>
+                        <button
+                          type="button"
+                          className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
+                          onClick={ () => {
+                            setLanguagesAdded([...languagesAdded, newLanguage].sort());
+                            setLanguagesNotAdded(languagesNotAdded.filter((language: any) => language !== newLanguage).sort());
+                            setNewLanguage('');
+                          }}
+                        >
+                          <CiCirclePlus />
+                        </button>
+                      </div>
+                    }
+                    <div className="w-full flex flex-col mt-2">
+                      {
+                        languagesAdded.map((language: any, index: number) => (
+                          <div key={index} className="flex items-center pl-3">
+                            <p className="w-full">{language}</p>
+                            <button
+                              type="button"
+                              onClick={ () => {
+                                setLanguagesAdded(languagesAdded.filter((languageItem: any) => languageItem !== language).sort());
+                                setLanguagesNotAdded([...languagesNotAdded, language].sort());
+                                setNewLanguage('');
+                              }}
+                              className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
+                            >
+                              <CiCircleMinus />
+                            </button>
+                          </div>
+                        ))
+                      }
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
