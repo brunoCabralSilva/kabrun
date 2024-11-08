@@ -3,7 +3,6 @@ import contexto from "../../../context/context";
 import Loading from "../../loading";
 import { FiEdit } from "react-icons/fi";
 import { FaCircleDown, FaCircleUp } from "react-icons/fa6";
-import { GoPlus } from "react-icons/go";
 import Name from "../items/name";
 import { Alignment } from "../items/alignment";
 import ExperiencePoints from "../items/experiencePoints";
