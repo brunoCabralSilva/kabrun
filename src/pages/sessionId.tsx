@@ -13,6 +13,8 @@ import { collection, doc, getFirestore, query, where } from "firebase/firestore"
 import firestoreConfig from "../firebase/connection";
 import MessageToUser from "../components/messageToUser";
 import LeaveSession from "../components/menuSession/leaveSession";
+import EditRaceAndClass from "../components/sheet/items/editRaceAndClass";
+import EditHealthPoints from "../components/sheet/items/editHealthPoints";
 
 export default function SessionId() {
   let { id } = useParams();
@@ -21,6 +23,8 @@ export default function SessionId() {
   const {
     session, setSession,
     removeFromSession,
+    editRaceAndClass,
+    editHealthPoints,
     showMessage, setShowMessage,
     showMenuSession, setShowMenuSession,
     setDataSession, setListNotification,
@@ -89,13 +93,16 @@ export default function SessionId() {
         {
           showData
           ? <div className="flex h-screen bg-black"> 
-              <div className={`${showMenuSession === '' ? 'w-full ': 'w-8/12'} h-screen`}><Grid />
+              <div className={`${showMenuSession === '' ? 'w-full ': 'w-8/12'} h-screen relative`}>
+                { editRaceAndClass && <EditRaceAndClass /> }
+                { editHealthPoints && <EditHealthPoints /> }
+                <Grid />
               </div>
               {
                 showMenuSession !== ''
                 ? <div className="w-4/12 h-screen bg-gray-whats-dark flex flex-col gap-2 justify-center items-center">
-                  <MenuSession />
-                </div>
+                    <MenuSession />
+                  </div>
                 : <button
                     type="button"
                     className="fixed bottom-2 right-6 border-2 border-white p-2 text-xl bg-black text-white rounded-full"

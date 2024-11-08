@@ -1,15 +1,15 @@
 import { useContext, useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import contexto from "../../context/context";
-import General from "../sheet/general";
-import Attributes from "../sheet/attributes";
-import SavingThrows from "../sheet/savingthrows";
-import Skills from "../sheet/skills";
-import Race from "../sheet/race";
-import ClassPlayer from "../sheet/classPlayer";
-import Attacks from "../sheet/attacks";
-import Equipments from "../sheet/equipments";
-import Items from "../sheet/items";
+import General from "../sheet/pages/general";
+import Attributes from "../sheet/pages/attributes";
+import SavingThrows from "../sheet/pages/savingthrows";
+import Skills from "../sheet/pages/skills";
+import Race from "../sheet/pages/race";
+import ClassPlayer from "../sheet/pages/classPlayer";
+import Attacks from "../sheet/pages/attacks";
+import Equipments from "../sheet/pages/equipments";
+import Items from "../sheet/pages/items";
 
 export default function SheetSelected() {
   const { setShowSheet } = useContext(contexto);

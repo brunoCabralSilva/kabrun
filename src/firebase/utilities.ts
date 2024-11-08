@@ -37,7 +37,6 @@ export const playerSheet = (nameSheet: string) => {
     profileImage: null,
     name: nameSheet,
     conditions: [],
-    carryingCapacity: 0,
     class: '',
     race: '',
     subRace: '',

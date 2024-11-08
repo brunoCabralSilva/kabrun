@@ -1,4 +1,4 @@
-import { addDoc, arrayUnion, collection, getDocs, getFirestore, query, runTransaction, where } from "firebase/firestore";
+import { addDoc, arrayUnion, collection, doc, getDocs, getFirestore, query, runTransaction, where } from "firebase/firestore";
 import firebaseConfig from "./connection";
 import { getOfficialTimeBrazil, playerSheet } from "./utilities";
 
@@ -52,3 +52,28 @@ export const createSheet = async (email: string, user: string, session: any, set
     transaction.update(playerDocRef, { list: arrayUnion(sheet) });
   });
 }
+
+export const updateDataPlayer = async (sessionId: string, newData: any, setShowMessage: any) => {
+  try {
+    const db = getFirestore(firebaseConfig);
+    const collectionRef = collection(db, 'players');
+    const q = query(collectionRef, where('sessionId', '==', sessionId));
+    await runTransaction(db, async (transaction) => {
+      const querySnapshot = await getDocs(q);
+      if (querySnapshot.empty) {
+        setShowMessage({ show: true, text: 'Sessão não encontrada.' });
+        return;
+      }
+      const dataDoc = querySnapshot.docs[0];
+      const docRef = doc(db, 'players', dataDoc.id);
+      const data = dataDoc.data();
+      const playerIndex = data.list.findIndex((item: any) => item.id === newData.id);  
+      if (playerIndex !== -1) {
+        data.list[playerIndex] = newData;
+        transaction.update(docRef, { list: data.list });
+      } else setShowMessage({ show: true, text: 'Jogador não encontrado.' });
+    });
+  } catch (err: any) {
+    setShowMessage({ show: true, text: 'Ocorreu um erro ao atualizar os dados do Jogador: ' + err.message });
+  }
+};

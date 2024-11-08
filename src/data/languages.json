@@ -1,7 +1,207 @@
 [
-  { "name": "Dracônico" },
-  { "name": "Abissal" },
-  { "name": "Gigante" },
-  { "name": "Élfico" },
-  { "name": "Anão" }
+  {
+    "name": "Leonino",
+    "title": "Falado por Leoninos e escrito no idioma comum",
+    "book": "Mythic Odysseys of Theros"
+  },
+  {
+    "name": "Kraul",
+    "title": "Falado por Kraul de Ravnica",
+    "book": "Guildmaster's Guide to Ravnica"
+  },
+  {
+    "name": "Loxodonte",
+    "title": "Falado por Loxodontes e escrito no idioma élfico",
+    "book": "Guildmaster's Guide to Ravnica"
+  },
+  {
+    "name": "Tritão",
+    "title": "Falado por tritões e escrito no idioma tritão",
+    "book": "Guildmaster's Guide to Ravnica"
+  },
+  {
+    "name": "Esfinge",
+    "title": "Falado por Esfinges de Ravnica",
+    "book": "Guildmaster's Guide to Ravnica"
+  },
+  {
+    "name": "Vedalken",
+    "title": "Falado por Vedalken e escrito no idioma comum",
+    "book": "Guildmaster's Guide to Ravnica"
+  },
+  {
+    "name": "Riedran",
+    "title": "Falado por cidadãos de Sarlona",
+    "book": "Eberron: Rising from the Last War"
+  },
+  {
+    "name": "Abanasinia",
+    "title": "Falado pelos Abanasinianos de Krynn e escrito no idioma comum",
+    "book": "Dragonlance"
+  },
+  {
+    "name": "Ergot",
+    "title": "Falado pelo povo Ergoth de Krynn",
+    "book": "Dragonlance"
+  },
+  {
+    "name": "Kharoliano",
+    "title": "Falado por pessoas dos Planos de Pó e Tarsis",
+    "book": "Dragonlance"
+  },
+  {
+    "name": "Kenderspeak",
+    "title": "Falado pelo Kender de Kyrnn",
+    "book": "Dragonlance"
+  },
+  {
+    "name": "Khur",
+    "title": "Falado pelos Khur de Kyrnn",
+    "book": "Dragonlance"
+  },
+  {
+    "name": "Nordmaariano",
+    "title": "Falado pelo povo Nordmaar de Kyrnn",
+    "book": "Dragonlance"
+  },
+  {
+    "name": "Solamnic",
+    "title": "Falado pelo povo Solamnian de Kyrnn",
+    "book": "Dragonlance"
+  },
+  {
+    "name": "Marquesiano",
+    "title": "Falado por pessoas de Marquet e escrito no idioma comum",
+    "book": "Dragonlance"
+  },
+  {
+    "name": "Marquesiano",
+    "title": "Falado por pessoas de Marquet e escrito no idioma Common",
+    "book": "Explore's Guide to Wildemount"
+  },
+  {
+    "name": "Naush",
+    "title": "Falado pelos habitantes das Ilhas Ki'Nau e escrito no idioma Common",
+    "book": "Explore's Guide to Wildemount"
+  },
+  {
+    "name": "Zemniano",
+    "title": "Falado pelo Império Dwendaliano e escrito no idioma zemniano",
+    "book": "Explore's Guide to Wildemount"
+  },
+  {
+    "name": "Hadozee",
+    "title": "Falado pela raça hadozee",
+    "book": "The Astral Adventurer's Guide"
+  },
+  {
+    "name": "Thri-keen",
+    "title": "Falado pela raça thri-keen",
+    "book": "The Astral Adventurer's Guide"
+  },
+  {
+    "name": "Quori",
+    "title": "Falado por Kalashtar, Quori e Inspired e escrito no idioma Quori",
+    "book": "Eberron: Rising from the Last War"
+  },
+  {
+    "name": "Istariano",
+    "title": "Língua dos antigos Istarianos que usa a escrita Istariana",
+    "book": "Dragonlance"
+  },
+  {
+    "name": "Nerakese",
+    "title": "Falado pelos habitantes de Neraska e escrito no idioma Istariano",
+    "book": "Dragonlance"
+  },
+  {
+    "name": "Anão",
+    "title": "Falado pelos Anões e escrito no idioma Anão",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Comum",
+    "title": "Falado pelos Humanos e escrito no idioma Comum",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Élfico",
+    "title": "Falado pelos Elfos e escrito no idioma Élfico",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Gigante",
+    "title": "Falado pelos Ogros e Gigantes e escrito no idioma Anão",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Gnômico",
+    "title": "Falado pelos Gnomos e escrito no idioma Anão",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Goblin",
+    "title": "Falado pelos Goblinoides e escrito no idioma Anão",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Halfling",
+    "title": "Falado pelos Halflings e escrito no idioma Comum",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Orc",
+    "title": "Falado pelos Orcs e escrito no idioma Anão",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Abissal",
+    "title": "Falado pelos Demônios e escrito no idioma Infernal",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Celestial",
+    "title": "Falado pelos Celestiais e escrito no idioma Celestial",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Celestial",
+    "title": "Falado pelos Celestiais e escrito no idioma Celestial",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Dialeto Subterrâneo",
+    "title": "Falado pelos Devoradores de mente e Observadores",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Dracônico",
+    "title": "Falado pelos Dragões e draconatos e escrito no idioma Dracônico",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Infernal",
+    "title": "Falado pelos Diabos e escrito no idioma Infernal",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Primordial",
+    "title": "Falado pelos Elementais e escrito no idioma Anão",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Silvestre",
+    "title": "Falado pelas Criaturas feéricas e escrito no idioma Élfico",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Subcomum",
+    "title": "Falado pelos Comerciantes do Subterrâneo e escrito no idioma Élfico",
+    "book": "Player's Handbook"
+  },
+  {
+    "name": "Druídico",
+    "title": "Falado pelos Druidas",
+    "book": "Player's Handbook"
+  }
 ]

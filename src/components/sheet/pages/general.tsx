@@ -1,32 +1,24 @@
 import { useContext, useEffect, useState } from "react";
-import contexto from "../../context/context";
-import Loading from "../loading";
+import contexto from "../../../context/context";
+import Loading from "../../loading";
 import { FiEdit } from "react-icons/fi";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { FaRegSave } from "react-icons/fa";
 import { FaCircleDown, FaCircleUp } from "react-icons/fa6";
 import { GoPlus } from "react-icons/go";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
-import races from '../../data/races.json';
-import classList from '../../data/classes.json';
-import listLanguages from '../../data/languages.json';
+import listLanguages from '../../../data/languages.json';
+import Name from "../items/name";
 
 export default function General() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
-  const { session, showSheet, players } = useContext(contexto);
-  const [name, setName] = useState('');
-  const [race, setRace] = useState('');
+  const { session, showSheet, players, setEditRaceAndClass, setEditHealthPoints } = useContext(contexto);
   const [xp, setXp] = useState('');
-  const [subRace, setSubRace] = useState('');
   const [alignment, setAlignment] = useState('');
-  const [classPlayer, setClassPlayer] = useState('');
   const [languagesNotAdded, setLanguagesNotAdded] = useState<any>([]);
   const [languagesAdded, setLanguagesAdded] = useState<any>([]);
-  const [newLanguage, setNewLanguage] = useState('');
-  const [editName, setEditName] = useState(false);
-  const [editRaceAndClass, setEditRaceAndClass] = useState(false);
+  const [newLanguage, setNewLanguage] = useState<{ name: string, title: string, book: string}>({ name: '', title: '', book: ''});
   const [editXp, setEditXp] = useState(false);
-  const [editLanguages, setEditLanguages] = useState(false);
   const [colorDeathSaves, setColorDeathSaves] = useState(false);
 
   var conditions = [{ name: 'weakness', color: 'bg-pink-700' }, { name: 'weakness', color: 'bg-yellow-700' }, { name: 'weakness', color: 'bg-orange-700' }, { name: 'weakness', color: 'bg-blue-700' }, { name: 'weakness', color: 'bg-green-700' }, ];
@@ -34,13 +26,12 @@ export default function General() {
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
     setDataPlayer(findPlayer);
-    setName(findPlayer.sheet.name);
-    setRace(findPlayer.sheet.race);
-    setSubRace(findPlayer.sheet.subRace);
-    setClassPlayer(findPlayer.sheet.class);
     setAlignment(findPlayer.sheet.alignment);
     setXp(findPlayer.sheet.xp);
-    const filteredLanguages = listLanguages.filter(language => !findPlayer.sheet.languages.includes(language.name)).map((language: any) => language.name).sort();
+    const filteredLanguages = listLanguages
+      .filter(language => session.books.includes(language.book))
+      .filter(language => !findPlayer.sheet.languages.some((lang: any) => lang.name === language.name))
+      .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }));
     setLanguagesNotAdded(filteredLanguages);
     setLanguagesAdded(findPlayer.sheet.languages);
   }, [session, players]);
@@ -58,9 +49,12 @@ export default function General() {
     else if (total * 0.5 >= actual) color = 'bg-yellow-800';
   
     return (
-      <div className="col-span-3 w-full border-t-2 border-r-2 border-b-2 text-right rounded-r">
+      <button
+        title="Alterar Pontos de Vida"
+        onClick={ () => setEditHealthPoints(true) }
+        className="col-span-3 w-full border-t-2 border-r-2 border-b-2 text-right rounded-r"
+      >
         <div
-          title="Alterar Pontos de Vida"
           className="h-7 w-full grid grid-cols-30 relative cursor-pointer"
         >
           <div className={`absolute w-full h-full flex ${total * 0.5 <= actual ? 'justify-start pl-2' : 'justify-end pr-2'} items-center  text-md`}>
@@ -77,9 +71,9 @@ export default function General() {
             ))
           }
         </div>
-      </div>
+      </button>
     );
-  };  
+  };
 
   return(
     <div className="">
@@ -88,7 +82,7 @@ export default function General() {
         ? <div className="px-2">
             <div className="grid grid-cols-4 mt-2 text-sm">
               {/* Images */}
-              <div className="z-50 box-image flex items-center justify-center w-full col-span-1 mt-2">
+              <div className="z-10 box-image flex items-center justify-center w-full col-span-1 mt-2">
                 <div className="box__line box__line--top" />
                 <div className="box__line box__line--right" />
                 <div className="box__line box__line--bottom" />
@@ -107,90 +101,31 @@ export default function General() {
               </div>
               <div className="flex flex-col col-span-3 justify-around items-between h-full py-2">
                 { returnHitPoints() }
-                {/* Nome */}
-                <div
-                  className="capitalize flex justify-between items-center mt-1 pl-2"
-                  onClick={() => setEditName(true)}
-                >
-                  { 
-                    editName
-                    ? <input
-                        type="text"
-                        className="border-2 border-white text-white w-full mr-1 bg-black outline-none p-1"
-                        placeholder="Nome"
-                        value={ name }
-                        onChange={(e) => {
-                          const sanitizedValue = e.target.value.replace(/\s+/g, ' ');
-                          setName(sanitizedValue);
-                        }}
-                      />
-                    : <div className="w-full">
-                        { name }
-                      </div>
-                  }
-                  { 
-                    editName
-                    ? 
-                      <button
-                        type="button"
-                        onClick={(e:any) => {
-                          // updateValue('name', dataPlayer.name);
-                          setEditName(false);
-                          e.stopPropagation();
-                        }}
-                      >
-                        <FaRegSave className="text-2xl" />
-                      </button>
-                    : <button
-                        type="button"
-                        title="Alterar Nome"
-                        onClick={ (e:any) => {
-                          setEditName(true);
-                          e.stopPropagation();
-                        }}
-                      >
-                        <FiEdit className="text-2xl" />
-                      </button>
-                  }
-                </div>
+                <Name />
                 {/* Raça e Classe */}
                 <div className="pl-2 flex w-full flex-between items-center">
                   <div className="w-full leading-4">
                     { 
-                      race === ''
+                      dataPlayer.sheet.race === ''
                         ? <span>Sem Raça</span>
-                        : <span className="pr-1 ">{ subRace ? subRace : race }</span>
+                        : <span className="pr-1 ">{ dataPlayer.sheet.subRace ? dataPlayer.sheet.subRace : dataPlayer.sheet.race }</span>
                     }
                     {
-                      classPlayer === ''
+                      dataPlayer.sheet.class === ''
                         ? <span className="pl-1 ">/ Sem Classe</span>
-                        : <span>{ classPlayer }</span>
+                        : <span>{ dataPlayer.sheet.class }</span>
                     }
                   </div>
-                  { 
-                    editRaceAndClass
-                    ? 
-                      <button
-                        type="button"
-                        onClick={(e:any) => {
-                          // updateValue('name', dataPlayer.name);
-                          setEditRaceAndClass(false);
-                          e.stopPropagation();
-                        }}
-                      >
-                        <FaRegSave className="text-2xl" />
-                      </button>
-                    : <button
-                        type="button"
-                        title="Alterar Raça e Classe"
-                        onClick={ (e:any) => {
-                          setEditRaceAndClass(true);
-                          e.stopPropagation();
-                        }}
-                      >
-                        <FiEdit className="text-2xl" />
-                      </button>
-                  }
+                  <button
+                    type="button"
+                    title="Alterar Raça e Classe"
+                    onClick={ (e:any) => {
+                      setEditRaceAndClass(true);
+                      e.stopPropagation();
+                    }}
+                  >
+                    <FiEdit className="text-2xl" />
+                  </button>
                 </div>
                 {/* Nível */}
                 <div className="w-full flex justify-between items-center pl-2 ">
@@ -348,139 +283,14 @@ export default function General() {
                   <div className="box__line box__line--bottom"></div>
                   <div className="box__line box__line--left"></div>
                   <div className="flex flex-col items-center justify-center">
-                    <p className="text-2xl font-bold">0 / { dataPlayer.sheet.inspiration }</p>
+                    <p className="text-2xl font-bold">0 / { dataPlayer.sheet.attributes.strength.value * 7.5 }</p>
                     <p className="text-xs pb-1">Capacidade de Carga</p>
                   </div>
                 </div>
               </div>
             </div>
             {/* Edição de Raça e Classe */}
-            <div>
-              {
-                editRaceAndClass &&
-                <div>
-                  {/* Raça */}
-                  <div className="mt-3 capitalize w-full">
-                    <span className="pr-3 mb-3">Raça</span>
-                    <div className="flex items-center gap-2">
-                      <div className="box-select flex items-center justify-center w-full col-span-1 mt-2">
-                        <div className="box__line box__line--top" />
-                        <div className="box__line box__line--right" />
-                        <div className="box__line box__line--bottom" />
-                        <div className="box__line box__line--left" />
-                        <select
-                          className="w-full text-center py-1 bg-gray-whats-dark cursor-pointer outline-none"
-                          value={race}
-                          onChange={ (e) => {
-                            setRace(e.target.value);
-                            setSubRace('');
-                          }}
-                        >
-                          <option disabled value="">Escolha uma Raça</option>
-                          {
-                            races.map((race: any, index: number) => (
-                              <option
-                                key={index}
-                                value={race.name}
-                              >
-                                {race.name}
-                              </option>
-                            ))
-                          }
-                        </select>
-                      </div>
-                      <button
-                        type="button"
-                        className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
-                        onClick={ () => {} }
-                      >
-                        <IoIosInformationCircleOutline />
-                      </button>
-                    </div>
-                  </div>
-                  {/* SubRaça */}
-                  {
-                    races
-                    .filter((itemRace: any) => itemRace.name === race)
-                    .flatMap((itemRace: any) => itemRace.subraces).length > 0
-                    &&
-                    <div className="mt-3 capitalize w-full">
-                      <span className="pr-3 mb-3">SubRaça</span>
-                      <div className="flex items-center gap-2">
-                      <div className="box-select flex items-center justify-center w-full col-span-1 mt-2">
-                        <div className="box__line box__line--top" />
-                        <div className="box__line box__line--right" />
-                        <div className="box__line box__line--bottom" />
-                        <div className="box__line box__line--left" />
-                        <select
-                          className="w-full text-center py-1 bg-gray-whats-dark cursor-pointer outline-none"
-                          value={subRace}
-                          onChange={ (e) => setSubRace(e.target.value) }
-                        >
-                          <option disabled value="">Escolha uma SubRaça</option>
-                          {
-                            races
-                            .filter((itemRace: any) => itemRace.name === race)
-                            .flatMap((itemRace: any) =>
-                              itemRace.subraces.map((subrace: any, index: number) => (
-                                <option key={index} value={subrace.name}>
-                                  {subrace.name}
-                                </option>
-                              ))
-                          )}
-                        </select>
-                      </div>
-                      <button
-                        type="button"
-                        className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
-                        onClick={ () => {} }
-                      >
-                        <IoIosInformationCircleOutline />
-                      </button>
-                    </div>
-                    </div>
-                  }
-                  {/* classe */}
-                  <div className="mt-3 capitalize w-full">
-                    <span className="pr-3 mb-3">Classe</span>
-                    <div className="flex items-center gap-2">
-                      <div className="box-select flex items-center justify-center w-full col-span-1 mt-2">
-                        <div className="box__line box__line--top" />
-                        <div className="box__line box__line--right" />
-                        <div className="box__line box__line--bottom" />
-                        <div className="box__line box__line--left" />
-                        <select
-                          className="w-full text-center py-1 bg-gray-whats-dark cursor-pointer outline-none"
-                          value={ classPlayer }
-                          onChange={ (e) => setClassPlayer(e.target.value) }
-                        >
-                          <option disabled value="">Escolha uma Classe</option>
-                          {
-                            classList
-                              .sort((a: any, b: any) => a.name.localeCompare(b.name))
-                              .map((classItem: any, index: number) => (
-                              <option
-                                key={index}
-                                value={ classItem.name }
-                              >
-                                { classItem.name }
-                              </option>
-                            ))
-                          }
-                        </select>
-                      </div>
-                      <button
-                        type="button"
-                        className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
-                        onClick={ () => {} }
-                      >
-                        <IoIosInformationCircleOutline />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              }
-            </div>
+            
             {/* Alinhamento */}
             <div className="mt-3 capitalize w-full">
               <span className="pr-3 mb-3">Alinhamento</span>
@@ -613,91 +423,78 @@ export default function General() {
               </div>
             </div>
             {/* Idiomas */}
-            <div className="flex items-center gap-2 mt-2">
-              <div className="box-select flex items-center justify-center w-full col-span-1 mt-2 p-2">
+            <div className="flex items-center gap-2 mt-4">
+              <div className="box-select flex items-center justify-center w-full col-span-1 px-2 pt-1">
                 <div className="box__line box__line--top" />
                 <div className="box__line box__line--right" />
                 <div className="box__line box__line--bottom" />
                 <div className="box__line box__line--left" />
-                <div className="mt-3 capitalize w-full">
-                  <div className="flex w-full justify-between">
-                    Idiomas
-                    { 
-                      editLanguages
-                      ? 
-                        <button
-                          type="button"
-                          onClick={(e:any) => {
-                            // updateValue('name', dataPlayer.name);
-                            setEditLanguages(false);
-                            e.stopPropagation();
-                          }}
-                        >
-                          <FaRegSave className="text-2xl mr-1" />
-                        </button>
-                      : <button
-                          type="button"
-                          title="Alterar Raça e Classe"
-                          onClick={ (e:any) => {
-                            setEditLanguages(true);
-                            e.stopPropagation();
-                          }}
-                        >
-                          <FiEdit className="text-2xl" />
-                        </button>
+                <div className="capitalize w-full">
+                  <div className={`flex items-center gap-2 ${ languagesAdded.length > 0 && 'pt-2'}`}>
+                    <select
+                      className={`${languagesAdded.length > 0 && 'pb-2 border-b border-white' } w-full text-left bg-gray-whats-dark cursor-pointer outline-none`}
+                      value={newLanguage.name}
+                      onChange={ (e) => {
+                        const lang = listLanguages.find((lang: any) => lang.name === e.target.value);
+                        if (lang) setNewLanguage(lang);
+                      }}
+                    >
+                      <option disabled value="">Idiomas</option>
+                      {
+                        languagesNotAdded.map((language: any, index: number) => 
+                          <option value={language.name} key={index}>
+                            { language.name }
+                          </option>
+                        )
+                      }
+                    </select>
+                    {
+                      newLanguage.name !== '' &&
+                      <button
+                        type="button"
+                        className="rounded-full text-3xl cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
+                        onClick={() => {
+                          setLanguagesAdded(
+                            [...languagesAdded, newLanguage].sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }))
+                          );
+                          setLanguagesNotAdded(
+                            languagesNotAdded
+                              .filter((language: any) => language.name !== newLanguage.name)
+                              .sort((a: any, b: any) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }))
+                          );
+                          setNewLanguage({ name: '', title: '', book: ''});
+                        }}
+                      >
+                        <CiCirclePlus />
+                      </button>
                     }
                   </div>
-                  <div className="">
+                  <div className={`w-full flex flex-col mt-2 ${languagesAdded.length > 0 && 'pb-2'}`}>
                     {
-                      editLanguages &&
-                      <div className="flex items-center gap-2">
-                        <select
-                          className="w-full text-left py-1 bg-gray-whats-dark cursor-pointer outline-none"
-                          value={newLanguage}
-                          onChange={ (e) => setNewLanguage(e.target.value) }
-                        >
-                          <option disabled value="">Escolha um Idioma</option>
-                          {
-                            languagesNotAdded.map((language: any, index: number) => 
-                              <option value={language} key={index}>
-                                { language }
-                              </option>
-                            )
-                          }
-                        </select>
-                        <button
-                          type="button"
-                          className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
-                          onClick={ () => {
-                            setLanguagesAdded([...languagesAdded, newLanguage].sort());
-                            setLanguagesNotAdded(languagesNotAdded.filter((language: any) => language !== newLanguage).sort());
-                            setNewLanguage('');
-                          }}
-                        >
-                          <CiCirclePlus />
-                        </button>
-                      </div>
-                    }
-                    <div className="w-full flex flex-col mt-2">
-                      {
-                        languagesAdded.map((language: any, index: number) => (
-                          <div key={index} className="flex items-center pl-3">
-                            <p className="w-full">{language}</p>
+                      languagesAdded.map((language: any, index: number) => (
+                        <div key={index} className="flex items-center pl-3">
+                          <p className="w-full">{language.name}</p>
                             <button
                               type="button"
-                              onClick={ () => {
-                                setLanguagesAdded(languagesAdded.filter((languageItem: any) => languageItem !== language).sort());
-                                setLanguagesNotAdded([...languagesNotAdded, language].sort());
-                                setNewLanguage('');
+                              onClick={() => {
+                                setLanguagesAdded(
+                                  languagesAdded
+                                    .filter((languageItem: any) => languageItem.name !== language.name)
+                                    .sort((a: any, b: any) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }))
+                                );
+                                setLanguagesNotAdded(
+                                  [...languagesNotAdded, language]
+                                    .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }))
+                                );
+                                setNewLanguage({ name: '', title: '', book: ''});
                               }}
                               className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
                             >
                               <CiCircleMinus />
                             </button>
-                          </div>
-                        ))
-                      }
-                    </div>
+                        </div>
+                      ))
+                    }
                   </div>
                 </div>
               </div>
