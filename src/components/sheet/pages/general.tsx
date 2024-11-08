@@ -40,7 +40,11 @@ export default function General() {
   
     let color = 'bg-green-700';
     if (total * 0.3 >= actual) color = 'bg-red-700';
-    else if (total * 0.5 >= actual) color = 'bg-yellow-800';
+    else if (total * 0.5 >= actual) color = 'bg-yellow-700';
+
+    let colorTemporary = 'bg-green-800';
+    if (total * 0.3 >= actual) colorTemporary = 'bg-red-900';
+    else if (total * 0.5 >= actual) colorTemporary = 'bg-yellow-800';
   
     return (
       <button
@@ -60,7 +64,7 @@ export default function General() {
                 key={index}
                 className={`w-full h-full ${
                   index < filledSquares ? color 
-                  : temporary > 0 && index <= filledSquares + tempSquares ? 'bg-blue-700' 
+                  : temporary > 0 && index <= filledSquares + tempSquares ? colorTemporary 
                   : ''
                 }`}
               />
