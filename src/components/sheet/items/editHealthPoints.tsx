@@ -49,20 +49,23 @@ export default function EditHealthPoints() {
         </div>
         {
           type === 'heal' &&
-          <div>
-            <button
-              type="button"
-              onClick={ () => setTemporaryHeal(!temporaryHeal) }
-              className={`relative flex items-center justify-center w-full col-span-1 py-1 mt-5 ${temporaryHeal && 'bg-white text-black font-bold'}`}
-            >
-              <div className="box__line box__line--top"></div>
-              <div className="box__line box__line--right"></div>
-              <div className="box__line box__line--bottom"></div>
-              <div className="box__line box__line--left"></div>
-              <div className="flex w-full justify-center text-center">
-                Marque se está ganhando pontos de Vida Temporários
-              </div>
-            </button>
+          <div className="w-full">
+            { 
+              dataPlayer.sheet.hitPoints.actual > 0 &&
+              <button
+                type="button"
+                onClick={ () => setTemporaryHeal(!temporaryHeal) }
+                className={`relative flex items-center justify-center w-full col-span-1 py-1 mt-5 ${temporaryHeal && 'bg-white text-black font-bold'}`}
+              >
+                <div className="box__line box__line--top"></div>
+                <div className="box__line box__line--right"></div>
+                <div className="box__line box__line--bottom"></div>
+                <div className="box__line box__line--left"></div>
+                <div className="flex w-full justify-center text-center">
+                  Marque se está ganhando pontos de Vida Temporários
+                </div>
+              </button>
+            }
             <button
               type="button"
               className="w-full mt-5 cursor-pointer hover:bg-white hover:text-black transition-colors duration-400"
