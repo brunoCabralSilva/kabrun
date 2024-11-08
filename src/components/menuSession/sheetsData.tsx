@@ -79,7 +79,7 @@ export default function Sheets() {
                     />
                   }
                 </div>
-                {player.sheet.name}
+                {player.sheet.name}, { player.sheet.subRace ? player.sheet.subRace : player.sheet.race } { player.sheet.class } Lv { player.sheet.level }
               </div>
               <div className="flex items-center">
                 {
