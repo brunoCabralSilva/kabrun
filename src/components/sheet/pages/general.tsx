@@ -55,7 +55,7 @@ export default function General() {
         <div
           className="h-7 w-full grid grid-cols-30 relative cursor-pointer"
         >
-          <div className={`absolute w-full h-full flex ${total * 0.5 <= actual ? 'justify-start pl-2' : 'justify-end pr-2'} items-center  text-md`}>
+          <div className={`absolute w-full h-full flex ${total * 0.3 <= actual ? 'justify-start pl-2' : 'justify-end pr-2'} items-center  text-md`}>
             {dataPlayer.sheet.hitPoints.actual} / {dataPlayer.sheet.hitPoints.total} {temporary > 0 && `+ ${temporary}`}
           </div>
           {
