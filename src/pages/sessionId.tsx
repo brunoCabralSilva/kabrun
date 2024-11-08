@@ -15,6 +15,8 @@ import MessageToUser from "../components/messageToUser";
 import LeaveSession from "../components/menuSession/leaveSession";
 import EditRaceAndClass from "../components/sheet/items/editRaceAndClass";
 import EditHealthPoints from "../components/sheet/items/editHealthPoints";
+import EditLevel from "../components/sheet/items/editLevel";
+import EditImage from "../components/sheet/items/editPlayerImage";
 
 export default function SessionId() {
   let { id } = useParams();
@@ -23,8 +25,10 @@ export default function SessionId() {
   const {
     session, setSession,
     removeFromSession,
+    editLevel,
     editRaceAndClass,
     editHealthPoints,
+    editPlayerImage,
     showMessage, setShowMessage,
     showMenuSession, setShowMenuSession,
     setDataSession, setListNotification,
@@ -96,6 +100,8 @@ export default function SessionId() {
               <div className={`${showMenuSession === '' ? 'w-full ': 'w-8/12'} h-screen relative`}>
                 { editRaceAndClass && <EditRaceAndClass /> }
                 { editHealthPoints && <EditHealthPoints /> }
+                { editLevel.show && <EditLevel /> }
+                { editPlayerImage && <EditImage /> }
                 <Grid />
               </div>
               {

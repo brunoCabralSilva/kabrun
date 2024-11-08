@@ -262,6 +262,7 @@ export default function EditHealthPoints() {
                   if (damage > 0 ) actual -= damage;
                   if (actual < 0) {
                     if (actual * (-1) >= total) {
+                      setEditHealthPoints(false);
                       setShowMessage({ show: true, text: 'Seu personagem recebeu uma quantidade de Dano suficiente para chegar a Zero pontos de vida e a quantidade sobressalente exceder ou igualar seus pontos de vida Máximo. Logo, você morreu.' });
                     } else actual === 0;
                     dataPlayer.sheet.deathSaves.failures += 1;
@@ -275,8 +276,8 @@ export default function EditHealthPoints() {
                     let actual = parseInt(dataPlayer.sheet.hitPoints.actual) + value;
                     if (actual > total) actual = total;
                     dataPlayer.sheet.hitPoints.actual = actual;
-                    await updateDataPlayer(session.id, dataPlayer, setShowMessage);
                   }
+                  await updateDataPlayer(session.id, dataPlayer, setShowMessage);
                 }
                 setType('');
                 setValue(0);

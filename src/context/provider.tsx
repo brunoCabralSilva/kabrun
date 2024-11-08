@@ -25,6 +25,8 @@ export default function Provider({children }: IProvider) {
   const  [showSheet, setShowSheet] = useState({ show: false, id: '' });
   const [editRaceAndClass, setEditRaceAndClass] = useState(false);
   const [editHealthPoints, setEditHealthPoints] = useState(false);
+  const [editPlayerImage, setEditPlayerImage] = useState(false);
+  const [editLevel, setEditLevel] = useState({ show: false, type: '' });
 
   const scrollToBottom = () => {
     const messagesContainer = document.getElementById('grid-container');
@@ -81,6 +83,8 @@ export default function Provider({children }: IProvider) {
         showSheet, setShowSheet,
         editRaceAndClass, setEditRaceAndClass,
         editHealthPoints, setEditHealthPoints,
+        editLevel, setEditLevel,
+        editPlayerImage, setEditPlayerImage,
       }}
     >
       {children}

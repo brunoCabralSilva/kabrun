@@ -62,3 +62,21 @@ export async function updateProfileImage(id: string, newImage: any, setShowMessa
     return error.message;
   }
 }
+
+export async function updatePlayerImage(sessionId: string, playerId: string, newImage: any, setShowMessage: any) {
+  const storage = getStorage(firebaseConfig);
+  const folderRef = ref(storage, `images/sessions/${sessionId}/players/${playerId}`);
+  try {
+    const folderContents = await listAll(folderRef);
+    for (const itemRef of folderContents.items) {
+      await deleteObject(itemRef);
+    }
+    const newImageRef = ref(storage, `images/sessions/${sessionId}/players/${playerId}/${newImage.name}`);
+    await uploadBytes(newImageRef, newImage);
+    const newImageUrl = await getDownloadURL(newImageRef);
+    return newImageUrl;
+  } catch (error: any) {
+    setShowMessage({ show: true, text: "Erro ao atualizar imagem: " + error.message });
+    return error.message;
+  }
+}
