@@ -50,7 +50,7 @@ export default function EditPlayerImage() {
               Alteração de Imagem de Perfil
             </div>
             <label htmlFor="lastPassword" className="break-words mb-4 flex flex-col items-center w-full">
-              <p className="break-words w-full mb-1 text-white">Inrisa uma Nova Imagem</p>
+              <p className="break-words w-full pb-5 text-white text-center">Insira uma nova Imagem (Recomendamos uma imagem com dimensões quadradas, pois ela será utilizada para a criação do token do personagem)</p>
               <input 
                 id="image"
                 name="image"
