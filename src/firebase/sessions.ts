@@ -84,7 +84,7 @@ export const createSession = async (
       principles: [],
       players: [],
       images: [ { profile: '', list: [] }],
-      books: ["Dungeons & Dragons - Player's Handbook"],
+      books: ["Player's Handbook"],
       anotations: '',
       description,
     });
