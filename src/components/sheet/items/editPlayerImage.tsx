@@ -19,10 +19,8 @@ export default function EditPlayerImage() {
   
   const updatePassword = async () => {
     setLoading(true);
-    if (!image) {
-      setShowMessage({ show: true, text: 'Necessário inserir uma Imagem válida' });
-
-    } else { 
+    if (!image) setShowMessage({ show: true, text: 'Necessário inserir uma Imagem válida' });
+    else { 
       const newImage = await updatePlayerImage(session.id, dataPlayer.id, image, setShowMessage);
       dataPlayer.sheet.profileImage = newImage;
       await updateDataPlayer(session.id, dataPlayer, setShowMessage);

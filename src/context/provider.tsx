@@ -26,6 +26,7 @@ export default function Provider({children }: IProvider) {
   const [editRaceAndClass, setEditRaceAndClass] = useState(false);
   const [editHealthPoints, setEditHealthPoints] = useState(false);
   const [editPlayerImage, setEditPlayerImage] = useState(false);
+  const [editConditions, setEditConditions] = useState(false);
   const [editLevel, setEditLevel] = useState({ show: false, type: '' });
 
   const scrollToBottom = () => {
@@ -85,6 +86,7 @@ export default function Provider({children }: IProvider) {
         editHealthPoints, setEditHealthPoints,
         editLevel, setEditLevel,
         editPlayerImage, setEditPlayerImage,
+        editConditions, setEditConditions,
       }}
     >
       {children}

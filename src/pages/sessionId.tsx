@@ -17,6 +17,7 @@ import EditRaceAndClass from "../components/sheet/items/editRaceAndClass";
 import EditHealthPoints from "../components/sheet/items/editHealthPoints";
 import EditLevel from "../components/sheet/items/editLevel";
 import EditImage from "../components/sheet/items/editPlayerImage";
+import EditConditions from "../components/sheet/items/editConditions";
 
 export default function SessionId() {
   let { id } = useParams();
@@ -29,6 +30,7 @@ export default function SessionId() {
     editRaceAndClass,
     editHealthPoints,
     editPlayerImage,
+    editConditions,
     showMessage, setShowMessage,
     showMenuSession, setShowMenuSession,
     setDataSession, setListNotification,
@@ -102,6 +104,7 @@ export default function SessionId() {
                 { editHealthPoints && <EditHealthPoints /> }
                 { editLevel.show && <EditLevel /> }
                 { editPlayerImage && <EditImage /> }
+                { editConditions && <EditConditions /> }
                 <Grid />
               </div>
               {

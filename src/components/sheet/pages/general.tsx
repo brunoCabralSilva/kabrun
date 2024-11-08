@@ -8,6 +8,8 @@ import Name from "../items/name";
 import { Alignment } from "../items/alignment";
 import ExperiencePoints from "../items/experiencePoints";
 import Languages from "../items/languages";
+import { MdDelete } from "react-icons/md";
+import { updateDataPlayer } from "../../../firebase/players";
 
 export default function General() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
@@ -19,10 +21,10 @@ export default function General() {
     setEditHealthPoints,
     setEditPlayerImage,
     setEditLevel,
+    setEditConditions,
+    setShowMessage,
   } = useContext(contexto);
   const [colorDeathSaves, setColorDeathSaves] = useState(false);
-
-  var conditions = [{ name: 'weakness', color: 'bg-pink-700' }, { name: 'weakness', color: 'bg-yellow-700' }, { name: 'weakness', color: 'bg-orange-700' }, { name: 'weakness', color: 'bg-blue-700' }, { name: 'weakness', color: 'bg-green-700' }, ];
 
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
@@ -156,18 +158,34 @@ export default function General() {
               </div>
             </div>
             {/* Condições */}
-            <div className="w-full flex flex-wrap justify-start my-4 gap-1">
+            <div className="w-full flex flex-wrap justify-start items-center my-4 gap-1">
               <button
                 type="button"
                 title="Adicionar uma Condição"
-                className={`w-6 h-6 rounded-full bg-gray-whats-dark hover:bg-white transition-colors duration-400 border-2 border-white text-white hover:text-black flex items-center justify-center text-xl cursor-pointer`}
+                onClick={ () => setEditConditions(true) }
+                className="rounded-full border border-white px-2 py-1 hover:bg-white hover:text-black text-sm transition-colors duration-400"
               >
-                <GoPlus />
+                + Condição
               </button>
               {
-                conditions.map((condition: any, index: number) => (
-                <div key={index} className={`w-6 h-6 rounded-full ${condition.color}`}>
-
+                dataPlayer.sheet.conditions.map((condition: any, index: number) => (
+                <div
+                  key={index}
+                  title={condition.title}
+                  className="rounded-full border border-white px-2 py-1 flex items-center gap-2"
+                >
+                  <span className="text-sm">{ condition.name }</span>
+                  <button
+                    type="button"
+                    title="Remover Condição"
+                    className="rounded hover:bg-white hover:text-black flex items-center gap-2"
+                    onClick={ async () => {
+                      dataPlayer.sheet.conditions = dataPlayer.sheet.conditions.filter((cond: any) => cond.name !== condition.name);
+                      await updateDataPlayer(session.id, dataPlayer, setShowMessage);
+                    } }
+                  >
+                    <MdDelete />
+                  </button>
                 </div>
                 ))
               }
