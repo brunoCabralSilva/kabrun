@@ -43,7 +43,7 @@ export default function Sheets() {
   };
   
   return (
-    <div className="h-90vh overflow-y-auto pr-1 flex flex-col justify-start">
+    <div className="h-90vh overflow-y-auto pr-1 flex flex-col justify-start px-2">
       <button
         type="button"
         onClick={addSheet}
@@ -70,7 +70,15 @@ export default function Sheets() {
               className="bg-black border border-white rounded text-white font-bold p-2 w-full mt-2 cursor-pointer text-center flex justify-between items-center"
             >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gray-200"></div>
+                <div className="w-10 h-10 rounded-full bg-gray-200">
+                  {
+                    player.sheet.profileImage &&
+                    <img 
+                      src={ player.sheet.profileImage }
+                      className="w-full h-full object-cover rounded-full border border-white"
+                    />
+                  }
+                </div>
                 {player.sheet.name}
               </div>
               <div className="flex items-center">
