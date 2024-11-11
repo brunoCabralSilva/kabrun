@@ -9,6 +9,7 @@ import EditPrinciple from "./editPrinciple";
 import DeletePrinciple from "./deletePrinciple";
 import { getUserByEmail } from "../../firebase/user";
 import ChangeGameMaster from "./changeGameMaster";
+import AttributeDistribution from "../sheet/items/attributeDistribution";
 
 export default function Details() {
   const { session, userEmail } = useContext(contexto);
@@ -258,6 +259,8 @@ export default function Details() {
             </div>
           </div>
         </div>
+        {/* Tipo de Distribuição de Atributos */}
+        <AttributeDistribution />
         {/* Description */}
         <div className="w-full mb-2 flex-col font-bold border-2 border-white">
           <div className="pl-4 pr-2 pt-2 flex justify-between items-center w-full">

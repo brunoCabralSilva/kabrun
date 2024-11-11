@@ -18,6 +18,7 @@ import EditHealthPoints from "../components/sheet/items/editHealthPoints";
 import EditLevel from "../components/sheet/items/editLevel";
 import EditImage from "../components/sheet/items/editPlayerImage";
 import EditConditions from "../components/sheet/items/editConditions";
+import EditAttributes from "../components/sheet/items/editAttributes";
 
 export default function SessionId() {
   let { id } = useParams();
@@ -31,6 +32,7 @@ export default function SessionId() {
     editHealthPoints,
     editPlayerImage,
     editConditions,
+    editAttributes,
     showMessage, setShowMessage,
     showMenuSession, setShowMenuSession,
     setDataSession, setListNotification,
@@ -105,6 +107,7 @@ export default function SessionId() {
                 { editLevel.show && <EditLevel /> }
                 { editPlayerImage && <EditImage /> }
                 { editConditions && <EditConditions /> }
+                { editAttributes && <EditAttributes /> }
                 <Grid />
               </div>
               {

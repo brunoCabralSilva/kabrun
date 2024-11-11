@@ -2,8 +2,6 @@ import { useContext, useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import contexto from "../../context/context";
 import General from "../sheet/pages/general";
-import Attributes from "../sheet/pages/attributes";
-import SavingThrows from "../sheet/pages/savingthrows";
 import Skills from "../sheet/pages/skills";
 import Race from "../sheet/pages/race";
 import ClassPlayer from "../sheet/pages/classPlayer";
@@ -33,8 +31,6 @@ export default function SheetSelected() {
           className="w-full outline-none mb-2 border border-white p-3 cursor-pointer bg-black text-white flex items-center justify-center font-bold text-center"
         >
           <option value={'general'}>Geral</option>
-          <option value={'attributes'}>Atributos</option>
-          <option value={'saving-throws'}>Salvaguardas</option>
           <option value={'skills'}>Perícias</option>
           <option value={'race'}>Raça</option>
           <option value={'class'}>Classe</option>
@@ -43,8 +39,6 @@ export default function SheetSelected() {
           <option value={'items'}>Itens</option>
         </select>
         {optionSelect === 'general' && <General />}
-        {optionSelect === 'attributes' && <Attributes />}
-        {optionSelect === 'saving-throws' &&  <SavingThrows /> }
         {optionSelect === 'skills' && <Skills />}
         {optionSelect === 'race' && <Race />}
         {optionSelect === 'class' && <ClassPlayer />}

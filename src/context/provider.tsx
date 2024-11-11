@@ -28,6 +28,7 @@ export default function Provider({children }: IProvider) {
   const [editPlayerImage, setEditPlayerImage] = useState(false);
   const [editConditions, setEditConditions] = useState(false);
   const [editLevel, setEditLevel] = useState({ show: false, type: '' });
+  const [editAttributes, setEditAttributes] = useState(false);
 
   const scrollToBottom = () => {
     const messagesContainer = document.getElementById('grid-container');
@@ -87,6 +88,7 @@ export default function Provider({children }: IProvider) {
         editLevel, setEditLevel,
         editPlayerImage, setEditPlayerImage,
         editConditions, setEditConditions,
+        editAttributes, setEditAttributes,
       }}
     >
       {children}
