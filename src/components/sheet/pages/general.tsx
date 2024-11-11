@@ -308,7 +308,7 @@ export default function General() {
                   <div className="box__line box__line--bottom"></div>
                   <div className="box__line box__line--left"></div>
                   <div className="flex flex-col items-center justify-center">
-                    <p className="text-2xl font-bold">0 / { dataPlayer.sheet.attributes.strength.value * 7.5 }</p>
+                    <p className="text-2xl font-bold">0 / { (dataPlayer.sheet.attributes.strength.value + dataPlayer.sheet.attributes.strength.bonus) * 7.5 }</p>
                     <p className="text-xs pb-1">Capacidade de Carga</p>
                   </div>
                 </div>

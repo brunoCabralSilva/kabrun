@@ -4,6 +4,7 @@ import contexto from "../../../context/context";
 import races from '../../../data/races.json';
 import classList from '../../../data/classes.json';
 import { updateDataPlayer } from "../../../firebase/players";
+import { applyRace } from "../../../firebase/utilitiesRaces";
 
 export default function EditRaceAndClass() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
@@ -11,7 +12,7 @@ export default function EditRaceAndClass() {
   const [subRace, setSubRace] = useState('');
   const [classPlayer, setClassPlayer] = useState('');
 
-  const { session, showSheet, players, setEditRaceAndClass, setShowMessage } = useContext(contexto);
+  const { session, showSheet, players, setEditRaceAndClass, setShowMessage, calculateMod } = useContext(contexto);
 
   useEffect(() => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
@@ -20,6 +21,16 @@ export default function EditRaceAndClass() {
     setSubRace(findPlayer.sheet.subRace);
     setClassPlayer(findPlayer.sheet.class);
   }, [session, players]);
+
+  const updateRace = async () => {
+    const dataPlayerSheet = dataPlayer;
+    dataPlayerSheet.sheet = applyRace(dataPlayerSheet.sheet, race, subRace, calculateMod);
+    dataPlayerSheet.sheet.race = race;
+    dataPlayerSheet.sheet.subRace = subRace;
+    dataPlayerSheet.sheet.class = classPlayer;
+    await updateDataPlayer(session.id, dataPlayerSheet, setShowMessage);
+    setEditRaceAndClass(false)
+  }
 
   return(
     <div className="z-50 absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black/80 px-3 sm:px-0 text-white">
@@ -150,12 +161,8 @@ export default function EditRaceAndClass() {
           type="button"
           className="mt-5 mb-2 p-2 w-full text-center border-2 border-white text-white bg-black cursor-pointer font-bold transition-colors"
           onClick={ async (e:any) => {
-              dataPlayer.sheet.race = race;
-              dataPlayer.sheet.subRace = subRace;
-              dataPlayer.sheet.class = classPlayer;
-              await updateDataPlayer(session.id, dataPlayer, setShowMessage);
-              setEditRaceAndClass(false)
-              e.stopPropagation();
+            updateRace();
+            e.stopPropagation();
           }}
         >
           Salvar

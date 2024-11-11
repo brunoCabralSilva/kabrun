@@ -52,6 +52,7 @@ interface RecipesContext {
   scrollToBottom: () => void,
   resetPopups: () => void,
   returnAttribute: (attribute: string) => string,
+  calculateMod: (state: number) => number,
 }
 
 const initialValue: RecipesContext = {
@@ -106,6 +107,7 @@ const initialValue: RecipesContext = {
   scrollToBottom: () => {},
   resetPopups: () => {},
   returnAttribute: () => '',
+  calculateMod: () => 0,
 }
 
 const contexto = createContext(initialValue);

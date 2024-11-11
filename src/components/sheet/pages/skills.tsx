@@ -11,7 +11,7 @@ export default function Skills() {
   const [charisma, setCharisma] = useState<any>(0);
   const [wisdom, setWisdom] = useState<any>(0);
   const [intelligence, setIntelligence] = useState<any>(0);
-  const { session, showSheet, players, setEditAttributes } = useContext(contexto);
+  const { session, showSheet, players, setEditAttributes, calculateMod } = useContext(contexto);
 
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
@@ -23,26 +23,6 @@ export default function Skills() {
     setWisdom(findPlayer.sheet.attributes.wisdom.value);
     setIntelligence(findPlayer.sheet.attributes.intelligence.value);
   }, [session, players]);
-
-  const calculateMod = (value: number) => {
-    if (value === 1) return -5;
-    else if (value >= 2 && value <= 3) return -4;
-    else if (value >= 4 && value <= 5) return -3;
-    else if (value >= 6 && value <= 7) return -2;
-    else if (value >= 8 && value <= 9) return -1;
-    else if (value >= 10 && value <= 11) return 0;
-    else if (value >= 12 && value <= 13) return 1;
-    else if (value >= 14 && value <= 15) return 2;
-    else if (value >= 16 && value <= 17) return 3;
-    else if (value >= 18 && value <= 19) return 4;
-    else if (value >= 20 && value <= 21) return 5;
-    else if (value >= 22 && value <= 23) return 6;
-    else if (value >= 24 && value <= 25) return 7;
-    else if (value >= 26 && value <= 27) return 8;
-    else if (value >= 28 && value <= 29) return 9;
-    else if (value === 30) return 10;
-    return 0;
-  };
 
   if (dataPlayer) {
     return(
@@ -84,33 +64,33 @@ export default function Skills() {
         <div className="grid grid-cols-4 w-full h-full gap-3">
           <div className="col-span-1 w-full">
             <ItemAttribute
-              mod={ calculateMod(strength) }
-              attribute={ strength }
+              mod={ calculateMod(strength + dataPlayer.sheet.attributes.strength.bonus) }
+              attribute={ strength + dataPlayer.sheet.attributes.strength.bonus }
               name="Força"
             />
             <ItemAttribute
-              mod={ calculateMod(dexterity) }
-              attribute={ dexterity }
+              mod={ calculateMod(dexterity + dataPlayer.sheet.attributes.dexterity.bonus) }
+              attribute={ dexterity + dataPlayer.sheet.attributes.dexterity.bonus }
               name="Destreza"
             />
             <ItemAttribute
-              mod={ calculateMod(constitution) }
-              attribute={ constitution }
+              mod={ calculateMod(constitution + dataPlayer.sheet.attributes.constitution.bonus) }
+              attribute={ constitution + dataPlayer.sheet.attributes.constitution.bonus }
               name="Constituição"
             />
             <ItemAttribute
-              mod={ calculateMod(intelligence) }
-              attribute={ intelligence }
+              mod={ calculateMod(intelligence + dataPlayer.sheet.attributes.intelligence.bonus) }
+              attribute={ intelligence + dataPlayer.sheet.attributes.intelligence.bonus }
               name="Inteligência"
             />
             <ItemAttribute
-              mod={ calculateMod(wisdom) }
-              attribute={ wisdom }
+              mod={ calculateMod(wisdom + dataPlayer.sheet.attributes.wisdom.bonus) }
+              attribute={ wisdom + dataPlayer.sheet.attributes.wisdom.bonus }
               name="Sabedoria"
             />
             <ItemAttribute
-              mod={ calculateMod(charisma) }
-              attribute={ charisma }
+              mod={ calculateMod(charisma + dataPlayer.sheet.attributes.charisma.bonus) }
+              attribute={ charisma + dataPlayer.sheet.attributes.charisma.bonus }
               name="Carisma"
             />
           </div>
@@ -129,37 +109,37 @@ export default function Skills() {
                   <ItemSavingThrow
                     name="Força"
                     proficiency={ dataPlayer.sheet.proficiency }
-                    mod={calculateMod(strength)}
+                    mod={calculateMod(strength + dataPlayer.sheet.attributes.strength.bonus)}
                     trained={dataPlayer.sheet.attributes.strength.proficiency}
                   />
                   <ItemSavingThrow
                     name="Destreza"
                     proficiency={ dataPlayer.sheet.proficiency }
-                    mod={calculateMod(dexterity)}
+                    mod={calculateMod(dexterity + dataPlayer.sheet.attributes.dexterity.bonus)}
                     trained={dataPlayer.sheet.attributes.dexterity.proficiency}
                   />
                   <ItemSavingThrow
                     name="Constituição"
                     proficiency={ dataPlayer.sheet.proficiency }
-                    mod={calculateMod(constitution)}
+                    mod={calculateMod(constitution + dataPlayer.sheet.attributes.constitution.bonus)}
                     trained={dataPlayer.sheet.attributes.constitution.proficiency}
                   />
                   <ItemSavingThrow
                     name="Inteligência"
                     proficiency={ dataPlayer.sheet.proficiency }
-                    mod={calculateMod(intelligence)}
+                    mod={calculateMod(intelligence + dataPlayer.sheet.attributes.intelligence.bonus)}
                     trained={dataPlayer.sheet.attributes.intelligence.proficiency}
                   />
                   <ItemSavingThrow
                     name="Sabedoria"
                     proficiency={ dataPlayer.sheet.proficiency }
-                    mod={calculateMod(wisdom)}
+                    mod={calculateMod(wisdom + dataPlayer.sheet.attributes.wisdom.bonus)}
                     trained={dataPlayer.sheet.attributes.wisdom.proficiency}
                   />
                   <ItemSavingThrow
                     name="Carisma"
                     proficiency={ dataPlayer.sheet.proficiency }
-                    mod={calculateMod(charisma)}
+                    mod={calculateMod(charisma + dataPlayer.sheet.attributes.charisma.bonus)}
                     trained={dataPlayer.sheet.attributes.charisma.proficiency}
                   />
                 </div>

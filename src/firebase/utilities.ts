@@ -27,12 +27,12 @@ export const capitalizeFirstLetter = (str: string): String => {
 export const playerSheet = (nameSheet: string) => {
   return {
     attributes: {
-      strength: { value: 0, mod: 0, proficiency: false },
-      dexterity: { value: 0, mod: 0, proficiency: false },
-      wisdom: { value: 0, mod: 0, proficiency: false },
-      charisma: { value: 0, mod: 0, proficiency: false },
-      intelligence: { value: 0, mod: 0, proficiency: false },
-      constitution: { value: 0, mod: 0, proficiency: false },
+      strength: { value: 0, mod: 0, proficiency: false, bonus: 0 },
+      dexterity: { value: 0, mod: 0, proficiency: false, bonus: 0 },
+      wisdom: { value: 0, mod: 0, proficiency: false, bonus: 0 },
+      charisma: { value: 0, mod: 0, proficiency: false, bonus: 0 },
+      intelligence: { value: 0, mod: 0, proficiency: false, bonus: 0 },
+      constitution: { value: 0, mod: 0, proficiency: false, bonus: 0 },
     },
     profileImage: null,
     name: nameSheet,
@@ -50,7 +50,11 @@ export const playerSheet = (nameSheet: string) => {
     hitPoints: { actual: 0, total: 0, temporary: 0 },
     deathSaves: { successes: 0, failures: 0 },
     talents: [],
-    equipments: [],
+    equipments: {
+      proficiencies: [],
+      equiped: [],
+      storage: [],
+    },
     items:[],
     languages: [],
     magics: [],

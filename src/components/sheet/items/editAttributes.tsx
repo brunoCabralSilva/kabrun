@@ -5,7 +5,7 @@ import { updateDataPlayer } from "../../../firebase/players";
 
 export default function EditAttributes() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
-  const { session, showSheet, players, setEditAttributes, setShowMessage } = useContext(contexto);
+  const { session, showSheet, players, setEditAttributes, setShowMessage, calculateMod } = useContext(contexto);
   const [type, setType] = useState('');
   const [listNumbers, setListNumbers] = useState<number[]>([]);
   const [strength, setStrength] = useState(0);
@@ -31,26 +31,6 @@ export default function EditAttributes() {
       setListNumbers([findPlayer.sheet.attributes.strength.value, findPlayer.sheet.attributes.dexterity.value, findPlayer.sheet.attributes.constitution.value, findPlayer.sheet.attributes.intelligence.value, findPlayer.sheet.attributes.wisdom.value, findPlayer.sheet.attributes.charisma.value]);
     }
   }, [session, players]);
-
-  const calculateMod = (value: number) => {
-    if (value === 1) return -5;
-    else if (value >= 2 && value <= 3) return -4;
-    else if (value >= 4 && value <= 5) return -3;
-    else if (value >= 6 && value <= 7) return -2;
-    else if (value >= 8 && value <= 9) return -1;
-    else if (value >= 10 && value <= 11) return 0;
-    else if (value >= 12 && value <= 13) return 1;
-    else if (value >= 14 && value <= 15) return 2;
-    else if (value >= 16 && value <= 17) return 3;
-    else if (value >= 18 && value <= 19) return 4;
-    else if (value >= 20 && value <= 21) return 5;
-    else if (value >= 22 && value <= 23) return 6;
-    else if (value >= 24 && value <= 25) return 7;
-    else if (value >= 26 && value <= 27) return 8;
-    else if (value >= 28 && value <= 29) return 9;
-    else if (value === 30) return 10;
-    return 0;
-  };
 
   const roll4d6DropLowest = () => {
     const rolls = Array.from({ length: 4 }, () => Math.floor(Math.random() * 6) + 1);
@@ -115,17 +95,17 @@ export default function EditAttributes() {
   const updateAttributes = async () => {
     if (type === 'rolling') dataPlayer.sheet.chooseAttribute = true;
     dataPlayer.sheet.attributes.strength.value = strength;
-    dataPlayer.sheet.attributes.strength.mod = calculateMod(strength);
+    dataPlayer.sheet.attributes.strength.mod = calculateMod(strength + dataPlayer.sheet.attributes.strength.bonus);
     dataPlayer.sheet.attributes.dexterity.value = dexterity;
-    dataPlayer.sheet.attributes.dexterity.mod = calculateMod(dexterity);
+    dataPlayer.sheet.attributes.dexterity.mod = calculateMod(dexterity + dataPlayer.sheet.attributes.dexterity.bonus);
     dataPlayer.sheet.attributes.constitution.value = constitution;
-    dataPlayer.sheet.attributes.constitution.mod = calculateMod(constitution);
+    dataPlayer.sheet.attributes.constitution.mod = calculateMod(constitution + dataPlayer.sheet.attributes.constitution.bonus);
     dataPlayer.sheet.attributes.intelligence.value = intelligence;
-    dataPlayer.sheet.attributes.intelligence.mod = calculateMod(intelligence);
+    dataPlayer.sheet.attributes.intelligence.mod = calculateMod(intelligence + dataPlayer.sheet.attributes.intelligence.bonus);
     dataPlayer.sheet.attributes.wisdom.value = wisdom;
-    dataPlayer.sheet.attributes.wisdom.mod = calculateMod(wisdom);
+    dataPlayer.sheet.attributes.wisdom.mod = calculateMod(wisdom + dataPlayer.sheet.attributes.wisdom.bonus);
     dataPlayer.sheet.attributes.charisma.value = charisma;
-    dataPlayer.sheet.attributes.charisma.mod = calculateMod(charisma);
+    dataPlayer.sheet.attributes.charisma.mod = calculateMod(charisma + dataPlayer.sheet.attributes.charisma.bonus);
     await updateDataPlayer(session.id, dataPlayer, setShowMessage);
     setEditAttributes(false);
   }
@@ -249,17 +229,17 @@ export default function EditAttributes() {
                 setCharisma(newNumbers[5]);
                 dataPlayer.sheet.chooseAttribute = true;
                 dataPlayer.sheet.attributes.strength.value = newNumbers[0];
-                dataPlayer.sheet.attributes.strength.mod = calculateMod(newNumbers[0]);
+                dataPlayer.sheet.attributes.strength.mod = calculateMod(newNumbers[0] + dataPlayer.sheet.attributes.strength.bonus);
                 dataPlayer.sheet.attributes.dexterity.value = newNumbers[1];
-                dataPlayer.sheet.attributes.dexterity.mod = calculateMod(newNumbers[1]);
+                dataPlayer.sheet.attributes.dexterity.mod = calculateMod(newNumbers[1] + dataPlayer.sheet.attributes.dexterity.bonus);
                 dataPlayer.sheet.attributes.constitution.value = newNumbers[2];
-                dataPlayer.sheet.attributes.constitution.mod = calculateMod(newNumbers[2]);
+                dataPlayer.sheet.attributes.constitution.mod = calculateMod(newNumbers[2] + dataPlayer.sheet.attributes.constitution.bonus);
                 dataPlayer.sheet.attributes.intelligence.value = newNumbers[3];
-                dataPlayer.sheet.attributes.intelligence.mod = calculateMod(newNumbers[3]);
+                dataPlayer.sheet.attributes.intelligence.mod = calculateMod(newNumbers[3] + dataPlayer.sheet.attributes.intelligence.bonus);
                 dataPlayer.sheet.attributes.wisdom.value = newNumbers[4];
-                dataPlayer.sheet.attributes.wisdom.mod = calculateMod(newNumbers[4]);
+                dataPlayer.sheet.attributes.wisdom.mod = calculateMod(newNumbers[4] + dataPlayer.sheet.attributes.wisdom.bonus);
                 dataPlayer.sheet.attributes.charisma.value = newNumbers[5];
-                dataPlayer.sheet.attributes.charisma.mod = calculateMod(newNumbers[5]);
+                dataPlayer.sheet.attributes.charisma.mod = calculateMod(newNumbers[5] + dataPlayer.sheet.attributes.charisma.bonus);
                 await updateDataPlayer(session.id, dataPlayer, setShowMessage);
                 setShowConfirmation(false);
               }}
@@ -339,8 +319,8 @@ export default function EditAttributes() {
                         ))
                       }
                     </select>
-                    <p className="text-xs pb-1">Força</p>
-                    <p className="text-xs pb-1">({ calculateMod(strength) })</p>
+                    <p className="text-xs pb-1">Força { dataPlayer.sheet.attributes.strength.bonus !== 0 && `(+${dataPlayer.sheet.attributes.strength.bonus})` }</p>
+                    <p className="text-xs pb-1">({ calculateMod(strength + dataPlayer.sheet.attributes.strength.bonus) })</p>
                   </div>
                 </div>
               </div>
@@ -375,8 +355,8 @@ export default function EditAttributes() {
                         ))
                       }
                     </select>
-                    <p className="text-xs pb-1">Destreza</p>
-                    <p className="text-xs pb-1">({ calculateMod(dexterity) })</p>
+                    <p className="text-xs pb-1">Destreza { dataPlayer.sheet.attributes.dexterity.bonus !== 0 && `(+${dataPlayer.sheet.attributes.dexterity.bonus})` }</p>
+                    <p className="text-xs pb-1">({ calculateMod(dexterity + dataPlayer.sheet.attributes.dexterity.bonus) })</p>
                   </div>
                 </div>
               </div>
@@ -411,8 +391,8 @@ export default function EditAttributes() {
                         ))
                       }
                     </select>
-                    <p className="text-xs pb-1">Constituição</p>
-                    <p className="text-xs pb-1">({ calculateMod(constitution) })</p>
+                    <p className="text-xs pb-1">Constituição { dataPlayer.sheet.attributes.constitution.bonus !== 0 && `(+${dataPlayer.sheet.attributes.constitution.bonus})` }</p>
+                    <p className="text-xs pb-1">({ calculateMod(constitution + dataPlayer.sheet.attributes.constitution.bonus) })</p>
                   </div>
                 </div>
               </div>
@@ -447,8 +427,8 @@ export default function EditAttributes() {
                         ))
                       }
                     </select>
-                    <p className="text-xs pb-1">Inteligência</p>
-                    <p className="text-xs pb-1">({ calculateMod(intelligence) })</p>
+                    <p className="text-xs pb-1">Inteligência { dataPlayer.sheet.attributes.intelligence.bonus !== 0 && `(+${dataPlayer.sheet.attributes.intelligence.bonus})` }</p>
+                    <p className="text-xs pb-1">({ calculateMod(intelligence + dataPlayer.sheet.attributes.intelligence.bonus) })</p>
                   </div>
                 </div>
               </div>
@@ -483,8 +463,8 @@ export default function EditAttributes() {
                         ))
                       }
                     </select>
-                    <p className="text-xs pb-1">Sabedoria</p>
-                    <p className="text-xs pb-1">({ calculateMod(wisdom) })</p>
+                    <p className="text-xs pb-1">Sabedoria { dataPlayer.sheet.attributes.wisdom.bonus !== 0 && `(+${dataPlayer.sheet.attributes.wisdom.bonus})` }</p>
+                    <p className="text-xs pb-1">({ calculateMod(wisdom + dataPlayer.sheet.attributes.wisdom.bonus) })</p>
                   </div>
                 </div>
               </div>
@@ -519,8 +499,8 @@ export default function EditAttributes() {
                         ))
                       }
                     </select>
-                    <p className="text-xs pb-1">Carisma</p>
-                    <p className="text-xs pb-1">({ calculateMod(charisma) })</p>
+                    <p className="text-xs pb-1">Carisma { dataPlayer.sheet.attributes.charisma.bonus !== 0 && `(+${dataPlayer.sheet.attributes.charisma.bonus})` }</p>
+                    <p className="text-xs pb-1">({ calculateMod(charisma + dataPlayer.sheet.attributes.charisma.bonus) })</p>
                   </div>
                 </div>
               </div>
