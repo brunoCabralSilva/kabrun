@@ -64,31 +64,37 @@ export default function Skills() {
         <div className="grid grid-cols-4 w-full h-full gap-3">
           <div className="col-span-1 w-full">
             <ItemAttribute
+              bonus={dataPlayer.sheet.attributes.strength.bonus}
               mod={ calculateMod(strength + dataPlayer.sheet.attributes.strength.bonus) }
               attribute={ strength + dataPlayer.sheet.attributes.strength.bonus }
               name="Força"
             />
             <ItemAttribute
+              bonus={dataPlayer.sheet.attributes.dexterity.bonus}
               mod={ calculateMod(dexterity + dataPlayer.sheet.attributes.dexterity.bonus) }
               attribute={ dexterity + dataPlayer.sheet.attributes.dexterity.bonus }
               name="Destreza"
             />
             <ItemAttribute
+              bonus={dataPlayer.sheet.attributes.constitution.bonus}
               mod={ calculateMod(constitution + dataPlayer.sheet.attributes.constitution.bonus) }
               attribute={ constitution + dataPlayer.sheet.attributes.constitution.bonus }
               name="Constituição"
             />
             <ItemAttribute
+              bonus={dataPlayer.sheet.attributes.intelligence.bonus}
               mod={ calculateMod(intelligence + dataPlayer.sheet.attributes.intelligence.bonus) }
               attribute={ intelligence + dataPlayer.sheet.attributes.intelligence.bonus }
               name="Inteligência"
             />
             <ItemAttribute
+              bonus={dataPlayer.sheet.attributes.wisdom.bonus}
               mod={ calculateMod(wisdom + dataPlayer.sheet.attributes.wisdom.bonus) }
               attribute={ wisdom + dataPlayer.sheet.attributes.wisdom.bonus }
               name="Sabedoria"
             />
             <ItemAttribute
+              bonus={dataPlayer.sheet.attributes.charisma.bonus}
               mod={ calculateMod(charisma + dataPlayer.sheet.attributes.charisma.bonus) }
               attribute={ charisma + dataPlayer.sheet.attributes.charisma.bonus }
               name="Carisma"
