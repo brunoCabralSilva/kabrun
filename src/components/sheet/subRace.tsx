@@ -5,13 +5,12 @@ import listRaces from '../../data/races.json';
 import { updateDataPlayer } from "../../firebase/players";
 import { applySubRace } from "../../firebase/utilitiesRaces";
 
-export default function SubRaces(props: any) {
-  const { setOption } = props;
+export default function SubRaces() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
   const [subRace, setSubRace] = useState<any>(null);
   const [subRaceSelected, setSubRaceSelected] = useState<any>(null);
   const [race, setRace] = useState<any>(null);
-  const { showSheet, session, players, returnAttribute, setShowMessage, calculateMod } = useContext(contexto);
+  const { showSheet, session, players, returnAttribute, setShowMessage, calculateMod, setOptionGuide } = useContext(contexto);
 
   useEffect(() => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
@@ -33,7 +32,7 @@ export default function SubRaces(props: any) {
       playerData.sheet = applySubRace(playerData.sheet, subRace, calculateMod);
       playerData.sheet.subRace = subRace;
       await updateDataPlayer(session.id, playerData, setShowMessage);
-      setOption('class');
+      setOptionGuide('class');
     }
   };
   
@@ -136,7 +135,13 @@ export default function SubRaces(props: any) {
               </div>
             </div>
           } 
-          <div className="w-full flex justify-end col-span-10 py-3">
+          <div className="w-full flex justify-between col-span-10 py-3">
+            <button
+              onClick={ () => setOptionGuide('race') }
+              className="break-words items-center justify-center text-sm font-medium hover:text-white p-2 border-2 border-white"
+              >
+                Anterior
+            </button>
             <button
               onClick={ updateData }
               className="break-words items-center justify-center text-sm font-medium hover:text-white p-2 border-2 border-white"
@@ -148,34 +153,3 @@ export default function SubRaces(props: any) {
       </div>
   );
 }
-//           {/* classe */}
-//           <div className="mt-3 capitalize w-full">
-//             <span className="pr-3 mb-3">Classe</span>
-//             <div className="flex items-center gap-2">
-//               <div className="box-select flex items-center justify-center w-full col-span-1 mt-2">
-//                 <div className="box__line box__line--top" />
-//                 <div className="box__line box__line--right" />
-//                 <div className="box__line box__line--bottom" />
-//                 <div className="box__line box__line--left" />
-//                 <select
-//                   className="w-full text-center py-1 bg-gray-whats-dark cursor-pointer outline-none"
-//                   value={ classPlayer }
-//                   onChange={ (e) => setClassPlayer(e.target.value) }
-//                 >
-//                   <option disabled value="">Escolha uma Classe</option>
-//                   {
-//                     classList
-//                       .sort((a: any, b: any) => a.name.localeCompare(b.name))
-//                       .map((classItem: any, index: number) => (
-//                       <option
-//                         key={index}
-//                         value={ classItem.name }
-//                       >
-//                         { classItem.name }
-//                       </option>
-//                     ))
-//                   }
-//                 </select>
-//               </div>
-//             </div>
-//           </div>

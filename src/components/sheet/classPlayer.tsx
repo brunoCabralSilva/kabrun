@@ -1,14 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import contexto from "../../context/context";
-import races from '../../data/races.json';
 import classList from '../../data/classes.json';
 import { updateDataPlayer } from "../../firebase/players";
 
-export default function ClassPlayer(props: any) {
-  const { setOption } = props;
+export default function ClassPlayer() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
   const [classPlayer, setClassPlayer] = useState<string>('');
-  const { showSheet, session, players, returnAttribute, setShowMessage } = useContext(contexto);
+  const { showSheet, session, players, setShowMessage, setOptionGuide } = useContext(contexto);
 
   useEffect(() => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
@@ -21,7 +19,7 @@ export default function ClassPlayer(props: any) {
     else {
       dataPlayer.sheet.class = classPlayer;
       await updateDataPlayer(session.id, dataPlayer, setShowMessage);
-      setOption('attributes');
+      setOptionGuide('attributes');
     }
   };
   
@@ -54,7 +52,13 @@ export default function ClassPlayer(props: any) {
           </div>
         </div> 
         <div className="h-full w-full flex flex-col justify-start items-center">
-          <div className="w-full flex justify-end col-span-10 py-3">
+          <div className="w-full flex justify-between col-span-10 py-3">
+            <button
+              onClick={ () => setOptionGuide('subrace') }
+              className="break-words items-center justify-center text-sm font-medium hover:text-white p-2 border-2 border-white"
+              >
+                Anterior
+            </button>
             <button
               onClick={ updateData }
               className="break-words items-center justify-center text-sm font-medium hover:text-white p-2 border-2 border-white"

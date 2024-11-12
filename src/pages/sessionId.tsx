@@ -14,9 +14,7 @@ import firestoreConfig from "../firebase/connection";
 import MessageToUser from "../components/messageToUser";
 import LeaveSession from "../components/menuSession/leaveSession";
 import EditHealthPoints from "../components/sheet/items/editHealthPoints";
-import EditLevel from "../components/sheet/items/editLevel";
 import EditConditions from "../components/sheet/items/editConditions";
-import EditAttributes from "../components/sheet/items/editAttributes";
 import Guide from "../components/sheet/items/guide";
 
 export default function SessionId() {
@@ -26,10 +24,8 @@ export default function SessionId() {
   const {
     session, setSession,
     removeFromSession,
-    editLevel,
     editHealthPoints,
     editConditions,
-    editAttributes,
     showMessage, setShowMessage,
     showMenuSession, setShowMenuSession,
     setDataSession, setListNotification,
@@ -102,9 +98,7 @@ export default function SessionId() {
               <div className={`${showMenuSession === '' ? 'w-full ': 'w-8/12'} h-screen relative`}>
                 { showGuide && <Guide /> }
                 { editHealthPoints && <EditHealthPoints /> }
-                { editLevel.show && <EditLevel /> }
                 { editConditions && <EditConditions /> }
-                { editAttributes && <EditAttributes /> }
                 <Grid />
               </div>
               {

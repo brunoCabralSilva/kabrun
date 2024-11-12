@@ -5,11 +5,11 @@ import InitialData from "../initialData";
 import Race from "../race";
 import SubRaces from "../subRace";
 import ClassPlayer from "../classPlayer";
+import Attributes from "../attributes";
 
 export default function Guide() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
-  const [option, setOption] = useState('initials');
-  const { showSheet, session, players, setShowGuide } = useContext(contexto);
+  const { showSheet, session, players, setShowGuide, optionGuide } = useContext(contexto);
 
   useEffect(() => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
@@ -31,8 +31,7 @@ export default function Guide() {
             <div className="w-1/5 bg-black overflow-y-auto h-90vh p-2">
               <button
                 type="button"
-                onClick={ () => setOption('initials') }
-                className="hover:bg-white font-bold hover:text-black py-2 relative flex items-center justify-center w-full col-span-1"
+                className={`${optionGuide === 'initials' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1`}
               >
                 <div className="box__line box__line--top" />
                 <div className="box__line box__line--right" />
@@ -42,8 +41,7 @@ export default function Guide() {
               </button>
               <button
                 type="button"
-                onClick={ () => setOption('race') }
-                className="hover:bg-white font-bold hover:text-black py-2 relative flex items-center justify-center w-full col-span-1 mt-3"
+                className={`${optionGuide === 'race' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1 mt-3`}
               >
                 <div className="box__line box__line--top" />
                 <div className="box__line box__line--right" />
@@ -53,8 +51,7 @@ export default function Guide() {
               </button>
               <button
                 type="button"
-                onClick={ () => setOption('subrace') }
-                className="hover:bg-white font-bold hover:text-black py-2 relative flex items-center justify-center w-full col-span-1 mt-3"
+                className={`${optionGuide === 'subrace' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1 mt-3`}
               >
                 <div className="box__line box__line--top" />
                 <div className="box__line box__line--right" />
@@ -64,8 +61,7 @@ export default function Guide() {
               </button>
               <button
                 type="button"
-                onClick={ () => setOption('class') }
-                className="hover:bg-white font-bold hover:text-black py-2 relative flex items-center justify-center w-full col-span-1 mt-3"
+                className={`${optionGuide === 'class' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1 mt-3`}
               >
                 <div className="box__line box__line--top" />
                 <div className="box__line box__line--right" />
@@ -73,12 +69,23 @@ export default function Guide() {
                 <div className="box__line box__line--left relative" />
                 <p>Classe</p>
               </button>
+              <button
+                type="button"
+                className={`${optionGuide === 'attributes' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1 mt-3`}
+              >
+                <div className="box__line box__line--top" />
+                <div className="box__line box__line--right" />
+                <div className="box__line box__line--bottom" />
+                <div className="box__line box__line--left relative" />
+                <p>Atributos</p>
+              </button>
             </div>
             <div className="w-full">
-            { option === 'initials' && <InitialData setOption={setOption} /> }
-            { option === 'race' && <Race setOption={setOption} /> }
-            { option === 'subrace' && <SubRaces setOption={setOption} /> }
-            { option === 'class' && <ClassPlayer setOption={setOption} /> }
+            { optionGuide === 'initials' && <InitialData /> }
+            { optionGuide === 'race' && <Race /> }
+            { optionGuide === 'subrace' && <SubRaces /> }
+            { optionGuide === 'class' && <ClassPlayer /> }
+            { optionGuide === 'attributes' && <Attributes /> }
             </div>
           </div>
         </div>

@@ -29,22 +29,6 @@ export default function Skills() {
       <div className="">
         <div className="flex items-center gap-2 w-full">
           {
-            dataPlayer.sheet.level === 1 &&
-            <div className="box-select flex items-center justify-center w-full col-span-1 mt-2">
-              <div className="box__line box__line--top" />
-              <div className="box__line box__line--right" />
-              <div className="box__line box__line--bottom" />
-              <div className="box__line box__line--left" />
-              <button
-                type="button"
-                className="py-2"
-                onClick={ () => setEditAttributes(true) }
-              >
-                Distribuir Atributos
-              </button>
-            </div>
-          }
-          {
             (dataPlayer.sheet.level === 4 || dataPlayer.sheet.level === 8 || dataPlayer.sheet.level === 12 || dataPlayer.sheet.level === 16 || dataPlayer.sheet.level === 19) &&
             <div className="box-select flex items-center justify-center w-full col-span-1 mt-2">
               <div className="box__line box__line--top" />

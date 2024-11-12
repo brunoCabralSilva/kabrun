@@ -4,12 +4,11 @@ import listRaces from '../../data/races.json';
 import { updateDataPlayer } from "../../firebase/players";
 import { applyRace, applySubRace } from "../../firebase/utilitiesRaces";
 
-export default function Race(props: any) {
-  const { setOption } = props;
+export default function Race() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
   const [race, setRace] = useState<any>(null);
   const [raceSelected, setRaceSelected] = useState<any>(null);
-  const { showSheet, session, players, returnAttribute, setShowMessage, calculateMod } = useContext(contexto);
+  const { showSheet, session, players, returnAttribute, setShowMessage, calculateMod, setOptionGuide } = useContext(contexto);
 
   useEffect(() => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
@@ -33,7 +32,7 @@ export default function Race(props: any) {
         }
       }
       await updateDataPlayer(session.id, playerData, setShowMessage);
-      setOption('subrace');
+      setOptionGuide('subrace');
     }
   };
   
@@ -122,7 +121,13 @@ export default function Race(props: any) {
               }
             </div>
           </div> 
-          <div className="w-full flex justify-end col-span-10 py-3">
+          <div className="w-full flex justify-between col-span-10 py-3">
+            <button
+              onClick={ () => setOptionGuide('initials') }
+              className="break-words items-center justify-center text-sm font-medium hover:text-white p-2 border-2 border-white"
+              >
+                Anterior
+            </button>
             <button
               onClick={ updateData }
               className="break-words items-center justify-center text-sm font-medium hover:text-white p-2 border-2 border-white"

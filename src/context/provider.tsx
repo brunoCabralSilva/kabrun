@@ -30,6 +30,7 @@ export default function Provider({children }: IProvider) {
   const [editLevel, setEditLevel] = useState({ show: false, type: '' });
   const [editAttributes, setEditAttributes] = useState(false);
   const [showGuide, setShowGuide] = useState(false);
+  const [optionGuide, setOptionGuide] = useState('initials');
 
   const scrollToBottom = () => {
     const messagesContainer = document.getElementById('grid-container');
@@ -112,6 +113,7 @@ export default function Provider({children }: IProvider) {
         editConditions, setEditConditions,
         editAttributes, setEditAttributes,
         showGuide, setShowGuide,
+        optionGuide, setOptionGuide,
       }}
     >
       {children}

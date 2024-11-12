@@ -3,13 +3,12 @@ import contexto from "../../context/context";
 import { updatePlayerImage } from "../../firebase/storage";
 import { updateDataPlayer } from "../../firebase/players";
 
-export default function InitialData(props: any) {
-  const { setOption } = props;
+export default function InitialData() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
   const [image, setImage] = useState(null);
   const [name, setName] = useState('');
   const [alignment, setAlignment] = useState('');
-  const { showSheet, session, players, setShowMessage } = useContext(contexto);
+  const { showSheet, session, players, setShowMessage, setOptionGuide } = useContext(contexto);
 
   useEffect(() => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
@@ -30,7 +29,7 @@ export default function InitialData(props: any) {
       dataPlayer.sheet.name = name;
       await updateDataPlayer(session.id, dataPlayer, setShowMessage);
     }
-    setOption('race');
+    setOptionGuide('race');
   };
   
   const handleImage = (e: any) => {
