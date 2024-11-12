@@ -2,9 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import contexto from "../../../context/context";
 import Loading from "../../loading";
 import { FiEdit } from "react-icons/fi";
-import { FaCircleDown, FaCircleUp } from "react-icons/fa6";
 import Name from "../items/name";
-import { Alignment } from "../items/alignment";
 import ExperiencePoints from "../items/experiencePoints";
 import Languages from "../items/languages";
 import { MdDelete } from "react-icons/md";
@@ -16,12 +14,11 @@ export default function General() {
     session,
     showSheet,
     players,
-    setEditRaceAndClass,
     setEditHealthPoints,
     setEditPlayerImage,
-    setEditLevel,
     setEditConditions,
     setShowMessage,
+    setShowGuide,
   } = useContext(contexto);
   const [colorDeathSaves, setColorDeathSaves] = useState(false);
 
@@ -87,18 +84,18 @@ export default function General() {
                 <div className="box__line box__line--right" />
                 <div className="box__line box__line--bottom" />
                 <div className="box__line box__line--left relative" />
-                  <img
-                    className="w-full h-full object-cover relative"
-                    src={dataPlayer.sheet.profileImage}
-                  />
-                  <button
-                    type="button"
-                    title="Alterar Imagem do Personagem"
-                    onClick={ () => setEditPlayerImage(true) }
-                    className="absolute z-50 bg-gray-whats-dark bottom-0 right-0 p-0.5 text-lg cursor-pointer rounded-tl"
-                  >
-                    <FiEdit />
-                  </button>
+                <img
+                  className="w-full h-full object-cover relative"
+                  src={dataPlayer.sheet.profileImage}
+                />
+                <button
+                  type="button"
+                  title="Alterar Imagem do Personagem"
+                  onClick={ () => setEditPlayerImage(true) }
+                  className="absolute z-50 bg-gray-whats-dark bottom-0 right-0 p-0.5 text-lg cursor-pointer rounded-tl"
+                >
+                  <FiEdit />
+                </button>
               </div>
               <div className="flex flex-col col-span-3 justify-around items-between h-full py-2">
                 { returnHitPoints() }
@@ -117,19 +114,23 @@ export default function General() {
                         : <span>{ dataPlayer.sheet.class }</span>
                     }
                   </div>
-                  <button
-                    type="button"
-                    title="Alterar Raça e Classe"
-                    onClick={ (e:any) => {
-                      setEditRaceAndClass(true);
-                      e.stopPropagation();
-                    }}
-                  >
-                    <FiEdit className="text-2xl" />
-                  </button>
                 </div>
                 {/* Nível */}
-                <div className="w-full flex justify-between items-center pl-2 ">
+                <div className="relative flex items-center justify-center col-span-1 mt-2 ml-3 px-2 hover:bg-white hover:text-black">
+                  <div className="box__line box__line--top" />
+                  <div className="box__line box__line--right" />
+                  <div className="box__line box__line--bottom" />
+                  <div className="box__line box__line--left relative" />
+                  <button
+                    type="button"
+                    title="Alterar Imagem do Personagem"
+                    onClick={ () => setShowGuide(true)}
+                    className=" hover:bg-white hover:text-black bottom-0 right-0 p-0.5 text-normal text-left w-full cursor-pointer rounded-tl"
+                  >
+                    Nível { dataPlayer.sheet.level }
+                  </button>
+                </div>
+                {/* <div className="w-full flex justify-between items-center pl-2 ">
                   {
                     <div className="w-full">
                     Nível { dataPlayer.sheet.level }
@@ -157,7 +158,7 @@ export default function General() {
                       <FaCircleDown />
                     </button>
                   }
-                </div>
+                </div> */}
               </div>
             </div>
             {/* Condições */}
@@ -178,17 +179,20 @@ export default function General() {
                   className="rounded-full border border-white px-2 py-1 flex items-center gap-2"
                 >
                   <span className="text-sm">{ condition.name }</span>
-                  <button
-                    type="button"
-                    title="Remover Condição"
-                    className="rounded hover:bg-white hover:text-black flex items-center gap-2"
-                    onClick={ async () => {
-                      dataPlayer.sheet.conditions = dataPlayer.sheet.conditions.filter((cond: any) => cond.name !== condition.name);
-                      await updateDataPlayer(session.id, dataPlayer, setShowMessage);
-                    } }
-                  >
-                    <MdDelete />
-                  </button>
+                  {
+                    condition.font === 'default' &&
+                    <button
+                      type="button"
+                      title="Remover Condição"
+                      className="rounded hover:bg-white hover:text-black flex items-center gap-2"
+                      onClick={ async () => {
+                        dataPlayer.sheet.conditions = dataPlayer.sheet.conditions.filter((cond: any) => cond.name !== condition.name);
+                        await updateDataPlayer(session.id, dataPlayer, setShowMessage);
+                      } }
+                    >
+                      <MdDelete />
+                    </button>
+                  }
                 </div>
                 ))
               }
@@ -314,7 +318,22 @@ export default function General() {
                 </div>
               </div>
             </div>
-            <Alignment />
+            <div className="mt-3 capitalize w-full">
+              <span className="pr-3 mb-3">Alinhamento</span>
+              <div className="flex items-center gap-2">
+                <div className="box-select flex items-center justify-center w-full col-span-1 mt-2">
+                  <div className="box__line box__line--top" />
+                  <div className="box__line box__line--right" />
+                  <div className="box__line box__line--bottom" />
+                  <div className="box__line box__line--left" />
+                  <div
+                    className="w-full text-center py-1 bg-gray-whats-dark outline-none"
+                  >
+                    { dataPlayer.sheet.alignment }
+                  </div>
+                </div>
+              </div>
+            </div>
             <ExperiencePoints />
             <Languages />
             <button

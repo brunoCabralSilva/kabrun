@@ -48,6 +48,7 @@
       },
       {
         "name": "Anão da Montanha",
+        "value": 2,
         "attribute": "strength",
         "skills": [
           {
@@ -79,7 +80,7 @@
       },
       {
         "name": "Ancestral Feérico",
-        "description": "Você tem vantagem nos testes de resistência para resistir a ser enfeitiçado e  magias não podem colocá-lo para dormir."
+        "description": "ocê tem vantagem nos testes de resistência para resistir a ser enfeitiçado e  magias não podem colocá-lo para dormir."
       },
       {
         "name": "Transe",

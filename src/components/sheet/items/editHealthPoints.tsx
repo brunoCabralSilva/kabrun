@@ -258,7 +258,7 @@ export default function EditHealthPoints() {
                     damage -= temporary;
                     temporary -= value;
                   }
-                  if (actual <= 0) dataPlayer.sheet.deathSaves.failures += 1;
+                  if (actual <= 0) dataPlayer.sheet.deathSaves.failures += 2;
                   if (temporary < 0) temporary = 0;
                   if (damage > 0 ) actual -= damage;
                   if (actual < 0) {

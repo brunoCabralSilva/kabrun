@@ -6,6 +6,7 @@ export default function Race() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
   const [race, setRace] = useState<any>(null);
   const { session, players, showSheet, returnAttribute } = useContext(contexto);
+  
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
     setDataPlayer(findPlayer);

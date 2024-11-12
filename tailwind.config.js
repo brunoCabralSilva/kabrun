@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      zIndex: {
+        '60': '60',
+      },
       backgroundImage: {
         'background': "url('/src/assets/dragon.png')",
       },
@@ -41,6 +44,7 @@ module.exports = {
       gridTemplateColumns: {
         '30': 'repeat(30, minmax(0, 1fr))',
         '20': 'repeat(20, minmax(0, 1fr))',
+        '10': 'repeat(10, minmax(0, 1fr))',
       }
     },
   },

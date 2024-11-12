@@ -13,12 +13,11 @@ import { collection, doc, getFirestore, query, where } from "firebase/firestore"
 import firestoreConfig from "../firebase/connection";
 import MessageToUser from "../components/messageToUser";
 import LeaveSession from "../components/menuSession/leaveSession";
-import EditRaceAndClass from "../components/sheet/items/editRaceAndClass";
 import EditHealthPoints from "../components/sheet/items/editHealthPoints";
 import EditLevel from "../components/sheet/items/editLevel";
-import EditImage from "../components/sheet/items/editPlayerImage";
 import EditConditions from "../components/sheet/items/editConditions";
 import EditAttributes from "../components/sheet/items/editAttributes";
+import Guide from "../components/sheet/items/guide";
 
 export default function SessionId() {
   let { id } = useParams();
@@ -28,15 +27,14 @@ export default function SessionId() {
     session, setSession,
     removeFromSession,
     editLevel,
-    editRaceAndClass,
     editHealthPoints,
-    editPlayerImage,
     editConditions,
     editAttributes,
     showMessage, setShowMessage,
     showMenuSession, setShowMenuSession,
     setDataSession, setListNotification,
     setPlayers, setUserEmail,
+    showGuide,
   } = useContext(contexto);
   const router = useNavigate();
 
@@ -102,10 +100,9 @@ export default function SessionId() {
           showData
           ? <div className="flex h-screen bg-black"> 
               <div className={`${showMenuSession === '' ? 'w-full ': 'w-8/12'} h-screen relative`}>
-                { editRaceAndClass && <EditRaceAndClass /> }
+                { showGuide && <Guide /> }
                 { editHealthPoints && <EditHealthPoints /> }
                 { editLevel.show && <EditLevel /> }
-                { editPlayerImage && <EditImage /> }
                 { editConditions && <EditConditions /> }
                 { editAttributes && <EditAttributes /> }
                 <Grid />

@@ -1,34 +1,67 @@
 import { useContext, useEffect, useState } from "react";
-import { IoIosInformationCircleOutline } from "react-icons/io";
-import contexto from "../../../context/context";
-import { updateDataPlayer } from "../../../firebase/players";
+import contexto from "../../context/context";
+import { updatePlayerImage } from "../../firebase/storage";
+import { updateDataPlayer } from "../../firebase/players";
 
-export function Alignment() {
+export default function InitialData(props: any) {
+  const { setOption } = props;
   const [dataPlayer, setDataPlayer] = useState<any>(null);
-  const { session, showSheet, players, setShowMessage } = useContext(contexto); 
+  const [image, setImage] = useState(null);
+  const [name, setName] = useState('');
+  const [alignment, setAlignment] = useState('');
+  const { showSheet, session, players, setShowMessage } = useContext(contexto);
 
-  useEffect( () => {
+  useEffect(() => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
     setDataPlayer(findPlayer);
+    setName(findPlayer.sheet.name);
+    setAlignment(findPlayer.sheet.alignment);
   }, [session, players]);
 
+  const updateData = async () => {
+    if (name === '' || name.length < 2) setShowMessage({ show: true, text: 'Necessário preencher um nome com pelo menos 2 caracteres' });
+    else if (alignment === '') setShowMessage({ show: true, text: 'Necessário escolher um Alinhamento para o Personagem' });
+    else { 
+      if (image) {
+        const newImage = await updatePlayerImage(session.id, dataPlayer.id, image, setShowMessage);
+        dataPlayer.sheet.profileImage = newImage;
+      }
+      dataPlayer.sheet.alignment = alignment;
+      dataPlayer.sheet.name = name;
+      await updateDataPlayer(session.id, dataPlayer, setShowMessage);
+    }
+    setOption('race');
+  };
+  
+  const handleImage = (e: any) => {
+    if (e.target.files[0]) setImage(e.target.files[0]);
+  };
+  
   if (dataPlayer)
-      return(
-        <div className="mt-3 capitalize w-full">
-        <span className="pr-3 mb-3">Alinhamento</span>
-        <div className="flex items-center gap-2">
-          <div className="box-select flex items-center justify-center w-full col-span-1 mt-2">
+    return(
+      <div className="flex flex-col bg-gray-900 gap-2 h-90vh overflow-y-auto p-4">
+        <span className="pr-3 col-span-10 mb-1">Nome do Personagem:</span>
+        <input
+          type="text"
+          className="border-2 border-white text-white w-full bg-black outline-none p-1 col-span-10 text-center py-2"
+          placeholder="Nome"
+          value={ name }
+          onChange={(e) => {
+            const sanitizedValue = e.target.value.replace(/\s+/g, ' ');
+            setName(sanitizedValue);
+          }}
+        />
+        <span className="w-full mb-1">Alinhamento:</span>
+        <div className="w-full flex items-center gap-2">
+          <div className="box-select flex items-center justify-center w-full col-span-1">
             <div className="box__line box__line--top" />
             <div className="box__line box__line--right" />
             <div className="box__line box__line--bottom" />
             <div className="box__line box__line--left" />
             <select
-              className="w-full text-center py-1 bg-gray-whats-dark cursor-pointer outline-none"
-              value={dataPlayer.sheet.alignment}
-              onChange={ async (e) => {
-                dataPlayer.sheet.alignment = e.target.value
-                await updateDataPlayer(session.id, dataPlayer, setShowMessage);
-              }}
+              className="w-full text-center py-2 bg-gray-whats-dark cursor-pointer outline-none"
+              value={alignment}
+              onChange={ async (e) => setAlignment(e.target.value) }
             >
               <option disabled value="">Escolha um Alinhamento</option>
               <option
@@ -87,14 +120,37 @@ export function Alignment() {
               </option>
             </select>
           </div>
+        </div>
+        <div className="z-10 relative flex items-center justify-center col-span-3 mt-5 rounded-full">
+          <img
+            className="w-40 h-40 object-cover relative rounded-full border-4 border-white"
+            src={dataPlayer.sheet.profileImage}
+          />
+        </div>
+        <div className="flex flex-col w-full mt-5">
+          <label htmlFor="lastPassword" className="break-words mb-2 flex flex-col items-center w-full">
+            <p className="break-words w-full pb-5 text-white text-start">Insira uma Imagem para seu Personagem (Recomendamos uma imagem com dimensões quadradas, pois ela será utilizada para a criação do token do personagem)</p>
+            <div className="flex w-full gap-2">
+              <input 
+                id="image"
+                name="image"
+                type="file"
+                onChange={handleImage}
+                className="w-full break-words shadow-sm bg-black border border-white text-white text-sm block p-2.5 placeholder-gray-400"
+              />
+            </div>
+          </label>
+        </div>
+        <div className="w-full flex justify-end col-span-10">
           <button
-            type="button"
-            className="rounded-full text-3xl mt-2 cursor-pointer hover:bg-white bg-gray-whats-dark transition-colors hover:text-black duration-400"
-            onClick={ () => {} }
-          >
-            <IoIosInformationCircleOutline />
+            onClick={ updateData }
+            className="break-words items-center justify-center text-sm font-medium hover:text-white p-2 border-2 border-white"
+            >
+            <span className="">
+              Próximo
+            </span>
           </button>
         </div>
-        </div>
-      );
+      </div>
+  );
 }
