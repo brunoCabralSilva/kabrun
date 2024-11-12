@@ -70,7 +70,6 @@ export default function Attributes() {
         break;
     }
     for (let i = 0; i < listValues.length; i += 1) {
-      console.log(typeof listValues[i]);
       switch(listValues[i]) {
         case 15: totalSum += 9; break;
         case 14: totalSum += 7; break;
@@ -513,7 +512,7 @@ export default function Attributes() {
             Anterior
         </button>
         {
-          !session.attributeDistribution.find((atrDist: any) => atrDist.name === 'fixed' || atrDist.name === 'personalized' || atrDist.name === 'rolling') &&
+          session.attributeDistribution.find((atrDist: any) => atrDist.name === 'fixed' || atrDist.name === 'personalized' || atrDist.name === 'rolling') &&
           <button
             onClick={ async (e:any) => {
               if (type === 'personalized') verifyCost();

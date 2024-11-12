@@ -5,7 +5,7 @@ import contexto from "../context/context";
 export default function MessageToUser() {
   const { showMessage, setShowMessage } = useContext(contexto);
   return(
-    <div className="z-50 fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-black/80 px-3 sm:px-0">
+    <div className="z-70 fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-black/80 px-3 sm:px-0">
       <div className="w-full sm:w-2/3 md:w-1/2 h-1/2 overflow-y-auto flex flex-col justify-center items-center bg-ritual bg-cover relative border-white border-2 ">
         <div className="bg-black/90 h-full w-full pb-5 flex flex-col items-center justify-center relative">
           <div className="pt-4 sm:pt-2 px-2 w-full flex justify-end absolute top-0 right-0">

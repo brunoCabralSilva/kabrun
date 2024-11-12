@@ -28,8 +28,8 @@ export default function InitialData() {
       dataPlayer.sheet.alignment = alignment;
       dataPlayer.sheet.name = name;
       await updateDataPlayer(session.id, dataPlayer, setShowMessage);
+      setOptionGuide('race');
     }
-    setOptionGuide('race');
   };
   
   const handleImage = (e: any) => {

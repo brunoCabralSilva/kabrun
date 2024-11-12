@@ -1,23 +1,61 @@
 import listLanguages from '../data/languages.json';
 import listMagics from '../data/magics.json';
 
-export const applyRace = (sheet: any, race: string, calculateMod: any) => {
+export const applyRace = (sheet: any, race: string, calculateMod: any, humanAlt: any) => {
   //Removendo dados da Raça Anã
+  console.log(humanAlt);
+  console.log('Antes:');
+  console.log(sheet);
   if (sheet.race === 'Anão') {
     sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus - 2;
     sheet.attributes.constitution.mod = calculateMod(sheet.attributes.constitution.value + sheet.attributes.constitution.bonus);
     sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'anão');
     sheet.equipments.proficiencies = sheet.equipments.proficiencies.filter((data: any) => data.font !== 'anão');
-    sheet.languages = sheet.languages.filter((language: any) => language.name !== 'Anão' || language.name === 'Comum');
-  }
-  //Removendo dados da Raça Elfo
-  if (sheet.race === 'Elfo') {
+    sheet.languages = sheet.languages.filter((language: any) => language.font !== 'anão');
+  } else if (sheet.race === 'Elfo') {
     sheet.attributes.dexterity.bonus = sheet.attributes.dexterity.bonus - 2;
     sheet.attributes.dexterity.mod = calculateMod(sheet.attributes.dexterity.value + sheet.attributes.dexterity.bonus);
-    sheet.skills.perception.trained = false;
+    const filterFont = sheet.skills.perception.font.filter((data: any) => data !== 'elfo');
+    sheet.skills.perception.font = filterFont;
+    if (filterFont.length === 0) sheet.skills.perception.trained = false;
     sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'elfo');
-    sheet.languages = sheet.languages.filter((language: any) => language.name !== 'Élfico' || language.name === 'Comum');
+    sheet.languages = sheet.languages.filter((language: any) => language.font !== 'elfo');
+  } else if (sheet.race === 'Humano') {
+    if (sheet.humanAlternative) {
+      sheet.attributes[sheet.humanAlternative.list[0]].bonus = sheet.attributes[sheet.humanAlternative.list[0]].bonus - 1;
+      sheet.attributes[sheet.humanAlternative.list[0]].mod = calculateMod(sheet.attributes[sheet.humanAlternative.list[0]].value + sheet.attributes[sheet.humanAlternative.list[0]].bonus);
+      sheet.attributes[sheet.humanAlternative.list[1]].bonus = sheet.attributes[sheet.humanAlternative.list[1]].bonus - 1;
+      sheet.attributes[sheet.humanAlternative.list[1]].mod = calculateMod(sheet.attributes[sheet.humanAlternative.list[1]].value + sheet.attributes[sheet.humanAlternative.list[1]].bonus);
+      const filterFont = sheet.skills[sheet.humanAlternative.skill].font.filter((data: any) => data !== 'humano');
+      sheet.skills[sheet.humanAlternative.skill].font = filterFont;
+      if (filterFont.length === 0) sheet.skills[sheet.humanAlternative.skill].trained = false;
+      sheet.talents = sheet.talents.filter((talent: any) => talent.font !== 'humano');
+    } else {
+      sheet.attributes.strength.bonus = sheet.attributes.strength.bonus - 1;
+      sheet.attributes.strength.mod = calculateMod(sheet.attributes.strength.value + sheet.attributes.strength.bonus);
+      sheet.attributes.dexterity.bonus = sheet.attributes.dexterity.bonus - 1;
+      sheet.attributes.dexterity.mod = calculateMod(sheet.attributes.dexterity.value + sheet.attributes.dexterity.bonus);
+      sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus - 1;
+      sheet.attributes.constitution.mod = calculateMod(sheet.attributes.constitution.value + sheet.attributes.constitution.bonus);
+      sheet.attributes.intelligence.bonus = sheet.attributes.intelligence.bonus - 1;
+      sheet.attributes.intelligence.mod = calculateMod(sheet.attributes.intelligence.value + sheet.attributes.intelligence.bonus);
+      sheet.attributes.wisdom.bonus = sheet.attributes.wisdom.bonus - 1;
+      sheet.attributes.wisdom.mod = calculateMod(sheet.attributes.wisdom.value + sheet.attributes.wisdom.bonus);
+      sheet.attributes.charisma.bonus = sheet.attributes.charisma.bonus - 1;
+      sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
+    }
+    sheet.languages = sheet.languages.filter((language: any) => language.font !== 'humano');
+    const { humanAlternative, ...newSheet } = sheet;
+    sheet = newSheet;
+  } else if (sheet.race === 'Halfling') {
+    sheet.attributes.dexterity.bonus = sheet.attributes.dexterity.bonus - 2;
+    sheet.attributes.dexterity.mod = calculateMod(sheet.attributes.dexterity.value + sheet.attributes.dexterity.bonus);
+    sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'halfling');
+    sheet.languages = sheet.languages.filter((language: any) => language.font !== 'halfling');
   }
+
+  console.log('Depois:');
+  console.log(sheet);
 
   //Adicionando Dados da Raça Anã
   if (race === 'Anão') {
@@ -28,7 +66,7 @@ export const applyRace = (sheet: any, race: string, calculateMod: any) => {
       const exists = sheet.languages.some((language: any) => language.name === languageName.name);
       if (!exists) {
         const newLanguage = listLanguages.find((language: any) => language.name === languageName.name);
-        if (newLanguage) sheet.languages = [...sheet.languages, newLanguage];
+        if (newLanguage) sheet.languages = [...sheet.languages, { ...newLanguage, font: 'anão' }];
       }
     });
     sheet.conditions = [
@@ -61,10 +99,7 @@ export const applyRace = (sheet: any, race: string, calculateMod: any) => {
       { name: 'Martelos leves', font: 'anão', type: 'weapon' },
       { name: 'Martelos de guerra', font: 'anão', type: 'weapon' },
     ];
-    return sheet;
-  }
-  //Adicionando Dados da Raça Elfo
-  if (race === 'Elfo') {
+  } else if (race === 'Elfo') {
     sheet.attributes.dexterity.bonus = sheet.attributes.dexterity.bonus + 2;
     sheet.attributes.dexterity.mod = calculateMod(sheet.attributes.dexterity.value + sheet.attributes.dexterity.bonus);
     sheet.speed = 9;
@@ -72,10 +107,11 @@ export const applyRace = (sheet: any, race: string, calculateMod: any) => {
       const exists = sheet.languages.some((language: any) => language.name === languageName.name);
       if (!exists) {
         const newLanguage = listLanguages.find((language: any) => language.name === languageName.name);
-        if (newLanguage) sheet.languages = [...sheet.languages, newLanguage];
+        if (newLanguage) sheet.languages = [...sheet.languages, { ...newLanguage, font: 'elfo'}];
       }
     });
     sheet.skills.perception.trained = true;
+    sheet.skills.perception.font = [...sheet.skills.perception.font, 'elfo'];
     sheet.conditions = [
       ...sheet.conditions,
       {
@@ -94,8 +130,66 @@ export const applyRace = (sheet: any, race: string, calculateMod: any) => {
         title: 'Elfos não precisam dormir. Em vez disso, meditam profundamente, permanecendo semiconscientes 4 horas ao dia (A expressão comum para tal meditação é "transe"). Enquanto medita, você pode sonhar, de certo modo; tais sonhos são, na verdade, exercícios mentais que passaram a ser quase involuntários após anos de prática. Depois de descansar dessa forma, você obtém os mesmos benefícios que um ser humano obtém após 8 horas de sono.'
       }
     ];
-    return sheet;
+  } else if (race === 'Humano') {
+    if (humanAlt) {
+      sheet.attributes[humanAlt.list[0]].bonus = sheet.attributes[humanAlt.list[0]].bonus + 1;
+      sheet.attributes[humanAlt.list[0]].mod = calculateMod(sheet.attributes[humanAlt.list[0]].value + sheet.attributes[humanAlt.list[0]].bonus);
+      sheet.attributes[humanAlt.list[1]].bonus = sheet.attributes[humanAlt.list[1]].bonus + 1;
+      sheet.attributes[humanAlt.list[1]].mod = calculateMod(sheet.attributes[humanAlt.list[1]].value + sheet.attributes[humanAlt.list[1]].bonus);
+      sheet.humanAlternative = humanAlt;
+    } else {
+      sheet.attributes.strength.bonus = sheet.attributes.strength.bonus + 1;
+      sheet.attributes.strength.mod = calculateMod(sheet.attributes.strength.value + sheet.attributes.strength.bonus);
+      sheet.attributes.dexterity.bonus = sheet.attributes.dexterity.bonus + 1;
+      sheet.attributes.dexterity.mod = calculateMod(sheet.attributes.dexterity.value + sheet.attributes.dexterity.bonus);
+      sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus + 1;
+      sheet.attributes.constitution.mod = calculateMod(sheet.attributes.constitution.value + sheet.attributes.constitution.bonus);
+      sheet.attributes.intelligence.bonus = sheet.attributes.intelligence.bonus + 1;
+      sheet.attributes.intelligence.mod = calculateMod(sheet.attributes.intelligence.value + sheet.attributes.intelligence.bonus);
+      sheet.attributes.wisdom.bonus = sheet.attributes.wisdom.bonus + 1;
+      sheet.attributes.wisdom.mod = calculateMod(sheet.attributes.wisdom.value + sheet.attributes.wisdom.bonus);
+      sheet.attributes.charisma.bonus = sheet.attributes.charisma.bonus + 1;
+      sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
+    }
+    sheet.speed = 9;
+    listLanguages.filter((language: any) => language.name === 'Comum').forEach(languageName => {
+      const exists = sheet.languages.some((language: any) => language.name === languageName.name);
+      if (!exists) {
+        const newLanguage = listLanguages.find((language: any) => language.name === languageName.name);
+        if (newLanguage) sheet.languages = [...sheet.languages, newLanguage];
+      }
+    });
+  } else if (race === 'Halfling') {
+    sheet.attributes.dexterity.bonus = sheet.attributes.dexterity.bonus + 2;
+    sheet.attributes.dexterity.mod = calculateMod(sheet.attributes.dexterity.value + sheet.attributes.dexterity.bonus);
+    sheet.speed = 7.5;
+    listLanguages.filter((language: any) => language.name === 'Halfling' || language.name === 'Comum').forEach(languageName => {
+      const exists = sheet.languages.some((language: any) => language.name === languageName.name);
+      if (!exists) {
+        const newLanguage = listLanguages.find((language: any) => language.name === languageName.name);
+        if (newLanguage) sheet.languages = [...sheet.languages, { ...newLanguage, font: 'halfling' }];
+      }
+    });
+    sheet.conditions = [
+      ...sheet.conditions,
+      {
+        name: 'Sortudo',
+        font: 'halfling',
+        title: 'Quando você obtiver um 1 natural em uma jogada de ataque, teste de habilidade ou teste de resistência, você pode jogar de novo o dado e deve utilizar o novo resultado.',
+      },
+      {
+        name: 'Corajoso',
+        font: 'halfling',
+        title: "Você tem vantagem em testes de resistência contra ficar amedrontado.",
+      },
+      {
+        name: "Agilidade Halfling",
+        font: 'halfling',
+        title: 'Você pode mover-se através do espaço de qualquer criatura que for de um  tamanho maior que o seu.'
+      },
+    ];
   }
+  return sheet;
 }
 
 export const applySubRace = (sheet: any, subRace: string, calculateMod: any) => {
@@ -112,8 +206,8 @@ export const applySubRace = (sheet: any, subRace: string, calculateMod: any) => 
     sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'alto elfo');
     sheet.attributes.intelligence.bonus = sheet.attributes.intelligence.bonus - 1;
     sheet.attributes.intelligence.mod = calculateMod(sheet.attributes.intelligence.value + sheet.attributes.intelligence.bonus);
-    //Escolhe um truque de mago à sua escolha
-    //Idioma Extra
+    sheet.magics = sheet.magics.filter((magic: any) => !magic.font || magic.font !== 'alto elfo');
+    sheet.languages = sheet.languages.filter((language: any) => !language.font || language.font !== 'alto elfo');
   } else if (sheet.subRace === 'Elfo da Floresta') {
     sheet.equipments.proficiencies = sheet.equipments.proficiencies.filter((data: any) => data.font !== 'elfo da floresta');
     sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'elfo da floresta');
@@ -128,7 +222,17 @@ export const applySubRace = (sheet: any, subRace: string, calculateMod: any) => 
     sheet.speed = 9;
     sheet.attributes.charisma.bonus = sheet.attributes.charisma.bonus - 1;
     sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
-  }
+  } else if (sheet.subRace === 'Halfling Pés Leves') {
+    sheet.conditions = [
+      ...sheet.conditions.filter((data: any) => data.font !== 'halfling pés leves')];
+    sheet.attributes.charisma.bonus = sheet.attributes.charisma.bonus - 1;
+    sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
+  } else if (sheet.subRace === 'Halfling Robusto') {
+    sheet.conditions = [
+      ...sheet.conditions.filter((data: any) => data.font !== 'halfling robusto')];
+    sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus - 1;
+    sheet.attributes.constitution.mod = calculateMod(sheet.attributes.constitution.value + sheet.attributes.constitution.bonus);
+  } 
 
   if (subRace === 'Anão da Colina') {
     sheet.attributes.wisdom.bonus = sheet.attributes.wisdom.bonus + 1;
@@ -152,8 +256,6 @@ export const applySubRace = (sheet: any, subRace: string, calculateMod: any) => 
       { name: 'Arco Curto', font: 'alto elfo', type: 'weapon' },
       { name: 'Arco Longo', font: 'alto elfo', type: 'weapon' },
     ];
-    //Escolhe um truque de mago à sua escolha
-    //Idioma Extra
   } else if (subRace === 'Elfo da Floresta') {
     sheet.attributes.wisdom.bonus = sheet.attributes.wisdom.bonus + 1;
     sheet.attributes.wisdom.mod = calculateMod(sheet.attributes.wisdom.value + sheet.attributes.wisdom.bonus);
@@ -197,7 +299,28 @@ export const applySubRace = (sheet: any, subRace: string, calculateMod: any) => 
     ];
     const luzesDancantes = listMagics.find((magic: any) => magic.name === 'Globos de Luz');
     sheet.magics = [ ...sheet.magics, luzesDancantes ];
+  } else if (subRace === 'Halfling Pés Leves') {
+    sheet.attributes.charisma.bonus = sheet.attributes.charisma.bonus + 1;
+    sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
+    sheet.conditions = [
+      ...sheet.conditions,
+      {
+        name: 'Furtividade Natural',
+        font: 'halfling pés leves',
+        title: 'Você pode tentar se esconder mesmo quando possuir apenas a cobertura de uma criatura que for no mínimo um tamanho maior que o seu.',
+      },
+    ]
+  } else if (subRace === 'Halfling Robusto') {
+    sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus + 1;
+    sheet.attributes.constitution.mod = calculateMod(sheet.attributes.constitution.value + sheet.attributes.constitution.bonus);
+    sheet.conditions = [
+      ...sheet.conditions,
+      {
+        name: 'Resistência a Toxinas',
+        font: 'halfling robusto',
+        title: 'Você tem vantagem em salvaguardas contra veneno e tem resistência contra dano de veneno.',
+      },
+    ]
   }
-  console.log(sheet);
   return sheet;
 }

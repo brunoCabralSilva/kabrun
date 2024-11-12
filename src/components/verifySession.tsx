@@ -38,7 +38,6 @@ export default function VerifySession() {
               } else {
                 let auth = false;
                 const getPlayers = await getPlayersInSession(dataSession.id, setShowMessage);
-                console.log(getPlayers);
                 getPlayers.forEach((player: { email: string }) => {
                   if (player === email) auth = true;
                 });

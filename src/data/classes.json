@@ -1,14 +1,17 @@
 [
-  { "name": "Bárbaro" },
-  { "name": "Bardo" },
-  { "name": "Bruxo" },
-  { "name": "Clérigo" },
-  { "name": "Druida" },
-  { "name": "Feiticeiro" },
-  { "name": "Patrulheiro" },
-  { "name": "Guerreiro" },
-  { "name": "Ladino" },
-  { "name": "Mago" },
-  { "name": "Monge" },
-  { "name": "Paladino" }
+  { "name": "Bárbaro", "magics": [] },
+  { "name": "Bardo", "magics": [] },
+  { "name": "Bruxo", "magics": [] },
+  { "name": "Clérigo", "magics": [] },
+  { "name": "Druida", "magics": [] },
+  { "name": "Feiticeiro", "magics": [] },
+  { "name": "Patrulheiro", "magics": [] },
+  { "name": "Guerreiro", "magics": [] },
+  { "name": "Ladino", "magics": [] },
+  {
+    "name": "Mago",
+    "magics": ["Amizade", "Ataque Certeiro", "Consertar", "Espirro Ácido", "Globos de Luz", "Ilusão Menor", "Luz", "Mãos Mágicas", "Mensagem", "Prestidigitação", "Proteção contra Lâminas", "Raio de Fogo", "Raio de Gelo", "Rajada de Veneno", "Toque Arrepiante", "Toque Chocante", "Alarme", "Área Escorregadia", "Armadura Arcana", "Compreender Idiomas", "Convocar Familiar", "Detectar Magia", "Disco Flutuante de Tenser", "Disfarçar-se", "Enfeitiçar Pessoa", "Escrita Ilusória", "Escudo Arcano", "Identificação", "Imagem Silenciosa", "Leque Cromático", "Mãos Flamejantes", "Mísseis Mágicos", "Névoa Obscurecente", "Onda Trovejante", "Orbe Cromática", "Passos Longos", "Proteção contra o Bem e Mal", "Queda Suave", "Raio Adoecente", "Raio de Bruxa", "Recuo Acelerado", "Riso Histérico de Tasha", "Salto", "Servo Invisível", "Sono", "Vitalidade Falsa", "Alterar-se", "Arma Mágica", "Arrombar", "Aumentar/Reduzir", "Aura Mágica de Nystul", "Boca Encantada", "Cegueira/Surdez", "Chama Continua", "Coroa da Loucura", "Despedaçar", "Detectar Pensamentos", "Escuridão", "Esfera Flamejante", "Flecha Ácida de Melf", "Força Fantasmagórica", "Imobilizar Pessoa", "Invisibilidade", "Levitação", "Localizar Objeto", "Lufada de Vento", "Nublar", "Nuvem de Adagas", "Passo Nebuloso", "Patas de Aranha", "Raio Ardente", "Raio do Enfraquecimento", "Reflexos", "Repouso Tranquilo", "Sugestão", "Teia", "Tranca Arcana", "Truque de Corda", "Ver o Invisível", "Visão no Escuro", "Animar Mortos", "Bola de Fogo", "Círculo Mágico", "Clarividência", "Contramágica", "Dificultar Detecção", "Dissipar Magia", "Enviar Mensagem", "Forjar Morte", "Forma Gasosa", "Glifo de Vigilância", "Idiomas", "Imagem Maior", "Lentidão", "Medo", "Montaria Fantasmagórica", "Nevasca", "Névoa Fétida", "Padrão Hipnótico", "Pequena Cabana de Leomund", "Piscar", "Proteção contra Energia", "Relâmpago", "Remover Maldição", "Respirar na Água", "Rogar Maldição", "Toque Vampírico", "Velocidade", "Voo", "Arca Secreta de Leomund", "Assassino Fantasmagórico", "Banimento", "Cão Fiel de Mordenkainen", "Confusão", "Conjurar Elementais Menores", "Controlar a Água", "Escudo de Fogo", "Esfera Resiliente de Otiluke", "Fabricar", "Invisibilidade Maior", "Localizar Criatura", "Malogro", "Metamorfose", "Moldar Rochas", "Muralha de Fogo", "Olho Arcano", "Pele de Pedra", "Porta Dimensional", "Santuário Particular de Mordenkainen", "Tempestade de Gelo", "Tentáculos Negros de Evard", "Terreno Alucinógeno", "Âncora Planar", "Animar Objetos", "Círculo de Teletransporte", "Cone de Frio", "Conhecimento Lendário", "Conjurar Elemental", "Contato Extraplanar", "Criação", "Criar Passagem", "Despistar", "Dominar Pessoa", "Imobilizar Monstro", "Ligação Telepática de Rary", "Mão de Bigby", "Missão", "Modificar Memória", "Muralha de Energia", "Muralha de Pedra", "Névoa Mortal", "Similaridade", "Sonho", "Telecinésia", "Vidência", "Ataque Visual", "Carne para Pedra", "Círculo da Morte", "Contingência", "Corrente de Relâmpagos", "Criar Mortos-Vivos", "Dança Irresistível de Otto", "Desintegrar", "Esfera Congelante de Otiluke", "Globo de Invulnerabilidade", "Ilusão Programada", "Invocação Instantânea de Drawmij", "Mover Terra", "Muralha de Gelo", "Portal Arcano", "Proteger Fortaleza", "Raio Solar", "Recipiente Arcano", "Sugestão em Massa", "Visão da Verdade"]
+  },
+  { "name": "Monge", "magics": [] },
+  { "name": "Paladino", "magics": [] }
 ]

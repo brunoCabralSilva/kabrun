@@ -71,7 +71,6 @@ export default function EditAttributes() {
         break;
     }
     for (let i = 0; i < listValues.length; i += 1) {
-      console.log(typeof listValues[i]);
       switch(listValues[i]) {
         case 15: totalSum += 9; break;
         case 14: totalSum += 7; break;

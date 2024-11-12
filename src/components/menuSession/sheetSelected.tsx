@@ -8,6 +8,7 @@ import ClassPlayer from "../sheet/pages/classPlayer";
 import Attacks from "../sheet/pages/attacks";
 import Equipments from "../sheet/pages/equipments";
 import Items from "../sheet/pages/items";
+import Magics from "../sheet/pages/magics";
 
 export default function SheetSelected() {
   const { setShowSheet } = useContext(contexto);
@@ -34,6 +35,7 @@ export default function SheetSelected() {
           <option value={'skills'}>Perícias</option>
           <option value={'race'}>Raça</option>
           <option value={'class'}>Classe</option>
+          <option value={'magics'}>Magias</option>
           <option value={'attacks'}>Ataques</option>
           <option value={'equipments'}>Equipamentos</option>
           <option value={'items'}>Itens</option>
@@ -42,6 +44,7 @@ export default function SheetSelected() {
         {optionSelect === 'skills' && <Skills />}
         {optionSelect === 'race' && <Race />}
         {optionSelect === 'class' && <ClassPlayer />}
+        {optionSelect === 'magics' && <Magics />}
         {optionSelect === 'attacks' && <Attacks />}
         {optionSelect === 'equipments' && <Equipments />}
         {optionSelect === 'items' && <Items />}

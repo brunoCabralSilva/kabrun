@@ -34,7 +34,6 @@ export async function createProfileImage(id: string, img: any, setShowMessage: a
     await runTransaction(db, async (transaction) => {
       const userDocSnapshot = await getDoc(userDocRef);
       if (userDocSnapshot.exists()) {
-        console.log('Aqui 2: ' + downloadUrl);
         transaction.update(userDocRef, { imageURL: downloadUrl });
       } else throw new Error("Usuário não encontrado.");
     });
