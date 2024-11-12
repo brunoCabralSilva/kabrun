@@ -2,10 +2,7 @@ import listLanguages from '../data/languages.json';
 import listMagics from '../data/magics.json';
 
 export const applyRace = (sheet: any, race: string, calculateMod: any, humanAlt: any) => {
-  //Removendo dados da Raça Anã
-  console.log(humanAlt);
-  console.log('Antes:');
-  console.log(sheet);
+  //Removendo a Raça
   if (sheet.race === 'Anão') {
     sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus - 2;
     sheet.attributes.constitution.mod = calculateMod(sheet.attributes.constitution.value + sheet.attributes.constitution.bonus);
@@ -52,12 +49,33 @@ export const applyRace = (sheet: any, race: string, calculateMod: any, humanAlt:
     sheet.attributes.dexterity.mod = calculateMod(sheet.attributes.dexterity.value + sheet.attributes.dexterity.bonus);
     sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'halfling');
     sheet.languages = sheet.languages.filter((language: any) => language.font !== 'halfling');
+  } else if (sheet.race === 'Gnomo') {
+    sheet.attributes.intelligence.bonus = sheet.attributes.intelligence.bonus - 2;
+    sheet.attributes.intelligence.mod = calculateMod(sheet.attributes.intelligence.value + sheet.attributes.intelligence.bonus);
+    sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'gnomo');
+    sheet.languages = sheet.languages.filter((language: any) => language.font !== 'gnomo');
+  } else if (sheet.race === 'Meio Orc') {
+    sheet.attributes.strength.bonus = sheet.attributes.strength.bonus - 2;
+    sheet.attributes.strength.mod = calculateMod(sheet.attributes.strength.value + sheet.attributes.strength.bonus);
+    sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus - 1;
+    sheet.attributes.constitution.mod = calculateMod(sheet.attributes.constitution.value + sheet.attributes.constitution.bonus);
+    sheet.languages = sheet.languages.filter((language: any) => language.font !== 'orc');
+    sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'orc');
+    const filterFont = sheet.skills.intimidation.font.filter((data: any) => data !== 'orc');
+    sheet.skills.intimidation.font = filterFont;
+    if (filterFont.length === 0) sheet.skills.intimidation.trained = false;
+  } else if (sheet.race === 'Tiferino') {
+    sheet.attributes.charisma.bonus = sheet.attributes.charisma.bonus - 2;
+    sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
+    sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'tiferino');
+    sheet.languages = sheet.languages.filter((language: any) => language.font !== 'tiferino');
+  } else if (race === 'Meio Elfo') {
+
+  } else if (race === 'Draconato') {
+    
   }
 
-  console.log('Depois:');
-  console.log(sheet);
-
-  //Adicionando Dados da Raça Anã
+  //Adicionando a Raça
   if (race === 'Anão') {
     sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus + 2;
     sheet.attributes.constitution.mod = calculateMod(sheet.attributes.constitution.value + sheet.attributes.constitution.bonus);
@@ -188,6 +206,91 @@ export const applyRace = (sheet: any, race: string, calculateMod: any, humanAlt:
         title: 'Você pode mover-se através do espaço de qualquer criatura que for de um  tamanho maior que o seu.'
       },
     ];
+  } else if (race === 'Gnomo') {
+    sheet.attributes.intelligence.bonus = sheet.attributes.intelligence.bonus + 2;
+    sheet.attributes.intelligence.mod = calculateMod(sheet.attributes.intelligence.value + sheet.attributes.intelligence.bonus);
+    sheet.speed = 7.5;
+    listLanguages.filter((language: any) => language.name === 'Gnômico' || language.name === 'Comum').forEach(languageName => {
+      const exists = sheet.languages.some((language: any) => language.name === languageName.name);
+      if (!exists) {
+        const newLanguage = listLanguages.find((language: any) => language.name === languageName.name);
+        if (newLanguage) sheet.languages = [...sheet.languages, { ...newLanguage, font: 'gnomo' }];
+      }
+    });
+    sheet.conditions = [
+      ...sheet.conditions,
+      {
+        name: 'Visão no Escuro',
+        font: 'gnomo',
+        title: 'Acostumado à vida subterrânea, você tem uma visão superior no escuro e na penumbra. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza.',
+      },
+      {
+        name: 'Astúcia do Gnomo',
+        font: 'gnomo',
+        title: "Você possui vantagem em todas as Salvaguardas de Inteligência, Sabedoria e Carisma contra magia.",
+      }
+    ];
+  } else if (race === 'Meio Orc') {
+    sheet.attributes.strength.bonus = sheet.attributes.strength.bonus + 2;
+    sheet.attributes.strength.mod = calculateMod(sheet.attributes.strength.value + sheet.attributes.strength.bonus);
+    sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus + 1;
+    sheet.attributes.constitution.mod = calculateMod(sheet.attributes.constitution.value + sheet.attributes.constitution.bonus);
+    sheet.speed = 9;
+    sheet.skills.intimidation.trained = true;
+    sheet.skills.intimidation.font = [...sheet.skills.intimidation.font, 'orc'];
+    listLanguages.filter((language: any) => language.name === 'Orc' || language.name === 'Comum').forEach(languageName => {
+      const exists = sheet.languages.some((language: any) => language.name === languageName.name);
+      if (!exists) {
+        const newLanguage = listLanguages.find((language: any) => language.name === languageName.name);
+        if (newLanguage) sheet.languages = [...sheet.languages, { ...newLanguage, font: 'orc' }];
+      }
+    });
+    sheet.conditions = [
+      ...sheet.conditions,
+      {
+        name: 'Visão no Escuro',
+        font: 'orc',
+        title: 'Graças ao seu sangue orc, você tem uma visão superior no escuro e na penumbra. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza.',
+      },
+      {
+        name: 'Vigor Implacável',
+        font: 'orc',
+        title: "Quando você é reduzido a 0 pontos de vida mas não é completamente morto, você pode voltar para 1 ponto de vida. Você não pode usar essa característica novamente até completar um descanso longo.",
+      },
+      {
+        name: "Ataques Selvagens",
+        font: 'orc',
+        title: 'Quando você atinge um ataque crítico com uma arma corpo-a-corpo, você pode rolar um dos dados de dano da arma mais uma vez e adicioná-lo ao dano extra causado pelo acerto crítico.'
+      },
+    ];
+  } else if (race === 'Tiferino') {
+    sheet.attributes.charisma.bonus = sheet.attributes.charisma.bonus + 2;
+    sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
+    sheet.speed = 9;
+    listLanguages.filter((language: any) => language.name === 'Infernal' || language.name === 'Comum').forEach(languageName => {
+      const exists = sheet.languages.some((language: any) => language.name === languageName.name);
+      if (!exists) {
+        const newLanguage = listLanguages.find((language: any) => language.name === languageName.name);
+        if (newLanguage) sheet.languages = [...sheet.languages, { ...newLanguage, font: 'tiferino' }];
+      }
+    });
+    sheet.conditions = [
+      ...sheet.conditions,
+      {
+        name: 'Visão no Escuro',
+        font: 'tiferino',
+        title: 'Graças a sua herança infernal, você tem uma visão superior no escuro e na  penumbra. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza.',
+      },
+      {
+        name: 'Resistência Infernal',
+        font: 'tiferino',
+        title: "Você possui resistência a dano de fogo.",
+      },
+    ];
+  } else if (race === 'Meio Elfo') {
+
+  } else if (race === 'Draconato') {
+
   }
   return sheet;
 }
@@ -218,7 +321,7 @@ export const applySubRace = (sheet: any, subRace: string, calculateMod: any) => 
     sheet.equipments.proficiencies = sheet.equipments.proficiencies.filter((data: any) => data.font !== 'elfo negro (drow)');
     sheet.conditions = [
       ...sheet.conditions.filter((data: any) => data.font !== 'elfo negro (drow)')];
-    sheet.magics = sheet.magics.filter((magic: any) => magic.name !== 'Globos de Luz');
+    sheet.magics = sheet.magics.filter((magic: any) => magic.font !== 'elfo negro (drow)');
     sheet.speed = 9;
     sheet.attributes.charisma.bonus = sheet.attributes.charisma.bonus - 1;
     sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
@@ -232,7 +335,54 @@ export const applySubRace = (sheet: any, subRace: string, calculateMod: any) => 
       ...sheet.conditions.filter((data: any) => data.font !== 'halfling robusto')];
     sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus - 1;
     sheet.attributes.constitution.mod = calculateMod(sheet.attributes.constitution.value + sheet.attributes.constitution.bonus);
-  } 
+  } else if (sheet.subRace === 'Gnomo dos Bosques') {
+    sheet.conditions = [
+      ...sheet.conditions.filter((data: any) => data.font !== 'gnomo dos bosques')];
+    sheet.magics = sheet.magics.filter((magic: any) => magic.font !== 'gnomo dos bosques');
+    sheet.attributes.dexterity.bonus = sheet.attributes.dexterity.bonus - 1;
+    sheet.attributes.dexterity.mod = calculateMod(sheet.attributes.dexterity.value + sheet.attributes.dexterity.bonus);
+  } else if (sheet.subRace === 'Gnomo das Rochas') {
+    sheet.conditions = [
+      ...sheet.conditions.filter((data: any) => data.font !== 'gnomo das rochas')];
+    sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus - 1;
+    sheet.attributes.constitution.mod = calculateMod(sheet.attributes.constitution.value + sheet.attributes.constitution.bonus);
+  } else if (sheet.subRace === 'Tiferino de Nessus (Asmodeus)') {
+    sheet.attributes.intelligence.bonus = sheet.attributes.intelligence.bonus - 1;
+    sheet.attributes.intelligence.mod = calculateMod(sheet.attributes.intelligence.value + sheet.attributes.intelligence.bonus);
+    sheet.magics = sheet.magics.filter((magic: any) => magic.font !== 'tiferino de nessus (asmodeus)');
+  } else if (sheet.subRace === 'Tiferino de Maladomini (Belzebu)') {
+    sheet.attributes.intelligence.bonus = sheet.attributes.intelligence.bonus - 1;
+    sheet.attributes.intelligence.mod = calculateMod(sheet.attributes.intelligence.value + sheet.attributes.intelligence.bonus);
+    sheet.magics = sheet.magics.filter((magic: any) => magic.font !== 'tiferino de maladomini (belzebu)');
+  } else if (sheet.subRace === 'Tiferino de Dis (Dispater)') {
+    sheet.attributes.dexterity.bonus = sheet.attributes.dexterity.bonus - 1;
+    sheet.attributes.dexterity.mod = calculateMod(sheet.attributes.dexterity.value + sheet.attributes.dexterity.bonus);
+    sheet.magics = sheet.magics.filter((magic: any) => magic.font !== 'tiferino de dis (dispater)');
+  } else if (sheet.subRace === 'Tiferino de Flegetos (Fierna)') {
+    sheet.attributes.wisdom.bonus = sheet.attributes.wisdom.bonus - 1;
+    sheet.attributes.wisdom.mod = calculateMod(sheet.attributes.wisdom.value + sheet.attributes.wisdom.bonus);
+    sheet.magics = sheet.magics.filter((magic: any) => magic.font !== 'tiferino de flegetos (fierna)');
+  } else if (sheet.subRace === 'Tiferino de Malebólgia (Glasya)') {
+    sheet.attributes.dexterity.bonus = sheet.attributes.dexterity.bonus - 1;
+    sheet.attributes.dexterity.mod = calculateMod(sheet.attributes.dexterity.value + sheet.attributes.dexterity.bonus);
+    sheet.magics = sheet.magics.filter((magic: any) => magic.font !== 'tiferino de malebólgia (glasya)');
+  } else if (sheet.subRace === 'Tiferino de Estígia (Levisto)') {
+    sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus - 1;
+    sheet.attributes.constitution.mod = calculateMod(sheet.attributes.constitution.value + sheet.attributes.constitution.bonus);
+    sheet.magics = sheet.magics.filter((magic: any) => magic.font !== 'tiferino de estígia (levisto)');
+  } else if (sheet.subRace === 'Tiferino de Minauros (Mammon)') {
+    sheet.attributes.intelligence.bonus = sheet.attributes.intelligence.bonus - 1;
+    sheet.attributes.intelligence.mod = calculateMod(sheet.attributes.intelligence.value + sheet.attributes.intelligence.bonus);
+    sheet.magics = sheet.magics.filter((magic: any) => magic.font !== 'tiferino de minauros (mammon)');
+  } else if (sheet.subRace === 'Tiferino de Cánia (Mefistófeles)') {
+    sheet.attributes.intelligence.bonus = sheet.attributes.intelligence.bonus - 1;
+    sheet.attributes.intelligence.mod = calculateMod(sheet.attributes.intelligence.value + sheet.attributes.intelligence.bonus);
+    sheet.magics = sheet.magics.filter((magic: any) => magic.font !== 'tiferino de cánia (mefistófeles)');
+  } else if (sheet.subRace === 'Tiferino de Avernus (Zariel)') {
+    sheet.attributes.strength.bonus = sheet.attributes.strength.bonus - 1;
+    sheet.attributes.strength.mod = calculateMod(sheet.attributes.strength.value + sheet.attributes.strength.bonus);
+    sheet.magics = sheet.magics.filter((magic: any) => magic.font !== 'tiferino de avernus (zariel)');
+  }
 
   if (subRace === 'Anão da Colina') {
     sheet.attributes.wisdom.bonus = sheet.attributes.wisdom.bonus + 1;
@@ -298,7 +448,7 @@ export const applySubRace = (sheet: any, subRace: string, calculateMod: any) => 
       },
     ];
     const luzesDancantes = listMagics.find((magic: any) => magic.name === 'Globos de Luz');
-    sheet.magics = [ ...sheet.magics, luzesDancantes ];
+    sheet.magics = [ ...sheet.magics, { ...luzesDancantes, font: 'elfo negro (drow)' } ];
   } else if (subRace === 'Halfling Pés Leves') {
     sheet.attributes.charisma.bonus = sheet.attributes.charisma.bonus + 1;
     sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
@@ -321,6 +471,80 @@ export const applySubRace = (sheet: any, subRace: string, calculateMod: any) => 
         title: 'Você tem vantagem em salvaguardas contra veneno e tem resistência contra dano de veneno.',
       },
     ]
+  } else if (subRace === 'Gnomo dos Bosques') {
+    sheet.attributes.dexterity.bonus = sheet.attributes.dexterity.bonus + 1;
+    sheet.attributes.dexterity.mod = calculateMod(sheet.attributes.dexterity.value + sheet.attributes.dexterity.bonus);
+    sheet.conditions = [
+      ...sheet.conditions,
+      {
+        name: 'Falar com Animais Pequenos',
+        font: 'gnomo dos bosques',
+        title: 'Através de sons e gestos, você pode comunicar ideias simples para Bestas pequenas ou menores. Gnomos da floresta amam os animais e normalmente possuem esquilos, doninhas, coelhos, toupeiras, pica-paus e outras criaturas como amados animais de estimação.',
+      },
+    ];
+    const minorIlusion = listMagics.find((magic: any) => magic.name === 'Ilusão Menor');
+    sheet.magics = [ ...sheet.magics, { ...minorIlusion, font: 'gnomo dos bosques' } ];
+  } else if (subRace === 'Gnomo das Rochas') {
+    sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus + 1;
+    sheet.attributes.constitution.mod = calculateMod(sheet.attributes.constitution.value + sheet.attributes.constitution.bonus);
+    sheet.conditions = [
+      ...sheet.conditions,
+      {
+        name: 'Conhecimento de Artífice',
+        font: 'gnomo das rochas',
+        title: 'Toda vez que você fizer um teste de Inteligência (História) relacionado a itens mágicos, objetos alquímicos ou mecanismos tecnológicos, você pode adicionar o dobro do seu bônus de proficiência, ao invés de qualquer bônus de proficiência que você normalmente use.',
+      },
+      {
+        name: 'Engenhoqueiro',
+        font: 'gnomo das rochas',
+        title: 'Você possui proficiência com ferramentas de artesão (ferramentas de engenhoqueiro). Usando essas ferramentas, você pode gastar 1 hora e 10 po em materiais para construir um mecanismo Miúdo (CA 5, 1 pv). O mecanismo para de funcionar após 24 horas (a não ser que você gaste 1 hora reparando-o para manter o mecanismo funcionando), ou quando você usa sua ação para desmantelá-lo; nesse momento, você pode recuperar o material usado para criá-lo. Você pode ter até três desses mecanismos ativos ao mesmo tempo. Quando você criar um mecanismo, escolha uma das seguintes opções: Brinquedo Mecânico (Esse brinquedo é um animal, monstro ou pessoa mecânica, como um sapo, rato, pássaro, dragão ou soldado. Quando colocado no chão, o brinquedo se move 1,5 metro pelo chão em cada um dos seus turnos em uma direção aleatória. Ele faz barulhos apropriados a criatura que ele representa),  Isqueiro Mecânico (O mecanismo produz uma miniatura de chama, que você pode usar para acender uma vela, tocha ou fogueira. Usar o mecanismo requer sua ação) ou Caixa de Música (Quando aberta, essa caixa de música toca uma canção a um volume moderado. A caixa para de tocar quando alcança o fim da música ou quando é fechada).',
+      }
+    ]
+  } else if (subRace === 'Tiferino de Nessus (Asmodeus)') {
+    sheet.attributes.intelligence.bonus = sheet.attributes.intelligence.bonus + 1;
+    sheet.attributes.intelligence.mod = calculateMod(sheet.attributes.intelligence.value + sheet.attributes.intelligence.bonus);
+    const taumaturgia = listMagics.find((magic: any) => magic.name === 'Taumaturgia');
+    sheet.magics = [ ...sheet.magics, { ...taumaturgia, font: 'tiferino de nessus (asmodeus)' } ];
+  } else if (subRace === 'Tiferino de Maladomini (Belzebu)') {
+    sheet.attributes.intelligence.bonus = sheet.attributes.intelligence.bonus + 1;
+    sheet.attributes.intelligence.mod = calculateMod(sheet.attributes.intelligence.value + sheet.attributes.intelligence.bonus);
+    const taumaturgia = listMagics.find((magic: any) => magic.name === 'Taumaturgia');
+    sheet.magics = [ ...sheet.magics, { ...taumaturgia, font: 'tiferino de maladomini (belzebu)' } ];
+  } else if (subRace === 'Tiferino de Dis (Dispater)') {
+    sheet.attributes.dexterity.bonus = sheet.attributes.dexterity.bonus + 1;
+    sheet.attributes.dexterity.mod = calculateMod(sheet.attributes.dexterity.value + sheet.attributes.dexterity.bonus);
+    const taumaturgia = listMagics.find((magic: any) => magic.name === 'Taumaturgia');
+    sheet.magics = [ ...sheet.magics, { ...taumaturgia, font: 'tiferino de dis (dispater)' } ];
+  } else if (subRace === 'Tiferino de Flegetos (Fierna)') {
+    sheet.attributes.wisdom.bonus = sheet.attributes.wisdom.bonus + 1;
+    sheet.attributes.wisdom.mod = calculateMod(sheet.attributes.wisdom.value + sheet.attributes.wisdom.bonus);
+    const amizade = listMagics.find((magic: any) => magic.name === 'Amizade');
+    sheet.magics = [ ...sheet.magics, { ...amizade, font: 'tiferino de flegetos (fierna)' } ];
+  } else if (subRace === 'Tiferino de Malebólgia (Glasya)') {
+    sheet.attributes.dexterity.bonus = sheet.attributes.dexterity.bonus + 1;
+    sheet.attributes.dexterity.mod = calculateMod(sheet.attributes.dexterity.value + sheet.attributes.dexterity.bonus);
+    const minorIlusion = listMagics.find((magic: any) => magic.name === 'Ilusão Menor');
+    sheet.magics = [ ...sheet.magics, { ...minorIlusion, font: 'tiferino de malebólgia (glasya)' } ];
+  } else if (subRace === 'Tiferino de Estígia (Levisto)') {
+    sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus + 1;
+    sheet.attributes.constitution.mod = calculateMod(sheet.attributes.constitution.value + sheet.attributes.constitution.bonus);
+    const raioDeGelo = listMagics.find((magic: any) => magic.name === 'Raio de Gelo');
+    sheet.magics = [ ...sheet.magics, { ...raioDeGelo, font: 'tiferino de Estígia (levisto)' } ];
+  } else if (subRace === 'Tiferino de Minauros (Mammon)') {
+    sheet.attributes.intelligence.bonus = sheet.attributes.intelligence.bonus + 1;
+    sheet.attributes.intelligence.mod = calculateMod(sheet.attributes.intelligence.value + sheet.attributes.intelligence.bonus);
+    const magicHands = listMagics.find((magic: any) => magic.name === 'Mãos Mágicas');
+    sheet.magics = [ ...sheet.magics, { ...magicHands, font: 'tiferino de minauros (mammon)' } ];
+  } else if (subRace === 'Tiferino de Cánia (Mefistófeles)') {
+    sheet.attributes.intelligence.bonus = sheet.attributes.intelligence.bonus + 1;
+    sheet.attributes.intelligence.mod = calculateMod(sheet.attributes.intelligence.value + sheet.attributes.intelligence.bonus);
+    const magicHands = listMagics.find((magic: any) => magic.name === 'Mãos Mágicas');
+    sheet.magics = [ ...sheet.magics, { ...magicHands, font: 'tiferino de cánia (mefistófeles)' } ];
+  } else if (subRace === 'Tiferino de Avernus (Zariel)') {
+    sheet.attributes.strength.bonus = sheet.attributes.strength.bonus + 1;
+    sheet.attributes.strength.mod = calculateMod(sheet.attributes.strength.value + sheet.attributes.strength.bonus);
+    const taumaturgia = listMagics.find((magic: any) => magic.name === 'Taumaturgia');
+    sheet.magics = [ ...sheet.magics, { ...taumaturgia, font: 'tiferino de avernus (zariel)' } ];
   }
   return sheet;
 }

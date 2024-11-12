@@ -338,7 +338,7 @@
     ],
     "subraces": [
       {
-        "name": "Gnomo da Floresta",
+        "name": "Gnomo dos Bosques",
         "attribute": "dexterity",
         "skills": [
           {
@@ -426,11 +426,11 @@
     "subraces": []
   },
   {
-    "name": "Tiefling",
+    "name": "Tiferino",
     "attribute": [{ "name": "charisma", "value": 2 }],
-    "age": "Os tieflings amadurecem ao mesmo tempo que os humanos, mas vivem alguns anos a mais.",
-    "alignment": "Tieflings não possuem uma tendência inata ao mal, mas muitos acabam por abraçá-lo. Maligno ou não, uma natureza independente inclina a maioria dos tieflings ao alinhamento caótico",
-    "size": "Os tieflings possuem o mesmo tamanho e compleição dos humanos. Seu tamanho é Médio.",
+    "age": "Os Tiferinos amadurecem ao mesmo tempo que os humanos, mas vivem alguns anos a mais.",
+    "alignment": "Tiferinos não possuem uma tendência inata ao mal, mas muitos acabam por abraçá-lo. Maligno ou não, uma natureza independente inclina a maioria dos Tiferinos ao alinhamento caótico",
+    "size": "Os Tiferinos possuem o mesmo tamanho e compleição dos humanos. Seu tamanho é Médio.",
     "sizeM": "M",
     "speed": 9,
     "languages": ["comum", "infernal"],
@@ -446,7 +446,7 @@
     ],
     "subraces": [
       {
-        "name": "Tiefling de Nessus (Asmodeus)",
+        "name": "Tiferino de Nessus (Asmodeus)",
         "attribute": "intelligence",
         "skills": [
           {
@@ -456,7 +456,7 @@
         ]
       },
       {
-        "name": "Tiefling de Maladomini (Belzebu)",
+        "name": "Tiferino de Maladomini (Belzebu)",
         "attribute": "intelligence",
         "skills": [
           {
@@ -466,8 +466,8 @@
         ]
       },
       {
-        "name": "Tiefling de Dis (Dispater)",
-        "attribute": "",
+        "name": "Tiferino de Dis (Dispater)",
+        "attribute": "dexterity",
         "skills": [
           {
             "name": "Legado de Dis",
@@ -476,27 +476,27 @@
         ]
       },
       {
-        "name": "Tiefling de Flegetos (Fierna)",
+        "name": "Tiferino de Flegetos (Fierna)",
         "attribute": "wisdom",
         "skills": [
           {
             "name": "Legado de Flegetos",
-            "description": "Você conhece o truque amizade. Quando chega ao 3° nível, você pode conjurar uma vez a magia enfeitiçar pessoa como uma magia de 2° nível com este traço, readquirindo essa característica ao terminar um descanso longo. Quando você chega ao 5° nível, você pode conjurar uma vez a magia sugestão com este traço, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias."
+            "description": "Você conhece o truque Amizade. Quando chega ao 3° nível, você pode conjurar uma vez a magia enfeitiçar pessoa como uma magia de 2° nível com este traço, readquirindo essa característica ao terminar um descanso longo. Quando você chega ao 5° nível, você pode conjurar uma vez a magia sugestão com este traço, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias."
           }
         ]
       },
       {
-        "name": "Tiefling de Malebólgia (Glasya)",
+        "name": "Tiferino de Malebólgia (Glasya)",
         "attribute": "dexterity",
         "skills": [
           {
             "name": "Legado de Malebólgia",
-            "description": "Você conhece o truque ilusão menor. Quando chega ao 3° nível, você pode conjurar uma vez a magia disfarçar com este traço, readquirindo essa  característica ao terminar um descanso longo. Quando você chega ao 5° nível, você pode  conjurar uma vez a magia invisibilidade com este traço, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias."
+            "description": "Você conhece o truque Ilusão Menor. Quando chega ao 3° nível, você pode conjurar uma vez a magia disfarçar com este traço, readquirindo essa  característica ao terminar um descanso longo. Quando você chega ao 5° nível, você pode  conjurar uma vez a magia invisibilidade com este traço, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias."
           }
         ]
       },
       {
-        "name": "Tiefling de Estígia (Levisto)",
+        "name": "Tiferino de Estígia (Levisto)",
         "attribute": "constitution",
         "skills": [
           {
@@ -506,27 +506,27 @@
         ]
       },
       {
-        "name": "Tiefling de Minauros (Mammon)",
+        "name": "Tiferino de Minauros (Mammon)",
         "attribute": "intelligence",
         "skills": [
           {
             "name": "Legado de Minauros",
-            "description": "Você conhece o truque mãos mãgicas. Quando chega ao 3° nível, você pode conjurar uma vez a magia disco flutuante de Tenser com este traço, readquirindo essa característica ao terminar um descanso curto ou longo. Quando você chega ao 5° nível, você pode conjurar uma vez a magia t ranca arcana com este traço, sem a necessidade de componentes materiais, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias"
+            "description": "Você conhece o truque Mãos Mágicas. Quando chega ao 3° nível, você pode conjurar uma vez a magia disco flutuante de Tenser com este traço, readquirindo essa característica ao terminar um descanso curto ou longo. Quando você chega ao 5° nível, você pode conjurar uma vez a magia t ranca arcana com este traço, sem a necessidade de componentes materiais, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias"
           }
         ]
       },
       {
-        "name": "Tiefling de Cánia (Mefistófeles)",
+        "name": "Tiferino de Cánia (Mefistófeles)",
         "attribute": "intelligence",
         "skills": [
           {
             "name": "Legado de Cánia",
-            "description": "Você conhece o truque mãos mágicas. Quando chega ao 3° nível, você pode conjurar uma vez a magia mãos flamejantes como uma magia de 2° nível com este traço, readquirindo essa característica ao terminar um descanso longo. Quando você chega ao 5° nível, você pode conjurar uma vez a magia lâmina flamejante uma vez com este traço, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias."
+            "description": "Você conhece o truque Mãos Mágicas. Quando chega ao 3° nível, você pode conjurar uma vez a magia mãos flamejantes como uma magia de 2° nível com este traço, readquirindo essa característica ao terminar um descanso longo. Quando você chega ao 5° nível, você pode conjurar uma vez a magia lâmina flamejante uma vez com este traço, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias."
           }
         ]
       },
       {
-        "name": "Tiefling de Avernus (Zariel)",
+        "name": "Tiferino de Avernus (Zariel)",
         "attribute": "strength",
         "skills": [
           {
