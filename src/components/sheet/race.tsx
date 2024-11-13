@@ -181,7 +181,7 @@ export default function Race() {
             </div>
           </div>
           {
-            race === 'Humano' || race === 'Meio Elfo' &&
+            (race === 'Humano' || race === 'Meio Elfo') &&
             <div className="w-full mt-5">
               <p>Escolha um Idioma à sua Escolha</p>
               <div className="flex items-center gap-2 my-4 w-full">
