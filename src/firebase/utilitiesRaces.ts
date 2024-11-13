@@ -86,7 +86,7 @@ export const applyRace = (sheet: any, race: string, calculateMod: any, alt: any)
     sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'meio elfo');
     const { alternative, ...newSheet } = sheet;
     sheet = newSheet;
-  } else if (race === 'Draconato') {
+  } else if (sheet.race === 'Draconato') {
     sheet.attributes.strength.bonus = sheet.attributes.strength.bonus - 2;
     sheet.attributes.strength.mod = calculateMod(sheet.attributes.strength.value + sheet.attributes.strength.bonus);
     sheet.attributes.charisma.bonus = sheet.attributes.charisma.bonus - 1;
@@ -353,7 +353,6 @@ export const applyRace = (sheet: any, race: string, calculateMod: any, alt: any)
         if (newLanguage) sheet.languages = [...sheet.languages, { ...newLanguage, font: 'draconato'}];
       }
     });
-    console.log(alt);
     sheet.conditions = [
       ...sheet.conditions,
       {
