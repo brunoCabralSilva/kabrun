@@ -50,6 +50,7 @@ export const playerSheet = (nameSheet: string) => {
     hitPoints: { actual: 0, total: 0, temporary: 0 },
     deathSaves: { successes: 0, failures: 0 },
     talents: [],
+    powers: [],
     equipments: {
       proficiencies: [],
       equiped: [],

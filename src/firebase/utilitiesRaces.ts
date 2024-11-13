@@ -93,6 +93,7 @@ export const applyRace = (sheet: any, race: string, calculateMod: any, alt: any)
     sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
     sheet.languages = sheet.languages.filter((language: any) => language.font !== 'draconato');
     sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'draconato');
+    sheet.powers = sheet.powers.filter((data: any) => data.font !== 'draconato');
   }
 
   //Adicionando a Raça
@@ -360,12 +361,15 @@ export const applyRace = (sheet: any, race: string, calculateMod: any, alt: any)
         font: 'draconato',
         title: 'Você possui resistência a dano ' + alt.type + ' associado ao seu ancestral dracônico.' ,
       },
+    ];
+    sheet.powers = [
+      ...sheet.powers,
       {
         name: 'Arma de Sopro',
         font: 'draconato',
-        title: "Você pode usar uma ação para exalar energia destrutiva, vinda de sua Herança com o tipo de Dragão " + alt.dragon + ", no formato " + alt.attack + ". Quando você usa sua arma de sopro, cada criatura na área exalada deve realizar um teste de resistência, o tipo do teste é  determinado pelo seu ancestral dracônico. A CD do teste de resistência é 8 + seu modificador de Constituição + seu bônus de proficiência. Uma criatura sofre 2d6 de dano num fracasso e metade desse dano num sucesso. O dano aumenta para 3d6 no 6° nível, 4d6 no 11° nível e 5d6 no 16° nível. Depois de usar sua arma de sopro, você não poderá utilizá-la novamente até completar um descanso curto ou longo.",
+        description: "Você pode usar uma ação para exalar energia destrutiva, vinda de sua Herança com o tipo de Dragão " + alt.dragon + ", no formato " + alt.attack + ". Quando você usa sua arma de sopro, cada criatura na área exalada deve realizar um teste de resistência, o tipo do teste é  determinado pelo seu ancestral dracônico. A CD do teste de resistência é 8 + seu modificador de Constituição + seu bônus de proficiência. Uma criatura sofre 2d6 de dano num fracasso e metade desse dano num sucesso. O dano aumenta para 3d6 no 6° nível, 4d6 no 11° nível e 5d6 no 16° nível. Depois de usar sua arma de sopro, você não poderá utilizá-la novamente até completar um descanso curto ou longo.",
       },
-    ];
+    ]
   }
   return sheet;
 }
