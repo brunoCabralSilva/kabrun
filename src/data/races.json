@@ -236,7 +236,7 @@
     "skills": [
       {
         "name": "Arma de Sopro",
-        "description": "Você pode usar uma ação para exalar energia destrutiva. Seu ancestral dracônico determina o tamanho, formado e tipo de dano que você expele. Quando você usa sua arma de sopro, cada criatura na área exalada deve realizar um teste de resistência, o tipo do teste é  determinado pelo seu ancestral dracônico. A CD do teste de resistência é 8 + seu modificador de Constituição + seu bônus de proficiência. Uma criatura sofre 2d6 de dano num fracasso e metade desse dano num sucesso. O dano aumenta para 3d6 no 6° nível, 4d6 no 11° nível e 5d6 no 16° nível. Depois de usar sua arma de sopro, você não poderá utilizá-la novamente até completar um descanso curto ou longo."
+        "description": "Você pode usar uma ação para exalar energia destrutiva. Seu ancestral dracônico determina o tamanho, formato e tipo de dano que você expele. Quando você usa sua arma de sopro, cada criatura na área exalada deve realizar um teste de resistência, o tipo do teste é  determinado pelo seu ancestral dracônico. A CD do teste de resistência é 8 + seu modificador de Constituição + seu bônus de proficiência. Uma criatura sofre 2d6 de dano num fracasso e metade desse dano num sucesso. O dano aumenta para 3d6 no 6° nível, 4d6 no 11° nível e 5d6 no 16° nível. Depois de usar sua arma de sopro, você não poderá utilizá-la novamente até completar um descanso curto ou longo."
       },
       {
         "name": "Resistência a Dano",
@@ -275,11 +275,11 @@
           },
           {
             "name": "Sopro Enervante",
-            "description": "Cada criatura no cone deve passar por uma salva guarda de Constituição para não ficar incapacitado até o início do seu próximo turno."
+            "description": "Cada criatura no cone deve passar por uma Salvaguarda de Constituição para não ficar incapacitado até o início do seu próximo turno."
           },
           {
             "name": "Sopro Repulsor",
-            "description": "Cada criatura no cone deve passar por uma salva guarda de Força para não ser puxada 6 metros até você e ser derrubada."
+            "description": "Cada criatura no cone deve passar por uma Salvaguarda de Força para não ser puxada 6 metros até você e ser derrubada."
           }
         ],
         "types": [

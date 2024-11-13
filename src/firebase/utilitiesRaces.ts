@@ -1,7 +1,7 @@
 import listLanguages from '../data/languages.json';
 import listMagics from '../data/magics.json';
 
-export const applyRace = (sheet: any, race: string, calculateMod: any, humanAlt: any) => {
+export const applyRace = (sheet: any, race: string, calculateMod: any, alt: any) => {
   //Removendo a Raça
   if (sheet.race === 'Anão') {
     sheet.attributes.constitution.bonus = sheet.attributes.constitution.bonus - 2;
@@ -18,14 +18,14 @@ export const applyRace = (sheet: any, race: string, calculateMod: any, humanAlt:
     sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'elfo');
     sheet.languages = sheet.languages.filter((language: any) => language.font !== 'elfo');
   } else if (sheet.race === 'Humano') {
-    if (sheet.humanAlternative) {
-      sheet.attributes[sheet.humanAlternative.list[0]].bonus = sheet.attributes[sheet.humanAlternative.list[0]].bonus - 1;
-      sheet.attributes[sheet.humanAlternative.list[0]].mod = calculateMod(sheet.attributes[sheet.humanAlternative.list[0]].value + sheet.attributes[sheet.humanAlternative.list[0]].bonus);
-      sheet.attributes[sheet.humanAlternative.list[1]].bonus = sheet.attributes[sheet.humanAlternative.list[1]].bonus - 1;
-      sheet.attributes[sheet.humanAlternative.list[1]].mod = calculateMod(sheet.attributes[sheet.humanAlternative.list[1]].value + sheet.attributes[sheet.humanAlternative.list[1]].bonus);
-      const filterFont = sheet.skills[sheet.humanAlternative.skill].font.filter((data: any) => data !== 'humano');
-      sheet.skills[sheet.humanAlternative.skill].font = filterFont;
-      if (filterFont.length === 0) sheet.skills[sheet.humanAlternative.skill].trained = false;
+    if (sheet.alternative) {
+      sheet.attributes[sheet.alternative.list[0]].bonus = sheet.attributes[sheet.alternative.list[0]].bonus - 1;
+      sheet.attributes[sheet.alternative.list[0]].mod = calculateMod(sheet.attributes[sheet.alternative.list[0]].value + sheet.attributes[sheet.alternative.list[0]].bonus);
+      sheet.attributes[sheet.alternative.list[1]].bonus = sheet.attributes[sheet.alternative.list[1]].bonus - 1;
+      sheet.attributes[sheet.alternative.list[1]].mod = calculateMod(sheet.attributes[sheet.alternative.list[1]].value + sheet.attributes[sheet.alternative.list[1]].bonus);
+      const filterFont = sheet.skills[sheet.alternative.skill].font.filter((data: any) => data !== 'humano');
+      sheet.skills[sheet.alternative.skill].font = filterFont;
+      if (filterFont.length === 0) sheet.skills[sheet.alternative.skill].trained = false;
       sheet.talents = sheet.talents.filter((talent: any) => talent.font !== 'humano');
     } else {
       sheet.attributes.strength.bonus = sheet.attributes.strength.bonus - 1;
@@ -42,7 +42,7 @@ export const applyRace = (sheet: any, race: string, calculateMod: any, humanAlt:
       sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
     }
     sheet.languages = sheet.languages.filter((language: any) => language.font !== 'humano');
-    const { humanAlternative, ...newSheet } = sheet;
+    const { alternative, ...newSheet } = sheet;
     sheet = newSheet;
   } else if (sheet.race === 'Halfling') {
     sheet.attributes.dexterity.bonus = sheet.attributes.dexterity.bonus - 2;
@@ -69,10 +69,30 @@ export const applyRace = (sheet: any, race: string, calculateMod: any, humanAlt:
     sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
     sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'tiferino');
     sheet.languages = sheet.languages.filter((language: any) => language.font !== 'tiferino');
-  } else if (race === 'Meio Elfo') {
-
+  } else if (sheet.race === 'Meio Elfo') {
+    sheet.attributes.charisma.bonus = sheet.attributes.charisma.bonus - 2;
+    sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
+    sheet.attributes[sheet.alternative.list[0]].bonus = sheet.attributes[sheet.alternative.list[0]].bonus - 1;
+    sheet.attributes[sheet.alternative.list[0]].mod = calculateMod(sheet.attributes[sheet.alternative.list[0]].value + sheet.attributes[sheet.alternative.list[0]].bonus);
+    sheet.attributes[sheet.alternative.list[1]].bonus = sheet.attributes[sheet.alternative.list[1]].bonus - 1;
+    sheet.attributes[sheet.alternative.list[1]].mod = calculateMod(sheet.attributes[sheet.alternative.list[1]].value + sheet.attributes[sheet.alternative.list[1]].bonus);
+    const filterFont = sheet.skills[sheet.alternative.skill[0]].font.filter((data: any) => data !== 'meio elfo');
+    sheet.skills[sheet.alternative.skill[0]].font = filterFont;
+    if (filterFont.length === 0) sheet.skills[sheet.alternative.skill[0]].trained = false;
+    const filterFont2 = sheet.skills[sheet.alternative.skill[1]].font.filter((data: any) => data !== 'meio elfo');
+    sheet.skills[sheet.alternative.skill[1]].font = filterFont2;
+    if (filterFont2.length === 0) sheet.skills[sheet.alternative.skill[1]].trained = false;
+    sheet.languages = sheet.languages.filter((language: any) => language.font !== 'meio elfo');
+    sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'meio elfo');
+    const { alternative, ...newSheet } = sheet;
+    sheet = newSheet;
   } else if (race === 'Draconato') {
-    
+    sheet.attributes.strength.bonus = sheet.attributes.strength.bonus - 2;
+    sheet.attributes.strength.mod = calculateMod(sheet.attributes.strength.value + sheet.attributes.strength.bonus);
+    sheet.attributes.charisma.bonus = sheet.attributes.charisma.bonus - 1;
+    sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
+    sheet.languages = sheet.languages.filter((language: any) => language.font !== 'draconato');
+    sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'draconato');
   }
 
   //Adicionando a Raça
@@ -149,12 +169,12 @@ export const applyRace = (sheet: any, race: string, calculateMod: any, humanAlt:
       }
     ];
   } else if (race === 'Humano') {
-    if (humanAlt) {
-      sheet.attributes[humanAlt.list[0]].bonus = sheet.attributes[humanAlt.list[0]].bonus + 1;
-      sheet.attributes[humanAlt.list[0]].mod = calculateMod(sheet.attributes[humanAlt.list[0]].value + sheet.attributes[humanAlt.list[0]].bonus);
-      sheet.attributes[humanAlt.list[1]].bonus = sheet.attributes[humanAlt.list[1]].bonus + 1;
-      sheet.attributes[humanAlt.list[1]].mod = calculateMod(sheet.attributes[humanAlt.list[1]].value + sheet.attributes[humanAlt.list[1]].bonus);
-      sheet.humanAlternative = humanAlt;
+    if (alt) {
+      sheet.attributes[alt.list[0]].bonus = sheet.attributes[alt.list[0]].bonus + 1;
+      sheet.attributes[alt.list[0]].mod = calculateMod(sheet.attributes[alt.list[0]].value + sheet.attributes[alt.list[0]].bonus);
+      sheet.attributes[alt.list[1]].bonus = sheet.attributes[alt.list[1]].bonus + 1;
+      sheet.attributes[alt.list[1]].mod = calculateMod(sheet.attributes[alt.list[1]].value + sheet.attributes[alt.list[1]].bonus);
+      sheet.alternative = alt;
     } else {
       sheet.attributes.strength.bonus = sheet.attributes.strength.bonus + 1;
       sheet.attributes.strength.mod = calculateMod(sheet.attributes.strength.value + sheet.attributes.strength.bonus);
@@ -288,9 +308,64 @@ export const applyRace = (sheet: any, race: string, calculateMod: any, humanAlt:
       },
     ];
   } else if (race === 'Meio Elfo') {
-
+    sheet.attributes.charisma.bonus = sheet.attributes.charisma.bonus + 2;
+    sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
+    sheet.attributes[alt.list[0]].bonus = sheet.attributes[alt.list[0]].bonus + 1;
+    sheet.attributes[alt.list[0]].mod = calculateMod(sheet.attributes[alt.list[0]].value + sheet.attributes[alt.list[0]].bonus);
+    sheet.attributes[alt.list[1]].bonus = sheet.attributes[alt.list[1]].bonus + 1;
+    sheet.attributes[alt.list[1]].mod = calculateMod(sheet.attributes[alt.list[1]].value + sheet.attributes[alt.list[1]].bonus);
+    sheet.alternative = alt;
+    sheet.speed = 9;
+    sheet.skills[alt.skill[0]].font = [ ...sheet.skills[alt.skill[0]].font, 'meio elfo'];
+    sheet.skills[alt.skill[0]].trained = true;
+    sheet.skills[alt.skill[1]].font = [ ...sheet.skills[alt.skill[1]].font, 'meio elfo'];
+    sheet.skills[alt.skill[1]].trained = true;
+    listLanguages.filter((language: any) => language.name === 'Élfico' || language.name === 'Comum').forEach(languageName => {
+      const exists = sheet.languages.some((language: any) => language.name === languageName.name);
+      if (!exists) {
+        const newLanguage = listLanguages.find((language: any) => language.name === languageName.name);
+        if (newLanguage) sheet.languages = [...sheet.languages, { ...newLanguage, font: 'meio elfo'}];
+      }
+    });
+    sheet.conditions = [
+      ...sheet.conditions,
+      {
+        name: 'Visão no Escuro',
+        font: 'meio elfo',
+        title: 'Graças ao seu sangue élfico, você tem uma visão superior no escuro e na penumbra. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza.',
+      },
+      {
+        name: 'Ancestralidade Feérica',
+        font: 'meio elfo',
+        title: "Você possui vantagem em testes de resistência contra encantamento e magia não pode colocar você pra dormir.",
+      },
+    ];
   } else if (race === 'Draconato') {
-
+    sheet.attributes.strength.bonus = sheet.attributes.strength.bonus + 2;
+    sheet.attributes.strength.mod = calculateMod(sheet.attributes.strength.value + sheet.attributes.strength.bonus);
+    sheet.attributes.charisma.bonus = sheet.attributes.charisma.bonus + 1;
+    sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
+    listLanguages.filter((language: any) => language.name === 'Dracônico' || language.name === 'Comum').forEach(languageName => {
+      const exists = sheet.languages.some((language: any) => language.name === languageName.name);
+      if (!exists) {
+        const newLanguage = listLanguages.find((language: any) => language.name === languageName.name);
+        if (newLanguage) sheet.languages = [...sheet.languages, { ...newLanguage, font: 'draconato'}];
+      }
+    });
+    console.log(alt);
+    sheet.conditions = [
+      ...sheet.conditions,
+      {
+        name: 'Resistência a Dano',
+        font: 'draconato',
+        title: 'Você possui resistência a dano ' + alt.type + ' associado ao seu ancestral dracônico.' ,
+      },
+      {
+        name: 'Arma de Sopro',
+        font: 'draconato',
+        title: "Você pode usar uma ação para exalar energia destrutiva, vinda de sua Herança com o tipo de Dragão " + alt.dragon + ", no formato " + alt.attack + ". Quando você usa sua arma de sopro, cada criatura na área exalada deve realizar um teste de resistência, o tipo do teste é  determinado pelo seu ancestral dracônico. A CD do teste de resistência é 8 + seu modificador de Constituição + seu bônus de proficiência. Uma criatura sofre 2d6 de dano num fracasso e metade desse dano num sucesso. O dano aumenta para 3d6 no 6° nível, 4d6 no 11° nível e 5d6 no 16° nível. Depois de usar sua arma de sopro, você não poderá utilizá-la novamente até completar um descanso curto ou longo.",
+      },
+    ];
   }
   return sheet;
 }

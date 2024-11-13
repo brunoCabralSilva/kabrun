@@ -3,6 +3,8 @@ import contexto from "../../context/context";
 import listRaces from '../../data/races.json';
 import listTalents from '../../data/talents.json';
 import listLanguages from '../../data/languages.json';
+import listBreaths from '../../data/breaths.json';
+import skillsList from '../../data/skills.json';
 import { updateDataPlayer } from "../../firebase/players";
 import { applyRace, applySubRace } from "../../firebase/utilitiesRaces";
 
@@ -15,6 +17,8 @@ export default function Race() {
   const [raceSelected, setRaceSelected] = useState<any>(null);
   const [alternativeHuman, setAlternativeHuman] = useState(false);
   const [listAttributes, setListAttributes] = useState<string[]>([]);
+  const [listSkills, setListSkills] = useState<string[]>([]);
+  const [ breathType, setBreathType] = useState<{ dragon: string, type: string, attack: string }>({ dragon: '', type: '', attack: '' });
   const { showSheet, session, players, returnAttribute, setShowMessage, calculateMod, setOptionGuide } = useContext(contexto);
 
   useEffect(() => {
@@ -26,14 +30,20 @@ export default function Race() {
 
   const updateData = async () => {
     if (race === '') setShowMessage({ show: true, text: 'Necessário preencher uma Raça para continuar' });
-    else if (race === 'Humano' && newLanguage.name === '') setShowMessage({ show: true, text: 'Necessário Selecionar uma Linguagem' });
-    else if (race === 'Humano' && alternativeHuman && listAttributes.length !== 2) setShowMessage({ show: true, text: 'Necessário Selecionar um total de 2 atributos' });
+    else if ((race === 'Humano' || race === 'Meio Elfo') && newLanguage.name === '') setShowMessage({ show: true, text: 'Necessário Selecionar uma Linguagem' });
+    else if (((race === 'Humano' && alternativeHuman) || race === 'Meio Elfo') && listAttributes.length !== 2) setShowMessage({ show: true, text: 'Necessário Selecionar um total de 2 atributos' });
     else if (race === 'Humano' && alternativeHuman && newSkill === '') setShowMessage({ show: true, text: 'Necessário Selecionar uma Perícia' });
     else if (race === 'Humano' && alternativeHuman && newTalent.name === '') setShowMessage({ show: true, text: 'Necessário Selecionar um Talento' });
+    else if (race === 'Meio Elfo' && listSkills.length !== 2) setShowMessage({ show: true, text: 'Necessário Selecionar um total de 2 Perícias' });
+    else if (race === 'Draconato' && breathType.dragon === '') setShowMessage({ show: true, text: 'Necessário escolher uma Ancestralidade Dracônica' });
     else {
       const playerData = dataPlayer;
-      if (race === 'Humano' && alternativeHuman) {
+      if ((race === 'Humano' && alternativeHuman)) {
         playerData.sheet = applyRace(playerData.sheet, race, calculateMod, { skill: newSkill, list: listAttributes });
+      } else if (race === 'Meio Elfo') {
+        playerData.sheet = applyRace(playerData.sheet, race, calculateMod, { skill: listSkills, list: listAttributes });
+      } else if (race === 'Draconato') {
+        playerData.sheet = applyRace(playerData.sheet, race, calculateMod, breathType);
       } else playerData.sheet = applyRace(playerData.sheet, race, calculateMod, null);
       playerData.sheet.race = race;
       const listRacesData = listRaces.find((racesItem: any) => racesItem.name === playerData.sheet.race);
@@ -50,8 +60,9 @@ export default function Race() {
         playerData.sheet.skills[newSkill].trained = true;
       }
       if (race === 'Humano') playerData.sheet.languages = [...playerData.sheet.languages, { ...newLanguage, font: 'humano' }];
+      if (race === 'Meio Elfo') playerData.sheet.languages = [...playerData.sheet.languages, { ...newLanguage, font: 'meio elfo' }];
       await updateDataPlayer(session.id, playerData, setShowMessage);
-      if (race === 'Humano') setOptionGuide('class');
+      if (race === 'Humano' || race === 'Meio Orc' || race === 'Meio Elfo') setOptionGuide('class');
       else setOptionGuide('subrace');
     }
   };
@@ -170,7 +181,7 @@ export default function Race() {
             </div>
           </div>
           {
-            race === 'Humano' &&
+            race === 'Humano' || race === 'Meio Elfo' &&
             <div className="w-full mt-5">
               <p>Escolha um Idioma à sua Escolha</p>
               <div className="flex items-center gap-2 my-4 w-full">
@@ -189,8 +200,17 @@ export default function Race() {
                       >
                         <option disabled value="">Idiomas</option>
                         {
-                          listLanguages
+                          race === 'Humano'
+                          ? listLanguages
                           .filter(language => session.books.includes(language.book))
+                          .filter(language => !dataPlayer.sheet.languages.some((lang: any) => lang.name === language.name))
+                          .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }))
+                          .map((langItem: any, index: number) => (
+                            <option key={index} value={ langItem.name }>{ langItem.name }</option>
+                          ))
+                          : listLanguages
+                          .filter(language => session.books.includes(language.book))
+                          .filter(language => language.name !== 'Comum' && language.name !== 'Élfico')
                           .filter(language => !dataPlayer.sheet.languages.some((lang: any) => lang.name === language.name))
                           .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }))
                           .map((langItem: any, index: number) => (
@@ -205,67 +225,70 @@ export default function Race() {
             </div>
           }
           {
+            (race === 'Meio Elfo' || (race === 'Humano' && alternativeHuman)) &&
+            <div className="w-full mt-5">
+              Escolha dois atributos que irão adquirir o Bônus de +1 em cada
+              <div className="grid grid-cols-3">
+                <button
+                  type="button"
+                  onClick={ () => {
+                    if (listAttributes.find((attribute: any) => attribute === 'strength')) {
+                      setListAttributes(listAttributes.filter((attribute: any) => attribute !== 'strength'));
+                    } else setListAttributes([...listAttributes, 'strength']);
+                  }}
+                  className={`py-2 border border-white ${listAttributes.find((attr: any) => attr === 'strength') && 'bg-white text-black'}`}
+                >Força</button>
+                <button
+                  type="button"
+                  onClick={ () => {
+                    if (listAttributes.find((attribute: any) => attribute === 'dexterity')) {
+                      setListAttributes(listAttributes.filter((attribute: any) => attribute !== 'dexterity'));
+                    } else setListAttributes([...listAttributes, 'dexterity']);
+                  }}
+                  className={`py-2 border border-white ${listAttributes.find((attr: any) => attr === 'dexterity') && 'bg-white text-black'}`}
+                >Destreza</button>
+                <button
+                  type="button"
+                  onClick={ () => {
+                    if (listAttributes.find((attribute: any) => attribute === 'constitution')) {
+                      setListAttributes(listAttributes.filter((attribute: any) => attribute !== 'constitution'));
+                    } else setListAttributes([...listAttributes, 'constitution']);
+                  }}
+                  className={`py-2 border border-white ${listAttributes.find((attr: any) => attr === 'constitution') && 'bg-white text-black'}`}
+                >Constituição</button>
+                <button
+                  type="button"
+                  onClick={ () => {
+                    if (listAttributes.find((attribute: any) => attribute === 'intelligence')) {
+                      setListAttributes(listAttributes.filter((attribute: any) => attribute !== 'intelligence'));
+                    } else setListAttributes([...listAttributes, 'intelligence']);
+                  }}
+                  className={`py-2 border border-white ${listAttributes.find((attr: any) => attr === 'intelligence') && 'bg-white text-black'}`}
+                >Inteligência</button>
+                <button
+                  type="button"
+                  onClick={ () => {
+                    if (listAttributes.find((attribute: any) => attribute === 'wisdom')) {
+                      setListAttributes(listAttributes.filter((attribute: any) => attribute !== 'wisdom'));
+                    } else setListAttributes([...listAttributes, 'wisdom']);
+                  }}
+                  className={`py-2 border border-white ${listAttributes.find((attr: any) => attr === 'wisdom') && 'bg-white text-black'}`}
+                >Sabedoria</button>
+                <button
+                  type="button"
+                  onClick={ () => {
+                    if (listAttributes.find((attribute: any) => attribute === 'charisma')) {
+                      setListAttributes(listAttributes.filter((attribute: any) => attribute !== 'charisma'));
+                    } else setListAttributes([...listAttributes, 'charisma']);
+                  }}
+                  className={`py-2 border border-white ${listAttributes.find((attr: any) => attr === 'charisma') && 'bg-white text-black'}`}
+                >Carisma</button>
+              </div>
+            </div>
+          }
+          {
             race === 'Humano' && alternativeHuman &&
             <div className="w-full">
-              <div className="w-full mt-5">
-                Escolha dois atributos que irão adquirir o Bônus de +1 em cada
-                <div className="grid grid-cols-3">
-                  <button
-                    type="button"
-                    onClick={ () => {
-                      if (listAttributes.find((attribute: any) => attribute === 'strength')) {
-                        setListAttributes(listAttributes.filter((attribute: any) => attribute !== 'strength'));
-                      } else setListAttributes([...listAttributes, 'strength']);
-                    }}
-                    className={`py-2 border border-white ${listAttributes.find((attr: any) => attr === 'strength') && 'bg-white text-black'}`}
-                  >Força</button>
-                  <button
-                    type="button"
-                    onClick={ () => {
-                      if (listAttributes.find((attribute: any) => attribute === 'dexterity')) {
-                        setListAttributes(listAttributes.filter((attribute: any) => attribute !== 'dexterity'));
-                      } else setListAttributes([...listAttributes, 'dexterity']);
-                    }}
-                    className={`py-2 border border-white ${listAttributes.find((attr: any) => attr === 'dexterity') && 'bg-white text-black'}`}
-                  >Destreza</button>
-                  <button
-                    type="button"
-                    onClick={ () => {
-                      if (listAttributes.find((attribute: any) => attribute === 'constitution')) {
-                        setListAttributes(listAttributes.filter((attribute: any) => attribute !== 'constitution'));
-                      } else setListAttributes([...listAttributes, 'constitution']);
-                    }}
-                    className={`py-2 border border-white ${listAttributes.find((attr: any) => attr === 'constitution') && 'bg-white text-black'}`}
-                  >Constituição</button>
-                  <button
-                    type="button"
-                    onClick={ () => {
-                      if (listAttributes.find((attribute: any) => attribute === 'intelligence')) {
-                        setListAttributes(listAttributes.filter((attribute: any) => attribute !== 'intelligence'));
-                      } else setListAttributes([...listAttributes, 'intelligence']);
-                    }}
-                    className={`py-2 border border-white ${listAttributes.find((attr: any) => attr === 'intelligence') && 'bg-white text-black'}`}
-                  >Inteligência</button>
-                  <button
-                    type="button"
-                    onClick={ () => {
-                      if (listAttributes.find((attribute: any) => attribute === 'wisdom')) {
-                        setListAttributes(listAttributes.filter((attribute: any) => attribute !== 'wisdom'));
-                      } else setListAttributes([...listAttributes, 'wisdom']);
-                    }}
-                    className={`py-2 border border-white ${listAttributes.find((attr: any) => attr === 'wisdom') && 'bg-white text-black'}`}
-                  >Sabedoria</button>
-                  <button
-                    type="button"
-                    onClick={ () => {
-                      if (listAttributes.find((attribute: any) => attribute === 'charisma')) {
-                        setListAttributes(listAttributes.filter((attribute: any) => attribute !== 'charisma'));
-                      } else setListAttributes([...listAttributes, 'charisma']);
-                    }}
-                    className={`py-2 border border-white ${listAttributes.find((attr: any) => attr === 'charisma') && 'bg-white text-black'}`}
-                  >Carisma</button>
-                </div>
-              </div>
               <div className="w-full mt-5">
                 <p>Escolha uma Perícia adicional</p>
                 <div className="flex items-center gap-2 my-4 w-full">
@@ -282,24 +305,16 @@ export default function Race() {
                           onChange={ (e) => setNewSkill(e.target.value) }
                         >
                           <option disabled value="">Perícias</option>
-                          <option value="acrobatics">Acrobacia (Des)</option>
-                          <option value="arcana">Arcanismo (Int)</option>
-                          <option value="athletics">Atletismo (For)</option>
-                          <option value="performance">Atuação (Car)</option>
-                          <option value="decepcion">Enganação (Car)</option>
-                          <option value="stealth">Furtividade (Des)</option>
-                          <option value="history">História (Int)</option>
-                          <option value="intimidation">Intimidação (Car)</option>
-                          <option value="insight">Intuição (Sab)</option>
-                          <option value="investigation">Investigação (Int)</option>
-                          <option value="animalHandling">Lidar com Animais (Sab)</option>
-                          <option value="medicine">Medicina (Sab)</option>
-                          <option value="nature">Natureza (Int)</option>
-                          <option value="perception">Percepção (Sab)</option>
-                          <option value="persuasion">Persuasão (Car)</option>
-                          <option value="sleightOfHand">Prestidigitação (Des)</option>
-                          <option value="religion">Religião (Int)</option>
-                          <option value="survival">Sobrevivência (Sab)</option>
+                          {
+                            skillsList.map((skillItem: any, index: number) => (
+                              <option
+                                key={index}
+                                value={skillItem.value}
+                              >
+                                {skillItem.name}
+                              </option>
+                            ))
+                          }
                         </select>
                       </div>
                     </div>
@@ -349,6 +364,57 @@ export default function Race() {
                     ))
                   }
                 </div>
+              </div>
+            </div>
+          }
+          {
+            race === 'Meio Elfo' &&
+            <div className="w-full">
+              Escolha duas Perícias
+              <div className="grid grid-cols-3 w-full">
+                {
+                  skillsList.map((skillItem: any, index: number) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={ () => {
+                      if (listSkills.find((skill: any) => skill === skillItem.value)) {
+                        setListSkills(listSkills.filter((skill: any) => skill !== skillItem.value));
+                      } else setListSkills([...listSkills, skillItem.value]);
+                    }}
+                    className={`py-2 border border-white ${listSkills.find((skl: any) => skl === skillItem.value) && 'bg-white text-black'}`}
+                  >
+                    { skillItem.name }
+                  </button>
+                  ))
+                }
+              </div>
+            </div>
+          }
+          {
+            race === 'Draconato' &&
+            <div className="w-full">
+              Escolha a Herança Dracônica
+              <div className="w-full grid grid-cols-1">
+                <div className="w-full grid grid-cols-3 border border-white mt-1 py-2">
+                  <div className="font-bold w-full text-center">Dragão</div>
+                  <div className="font-bold w-full text-center">Tipo de Dano</div>
+                  <div className="font-bold w-full text-center">Ataque do Sopro</div>
+                </div>
+                {
+                  listBreaths.map((breath: any, index: number) => (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={ () => setBreathType(breath) }
+                      className={`w-full grid grid-cols-3 border border-white mt-1 py-2 ${breathType.dragon === breath.dragon && 'text-black bg-white'}`}
+                    >
+                      <div>{ breath.dragon }</div>
+                      <div>{ breath.type }</div>
+                      <div>{ breath.attack }</div>
+                    </button>
+                  ))
+                }
               </div>
             </div>
           }

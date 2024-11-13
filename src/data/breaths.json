@@ -1,0 +1,52 @@
+[
+    {
+        "dragon": "Azul",
+        "type": "Elétrico",
+        "attack": "Linha de 1.5m x 9m (svg Des.)"
+    },
+    {
+        "dragon": "Branco",
+        "type": "Congelante",
+        "attack": "Cone de 4.5m (svg. Con)"
+    },
+    {
+        "dragon": "Bronze",
+        "type": "Elétrico",
+        "attack": "Linha de 1.5m x 9m (svg Des.)"
+    },
+    {
+        "dragon": "Cobre",
+        "type": "Ácido",
+        "attack": "Linha de 1.5m x 9m (svg Des.)"
+    },
+    {
+        "dragon": "Latão",
+        "type": "Flamejante",
+        "attack": "Linha de 1.5m x 9m (svg Des.)"
+    },
+    {
+        "dragon": "Negro",
+        "type": "Ácido",
+        "attack": "Linha de 1.5m x 9m (svg Des.)"
+    },
+    {
+        "dragon": "Ouro",
+        "type": "Flamejante",
+        "attack": "Cone de 4.5m (svg. Des)"
+    },
+    {
+        "dragon": "Prata",
+        "type": "Congelante",
+        "attack": "Cone de 4.5m (svg. Con)"
+    },
+    {
+        "dragon": "Verde",
+        "type": "Venenoso",
+        "attack": "Cone de 4.5m (svg. Con)"
+    },
+    {
+        "dragon": "Vermelho",
+        "type": "Flamejante",
+        "attack": "Cone de 4.5m (svg. Des)"
+    }
+]

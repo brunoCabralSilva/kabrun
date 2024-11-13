@@ -49,16 +49,19 @@ export default function Guide() {
                 <div className="box__line box__line--left relative" />
                 <p>Raça</p>
               </button>
-              <button
-                type="button"
-                className={`${optionGuide === 'subrace' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1 mt-3`}
-              >
-                <div className="box__line box__line--top" />
-                <div className="box__line box__line--right" />
-                <div className="box__line box__line--bottom" />
-                <div className="box__line box__line--left relative" />
-                <p>SubRaça</p>
-              </button>
+              {
+                dataPlayer.sheet.race !== 'Meio Orc' && dataPlayer.sheet.race !== 'Meio Elfo' && dataPlayer.sheet.race !== 'Humano' &&
+                <button
+                  type="button"
+                  className={`${optionGuide === 'subrace' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1 mt-3`}
+                >
+                  <div className="box__line box__line--top" />
+                  <div className="box__line box__line--right" />
+                  <div className="box__line box__line--bottom" />
+                  <div className="box__line box__line--left relative" />
+                  <p>SubRaça</p>
+                </button>
+              }
               <button
                 type="button"
                 className={`${optionGuide === 'class' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1 mt-3`}

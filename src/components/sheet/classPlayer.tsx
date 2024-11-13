@@ -54,7 +54,11 @@ export default function ClassPlayer() {
         <div className="h-full w-full flex flex-col justify-start items-center">
           <div className="w-full flex justify-between col-span-10 py-3">
             <button
-              onClick={ () => setOptionGuide('subrace') }
+              onClick={ () => {
+                if (dataPlayer.sheet.race === 'Humano' || dataPlayer.sheet.race === 'Meio Orc' || dataPlayer.sheet.race === 'Meio Elfo') {
+                  setOptionGuide('race');
+                } else setOptionGuide('subrace');
+              }}
               className="break-words items-center justify-center text-sm font-medium hover:text-white p-2 border-2 border-white"
               >
                 Anterior

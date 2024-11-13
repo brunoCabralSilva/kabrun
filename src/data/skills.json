@@ -1,0 +1,74 @@
+[
+    {
+        "value": "acrobatics",
+        "name": "Acrobacia (Des)"
+    },
+    {
+        "value": "arcana",
+        "name": "Arcanismo (Int)"
+    },
+    {
+        "value": "athletics",
+        "name": "Atletismo (For)"
+    },
+    {
+        "value": "performance",
+        "name": "Atuação (Car)"
+    },
+    {
+        "value": "decepcion",
+        "name": "Enganação (Car)"
+    },
+    {
+        "value": "stealth",
+        "name": "Furtividade (Des)"
+    },
+    {
+        "value": "history",
+        "name": "História (Int)"
+    },
+    {
+        "value": "intimidation",
+        "name": "Intimidação (Car)"
+    },
+    {
+        "value": "insight",
+        "name": "Intuição (Sab)"
+    },
+    {
+        "value": "investigation",
+        "name": "Investigação (Int)"
+    },
+    {
+        "value": "animalHandling",
+        "name": "Lidar com Animais (Sab)"
+    },
+    {
+        "value": "medicine",
+        "name": "Medicina (Sab)"
+    },
+    {
+        "value": "nature",
+        "name": "Natureza (Int)"
+    },
+    {
+        "value": "perception",
+        "name": "Percepção (Sab)"
+    },
+    {
+        "value": "persuasion",
+        "name": "Persuasão (Car)"
+    },
+    {
+        "value": "sleightOfHand",
+        "name": "Prestidigitação (Des)"
+    },
+    {
+        "value": "religion",
+        "name": "Religião (Int)"
+    },
+    {
+        "value": "survival",
+        "name": "Sobrevivência (Sab)"
+    }
+]
