@@ -55,7 +55,7 @@ export default function ClassPlayer() {
           <div className="w-full flex justify-between col-span-10 py-3">
             <button
               onClick={ () => {
-                if (dataPlayer.sheet.race === 'Humano' || dataPlayer.sheet.race === 'Meio Orc' || dataPlayer.sheet.race === 'Meio Elfo') {
+                if (dataPlayer.sheet.race === 'Humano' || dataPlayer.sheet.race === 'Meio Orc' || dataPlayer.sheet.race === 'Meio Elfo' || dataPlayer.sheet.race === 'Draconato') {
                   setOptionGuide('race');
                 } else setOptionGuide('subrace');
               }}

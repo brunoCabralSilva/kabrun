@@ -62,7 +62,7 @@ export default function Race() {
       if (race === 'Humano') playerData.sheet.languages = [...playerData.sheet.languages, { ...newLanguage, font: 'humano' }];
       if (race === 'Meio Elfo') playerData.sheet.languages = [...playerData.sheet.languages, { ...newLanguage, font: 'meio elfo' }];
       await updateDataPlayer(session.id, playerData, setShowMessage);
-      if (race === 'Humano' || race === 'Meio Orc' || race === 'Meio Elfo') setOptionGuide('class');
+      if (race === 'Humano' || race === 'Meio Orc' || race === 'Meio Elfo' || race === 'Draconato') setOptionGuide('class');
       else setOptionGuide('subrace');
     }
   };

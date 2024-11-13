@@ -50,7 +50,7 @@ export default function Guide() {
                 <p>Raça</p>
               </button>
               {
-                dataPlayer.sheet.race !== 'Meio Orc' && dataPlayer.sheet.race !== 'Meio Elfo' && dataPlayer.sheet.race !== 'Humano' &&
+                dataPlayer.sheet.race !== 'Meio Orc' && dataPlayer.sheet.race !== 'Meio Elfo' && dataPlayer.sheet.race !== 'Humano' && dataPlayer.sheet.race !== 'Draconato' &&
                 <button
                   type="button"
                   className={`${optionGuide === 'subrace' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1 mt-3`}
