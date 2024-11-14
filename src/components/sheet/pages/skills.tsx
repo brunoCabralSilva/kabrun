@@ -11,40 +11,24 @@ export default function Skills() {
   const [charisma, setCharisma] = useState<any>(0);
   const [wisdom, setWisdom] = useState<any>(0);
   const [intelligence, setIntelligence] = useState<any>(0);
-  const { session, showSheet, players, setEditAttributes, calculateMod } = useContext(contexto);
+  const { session, showSheet, players, calculateMod, setShowSheet } = useContext(contexto);
 
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
-    setDataPlayer(findPlayer);
-    setStrength(findPlayer.sheet.attributes.strength.value);
-    setDexterity(findPlayer.sheet.attributes.dexterity.value);
-    setConstitution(findPlayer.sheet.attributes.constitution.value);
-    setCharisma(findPlayer.sheet.attributes.charisma.value);
-    setWisdom(findPlayer.sheet.attributes.wisdom.value);
-    setIntelligence(findPlayer.sheet.attributes.intelligence.value);
+    if (findPlayer) {
+      setDataPlayer(findPlayer);
+      setStrength(findPlayer.sheet.attributes.strength.value);
+      setDexterity(findPlayer.sheet.attributes.dexterity.value);
+      setConstitution(findPlayer.sheet.attributes.constitution.value);
+      setCharisma(findPlayer.sheet.attributes.charisma.value);
+      setWisdom(findPlayer.sheet.attributes.wisdom.value);
+      setIntelligence(findPlayer.sheet.attributes.intelligence.value);
+    } else setShowSheet({ show: false, id: '' });
   }, [session, players]);
 
   if (dataPlayer) {
     return(
       <div className="">
-        <div className="flex items-center gap-2 w-full">
-          {
-            (dataPlayer.sheet.level === 4 || dataPlayer.sheet.level === 8 || dataPlayer.sheet.level === 12 || dataPlayer.sheet.level === 16 || dataPlayer.sheet.level === 19) &&
-            <div className="box-select flex items-center justify-center w-full col-span-1 mt-2">
-              <div className="box__line box__line--top" />
-              <div className="box__line box__line--right" />
-              <div className="box__line box__line--bottom" />
-              <div className="box__line box__line--left" />
-              <button
-                type="button"
-                className="py-2"
-                onClick={ () => setEditAttributes(true) }
-              >
-                Aumentar Atributos
-              </button>
-            </div>
-          }
-        </div>
         <div className="grid grid-cols-4 w-full h-full gap-3">
           <div className="col-span-1 w-full">
             <ItemAttribute

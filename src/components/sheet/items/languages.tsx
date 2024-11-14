@@ -1,25 +1,27 @@
 import { useContext, useEffect, useState } from "react";
-import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import contexto from "../../../context/context";
 import listLanguages from '../../../data/languages.json';
 import { updateDataPlayer } from "../../../firebase/players";
+import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 
 export default function Languages() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
   const [languagesNotAdded, setLanguagesNotAdded] = useState<any>([]);
   const [languagesAdded, setLanguagesAdded] = useState<any>([]);
   const [newLanguage, setNewLanguage] = useState<{ name: string, title: string, book: string}>({ name: '', title: '', book: ''});
-  const { players, session, showSheet, setShowMessage } = useContext(contexto);
+  const { players, session, showSheet, setShowSheet, setShowMessage, userEmail } = useContext(contexto);
 
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
-    setDataPlayer(findPlayer);
-    const filteredLanguages = listLanguages
-      .filter(language => session.books.includes(language.book))
-      .filter(language => !findPlayer.sheet.languages.some((lang: any) => lang.name === language.name))
-      .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }));
-    setLanguagesNotAdded(filteredLanguages);
-    setLanguagesAdded(findPlayer.sheet.languages);
+    if (findPlayer) {
+      setDataPlayer(findPlayer);
+      const filteredLanguages = listLanguages
+        .filter(language => session.books.includes(language.book))
+        .filter(language => !findPlayer.sheet.languages.some((lang: any) => lang.name === language.name))
+        .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }));
+      setLanguagesNotAdded(filteredLanguages);
+      setLanguagesAdded(findPlayer.sheet.languages);
+    } else setShowSheet({ show: false, id: '' });
   }, [session, players]);
 
   return(
@@ -31,23 +33,29 @@ export default function Languages() {
         <div className="box__line box__line--left" />
         <div className="capitalize w-full">
           <div className={`flex items-center gap-2 ${ languagesAdded.length > 0 && 'pt-2'}`}>
-            <select
-              className={`${languagesAdded.length > 0 && 'pb-2 border-b border-white' } w-full text-left bg-gray-whats-dark cursor-pointer outline-none`}
-              value={newLanguage.name}
-              onChange={ (e) => {
-                const lang = listLanguages.find((lang: any) => lang.name === e.target.value);
-                if (lang) setNewLanguage(lang);
-              }}
-            >
-              <option disabled value="">Idiomas</option>
-              {
-                languagesNotAdded.map((language: any, index: number) => 
-                  <option value={language.name} key={index}>
-                    { language.name }
-                  </option>
-                )
-              }
-            </select>
+            {
+              dataPlayer && userEmail === session.gameMaster
+              ? <select
+                  className={`${languagesAdded.length > 0 && 'pb-2 border-b border-white' } w-full text-left bg-gray-whats-dark cursor-pointer outline-none`}
+                  value={newLanguage.name}
+                  onChange={ (e) => {
+                    const lang = listLanguages.find((lang: any) => lang.name === e.target.value);
+                    if (lang) setNewLanguage(lang);
+                  }}
+                >
+                  <option disabled value="">Idiomas</option>
+                  {
+                    languagesNotAdded.map((language: any, index: number) => 
+                      <option value={language.name} key={index}>
+                        { language.name }
+                      </option>
+                    )
+                  }
+                </select>
+              : <div className={`${languagesAdded.length > 0 ? 'pb-2 border-b border-white' : 'text-center' } w-full text-left bg-gray-whats-dark cursor-pointer outline-none`}>
+                  Idiomas
+                </div>
+            }
             {
               newLanguage.name !== '' &&
               <button
@@ -76,6 +84,8 @@ export default function Languages() {
               languagesAdded.map((language: any, index: number) => (
                 <div key={index} className="flex items-center pl-3">
                   <p className="w-full">{language.name}</p>
+                  {
+                    dataPlayer && userEmail === session.gameMaster &&
                     <button
                       type="button"
                       onClick={ async () => {
@@ -97,6 +107,7 @@ export default function Languages() {
                     >
                       <CiCircleMinus />
                     </button>
+                  }
                 </div>
               ))
             }

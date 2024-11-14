@@ -9,12 +9,14 @@ export default function Name() {
   const [editName, setEditName] = useState(false);
   const [dataPlayer, setDataPlayer] = useState<any>(null);
 
-  const { session, showSheet, players, setShowMessage } = useContext(contexto);
+  const { session, showSheet, players, setShowMessage, setShowSheet } = useContext(contexto);
 
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
-    setDataPlayer(findPlayer);
-    setName(findPlayer.sheet.name);
+    if (findPlayer) {
+      setDataPlayer(findPlayer);
+      setName(findPlayer.sheet.name);
+    } else setShowSheet({ show: false, id: '' });
   }, [session, players]);
 
   return(

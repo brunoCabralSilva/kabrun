@@ -5,7 +5,7 @@ import { updateDataPlayer } from "../../../firebase/players";
 
 export default function EditAttributes() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
-  const { session, showSheet, players, setEditAttributes, setShowMessage, calculateMod } = useContext(contexto);
+  const { session, showSheet, players, setEditAttributes, setShowMessage, calculateMod, setShowSheet } = useContext(contexto);
   const [type, setType] = useState('');
   const [listNumbers, setListNumbers] = useState<number[]>([]);
   const [strength, setStrength] = useState(0);
@@ -19,16 +19,18 @@ export default function EditAttributes() {
 
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
-    setDataPlayer(findPlayer);
-    if (findPlayer.sheet.chooseAttribute) {
-      setType('selected');
-      setStrength(findPlayer.sheet.attributes.strength.value);
-      setDexterity(findPlayer.sheet.attributes.dexterity.value);
-      setConstitution(findPlayer.sheet.attributes.constitution.value);
-      setIntelligence(findPlayer.sheet.attributes.intelligence.value);
-      setWisdom(findPlayer.sheet.attributes.wisdom.value);
-      setCharisma(findPlayer.sheet.attributes.charisma.value);
-      setListNumbers([findPlayer.sheet.attributes.strength.value, findPlayer.sheet.attributes.dexterity.value, findPlayer.sheet.attributes.constitution.value, findPlayer.sheet.attributes.intelligence.value, findPlayer.sheet.attributes.wisdom.value, findPlayer.sheet.attributes.charisma.value]);
+    if (findPlayer) {
+      setDataPlayer(findPlayer);
+      if (findPlayer.sheet.chooseAttribute) {
+        setType('selected');
+        setStrength(findPlayer.sheet.attributes.strength.value);
+        setDexterity(findPlayer.sheet.attributes.dexterity.value);
+        setConstitution(findPlayer.sheet.attributes.constitution.value);
+        setIntelligence(findPlayer.sheet.attributes.intelligence.value);
+        setWisdom(findPlayer.sheet.attributes.wisdom.value);
+        setCharisma(findPlayer.sheet.attributes.charisma.value);
+        setListNumbers([findPlayer.sheet.attributes.strength.value, findPlayer.sheet.attributes.dexterity.value, findPlayer.sheet.attributes.constitution.value, findPlayer.sheet.attributes.intelligence.value, findPlayer.sheet.attributes.wisdom.value, findPlayer.sheet.attributes.charisma.value]);
+    } else setShowSheet({ show: false, id: '' });
     }
   }, [session, players]);
 

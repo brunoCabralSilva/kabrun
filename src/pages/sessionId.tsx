@@ -15,7 +15,7 @@ import MessageToUser from "../components/messageToUser";
 import LeaveSession from "../components/menuSession/leaveSession";
 import EditHealthPoints from "../components/sheet/items/editHealthPoints";
 import EditConditions from "../components/sheet/items/editConditions";
-import Guide from "../components/sheet/items/guide";
+import Guide from "../components/sheet/guide/guide";
 
 export default function SessionId() {
   let { id } = useParams();
@@ -38,7 +38,7 @@ export default function SessionId() {
   const db = getFirestore(firestoreConfig);
   const dataRefSession = doc(db, "sessions", id);
   let [dataSession, loadingSession] = useDocumentData(dataRefSession, { idField: "id" } as any);
-  if (!dataSession) dataSession = [];
+  if (!dataSession) dataSession = {};
   useEffect(() => {
     if (dataSession && !loadingSession) setSession(dataSession);
   }, [dataSession, loadingSession, session, setSession]);

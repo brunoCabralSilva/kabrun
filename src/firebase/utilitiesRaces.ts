@@ -378,6 +378,7 @@ export const applySubRace = (sheet: any, subRace: string, calculateMod: any) => 
     sheet.attributes.wisdom.bonus = sheet.attributes.wisdom.bonus - 1;
     sheet.attributes.wisdom.mod = calculateMod(sheet.attributes.wisdom.value + sheet.attributes.wisdom.bonus);
     sheet.hitPoints.total -= 1;
+    sheet.hitPoints.actual -= 1;
   } else if (sheet.subRace === 'Anão da Montanha') {
     sheet.attributes.strength.bonus = sheet.attributes.strength.bonus - 2;
     sheet.attributes.strength.mod = calculateMod(sheet.attributes.strength.value + sheet.attributes.strength.bonus);
@@ -466,6 +467,7 @@ export const applySubRace = (sheet: any, subRace: string, calculateMod: any) => 
     sheet.attributes.wisdom.bonus = sheet.attributes.wisdom.bonus + 1;
     sheet.attributes.wisdom.mod = calculateMod(sheet.attributes.wisdom.value + sheet.attributes.wisdom.bonus);
     sheet.hitPoints.total += 1;
+    sheet.hitPoints.actual += 1;
   } else if (subRace === 'Anão da Montanha') {
     sheet.attributes.strength.bonus = sheet.attributes.strength.bonus + 2;
     sheet.attributes.strength.mod = calculateMod(sheet.attributes.strength.value + sheet.attributes.strength.bonus);

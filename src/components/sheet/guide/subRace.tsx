@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import contexto from "../../context/context";
-import races from '../../data/races.json';
-import listRaces from '../../data/races.json';
-import listMagics from '../../data/magics.json';
-import listClasses from '../../data/classes.json';
-import listLanguages from '../../data/languages.json';
-import { updateDataPlayer } from "../../firebase/players";
-import { applySubRace } from "../../firebase/utilitiesRaces";
+import contexto from "../../../context/context";
+import races from '../../../data/races.json';
+import listRaces from '../../../data/races.json';
+import listMagics from '../../../data/magics.json';
+import listClasses from '../../../data/classes.json';
+import listLanguages from '../../../data/languages.json';
+import { updateDataPlayer } from "../../../firebase/players";
+import { applySubRace } from "../../../firebase/utilitiesRaces";
 
 export default function SubRaces() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
@@ -17,24 +17,26 @@ export default function SubRaces() {
   const [languagesAdded, setLanguagesAdded] = useState<any>([]);
   const [newLanguage, setNewLanguage] = useState<{ name: string, title: string, book: string}>({ name: '', title: '', book: ''});
   const [newMagic, setNewMagic] = useState({ name: '' });
-  const { showSheet, session, players, returnAttribute, setShowMessage, calculateMod, setOptionGuide } = useContext(contexto);
+  const { showSheet, session, players, returnAttribute, setShowMessage, calculateMod, setOptionGuide, setShowSheet } = useContext(contexto);
 
   useEffect(() => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
-    setDataPlayer(findPlayer);
-    const listRacesData = listRaces.find((racesItem: any) => racesItem.name === findPlayer.sheet.race);
-    setRace(listRacesData);
-    if (listRacesData) {
-      const listSubRaces = listRacesData.subraces.find((subRaceItem: any) => subRaceItem.name === findPlayer.sheet.subRace);
-      setSubRaceSelected(listSubRaces);
-      setSubRace(findPlayer.sheet.subRace);
-    }
-    const filteredLanguages = listLanguages
-      .filter(language => session.books.includes(language.book))
-      .filter(language => !findPlayer.sheet.languages.some((lang: any) => lang.name === language.name))
-      .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }));
-    setLanguagesNotAdded(filteredLanguages);
-    setLanguagesAdded(findPlayer.sheet.languages);
+    if (findPlayer) {
+      setDataPlayer(findPlayer);
+      const listRacesData = listRaces.find((racesItem: any) => racesItem.name === findPlayer.sheet.race);
+      setRace(listRacesData);
+      if (listRacesData) {
+        const listSubRaces = listRacesData.subraces.find((subRaceItem: any) => subRaceItem.name === findPlayer.sheet.subRace);
+        setSubRaceSelected(listSubRaces);
+        setSubRace(findPlayer.sheet.subRace);
+      }
+      const filteredLanguages = listLanguages
+        .filter(language => session.books.includes(language.book))
+        .filter(language => !findPlayer.sheet.languages.some((lang: any) => lang.name === language.name))
+        .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }));
+      setLanguagesNotAdded(filteredLanguages);
+      setLanguagesAdded(findPlayer.sheet.languages);
+    } else setShowSheet({ show: false, id: '' });
   }, [session, players]);
 
   const updateData = async () => {

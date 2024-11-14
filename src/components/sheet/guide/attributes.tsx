@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import contexto from "../../context/context";
-import { updateDataPlayer } from "../../firebase/players";
+import contexto from "../../../context/context";
+import { updateDataPlayer } from "../../../firebase/players";
 
 export default function Attributes() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
@@ -19,16 +19,18 @@ export default function Attributes() {
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
     setDataPlayer(findPlayer);
-    if (findPlayer.sheet.chooseAttribute) {
-      setType('selected');
-      setStrength(findPlayer.sheet.attributes.strength.value);
-      setDexterity(findPlayer.sheet.attributes.dexterity.value);
-      setConstitution(findPlayer.sheet.attributes.constitution.value);
-      setIntelligence(findPlayer.sheet.attributes.intelligence.value);
-      setWisdom(findPlayer.sheet.attributes.wisdom.value);
-      setCharisma(findPlayer.sheet.attributes.charisma.value);
-      setListNumbers([findPlayer.sheet.attributes.strength.value, findPlayer.sheet.attributes.dexterity.value, findPlayer.sheet.attributes.constitution.value, findPlayer.sheet.attributes.intelligence.value, findPlayer.sheet.attributes.wisdom.value, findPlayer.sheet.attributes.charisma.value]);
-    }
+    if (findPlayer) {
+      if (findPlayer.sheet.chooseAttribute) {
+        setType('selected');
+        setStrength(findPlayer.sheet.attributes.strength.value);
+        setDexterity(findPlayer.sheet.attributes.dexterity.value);
+        setConstitution(findPlayer.sheet.attributes.constitution.value);
+        setIntelligence(findPlayer.sheet.attributes.intelligence.value);
+        setWisdom(findPlayer.sheet.attributes.wisdom.value);
+        setCharisma(findPlayer.sheet.attributes.charisma.value);
+        setListNumbers([findPlayer.sheet.attributes.strength.value, findPlayer.sheet.attributes.dexterity.value, findPlayer.sheet.attributes.constitution.value, findPlayer.sheet.attributes.intelligence.value, findPlayer.sheet.attributes.wisdom.value, findPlayer.sheet.attributes.charisma.value]);
+      }
+    } else setShowGuide(false);
   }, [session, players]);
 
   const roll4d6DropLowest = () => {
@@ -104,9 +106,13 @@ export default function Attributes() {
     dataPlayer.sheet.attributes.wisdom.mod = calculateMod(wisdom + dataPlayer.sheet.attributes.wisdom.bonus);
     dataPlayer.sheet.attributes.charisma.value = charisma;
     dataPlayer.sheet.attributes.charisma.mod = calculateMod(charisma + dataPlayer.sheet.attributes.charisma.bonus);
+    dataPlayer.sheet.hitPoints.total = dataPlayer.sheet.hitPoints.class + (dataPlayer.sheet.attributes.constitution.mod * dataPlayer.sheet.level);
+    dataPlayer.sheet.hitPoints.actual = dataPlayer.sheet.hitPoints.total;
+    if (dataPlayer.class === 'Bárbaro') {
+      dataPlayer.sheet.armorClass = 10 + dataPlayer.sheet.attributes.dexterity.mod +  dataPlayer.sheet.attributes.constitution.mod;
+    } else dataPlayer.sheet.armorClass = 10 + dataPlayer.sheet.attributes.dexterity.mod;
     await updateDataPlayer(session.id, dataPlayer, setShowMessage);
-    setShowGuide(false);
-    setOptionGuide('initials');
+    setOptionGuide('distribute-class');
   }
 
   return(
@@ -276,7 +282,7 @@ export default function Attributes() {
       }
       {
         type === 'personalized' &&
-        <div>Total gasto: { sumCost }</div>
+        <div>Total gasto: { sumCost } / 27</div>
       }
       {
         dataPlayer && type !== '' &&
@@ -500,7 +506,7 @@ export default function Attributes() {
         </div>
       }
       {
-        session.attributeDistribution.find((atrDist: any) => atrDist.name === 'fixed' || atrDist.name === 'personalized' || atrDist.name === 'rolling') && <div>
+        !session.attributeDistribution.find((atrDist: any) => atrDist.name === 'fixed' || atrDist.name === 'personalized' || atrDist.name === 'rolling') && <div>
           É necessário que o Narrador decida quais os métodos de distribuição de atributo serão usados para esta crônica
         </div>
       }
@@ -521,7 +527,7 @@ export default function Attributes() {
             }}
             className="break-words items-center justify-center text-sm font-medium hover:text-white p-2 border-2 border-white"
             >
-              Concluir
+              Próximo
           </button>
         }
       </div>

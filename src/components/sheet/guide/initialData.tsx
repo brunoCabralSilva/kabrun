@@ -1,20 +1,23 @@
 import { useContext, useEffect, useState } from "react";
-import contexto from "../../context/context";
-import { updatePlayerImage } from "../../firebase/storage";
-import { updateDataPlayer } from "../../firebase/players";
+import contexto from "../../../context/context";
+import { updatePlayerImage } from "../../../firebase/storage";
+import { updateDataPlayer } from "../../../firebase/players";
+import listAlignments from '../../../data/alignment.json';
 
 export default function InitialData() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
   const [image, setImage] = useState(null);
   const [name, setName] = useState('');
   const [alignment, setAlignment] = useState('');
-  const { showSheet, session, players, setShowMessage, setOptionGuide } = useContext(contexto);
+  const { showSheet, session, players, setShowMessage, setOptionGuide, setShowSheet } = useContext(contexto);
 
   useEffect(() => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
-    setDataPlayer(findPlayer);
-    setName(findPlayer.sheet.name);
-    setAlignment(findPlayer.sheet.alignment);
+    if (findPlayer) {
+      setDataPlayer(findPlayer);
+      setName(findPlayer.sheet.name);
+      setAlignment(findPlayer.sheet.alignment);
+    } else setShowSheet({ show: false, id: '' });
   }, [session, players]);
 
   const updateData = async () => {
@@ -63,60 +66,17 @@ export default function InitialData() {
               onChange={ async (e) => setAlignment(e.target.value) }
             >
               <option disabled value="">Escolha um Alinhamento</option>
-              <option
-                title="É a tendência de criaturas que se pode contar para fazer o que é correto como é esperado pela sociedade. Dragões dourados, paladinos e muitos anões são ordeiros e bons."
-                value="Ordeiro e Bom"
-              >
-                Ordeiro e Bom
-              </option>
-              <option
-                title="É a tendência do povo que faz o melhor que pode para ajudar outros de acordo com suas necessidades. Muitos celestiais, alguns gigantes das nuvens, e grande parte dos gnomos são neutros e bons"
-                value="Neutro e Bom"
-                >
-                Neutro e Bom
-              </option>
-              <option
-                title="É a tendência de criaturas que agem de acordo com sua própria consciência, se importando pouco com as expectativas dos outros. Dragões de cobre, muitos elfos e unicórnios são caóticos e bons"
-                value="Caótico e Bom"
-              >
-                Caótico e Bom
-              </option>
-              <option
-                title="É a tendência dos indivíduos que agem de acordo com as leis, tradições ou códigos pessoais. Muitos monges e alguns magos são ordeiros e neutros"
-                value="Ordeiro e Neutro"
-              >
-                Ordeiro e Neutro
-              </option>
-              <option
-                title="É a tendência daqueles que preferem manter distância de questões morais e não tomar partido, fazendo o que aparenta ser melhor conforme a situação. O povo lagarto, muitos druidas e diversos humanos são neutros."
-                value="Neutro"
-              >
-                Neutro
-              </option>
-              <option
-                title="É a tendência das criaturas que seguem seus caprichos, mantendo sua liberdade pessoal acima de tudo. Muitos bárbaros e ladinos, e alguns  bardos, são caóticos e neutros"
-                value="Caótico e Neutro"
-              >
-                Caótico e Neutro
-              </option>
-              <option
-                title="É a tendência das criaturas que conseguem metodicamente tudo o que querem, dentro dos limites de uma tradição, lei ou ordem. Diabos, dragões azuis e hobgoblins são ordeiros e maus."
-                value="Ordeiro e Mau"
-              >
-                Ordeiro e Mau
-              </option>
-              <option
-                title="É a tendência daqueles que farão tudo o que quiserem, sem compaixão ou remorso. Muitos drow, alguns gigantes das nuvens e yugoloths são neutros e maus"
-                value="Neutro e Mau"
-              >
-                Neutro e Mau
-              </option>
-              <option
-                title="É a tendência de criaturas que agem com violência arbitrária, estimulada por sua ganância, ódio ou sede de sangue. Demônios, dragões vermelhos e orcs são caóticos e maus"
-                value="Caótico e Mau"
-              >
-                Caótico e Mau
-              </option>
+              {  
+                listAlignments.map((align: any, index: number) => (
+                  <option
+                    key={index}
+                    title={ align.description }
+                    value={ align.value }
+                  >
+                    { align.value }
+                  </option> 
+                ))
+              }
             </select>
           </div>
         </div>

@@ -6,16 +6,18 @@ export default function LanguagesGuide() {
   const [languagesNotAdded, setLanguagesNotAdded] = useState<any>([]);
   const [languagesAdded, setLanguagesAdded] = useState<any>([]);
   const [newLanguage, setNewLanguage] = useState<{ name: string, title: string, book: string}>({ name: '', title: '', book: ''});
-  const { players, session, showSheet } = useContext(contexto);
+  const { players, session, showSheet, setShowSheet } = useContext(contexto);
 
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
-    const filteredLanguages = listLanguages
-      .filter(language => session.books.includes(language.book))
-      .filter(language => !findPlayer.sheet.languages.some((lang: any) => lang.name === language.name))
-      .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }));
-    setLanguagesNotAdded(filteredLanguages);
-    setLanguagesAdded(findPlayer.sheet.languages);
+    if (findPlayer) {
+      const filteredLanguages = listLanguages
+        .filter(language => session.books.includes(language.book))
+        .filter(language => !findPlayer.sheet.languages.some((lang: any) => lang.name === language.name))
+        .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }));
+      setLanguagesNotAdded(filteredLanguages);
+      setLanguagesAdded(findPlayer.sheet.languages);
+    } else setShowSheet({ show: false, id: '' });
   }, [session, players]);
 
   return(

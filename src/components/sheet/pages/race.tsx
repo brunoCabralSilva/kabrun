@@ -5,12 +5,14 @@ import listRaces from '../../../data/races.json';
 export default function Race() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
   const [race, setRace] = useState<any>(null);
-  const { session, players, showSheet, returnAttribute } = useContext(contexto);
+  const { session, players, showSheet, returnAttribute, setShowSheet } = useContext(contexto);
   
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
-    setDataPlayer(findPlayer);
-    setRace(listRaces.find((racesItem: any) => racesItem.name === findPlayer.sheet.race));
+    if (findPlayer) {
+      setDataPlayer(findPlayer);
+      setRace(listRaces.find((racesItem: any) => racesItem.name === findPlayer.sheet.race));
+    } else setShowSheet({ show: false, id: '' });
   }, [session, players]);
 
   return(

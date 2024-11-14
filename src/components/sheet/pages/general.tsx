@@ -7,6 +7,7 @@ import ExperiencePoints from "../items/experiencePoints";
 import Languages from "../items/languages";
 import { MdDelete } from "react-icons/md";
 import { updateDataPlayer } from "../../../firebase/players";
+import listAlignments from '../../../data/alignment.json';
 
 export default function General() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
@@ -19,12 +20,14 @@ export default function General() {
     setEditConditions,
     setShowMessage,
     setShowGuide,
+    setShowSheet,
   } = useContext(contexto);
   const [colorDeathSaves, setColorDeathSaves] = useState(false);
 
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
-    setDataPlayer(findPlayer);
+    if (findPlayer) setDataPlayer(findPlayer);
+    else setShowSheet({ show: false, id: '' });
   }, [session, players]);
 
   const returnHitPoints = () => {
@@ -176,7 +179,7 @@ export default function General() {
                 <div
                   key={index}
                   title={condition.title}
-                  className="rounded-full border border-white px-2 py-1 flex items-center gap-2"
+                  className={`rounded-full border border-white px-2 py-1 flex items-center gap-2 ${condition.font !== 'default' && 'cursor-pointer'}`}
                 >
                   <span className="text-sm">{ condition.name }</span>
                   {
@@ -321,7 +324,7 @@ export default function General() {
             <div className="mt-3 capitalize w-full">
               <span className="pr-3 mb-3">Alinhamento</span>
               <div className="flex items-center gap-2">
-                <div className="box-select flex items-center justify-center w-full col-span-1 mt-2">
+                <div className={`relative flex items-center justify-center w-full col-span-1 mt-2 ${dataPlayer.sheet.alignment === '' && 'h-8'}`}>
                   <div className="box__line box__line--top" />
                   <div className="box__line box__line--right" />
                   <div className="box__line box__line--bottom" />
@@ -329,7 +332,28 @@ export default function General() {
                   <div
                     className="w-full text-center py-1 bg-gray-whats-dark outline-none"
                   >
-                    { dataPlayer.sheet.alignment }
+                    <select
+                      className="w-full text-center bg-gray-whats-dark cursor-pointer outline-none"
+                      value={dataPlayer.sheet.alignment}
+                      onChange={ async (e) => {
+                        const playerData = dataPlayer;
+                        playerData.sheet.alignment = e.target.value;
+                        await updateDataPlayer(session.id, playerData, setShowMessage);
+                      }}
+                    >
+                      <option disabled value="">Escolha um Alinhamento</option>
+                      {  
+                        listAlignments.map((align: any, index: number) => (
+                          <option
+                            key={index}
+                            title={ align.description }
+                            value={ align.value }
+                          >
+                            { align.value }
+                          </option> 
+                        ))
+                      }
+                    </select>
                   </div>
                 </div>
               </div>

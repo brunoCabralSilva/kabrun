@@ -1,19 +1,25 @@
 import { useContext, useEffect, useState } from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import contexto from "../../../context/context";
-import InitialData from "../initialData";
-import Race from "../race";
-import SubRaces from "../subRace";
-import ClassPlayer from "../classPlayer";
-import Attributes from "../attributes";
+import InitialData from "../guide/initialData";
+import Race from "../guide/race";
+import SubRaces from "../guide/subRace";
+import ClassPlayer from "../guide/classPlayer";
+import Attributes from "../guide/attributes";
+import ClassCharactetistics from "./classCharacteristics";
 
 export default function Guide() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
-  const { showSheet, session, players, setShowGuide, optionGuide } = useContext(contexto);
+  const { showSheet, session, players, setShowGuide, optionGuide, setShowSheet } = useContext(contexto);
 
   useEffect(() => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
-    setDataPlayer(findPlayer);
+    if (findPlayer) {
+      setDataPlayer(findPlayer);
+    } else {
+      setShowSheet({ show: false, id: '' });
+      setShowGuide(false);
+    }
   }, [session, players]);
 
   return(
@@ -82,6 +88,16 @@ export default function Guide() {
                 <div className="box__line box__line--left relative" />
                 <p>Atributos</p>
               </button>
+              <button
+                type="button"
+                className={`${optionGuide === 'distribute-class' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1 mt-3`}
+              >
+                <div className="box__line box__line--top" />
+                <div className="box__line box__line--right" />
+                <div className="box__line box__line--bottom" />
+                <div className="box__line box__line--left relative" />
+                <p>Características</p>
+              </button>
             </div>
             <div className="w-full">
             { optionGuide === 'initials' && <InitialData /> }
@@ -89,6 +105,7 @@ export default function Guide() {
             { optionGuide === 'subrace' && <SubRaces /> }
             { optionGuide === 'class' && <ClassPlayer /> }
             { optionGuide === 'attributes' && <Attributes /> }
+            { optionGuide === 'distribute-class' && <ClassCharactetistics /> }
             </div>
           </div>
         </div>

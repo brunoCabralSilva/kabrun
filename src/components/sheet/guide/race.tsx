@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import contexto from "../../context/context";
-import listRaces from '../../data/races.json';
-import listTalents from '../../data/talents.json';
-import listLanguages from '../../data/languages.json';
-import listBreaths from '../../data/breaths.json';
-import skillsList from '../../data/skills.json';
-import { updateDataPlayer } from "../../firebase/players";
-import { applyRace, applySubRace } from "../../firebase/utilitiesRaces";
+import contexto from "../../../context/context";
+import listRaces from '../../../data/races.json';
+import listTalents from '../../../data/talents.json';
+import listLanguages from '../../../data/languages.json';
+import listBreaths from '../../../data/breaths.json';
+import skillsList from '../../../data/skills.json';
+import { updateDataPlayer } from "../../../firebase/players";
+import { applyRace, applySubRace } from "../../../firebase/utilitiesRaces";
 
 export default function Race() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
@@ -19,13 +19,15 @@ export default function Race() {
   const [listAttributes, setListAttributes] = useState<string[]>([]);
   const [listSkills, setListSkills] = useState<string[]>([]);
   const [ breathType, setBreathType] = useState<{ dragon: string, type: string, attack: string }>({ dragon: '', type: '', attack: '' });
-  const { showSheet, session, players, returnAttribute, setShowMessage, calculateMod, setOptionGuide } = useContext(contexto);
+  const { showSheet, session, players, returnAttribute, setShowMessage, calculateMod, setOptionGuide, setShowSheet } = useContext(contexto);
 
   useEffect(() => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
-    setDataPlayer(findPlayer);
-    setRaceSelected(listRaces.find((racesItem: any) => racesItem.name === findPlayer.sheet.race));
-    setRace(findPlayer.sheet.race);
+    if (findPlayer) {
+      setDataPlayer(findPlayer);
+      setRaceSelected(listRaces.find((racesItem: any) => racesItem.name === findPlayer.sheet.race));
+      setRace(findPlayer.sheet.race);
+    } else setShowSheet({ show: false, id: '' });
   }, [session, players]);
 
   const updateData = async () => {

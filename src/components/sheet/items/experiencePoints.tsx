@@ -8,12 +8,14 @@ export default function ExperiencePoints() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
   const [xp, setXp] = useState('');
   const [editXp, setEditXp] = useState(false);
-  const { session, showSheet, players, setShowMessage } = useContext(contexto);
+  const { session, showSheet, players, setShowMessage, setShowSheet } = useContext(contexto);
 
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
-    setDataPlayer(findPlayer);
-    setXp(findPlayer.sheet.xp);
+    if (findPlayer) {
+      setDataPlayer(findPlayer);
+      setXp(findPlayer.sheet.xp);
+    } else setShowSheet({ show: false, id: '' });
   }, [session, players]);
 
   return(

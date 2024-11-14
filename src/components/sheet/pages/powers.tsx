@@ -3,11 +3,12 @@ import contexto from "../../../context/context";
 
 export default function Powers() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
-  const { session, players, showSheet } = useContext(contexto);
+  const { session, players, showSheet, setShowSheet } = useContext(contexto);
   
   useEffect( () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
-    setDataPlayer(findPlayer);
+    if (findPlayer) setDataPlayer(findPlayer);
+    else setShowSheet({ show: false, id: '' });
   }, [session, players]);
   
   return(

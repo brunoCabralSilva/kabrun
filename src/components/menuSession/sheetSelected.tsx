@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import contexto from "../../context/context";
 import General from "../sheet/pages/general";
@@ -15,6 +15,12 @@ import Talents from "../sheet/pages/talents";
 export default function SheetSelected() {
   const { setShowSheet } = useContext(contexto);
   const [optionSelect, setOptionSelect] = useState('general');
+  const { session, players, showSheet } = useContext(contexto);
+
+  useEffect( () => {
+    const findPlayer = players.find((player: any) => player.id === showSheet.id);
+    if (!findPlayer) setShowSheet({ show: false, id: '' });
+  }, [session, players]);
 
   return (
     <div className="relative h-screen w-full flex flex-col overflow-y-auto">
@@ -34,7 +40,7 @@ export default function SheetSelected() {
           className="w-full outline-none mb-2 border border-white p-3 cursor-pointer bg-black text-white flex items-center justify-center font-bold text-center"
         >
           <option value={'general'}>Geral</option>
-          <option value={'skills'}>Perícias</option>
+          <option value={'skills'}>Atributos e Perícias</option>
           <option value={'race'}>Raça</option>
           <option value={'class'}>Classe</option>
           <option value={'magics'}>Magias</option>
