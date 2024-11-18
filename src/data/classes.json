@@ -8,6 +8,7 @@
     "spacesOfMagics": 0,
     "skillNumber": 2,
     "lifePerLevel": 12,
+    "conjurarion": "",
     "savingThrows": ["strength", "constitution"],
     "tools": [],
     "alternativeEquips": [
@@ -83,6 +84,7 @@
     "skills": ["decepcion", "intimidation", "performance", "persuasion", "acrobatics", "sleightOfHand", "stealth", "religion", "nature", "investigation", "history", "arcana", "athletics", "animalHandling", "perception", "survival", "medicine", "insight"],
     "skillNumber": 3,
     "lifePerLevel": 8,
+    "conjurarion": "charisma",
     "savingThrows": ["dexterity", "charisma"],
     "tools": ["Três instrumentos musicais à sua escolha"],
     "alternativeEquips": [
@@ -137,7 +139,11 @@
   {
     "name": "Bruxo",
     "lifePerLevel": 8,
-    "magics": [],
+    "magics": [
+      "Amizade", "Ataque Certeiro", "Ilusão Menor", "Mãos Mágicas", "Prestidigitação", 
+      "Proteção contra Lâminas", "Rajada de Veneno", "Rajada Mística", "Toque Arrepiante",
+      "Armadura de Agathys", "Braços de Hadar", "Bruxaria", "Compreender Idiomas", "Enfeitiçar Pessoa", "Escrita Ilusória", "Proteção contra o Bem e Mal", "Raio de Bruxa", "Recuo Acelerado", "Repreensão Infernal", "Servo Invisível", "Cativar", "Coroa da Loucura", "Despedaçar", "Escuridão", "Imobilizar Pessoa", "Invisibilidade", "Nuvem de Adagas", "Passo Nebuloso", "Patas de Aranha", "Raio do Enfraquecimento", "Reflexos", "Sugestão", "Círculo Mágico", "Contramágica", "Dissipar Magia", "Fome de Hadar", "Forma Gasosa", "Idiomas", "Imagem Maior", "Remover Maldição", "Medo", "Padrão Hipnótico", "Toque Vampírico", "Voo", "Banimento", "Porta Dimensional", "Malogro", "Terreno Alucinógeno", "Contato Extraplanar", "Imobilizar Monstro", "Sonho", "Vidência", "Ataque Visual", "Círculo da Morte", "Conjurar Fada", "Criar Mortos-Vivos", "Carne para Pedra", "Portal Arcano", "Sugestão em Massa", "Visão da Verdade", "Dedo da Morte", "Forma Etérea", "Prisão de Energia", "Viagem Planar", "Dominar Monstro", "Enfraquecer o Intelecto", "Loquacidade", "Palavra de Poder Atordoar", "Semiplano", "Aprisionamento", "Metamorfose Verdadeira", "Palavra de Poder Matar", "Projeção Astral", "Sexto Sentido"
+    ],
     "proficiences": [
       { "name": "Armadura Leves", "font": "bruxo", "type": "armors" },
       { "name": "Armas Simples", "font": "bruxo", "type": "weapon" }
@@ -177,38 +183,170 @@
             "magics": [
               {
                 "level": 1,
-                "list": ["Fogo das Fadas", "Sono"]
+                "list": ["Fogo das Fadas", "Sono"],
+                "font": "bruxo / arquifada"
               },
               {
                 "level": 2,
-                "list": ["Acalmar Emoções", "Força Fantasmagórica"]
+                "list": ["Acalmar Emoções", "Força Fantasmagórica"],
+                "font": "bruxo / arquifada"
               },
               {
                 "level": 3,
-                "list": ["Piscar", "Ampliar Plantas"]
+                "list": ["Piscar", "Ampliar Plantas"],
+                "font": "bruxo / arquifada"
               },
               {
                 "level": 4,
-                "list": ["Dominar Besta", "Invisibilidade Maior"]
+                "list": ["Dominar Besta", "Invisibilidade Maior"],
+                "font": "bruxo / arquifada"
               },
               {
                 "level": 5,
-                "list": ["Dominar Pessoa", "Similaridade"]
+                "list": ["Dominar Pessoa", "Similaridade"],
+                "font": "bruxo / arquifada"
               }
             ],
             "conditions": [
-              
+              {
+                "level": 1,
+                "font": "bruxo / arquifada",
+                "name": "Presença Feérica",
+                "description": "A partir do 1° nível, seu patrono concede a você a habilidade de projetar a sedução e temeridade da presença da fada. Com uma ação, você pode fazer com que cada criatura num cubo de 3 metros centrado em você, faça um teste de resistência de Sabedoria com uma CD igual a de sua magia de bruxo. As criaturas que falharem no teste ficaram enfeitiçadas ou amedrontadas por você (à sua escolha) até o início do seu próximo turno. Quando você usar essa característica, você não poderá utilizá-la novamente antes de realizar um descanso curto ou longo."
+              }
             ]
           },
           {
             "name": "Ínfero",
-            "description": ""
+            "description": "Você realizou um pacto com um corruptor dos planos de existência inferiores, um ser cujos objetivos são o mal, mesmo se você se opor a esses objetivos. Tais seres desejam corromper ou destruir todas as coisas, em última análise, até mesmo você. Corruptores poderosos o bastante para forjar pactos incluem lordes demônios como Demogorgon, Orcus, Fraz'Urb-luu e Bafomé; arquidiabos como Asmodeus, Dispater, Mefistófeles e Belial; senhores das profundezas e balors que sejam excepcionalmente poderosos; e ultraloths e outros senhores dos yugoloths.",
+            "magics": [
+              {
+                "level": 1,
+                "list": ["Mãos Flamejantes", "Comando"],
+                "font": "bruxo / ínfero"
+              },
+              {
+                "level": 2,
+                "list": ["Cegueira/Surdez", "Raio Ardente"],
+                "font": "bruxo / ínfero"
+              },
+              {
+                "level": 3,
+                "list": ["Bola de Fogo", "Névoa Fétida"],
+                "font": "bruxo / ínfero"
+              },
+              {
+                "level": 4,
+                "list": ["Escudo de Fogo", "Muralha de Fogo"],
+                "font": "bruxo / ínfero"
+              },
+              {
+                "level": 5,
+                "list": ["Coluna de Chamas", "Consagrar"],
+                "font": "bruxo / ínfero"
+              }
+            ],
+            "conditions": [
+              {
+                "level": 1,
+                "font": "bruxo / ínfero",
+                "name": "Bênção do Obscuro",
+                "description": "A partir do 1° nível, quando você reduzir uma criatura hostil a 0 pontos de vida, você ganha uma quantidade de pontos de vida temporários igual ao seu modificador de Carisma + seu nível de bruxo (mínimo 1)."
+              }
+            ]
           },
           { 
             "name": "Grande Antigo",
-            "description": ""
+            "description": "Seu patrono é uma entidade misteriosa cuja natureza é profundamente alheia ao tecido da realidade. Ela deve ter vindo do Reino Distante, o espaço além da realidade, ou ela pode ser um dos deuses anciãos conhecido apenas nas lendas. Seus motivos são incompreensíveis para os mortais e seu conhecimento é tão imenso e antigo que, até mesmo, as mais grandiosas bibliotecas desbotam em comparação com os vastos segredos que ele detém. O Grande Antigo pode desconhecer a sua existência ou ser totalmente indiferente a você, mas os segredos que você desvendou permitem que você obtenha suas magias dele. Entidades desse tipo incluem Ghaunadar, conhecido como Aquele que Espreita; Tharizdun, o Deus Acorrentado; Dendar, a Serpente da Noite; Zargon, o Retornado; Grande Cthulhu; entre outros seres insondáveis.",
+            "magics": [
+              {
+                "level": 1,
+                "list": ["Sussurros Dissonantes", "Riso Histérico de Tasha"],
+                "font": "bruxo / grande antigo"
+              },
+              {
+                "level": 2,
+                "list": ["Detectar Pensamentos", "Força Fantasmagórica"],
+                "font": "bruxo / grande antigo"
+              },
+              {
+                "level": 3,
+                "list": ["Clarividência", "Enviar Mensagem"],
+                "font": "bruxo / grande antigo"
+              },
+              {
+                "level": 4,
+                "list": ["Dominar Besta", "Tentáculos Negros de Evard"],
+                "font": "bruxo / grande antigo"
+              },
+              {
+                "level": 5,
+                "list": ["Dominar Pessoa", "Telecinesia"],
+                "font": "bruxo / grande antigo"
+              }
+            ],
+            "conditions": [
+              {
+                "level": 1,
+                "font": "bruxo / grande antigo",
+                "name": "Despertar a Mente",
+                "description": "A partir do 1° nível, seu conhecimento alienígena concede a você a habilidade de tocar a mente de outras criaturas. Você pode se comunicar telepaticamente com qualquer criatura que você possa ver a até 9 metros de você. Você não precisa partilhar um idioma com a criatura para compreender suas expressões telepáticas, mas a criatura deve ser capaz de compreender pelo menos um idioma."
+              }
+            ]
           }
         ]
+      }
+    ],
+    "powers": [],
+    "numberOfTruques": 2,
+    "numberOfMagics": 2,
+    "spacesOfMagics": 1,
+    "conjuration": "charisma"
+  },
+  { "name": "Clérigo",
+    "lifePerLevel": 8,
+    "magics": [
+      "Chama Sagrada", "Consertar", "Estabilizar", "Luz", "Orientação", "Resistência", "Taumaturgia", "Bênção", "Comando", "Criar ou Destruir Água", "Curar Ferimentos", "Detectar Magia", "Detectar o Bem e Mal", "Detectar Veneno e Doença", "Escudo da Fé", "Infringir Ferimentos", "Palavra Curativa", "Perdição", "Proteção contra o Bem e Mal", "Purificar Alimentos", "Raio Guiador", "Santuário", "Acalmar Emoções", "Ajuda", "Aprimorar Habilidade", "Arma Espiritual", "Augúrio", "Cegueira/Surdez", "Chama Continua", "Encontrar Armadilhas", "Imobilizar Pessoa", "Localizar Objeto", "Oração Curativa", "Proteção contra Veneno", "Repouso Tranquilo", "Restauração Menor", "Silêncio", "Vínculo Protetor", "Zona da Verdade", "Andar na Água", "Animar Mortos", "Círculo Mágico", "Clarividência", "Criar Alimentos", "Dissipar Magia", "Enviar Mensagem", "Espíritos Guardiões", "Falar com os Mortos", "Forjar Morte", "Glifo de Vigilância", "Idiomas", "Luz do Dia", "Mesclar-se às Rochas", "Palavra Curativa em Massa", "Proteção contra Energia", "Rogar Maldição", "Sinal de Esperança", "Remover Maldição", "Revivificar", "Adivinhação", "Banimento", "Controlar a Água", "Localizar Criatura", "Guardião da Fé", "Moldar Rochas", "Movimentação Livre", "Proteção contra a Morte", "Âncora Planar", "Coluna de Chamas", "Comunhão", "Conhecimento Lendário", "Consagrar", "Curar Ferimentos em Massa", "Dissipar o Bem e Mal", "Missão", "Praga", "Praga de Insetos", "Restauração Maior", "Reviver os Mortos", "Vidência", "Aliado Planar", "Barreira de Lâminas", "Criar Mortos-Vivos", "Cura Completa", "Encontrar o Caminho", "Doença Plena", "Banquete dos Heróis", "Palavra de Recordação", "Proibição", "Visão da Verdade", "Conjurar Celestial", "Forma Etérea", "Palavra Divina", "Regeneração", "Ressurreição", "Símbolo", "Tempestade de Fogo", "Viagem Planar",
+      "Aura Sagrada", "Campo Antimagia", "Controlar o Clima", "Terremoto", "Cura Completa em Massa", "Portal", "Projeção Astral", "Ressurreição Verdadeira"
+    ],
+    "proficiences": [
+      { "name": "Armaduras Leves", "font": "clerigo", "type": "armors" },
+      { "name": "Armaduras Médias", "font": "clerigo", "type": "armors" },
+      { "name": "Escudo", "font": "clerigo", "type": "armors" },
+      { "name": "Armas Simples", "font": "clerigo", "type": "weapon" }
+    ],
+    "tools": [],
+    "savingThrows": ["wisdom", "charisma"],
+    "skillNumber": 0,
+    "skills": ["history", "insight", "persuasion", "medicine", "religion"],
+    "alternativeEquips": [
+      [
+        { "name": "Uma Maça", "font": "clerigo" },
+        { "name": "Um Martelo de Guerra (Se for proficiente)", "font": "clerigo" }
+      ],
+      [
+        { "name": "Brunea", "font": "clerigo" },
+        { "name": "Armadura de Couro", "font": "clerigo" },
+        { "name": "Cota de Malha (Se for proficiente)", "font": "clerigo" }
+      ],
+      [
+        { "name": "Uma besta leve e 20 virotes", "font": "clerigo" },
+        { "name": "Qualquer Arma Simples", "font": "clerigo" }
+      ],
+      [
+        { "name": "Um Kit de Sacerdote", "font": "clerigo" },
+        { "name": "Um Kit do Aventureiro", "font": "clerigo" }
+      ]
+    ],
+    "fixedEquips": [
+      { "name": "Escudo", "font": "clerigo" },
+      { "name": "Símbolo Sagrado", "font": "clerigo" }
+    ],
+    "conditions": [
+      {
+        "name": "Patrono Sobrenatural",
+        "font": "clerigo",
+        "title": "No 1º Nível, você fez uma barganha com uma entidade sobrenatural à sua escolha. Sua escolha lhe concede características do 1º Nível e novamente no 6º, 10º e 14º"
       }
     ],
     "powers": [
@@ -218,11 +356,11 @@
         "description": ""
       }
     ],
-    "numberOfTruques": 2,
-    "numberOfMagics": 4,
-    "spacesOfMagics": 2
+    "numberOfTruques": 3,
+    "numberOfMagics": 2,
+    "spacesOfMagics": 1,
+    "conjuration": "charisma"
   },
-  { "name": "Clérigo", "magics": [], "skills": [] },
   { "name": "Druida", "magics": [], "skills": [] },
   { "name": "Feiticeiro", "magics": [], "skills": [] },
   { "name": "Patrulheiro", "magics": [], "skills": [] },
