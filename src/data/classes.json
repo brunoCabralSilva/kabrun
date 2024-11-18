@@ -1,5 +1,50 @@
 [
-  { "name": "Bárbaro", "magics": [] },
+  {
+    "name": "Bárbaro",
+    "magics": [],
+    "skills": ["animalHandling", "athletics", "intimidation", "nature", "perception", "survival"],
+    "numberOfTruques": 0,
+    "numberOfMagics": 0,
+    "spacesOfMagics": 0,
+    "skillNumber": 2,
+    "lifePerLevel": 12,
+    "savingThrows": ["strength", "constitution"],
+    "tools": [],
+    "alternativeEquips": [
+      [
+        { "name": "Um Machado Grande", "font": "bárbaro" },
+        { "name": "Qualquer Arma Marcial de Combate Corpo a Corpo", "font": "bárbaro" }
+      ],
+      [
+        { "name": "Duas Machadinhas", "font": "bárbaro" },
+        { "name": "Qualquer Arma Simples", "font": "bárbaro" }
+      ]
+    ],
+    "fixedEquips": [
+      { "name": "Um pacote de aventureiro", "font": "bárbaro" },
+      { "name": "Quatro Azagaias", "font": "bárbaro" }
+    ],
+    "proficiences": [
+      { "name": "Armaduras Médias", "font": "bárbaro", "type": "armors" },
+      { "name": "Escudos", "font": "bárbaro", "type": "armors" },
+      { "name": "Armas Simples", "font": "bárbaro", "type": "weapon" },
+      { "name": "Armas Marciais", "font": "bárbaro", "type": "weapon" }
+    ],
+    "conditions": [
+      {
+        "name": "Defesa sem Armadura",
+        "font": "bárbaro",
+        "title": "Quando você não estiver vestindo qualquer armadura, sua Classe de Armadura será 10 + seu modificador de Destreza + seu modificador de Constituição. Você pode usar um escudo e continuar a receber esse benefício."
+      }
+    ],
+    "powers": [
+      {
+        "name": "Fúria",
+        "font": "bárbaro",
+        "description": "Em batalha, você luta com uma ferocidade primitiva. No seu turno, você pode entrar em fúria com uma ação bônus. Enquanto estiver em fúria, você recebe os seguintes benefícios se você não estiver vestindo uma armadura pesada: 1) Você tem vantagem em testes de Força e testes de resistência de Força. 2) Quando você desferir um ataque com arma corpo-acorpo usando Força, você recebe um bônus nas jogadas de dano que aumenta à medida que você adquire níveis de bárbaro, como mostrado na coluna Dano de Fúria na tabela O Bárbaro. 3) Você possui resistência contra dano de concussão, cortante e perfurante. Se você for capaz de conjurar magias, você não poderá conjurá-las ou se concentrar nelas enquanto estiver em fúria. Sua fúria dura por 1 minuto. Ela termina prematuramente se você cair inconsciente ou se seu turno acabar e você não tiver atacado nenhuma criatura hostil desde seu último turno ou não tiver sofrido dano nesse período. Você também pode terminar sua fúria no seu turno com uma ação bônus. Quando você tiver usado a quantidade de fúrias mostrada para o seu nível de bárbaro na coluna Fúrias da tabela O Bárbaro, você precisará terminar um descanso longo antes de poder entrar em fúria novamente."
+      }
+    ]
+  },
   {
     "name": "Bardo",
     "magics": [
@@ -31,21 +76,203 @@
       "Dominar Monstro", "Enfraquecer Intelecto", "Limpar a Mente", "Loquacidade", 
       "Palavra de Poder Atordoar", "Palavra de Poder Curar", "Palavra de Poder Matar", 
       "Metamorfose Verdadeira", "Sexto Sentido"
+    ],
+    "numberOfTruques": 2,
+    "numberOfMagics": 4,
+    "spacesOfMagics": 2,
+    "skills": ["decepcion", "intimidation", "performance", "persuasion", "acrobatics", "sleightOfHand", "stealth", "religion", "nature", "investigation", "history", "arcana", "athletics", "animalHandling", "perception", "survival", "medicine", "insight"],
+    "skillNumber": 3,
+    "lifePerLevel": 8,
+    "savingThrows": ["dexterity", "charisma"],
+    "tools": ["Três instrumentos musicais à sua escolha"],
+    "alternativeEquips": [
+      [
+        { "name": "Uma Rapieira", "font": "bardo" },
+        { "name": "Uma Espada Longa", "font": "bardo" },
+        { "name": "Qualquer Arma Simples", "font": "bardo" }
+      ],
+      [
+        { "name": "Um Kit de Diplomata", "font": "bardo" },
+        { "name": "Um Kit de Artista", "font": "bardo" }
+      ],
+      [
+        { "name": "Um Alaúde", "font": "bardo" },
+        { "name": "Qualquer outro Instrumento Musical", "font": "bardo" }
+      ]
+    ],
+    "fixedEquips": [
+      { "name": "Armadura de Couro", "font": "bardo" },
+      { "name": "Adaga", "font": "bardo" }
+    ],
+    "proficiences": [
+      { "name": "Armaduras Leves", "font": "bardo", "type": "armors" },
+      { "name": "Escudos", "font": "bardo", "type": "armors" },
+      { "name": "Armas Simples", "font": "bardo", "type": "weapon" },
+      { "name": "Armas Marciais", "font": "bardo", "type": "weapon" },
+      { "name": "Espadas Longas", "font": "bardo", "type": "weapon" },
+      { "name": "Espadas Curtas", "font": "bardo", "type": "weapon" },
+      { "name": "Rapieiras", "font": "bardo", "type": "weapon" },
+      { "name": "Bestas de Mão", "font": "bardo", "type": "weapon" }
+    ],
+    "conditions": [
+      {
+        "name": "Conjuração de Ritual",
+        "font": "bardo",
+        "title": "Você pode conjurar qualquer magia de bardo que você conheça como um ritual se ela possuir o descritor ritual."
+      },
+      {
+        "name": "Foco de Conjuração",
+        "font": "bardo",
+        "description": "Você pode usar um instrumento musical (encontrado no capítulo 5 do Player's Handbook) como foco de conjuração das suas magias de bardo"
+      }
+    ],
+    "powers": [
+      {
+        "name": "Inspiração de Bardo",
+        "font": "bardo",
+        "description": "Você pode inspirar os outros através de palavras animadoras ou música. Para tanto, você usa uma ação bônus no seu turno para escolher uma outra criatura, que não seja você mesmo, a até 18 metros de você que possa ouvi-lo. Essa criatura ganha um dado de Inspiração de Bardo, um d6. Uma vez, nos próximos 10 minutos, a criatura poderá rolar o dado e adicionar o valor rolado a um teste de habilidade, jogada de ataque ou teste de resistência que ela fizer. A criatura pode esperar até rolar o d20 antes de decidir usar o dado de Inspiração de Bardo, mas deve decidir antes do Mestre dizer se a rolagem foi bem ou mal sucedida. Quando o dado de Inspiração de Bardo for rolado, ele é gasto. Uma criatura pode ter apenas um dado de Inspiração de Bardo por vez. Você pode usar essa característica um número de vezes igual ao seu modificador de Carisma (no mínimo uma vez). Você recupera todos os usos quando termina um descanso longo. Seu dado de Inspiração de Bardo muda quando você atinge certos níveis na classe. O dado se torna um d8 no 5° nível, um d10 no 10° nível e um d12 no 15° nível."
+      }
     ]
   },
-  { "name": "Bruxo", "magics": [] },
-  { "name": "Clérigo", "magics": [] },
-  { "name": "Druida", "magics": [] },
-  { "name": "Feiticeiro", "magics": [] },
-  { "name": "Patrulheiro", "magics": [] },
-  { "name": "Guerreiro", "magics": [] },
-  { "name": "Ladino", "magics": [] },
+  {
+    "name": "Bruxo",
+    "lifePerLevel": 8,
+    "magics": [],
+    "proficiences": [
+      { "name": "Armadura Leves", "font": "bruxo", "type": "armors" },
+      { "name": "Armas Simples", "font": "bruxo", "type": "weapon" }
+    ],
+    "tools": [],
+    "savingThrows": ["wisdom", "charisma"],
+    "skillNumber": 0,
+    "skills": ["arcana", "decepcion", "history", "intimidation", "investigation", "nature", "religion"],
+    "alternativeEquips": [
+      [
+        { "name": "Uma Besta Leve e 20 Virotes", "font": "bruxo" },
+        { "name": "Qualquer Arma Simples", "font": "bruxo" }
+      ],
+      [
+        { "name": "Uma Bolsa de Componentes", "font": "bruxo" },
+        { "name": "Um Foco Arcano", "font": "bruxo" }
+      ],
+      [
+        { "name": "Um Kit Erudito", "font": "bruxo" },
+        { "name": "Um Kit de Explorador", "font": "bruxo" }
+      ]
+    ],
+    "fixedEquips": [
+      { "name": "Armadura de Couro", "font": "bruxo" },
+      { "name": "Qualquer Arma Simples", "font": "bruxo" },
+      { "name": "Duas Adagas", "font": "bruxo" }
+    ],
+    "conditions": [
+      {
+        "name": "Patrono Sobrenatural",
+        "font": "bruxo",
+        "title": "No 1º Nível, você fez uma barganha com uma entidade sobrenatural à sua escolha. Sua escolha lhe concede características do 1º Nível e novamente no 6º, 10º e 14º",
+        "list": [
+          { 
+            "name": "Arquifada",
+            "description": "Seu patrono é um senhor ou senhora das fadas, uma criatura lendária que detém segredos que foram esquecidos antes das raças mortais nascerem. As motivações desses seres são, muitas vezes, inescrutáveis e, as vezes, excêntricas e podem envolver esforços para adquirir grandes poderes mágicos ou resolução de desavenças antigas. Incluem-se dentre esses seres o Príncipe do Frio; a Rainha do Ar e Trevas, regente da Corte do Crepúsculo; Titania da Corte do Verão; seu cônjuge, Oberon, o Senhor Verdejante; Hyrsam, o Príncipe dos Tolos; e bruxas antigas.",
+            "magics": [
+              {
+                "level": 1,
+                "list": ["Fogo das Fadas", "Sono"]
+              },
+              {
+                "level": 2,
+                "list": ["Acalmar Emoções", "Força Fantasmagórica"]
+              },
+              {
+                "level": 3,
+                "list": ["Piscar", "Ampliar Plantas"]
+              },
+              {
+                "level": 4,
+                "list": ["Dominar Besta", "Invisibilidade Maior"]
+              },
+              {
+                "level": 5,
+                "list": ["Dominar Pessoa", "Similaridade"]
+              }
+            ],
+            "conditions": [
+              
+            ]
+          },
+          {
+            "name": "Ínfero",
+            "description": ""
+          },
+          { 
+            "name": "Grande Antigo",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "powers": [
+      {
+        "name": "",
+        "font": "",
+        "description": ""
+      }
+    ],
+    "numberOfTruques": 2,
+    "numberOfMagics": 4,
+    "spacesOfMagics": 2
+  },
+  { "name": "Clérigo", "magics": [], "skills": [] },
+  { "name": "Druida", "magics": [], "skills": [] },
+  { "name": "Feiticeiro", "magics": [], "skills": [] },
+  { "name": "Patrulheiro", "magics": [], "skills": [] },
+  { "name": "Guerreiro", "magics": [], "skills": [] },
+  { "name": "Ladino", "magics": [], "skills": [] },
   {
     "name": "Mago",
     "magics": [
       "Amizade", "Ataque Certeiro", "Consertar", "Espirro Ácido", "Globos de Luz", "Ilusão Menor", "Luz", "Mãos Mágicas", "Mensagem", "Prestidigitação", "Proteção contra Lâminas", "Raio de Fogo", "Raio de Gelo", "Rajada de Veneno", "Toque Arrepiante", "Toque Chocante", "Alarme", "Área Escorregadia", "Armadura Arcana", "Compreender Idiomas", "Convocar Familiar", "Detectar Magia", "Disco Flutuante de Tenser", "Disfarçar-se", "Enfeitiçar Pessoa", "Escrita Ilusória", "Escudo Arcano", "Identificação", "Imagem Silenciosa", "Leque Cromático", "Mãos Flamejantes", "Mísseis Mágicos", "Névoa Obscurecente", "Onda Trovejante", "Orbe Cromática", "Passos Longos", "Proteção contra o Bem e Mal", "Queda Suave", "Raio Adoecente", "Raio de Bruxa", "Recuo Acelerado", "Riso Histérico de Tasha", "Salto", "Servo Invisível", "Sono", "Vitalidade Falsa", "Alterar-se", "Arma Mágica", "Arrombar", "Aumentar/Reduzir", "Aura Mágica de Nystul", "Boca Encantada", "Cegueira/Surdez", "Chama Continua", "Coroa da Loucura", "Despedaçar", "Detectar Pensamentos", "Escuridão", "Esfera Flamejante", "Flecha Ácida de Melf", "Força Fantasmagórica", "Imobilizar Pessoa", "Invisibilidade", "Levitação", "Localizar Objeto", "Lufada de Vento", "Nublar", "Nuvem de Adagas", "Passo Nebuloso", "Patas de Aranha", "Raio Ardente", "Raio do Enfraquecimento", "Reflexos", "Repouso Tranquilo", "Sugestão", "Teia", "Tranca Arcana", "Truque de Corda", "Ver o Invisível", "Visão no Escuro", "Animar Mortos", "Bola de Fogo", "Círculo Mágico", "Clarividência", "Contramágica", "Dificultar Detecção", "Dissipar Magia", "Enviar Mensagem", "Forjar Morte", "Forma Gasosa", "Glifo de Vigilância", "Idiomas", "Imagem Maior", "Lentidão", "Medo", "Montaria Fantasmagórica", "Nevasca", "Névoa Fétida", "Padrão Hipnótico", "Pequena Cabana de Leomund", "Piscar", "Proteção contra Energia", "Relâmpago", "Remover Maldição", "Respirar na Água", "Rogar Maldição", "Toque Vampírico", "Velocidade", "Voo", "Arca Secreta de Leomund", "Assassino Fantasmagórico", "Banimento", "Cão Fiel de Mordenkainen", "Confusão", "Conjurar Elementais Menores", "Controlar a Água", "Escudo de Fogo", "Esfera Resiliente de Otiluke", "Fabricar", "Invisibilidade Maior", "Localizar Criatura", "Malogro", "Metamorfose", "Moldar Rochas", "Muralha de Fogo", "Olho Arcano", "Pele de Pedra", "Porta Dimensional", "Santuário Particular de Mordenkainen", "Tempestade de Gelo", "Tentáculos Negros de Evard", "Terreno Alucinógeno", "Âncora Planar", "Animar Objetos", "Círculo de Teletransporte", "Cone de Frio", "Conhecimento Lendário", "Conjurar Elemental", "Contato Extraplanar", "Criação", "Criar Passagem", "Despistar", "Dominar Pessoa", "Imobilizar Monstro", "Ligação Telepática de Rary", "Mão de Bigby", "Missão", "Modificar Memória", "Muralha de Energia", "Muralha de Pedra", "Névoa Mortal", "Similaridade", "Sonho", "Telecinésia", "Vidência", "Ataque Visual", "Carne para Pedra", "Círculo da Morte", "Contingência", "Corrente de Relâmpagos", "Criar Mortos-Vivos", "Dança Irresistível de Otto", "Desintegrar", "Esfera Congelante de Otiluke", "Globo de Invulnerabilidade", "Ilusão Programada", "Invocação Instantânea de Drawmij", "Mover Terra", "Muralha de Gelo", "Portal Arcano", "Proteger Fortaleza", "Raio Solar", "Recipiente Arcano", "Sugestão em Massa", "Visão da Verdade"
-    ]
+    ],
+    "skills": []
   },
-  { "name": "Monge", "magics": [] },
-  { "name": "Paladino", "magics": [] }
+  { "name": "Monge", "magics": [], "skills": [] },
+  {
+    "name": "Paladino",
+    "magics": [],
+    "numberOfTruques": 2,
+    "numberOfMagics": 4,
+    "spacesOfMagics": 2,
+    "skills": [""],
+    "skillNumber": 0,
+    "lifePerLevel": 0,
+    "savingThrows": ["", ""],
+    "tools": [],
+    "alternativeEquips": [
+      [
+        { "name": "", "font": "" },
+        { "name": "", "font": "" }
+      ]
+    ],
+    "fixedEquips": [
+      { "name": "", "font": "" }
+    ],
+    "proficiences": [
+      { "name": "", "font": "", "type": "armors" },
+      { "name": "", "font": "", "type": "weapon" }
+    ],
+    "conditions": [
+      {
+        "name": "",
+        "font": "",
+        "title": ""
+      }
+    ],
+    "powers": [
+      {
+        "name": "",
+        "font": "",
+        "description": ""
+      }
+    ]
+  }
 ]

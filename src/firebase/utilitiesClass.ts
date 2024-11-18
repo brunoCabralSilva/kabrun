@@ -25,6 +25,7 @@ export const applyClass = (sheet: any, classPlayer: string, data: any) => {
     sheet.equipments.proficiencies = sheet.equipments.proficiencies.filter((data: any) => data.font !== 'bardo');
     sheet.equipments.storage = sheet.equipments.storage.filter((data: any) => data.font !== 'bardo');
     sheet.modMagic = '';
+    sheet.spacesOfMagics.level1.total -= 2;
     Object.keys(sheet.skills).forEach(skill => {
       const skillData = sheet.skills[skill];
       skillData.font = skillData.font.filter((item: any) => item !== 'bardo');
@@ -32,6 +33,14 @@ export const applyClass = (sheet: any, classPlayer: string, data: any) => {
         skillData.trained = false;
       }
     });
+  } else if (classPlayer === 'Bruxo') {
+    sheet.hitPoints.class = 0;
+    sheet.attributes.wisdom.proficiency = false;
+    sheet.attributes.charisma.proficiency = false;
+    sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'bruxo');
+    sheet.magics = sheet.magics.filter((data: any) => data.font !== 'bruxo');
+    sheet.powers = sheet.powers.filter((data: any) => data.font !== 'bruxo');
+    sheet.equipments.proficiencies = sheet.equipments.proficiencies.filter((data: any) => data.font !== 'bruxo');
   }
   
   //Adicionando a classe
@@ -106,6 +115,7 @@ export const applyClass = (sheet: any, classPlayer: string, data: any) => {
       { name: 'Adaga', font: 'bardo' },
     ];
     sheet.modMagic = 'charisma';
+    sheet.spacesOfMagics.level1.total += 2;
     sheet.conditions = [
       ...sheet.conditions,
       {
@@ -126,6 +136,15 @@ export const applyClass = (sheet: any, classPlayer: string, data: any) => {
         font: 'bardo',
         description: "Você pode inspirar os outros através de palavras animadoras ou música. Para tanto, você usa uma ação bônus no seu turno para escolher uma outra criatura, que não seja você mesmo, a até 18 metros de você que possa ouvi-lo. Essa criatura ganha um dado de Inspiração de Bardo, um d6. Uma vez, nos próximos 10 minutos, a criatura poderá rolar o dado e adicionar o valor rolado a um teste de habilidade, jogada de ataque ou teste de resistência que ela fizer. A criatura pode esperar até rolar o d20 antes de decidir usar o dado de Inspiração de Bardo, mas deve decidir antes do Mestre dizer se a rolagem foi bem ou mal sucedida. Quando o dado de Inspiração de Bardo for rolado, ele é gasto. Uma criatura pode ter apenas um dado de Inspiração de Bardo por vez. Você pode usar essa característica um número de vezes igual ao seu modificador de Carisma (no mínimo uma vez). Você recupera todos os usos quando termina um descanso longo. Seu dado de Inspiração de Bardo muda quando você atinge certos níveis na classe. O dado se torna um d8 no 5° nível, um d10 no 10° nível e um d12 no 15° nível.",
       }
+    ];
+  } else if (classPlayer === 'Bruxo') {
+    sheet.hitPoints.class = 8;
+    sheet.attributes.wisdom.proficiency = true;
+    sheet.attributes.charisma.proficiency = true;
+    sheet.equipments.proficiencies = [
+      ...sheet.equipments.proficiencies,
+      { name: 'Armaduras Leves', font: 'bruxo', type: 'armors' },
+      { name: 'Armas Simples', font: 'bruxo', type: 'weapon' },
     ];
   }
   return sheet;

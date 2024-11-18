@@ -62,15 +62,15 @@ export const playerSheet = (nameSheet: string) => {
     magics: [],
     modMagic: '',
     spacesOfMagics: {
-      1: { total: 0, restant: 0},
-      2: { total: 0, restant: 0},
-      3: { total: 0, restant: 0},
-      4: { total: 0, restant: 0},
-      5: { total: 0, restant: 0},
-      6: { total: 0, restant: 0},
-      7: { total: 0, restant: 0},
-      8: { total: 0, restant: 0},
-      9: { total: 0, restant: 0},
+      level1: { total: 0, restant: 0},
+      level2: { total: 0, restant: 0},
+      level3: { total: 0, restant: 0},
+      level4: { total: 0, restant: 0},
+      level5: { total: 0, restant: 0},
+      level6: { total: 0, restant: 0},
+      level7: { total: 0, restant: 0},
+      level8: { total: 0, restant: 0},
+      level9: { total: 0, restant: 0},
     },
     armorClass: 0,
     skills: {
@@ -93,5 +93,28 @@ export const playerSheet = (nameSheet: string) => {
       medicine: { trained: false, attribute: 'wisdom', font: [] },
       insight: { trained: false, attribute: 'wisdom', font: [] },
     }
+  }
+}
+
+export const returnNameSkill = (name: string) => {
+  switch(name) {
+    case 'decepcion': return 'Enganação';
+    case 'intimidation': return 'Intimidação';
+    case 'performance': return 'Atuação';
+    case 'persuasion': return 'Persuasão';
+    case 'acrobatics': return 'Acrobacia';
+    case 'sleightOfHand': return 'Prestidigitação';
+    case 'stealth': return 'Furtividade';
+    case 'religion': return 'Religião';
+    case 'nature': return 'Natureza';
+    case 'investigation': return 'Investigação';
+    case 'history': return 'História';
+    case 'arcana': return 'Arcanismo';
+    case 'athletics': return 'Atletismo';
+    case 'animalHandling': return 'Lidar com Animais';
+    case 'perception': return 'Percepção';
+    case 'survival': return 'Sobrevivência';
+    case 'medicine': return 'Medicina';
+    case 'insight': return 'Intuição';
   }
 }

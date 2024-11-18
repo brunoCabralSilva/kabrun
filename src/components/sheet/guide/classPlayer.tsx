@@ -5,6 +5,7 @@ import { updateDataPlayer } from "../../../firebase/players";
 import { applyClass } from "../../../firebase/utilitiesClass";
 import listMagics from '../../../data/magics.json';
 import listClasses from '../../../data/classes.json';
+import { returnNameSkill } from "../../../firebase/utilities";
 
 export default function ClassPlayer() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
@@ -81,7 +82,7 @@ export default function ClassPlayer() {
         </div>
         {
           (classPlayer === 'Bárbaro' || classPlayer === 'Bardo') &&
-          <div>
+          <div className="w-full">
             {
               classPlayer === 'Bárbaro' &&
               <div className="w-full mt-5 pb-2">
@@ -94,91 +95,34 @@ export default function ClassPlayer() {
                 Escolha três Perícias
               </div>
             }
-            <div className="grid grid-cols-4 gap-3">
-              <button
-                onClick={() => {
-                  if (listSkills.includes('animalHandling')) {
-                    setListSkills(listSkills.filter((skillItem: any) => skillItem !== 'animalHandling'));
-                  } else setListSkills([...listSkills, 'animalHandling']);
-                }}
-                className={`${listSkills.includes('animalHandling') && 'bg-white text-black font-bold'} relative flex items-center justify-center w-full col-span-1 p-3`}
-                >
-                  <div className="box__line box__line--top" />
-                  <div className="box__line box__line--right" />
-                  <div className="box__line box__line--bottom" />
-                  <div className="box__line box__line--left" />
-                  <div>Lidar com Animais (Sab)</div>
-              </button>
-              <button
-                onClick={() => {
-                  if (listSkills.includes('athletics')) {
-                    setListSkills(listSkills.filter((skillItem: any) => skillItem !== 'athletics'));
-                  } else setListSkills([...listSkills, 'athletics']);
-                }}
-                className={`${listSkills.includes('athletics') && 'bg-white text-black font-bold'} relative flex items-center justify-center w-full col-span-1 p-3`}
-              >
-                <div className="box__line box__line--top" />
-                <div className="box__line box__line--right" />
-                <div className="box__line box__line--bottom" />
-                <div className="box__line box__line--left" />
-                <div>Atletismo (For)</div>
-              </button>
-              <button
-                onClick={() => {
-                  if (listSkills.includes('intimidation')) {
-                    setListSkills(listSkills.filter((skillItem: any) => skillItem !== 'intimidation'));
-                  } else setListSkills([...listSkills, 'intimidation']);
-                }}
-                className={`${listSkills.includes('intimidation') && 'bg-white text-black font-bold'} relative flex items-center justify-center w-full col-span-1 p-3`}
-              >
-                <div className="box__line box__line--top" />
-                <div className="box__line box__line--right" />
-                <div className="box__line box__line--bottom" />
-                <div className="box__line box__line--left" />
-                <div> Intimidação (Car)</div>
-              </button>
-              <button
-                onClick={() => {
-                  if (listSkills.includes('nature')) {
-                    setListSkills(listSkills.filter((skillItem: any) => skillItem !== 'nature'));
-                  } else setListSkills([...listSkills, 'nature']);
-                }}
-                className={`${listSkills.includes('nature') && 'bg-white text-black font-bold'} relative flex items-center justify-center w-full col-span-1 p-3`}
-              >
-                <div className="box__line box__line--top" />
-                <div className="box__line box__line--right" />
-                <div className="box__line box__line--bottom" />
-                <div className="box__line box__line--left" />
-                <div>Natureza (Int)</div>
-              </button>
-              <button
-                onClick={() => {
-                  if (listSkills.includes('perception')) {
-                    setListSkills(listSkills.filter((skillItem: any) => skillItem !== 'perception'));
-                  } else setListSkills([...listSkills, 'perception']);
-                }}
-                className={`${listSkills.includes('perception') && 'bg-white text-black font-bold'} relative flex items-center justify-center w-full col-span-1 p-3`}
-              >
-                <div className="box__line box__line--top" />
-                <div className="box__line box__line--right" />
-                <div className="box__line box__line--bottom" />
-                <div className="box__line box__line--left" />
-                <div>Percepção (Sab)</div>
-              </button>
-              <button
-                onClick={() => {
-                  if (listSkills.includes('survival')) {
-                    setListSkills(listSkills.filter((skillItem: any) => skillItem !== 'survival'));
-                  } else setListSkills([...listSkills, 'survival']);
-                }}
-                className={`${listSkills.includes('survival') && 'bg-white text-black font-bold'} relative flex items-center justify-center w-full col-span-1 p-3`}
-              >
-                <div className="box__line box__line--top" />
-                <div className="box__line box__line--right" />
-                <div className="box__line box__line--bottom" />
-                <div className="box__line box__line--left" />
-                <div>Sobrevivência (Sab)</div>
-              </button>
+            <div className="grid grid-cols-4 gap-3 w-full">
+            {
+              classPlayer &&
+              (() => {
+                const foundClass = listClasses.find((classItem: any) => classItem.name === classPlayer);
+
+                if (foundClass) {
+                return foundClass.skills.map((classItem: any, index: number) => (
+                  <button
+                    key={ index }
+                    onClick={() => {
+                      if (listSkills.includes(classItem)) {
+                        setListSkills(listSkills.filter((skillItem: any) => skillItem !== classItem));
+                      } else {
+                        setListSkills([...listSkills, classItem]);
+                      }
+                    }}
+                    className={`${listSkills.includes(classItem) && 'bg-white text-black font-bold'} relative flex items-center justify-center w-full col-span-1 p-3`}
+                  >
+                    <div className="box__line box__line--top" />
+                    <div className="box__line box__line--right" />
+                    <div className="box__line box__line--bottom" />
+                    <div className="box__line box__line--left" />
+                    <div className="w-full">{returnNameSkill(classItem)}</div>
+                  </button>
+                ));
+              }})()
+            }
             </div>
           </div>
         }
