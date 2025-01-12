@@ -1,6 +1,10 @@
 import { createContext } from 'react';
 
 interface RecipesContext {
+  provDataPlayer: any,
+  setProvDataPlayer: (state: any) => void,
+  showDataSelector: { show: boolean, type: string, value: any },
+  setShowDataSelector: (state: { show: boolean, type: string, value: any }) => void,
   showMessage: { show: boolean, text: string },
   setShowMessage: (state: { show: boolean, text: string }) => void,
   showForgotPassword: boolean,
@@ -60,6 +64,10 @@ interface RecipesContext {
 }
 
 const initialValue: RecipesContext = {
+  provDataPlayer: null,
+  setProvDataPlayer: () => {},
+  showDataSelector: { show: false, type: '', value: {} },
+  setShowDataSelector: () => {},
   showMessage: { show: false, text: '' },
   setShowMessage: () => {},
   showForgotPassword: false,

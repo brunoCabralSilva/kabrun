@@ -5,7 +5,9 @@ import contexto from './context';
 interface IProvider { children: ReactNode }
 
 export default function Provider({children }: IProvider) {
+  const [provDataPlayer, setProvDataPlayer] = useState(null);
   const [showMessage, setShowMessage] = useState({ show: false, text: '' });
+  const [showDataSelector, setShowDataSelector] = useState({ show: false, type: '', value: {} });
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [logoutUser, setLogoutUser] = useState(false);
   const [showChangePassword, setShowChangePassword] = useState({ show: false, email: '' });
@@ -91,6 +93,8 @@ export default function Provider({children }: IProvider) {
         session, setSession,
         userEmail, setUserEmail,
         showMessage, setShowMessage,
+        provDataPlayer, setProvDataPlayer,
+        showDataSelector, setShowDataSelector,
         showForgotPassword, setShowForgotPassword,
         logoutUser, setLogoutUser,
         showChangePassword, setShowChangePassword,

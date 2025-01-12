@@ -1,5 +1,5 @@
 import { BiX } from "react-icons/bi";
-import { GiDiceTwentyFacesTwenty } from "react-icons/gi";
+// import { GiDiceTwentyFacesTwenty } from "react-icons/gi";
 
 export default function ItemSavingThrow(props: { mod: number, name: string, trained: number, proficiency: number }) {
   const { mod, name, trained, proficiency } = props;
@@ -11,12 +11,6 @@ export default function ItemSavingThrow(props: { mod: number, name: string, trai
         </div>
         <p>{ name } ({ trained ? mod + proficiency : mod })</p>
       </div>
-      <button
-        type="button"
-        className="text-2xl cursor-pointer"
-      >
-        <GiDiceTwentyFacesTwenty />
-      </button>
     </div>
   );
 }

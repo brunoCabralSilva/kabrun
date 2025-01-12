@@ -6,10 +6,11 @@ import Loading from "../components/loading";
 import Nav from "../components/nav";
 import MessageToUser from "../components/messageToUser";
 import Footer from "../components/footer";
-import { IoIosInformationCircle, IoMdAdd } from "react-icons/io";
+import { IoMdAdd } from "react-icons/io";
 import { getSessions } from "../firebase/sessions";
 import CreateSection from "../components/createSection";
 import VerifySession from "../components/verifySession";
+import wallpaper from '../assets/tiamat.png';
 
 export default function Sessions() {
   const [showData, setShowData] = useState(false);
@@ -44,53 +45,70 @@ export default function Sessions() {
   };
 
   return(
-    <div className="h-screen bg-ritual bg-cover bg-top">
+    <div className="min-h-screen bg-rule bg-cover bg-top">
       { showMessage.show && <MessageToUser /> }
       { dataSession.show && <VerifySession />}
       <Nav />
       {
         showData
-        ? <section className="h-full relative px-2 overflow-y-auto">
-            <div className="py-6 px-5 text-black mt-2 flex flex-col items-center sm:items-start text-justify">
-              <h1 className="text-4xl relative flex items-center">
-                <span className="pr-2">Sessões</span>
-                <IoIosInformationCircle
-                  className="cursor-pointer"
-                  onClick={() => {
-                    setShowCreateSession(false);
-                    // setShowInfoSessions(!showInfoSessions);
-                  }}
-                />
-              </h1>
-              <hr className="w-10/12 mt-6" />
+        ? <section className="relative min-h-screen pb-2">
+            <div className="flex">
+              <div className="h-0.5 w-full bg-black mt-1" />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3 pb-4 bg-transparent">
-              <button
-                type="button"
-                onClick={ () => {
-                  setShowCreateSession(true);
-                  // setShowInfoSessions(false);
-                }}
-                className="p-2 border-2 border-white text-white flex items-center justify-center h-28 cursor-pointer bg-black/80"
-              >
-                <IoMdAdd className="text-4xl" />
-              </button>
-              {
-                sessions.map((session: any, index: number) =>
+            <div className="h-full w-full bg-black/30 absolute" />
+            <div className="h-full w-full relative">
+              <div className="pb-2 text-black flex flex-col items-center sm:items-start text-justify w-full relative">
+                <div className="flex w-full items-center justify-between bg-rule bg-cover py-4 px-3">
+                  <p className="text-4xl pr-2 text-dnd-blue-dark flex items-center font-bold">
+                    Sessões
+                  </p>
                   <button
-                    key={ index }
+                    type="button"
+                    title="Crie uma nova Sessão"
+                    className="cursor-pointer text-dnd-yellow-light bg-dnd-blue-dark rounded-full p-2"
+                    onClick={ () => {
+                      setShowCreateSession(true);
+                      // setShowInfoSessions(false);
+                    }}
+                  >
+                    <IoMdAdd className="text-xl" />
+                    {/* <IoIosInformationCircle /> */}
+                  </button>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 gap-2 bg-transparent relative px-2">
+                {
+                  sessions.map((session: any, index: number) =>
+                    <button
+                      key={ index }
                       type="button"
                       onClick={ () => setDataSession({ show: true, id: session.id })}
-                      className="w-full h-full bg-black/60 p-2 px-4 flex flex-col items-center justify-center font-bold">
-                      { session.name }
-                  </button>
-                )
-              }
+                      className="w-full h-full font-bold border border-dnd-blue-dark rounded grid grid-cols-1 sm:grid-cols-6 bg-rule bg-cover mb-1"
+                    >
+                      <div className="h-full w-full col-span-1 sm:col-span-2 md:col-span-1 py-2 pl-2 pr-2 sm:pr-0">
+                        <img src={wallpaper} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="col-span-1 sm:col-span-4 md:col-span-5 p-4">
+                        <p className="w-full text-left capitalize text-lg">
+                          { session.name }
+                        </p>
+                        <p className="w-full text-left font-normal my-1">
+                          { session.description }
+                        </p>
+                        <p className="w-full text-left">
+                          <span className="font-bold pr-1">Sessão criada em:</span>
+                          <span className="font-normal">{ session.creationDate }.</span>
+                        </p>
+                      </div>
+                    </button>
+                  )
+                }
+              </div>
             </div>
             { showCreateSession && <CreateSection /> }
             {/* { showInfoSessions && <Info /> } */}
           </section>
-        : <div className="text-white h-full flex items-center justify-center flex-col">
+        : <div className="text-dnd-blue-dark h-screen flex items-center justify-center flex-col">
           <Loading />
         </div>
       }

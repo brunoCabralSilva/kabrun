@@ -11,13 +11,21 @@ module.exports = {
         '70': '70',
       },
       backgroundImage: {
-        'background': "url('/src/assets/dragon.png')",
+        'background': "url('/src/assets/wallpaper.jpg')",
+        'rule': "url('/src/assets/page.png')",
+        'barra': "url('/src/assets/dnd-barra.png')",
+        'rule-1': "url('/src/assets/rules.png')"
       },
       colors: {
         'gray-whats': '#202C33',
         'green-whats': '#005C4B',
         'green-whats-dark': '#013027',
         'gray-whats-dark': '#0c1114',
+        'dnd-red': '#FC0A09',
+        "dnd-dark-yellow": "#2E1D06",
+        "dnd-yellow": "#C8B15F",
+        "dnd-yellow-light": "#d6c894",
+        "dnd-blue-dark": "#080e14",
       },
       spacing: {
         '5vh': '5vh',

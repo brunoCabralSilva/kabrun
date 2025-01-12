@@ -15,6 +15,7 @@ export default function General() {
     session,
     showSheet,
     players,
+    setShowMenuSession,
     setEditHealthPoints,
     setEditPlayerImage,
     setEditConditions,
@@ -127,7 +128,10 @@ export default function General() {
                   <button
                     type="button"
                     title="Alterar Imagem do Personagem"
-                    onClick={ () => setShowGuide(true)}
+                    onClick={ () => {
+                      setShowMenuSession('');
+                      setShowGuide(true);
+                    }}
                     className=" hover:bg-white hover:text-black bottom-0 right-0 p-0.5 text-normal text-left w-full cursor-pointer rounded-tl"
                   >
                     Nível { dataPlayer.sheet.level }

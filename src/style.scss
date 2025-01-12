@@ -1,11 +1,17 @@
 $line-width: 0.18rem;
-$line-color: rgba(255,255,255,1);
+$line-color: rgb(0, 0, 0);
 
 .box {
   height: 3rem;
   width: 100%;
   position: relative;
 }
+
+.box-attributes {
+  width: 100%;
+  position: relative;
+}
+
 .box-image {
   height: 8rem;
   width: 100%;

@@ -1,113 +1,85 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
+import { FaRegSave } from "react-icons/fa";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import contexto from "../../../context/context";
-import InitialData from "../guide/initialData";
-import Race from "../guide/race";
-import SubRaces from "../guide/subRace";
-import ClassPlayer from "../guide/classPlayer";
-import Attributes from "../guide/attributes";
-import ClassCharactetistics from "./classCharacteristics";
+import DataStatic from "./dataStatic";
+import DataAttributes from "./dataAttributes";
+import DataSavingThrows from "./dataSavingThrows";
+import DataSkills from "./dataSkills";
+import DataImage from "./dataImage";
+import listRaces from '../../../data/races.json';
+import listAlignments from '../../../data/alignment.json';
+import listClasses from '../../../data/classes.json';
+import dnd from '../../../assets/dnd_black.png';
+import DataSelector from "./dataSelector";
+import SelectorAlignment from "./selectorAlignment";
+import SelectorBackground from "./selectorBackground";
+import SelectorClass from "./selectorClass";
+import SelectorRace from "./selectorRace";
+import SelectorSubrace from "./selectorSubrace";
 
 export default function Guide() {
-  const [dataPlayer, setDataPlayer] = useState<any>(null);
-  const { showSheet, session, players, setShowGuide, optionGuide, setShowSheet } = useContext(contexto);
+  const { showSheet, session, players, setShowGuide, setShowSheet, provDataPlayer, setProvDataPlayer, showDataSelector } = useContext(contexto);
 
-  useEffect(() => {
+  const findPlayer = () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
-    if (findPlayer) {
-      setDataPlayer(findPlayer);
-    } else {
-      setShowSheet({ show: false, id: '' });
-      setShowGuide(false);
-    }
-  }, [session, players]);
+    if (findPlayer) setProvDataPlayer(findPlayer);
+    else setShowSheet({ show: false, id: '' });
+  }
+
+  useEffect(() => findPlayer(), [session, players]);
 
   return(
-    <div className="z-60 absolute top-0 left-0 text-white w-full h-screen flex flex-col justify-start items-center bg-gray-whats-dark border-white border-2 ">
+    <div className="bg-rule bg-cover text-black px-5 pb-5 fixed top-0 z-60 left-0 w-full h-screen flex flex-col justify-start items-center bg-gray-whats-dark">
+      { showDataSelector.show && <DataSelector /> }
+      <div className="w-full flex justify-between items-center py-2">
+        <FaRegSave
+          className="text-3xl text-black cursor-pointer"
+        />
+        <img src={dnd} className="w-1/4 h-full object-cover" />
+        <IoIosCloseCircleOutline
+          className="text-4xl text-black cursor-pointer"
+          onClick={ () => setShowGuide(false) }
+        />
+      </div>
+      <div className="w-full grid grid-cols-4 gap-5">
+        <div className="w-full col-span-4 box-attributes">
+          <div className="box__line box__line--top" />
+          <div className="box__line box__line--right" />
+          <div className="box__line box__line--bottom" />
+          <div className="box__line box__line--left relative" />
+          <div className="grid grid-cols-3 gap-1 w-full p-5">
+            <div className="w-full cursor-pointer">
+              <div className="w-full pr-5">
+                <input
+                  type="text"
+                  onClick={ (e: any) => {
+                    setProvDataPlayer({
+                      ...provDataPlayer,
+                      sheet: { ...provDataPlayer.sheet, name: e.target.value },
+                    });
+                  }}
+                  className="w-full border border-t-transparent border-l-transparent border-r-transparent border-b-black outline-none bg-transparent"
+                />
+              </div>
+              <p className="text-sm font-bold pl-1">Nome do personagem</p>
+            </div>
+            <SelectorAlignment list={listAlignments} />
+            <SelectorBackground list={[]} />
+            <SelectorClass list={listClasses} />
+            <SelectorRace list={listRaces} />
+            <SelectorSubrace />
+          </div>
+        </div>
+      </div>
       {
-        dataPlayer &&
-        <div className="h-screen w-full">
-          <div className="w-full flex justify-end p-2">
-            <IoIosCloseCircleOutline
-              className="text-4xl text-white cursor-pointer"
-              onClick={ () => setShowGuide(false) }
-            />
-          </div>
-          <div className="flex w-full gap-2">
-            <div className="w-1/5 bg-black overflow-y-auto h-90vh p-2">
-              <button
-                type="button"
-                className={`${optionGuide === 'initials' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1`}
-              >
-                <div className="box__line box__line--top" />
-                <div className="box__line box__line--right" />
-                <div className="box__line box__line--bottom" />
-                <div className="box__line box__line--left relative" />
-                <p>Dados Iniciais</p>
-              </button>
-              <button
-                type="button"
-                className={`${optionGuide === 'race' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1 mt-3`}
-              >
-                <div className="box__line box__line--top" />
-                <div className="box__line box__line--right" />
-                <div className="box__line box__line--bottom" />
-                <div className="box__line box__line--left relative" />
-                <p>Raça</p>
-              </button>
-              {
-                dataPlayer.sheet.race !== 'Meio Orc' && dataPlayer.sheet.race !== 'Meio Elfo' && dataPlayer.sheet.race !== 'Humano' && dataPlayer.sheet.race !== 'Draconato' &&
-                <button
-                  type="button"
-                  className={`${optionGuide === 'subrace' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1 mt-3`}
-                >
-                  <div className="box__line box__line--top" />
-                  <div className="box__line box__line--right" />
-                  <div className="box__line box__line--bottom" />
-                  <div className="box__line box__line--left relative" />
-                  <p>SubRaça</p>
-                </button>
-              }
-              <button
-                type="button"
-                className={`${optionGuide === 'class' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1 mt-3`}
-              >
-                <div className="box__line box__line--top" />
-                <div className="box__line box__line--right" />
-                <div className="box__line box__line--bottom" />
-                <div className="box__line box__line--left relative" />
-                <p>Classe</p>
-              </button>
-              <button
-                type="button"
-                className={`${optionGuide === 'attributes' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1 mt-3`}
-              >
-                <div className="box__line box__line--top" />
-                <div className="box__line box__line--right" />
-                <div className="box__line box__line--bottom" />
-                <div className="box__line box__line--left relative" />
-                <p>Atributos</p>
-              </button>
-              <button
-                type="button"
-                className={`${optionGuide === 'distribute-class' ? 'bg-white text-black' : 'text-white'} font-bold py-2 relative flex items-center justify-center w-full col-span-1 mt-3`}
-              >
-                <div className="box__line box__line--top" />
-                <div className="box__line box__line--right" />
-                <div className="box__line box__line--bottom" />
-                <div className="box__line box__line--left relative" />
-                <p>Características</p>
-              </button>
-            </div>
-            <div className="w-full">
-            { optionGuide === 'initials' && <InitialData /> }
-            { optionGuide === 'race' && <Race /> }
-            { optionGuide === 'subrace' && <SubRaces /> }
-            { optionGuide === 'class' && <ClassPlayer /> }
-            { optionGuide === 'attributes' && <Attributes /> }
-            { optionGuide === 'distribute-class' && <ClassCharactetistics /> }
-            </div>
-          </div>
+        provDataPlayer && provDataPlayer.sheet &&
+        <div className="mt-3 col-span-1 grid grid-cols-11 gap-3">
+          <DataStatic />
+          <DataAttributes />
+          <DataImage />
+          <DataSavingThrows />
+          <DataSkills />
         </div>
       }
     </div>
