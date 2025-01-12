@@ -63,7 +63,6 @@ export default function Attributes() {
         default: totalSum += 0;
       }
     }
-    console.log(totalSum);
     setSumCost(totalSum);
   }
 
@@ -238,12 +237,22 @@ export default function Attributes() {
                           setWisdom(10);
                           setCharisma(8);
                         } else {
-                          setStrength(provDataPlayer.sheet.attributes.strength.value);
-                          setDexterity(provDataPlayer.sheet.attributes.dexterity.value);
-                          setConstitution(provDataPlayer.sheet.attributes.constitution.value);
-                          setIntelligence(provDataPlayer.sheet.attributes.intelligence.value);
-                          setWisdom(provDataPlayer.sheet.attributes.wisdom.value);
-                          setCharisma(provDataPlayer.sheet.attributes.charisma.value);
+                          var list = [strength, dexterity, constitution, intelligence, wisdom, charisma];
+                          if (list.includes(15) && list.includes(14) && list.includes(13) && list.includes(12) && list.includes(11) && list.includes(10) && list.includes(8)) {
+                            setStrength(provDataPlayer.sheet.attributes.strength.value);
+                            setDexterity(provDataPlayer.sheet.attributes.dexterity.value);
+                            setConstitution(provDataPlayer.sheet.attributes.constitution.value);
+                            setIntelligence(provDataPlayer.sheet.attributes.intelligence.value);
+                            setWisdom(provDataPlayer.sheet.attributes.wisdom.value);
+                            setCharisma(provDataPlayer.sheet.attributes.charisma.value);
+                          } else {
+                            setStrength(15);
+                            setDexterity(14);
+                            setConstitution(13);
+                            setIntelligence(12);
+                            setWisdom(10);
+                            setCharisma(8);
+                          }
                         }
                       }}
                       className="w-full flex flex-col mb-2 font-bold"
