@@ -168,14 +168,10 @@ export default function Attributes() {
   }
 
   return(
-    <div className="fixed top-0 z-70 left-0 flex w-full h-screen overflow-y-auto p-4 justify-center items-center bg-black/80">
-      <div className="w-1/2">
-        <div className="box-attributes bg-rule bg-cover">
-          <div className="box__line box__line--top"></div>
-          <div className="box__line box__line--right"></div>
-          <div className="box__line box__line--bottom"></div>
-          <div className="box__line box__line--left"></div>
-          <div className="w-full flex flex-col items-center justify-center">
+    <div className="fixed top-0 z-70 left-0 w-full overflow-y-auto h-screen p-4 flex justify-center items-start bg-black/80">
+      <div className="w-1/2 bg-rule bg-cover flex justify-center items-start">
+        <div className="box-attributes h-full">
+          <div className="w-full flex flex-col items-center justify-start">
             <div className="w-full flex justify-between items-center pt-5 px-2">
               {
                 selected
@@ -214,7 +210,7 @@ export default function Attributes() {
                 onClick={ () => setEditAttributes(false) }
               />
             </div>
-            <div className="flex flex-col items-center justify-center w-full pb-5 px-5 pt-3">
+            <div className="flex flex-col items-center justify-center w-full px-5 pt-3 h-full">
               {
                 !selected
                 && provDataPlayer
@@ -315,7 +311,7 @@ export default function Attributes() {
                         setType('rolling');
                         setShowConfirmation(true);
                       }}
-                      className="w-full flex flex-col"
+                      className="w-full flex flex-col mb-5"
                     >
                       <div className="flex items-center gap-2 w-full">
                         <div className="box flex items-center justify-center w-full col-span-1 mt-2 hover:bg-black hover:text-[#f0e9d2] transition-colors duration-400 font-bold">

@@ -18,9 +18,10 @@ import SelectorClass from "./selectorClass";
 import SelectorRace from "./selectorRace";
 import SelectorSubrace from "./selectorSubrace";
 import Attributes from "./attributes";
+import EditImage from "./EditImage";
 
 export default function Guide() {
-  const { showSheet, session, players, setShowGuide, setShowSheet, provDataPlayer, setProvDataPlayer, showDataSelector, editAttributes } = useContext(contexto);
+  const { showSheet, session, players, setShowGuide, setShowSheet, provDataPlayer, setProvDataPlayer, showDataSelector, editAttributes, editPlayerImage } = useContext(contexto);
 
   const findPlayer = () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
@@ -44,14 +45,15 @@ export default function Guide() {
   useEffect(() => findPlayer(), [session, players]);
 
   return(
-    <div className="bg-rule bg-cover text-black px-5 pb-5 fixed top-0 z-60 left-0 w-full h-screen flex flex-col justify-start items-center bg-gray-whats-dark">
+    <div className="bg-rule overflow-y-auto bg-cover text-black px-5 pb-5 fixed top-0 z-60 left-0 w-full h-screen flex flex-col justify-start items-center bg-gray-whats-dark">
       { showDataSelector.show && <DataSelector /> }
       { editAttributes && <Attributes /> }
+      { editPlayerImage && <EditImage /> }
       <div className="w-full flex justify-between items-center py-2">
         <FaRegSave
           className="text-3xl text-black cursor-pointer"
         />
-        <img src={dnd} className="w-1/4 h-full object-cover" />
+        <img src={dnd} className="w-1/4 h-full object-contain" />
         <IoIosCloseCircleOutline
           className="text-4xl text-black cursor-pointer"
           onClick={ () => setShowGuide(false) }
@@ -89,7 +91,7 @@ export default function Guide() {
       </div>
       {
         provDataPlayer && provDataPlayer.sheet &&
-        <div className="mt-3 col-span-1 grid grid-cols-11 gap-3">
+        <div className="mt-3 grid grid-cols-11 gap-3 w-full">
           <DataStatic />
           <DataAttributes />
           <DataImage />

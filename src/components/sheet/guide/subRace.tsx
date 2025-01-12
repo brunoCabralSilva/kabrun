@@ -208,7 +208,8 @@ export default function SubRaces() {
                   {
                     listMagics.filter((magic: any) => {
                       const mageMagics = listClasses.find((classItem: any) => classItem.name === 'Mago');
-                      if (mageMagics) return mageMagics.magics.includes(magic.name) && magic.level === 0;
+                      if (mageMagics)
+                        return mageMagics.magics.includes(magic.name) && magic.level === 0;
                       return false;
                     }).map((magic: any, index: number) => (
                       <button
