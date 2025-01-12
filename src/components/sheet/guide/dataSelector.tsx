@@ -13,8 +13,12 @@ export default function DataSelector() {
     if (showDataSelector.type === 'alignment') {
       const dataAlignment = listAlignments.find((alignment: any) => alignment.name === showDataSelector.value);
       if (dataAlignment) setText(dataAlignment.description);
-    }
-    if (showDataSelector.type === 'race' || showDataSelector.type === 'subrace') {
+    } else if (showDataSelector.type === 'race') {
+      console.log(provDataPlayer.sheet.race);
+      const dataRace = listRace.find((race: any) => race.name === showDataSelector.value);
+      if (dataRace) setData(dataRace);
+    } else if (showDataSelector.type === 'subrace') {
+      console.log(provDataPlayer.sheet.race);
       const dataRace = listRace.find((race: any) => race.name === provDataPlayer.sheet.race);
       if (dataRace) setData(dataRace);
     }
@@ -83,6 +87,7 @@ export default function DataSelector() {
           <div className="flex flex-col items-center justify-center px-3 w-full">
             <div className="font-bold w-full text-center text-lg pb-3">{ returnTitleItem() } - { showDataSelector.value }</div>
             <div className="text-center w-full">{ text }</div>
+            { console.log(data) }
             {
               showDataSelector.type === 'race' &&
               data &&

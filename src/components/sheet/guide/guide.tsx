@@ -17,9 +17,10 @@ import SelectorBackground from "./selectorBackground";
 import SelectorClass from "./selectorClass";
 import SelectorRace from "./selectorRace";
 import SelectorSubrace from "./selectorSubrace";
+import Attributes from "./attributes";
 
 export default function Guide() {
-  const { showSheet, session, players, setShowGuide, setShowSheet, provDataPlayer, setProvDataPlayer, showDataSelector } = useContext(contexto);
+  const { showSheet, session, players, setShowGuide, setShowSheet, provDataPlayer, setProvDataPlayer, showDataSelector, editAttributes } = useContext(contexto);
 
   const findPlayer = () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
@@ -27,11 +28,25 @@ export default function Guide() {
     else setShowSheet({ show: false, id: '' });
   }
 
+  const verifyRace = () => {
+    if (provDataPlayer && provDataPlayer.sheet) {
+      if (provDataPlayer.sheet.race === '') return <div />
+      else {
+        const findRace = listRaces.find((race: any) => race.name === provDataPlayer.sheet.race);
+        if (findRace) {
+          if (findRace.subraces.length > 0) return <SelectorSubrace />
+          return <div />
+        } else <div />
+      }
+    } else <div />
+  }
+
   useEffect(() => findPlayer(), [session, players]);
 
   return(
     <div className="bg-rule bg-cover text-black px-5 pb-5 fixed top-0 z-60 left-0 w-full h-screen flex flex-col justify-start items-center bg-gray-whats-dark">
       { showDataSelector.show && <DataSelector /> }
+      { editAttributes && <Attributes /> }
       <div className="w-full flex justify-between items-center py-2">
         <FaRegSave
           className="text-3xl text-black cursor-pointer"
@@ -68,7 +83,7 @@ export default function Guide() {
             <SelectorBackground list={[]} />
             <SelectorClass list={listClasses} />
             <SelectorRace list={listRaces} />
-            <SelectorSubrace />
+            { verifyRace() }
           </div>
         </div>
       </div>

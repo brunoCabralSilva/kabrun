@@ -3,13 +3,14 @@ import ItemAttribute from "../items/itemAttribute";
 import contexto from "../../../context/context";
 
 export default function DataAttributes() {
-  const { provDataPlayer, calculateMod } = useContext(contexto);
+  const { provDataPlayer, setEditAttributes, calculateMod } = useContext(contexto);
 
   if (provDataPlayer && provDataPlayer.sheet)
   return(
     <div className="col-span-7 grid grid-cols-7 gap-3">
       <button
         type="button"
+        onClick={ () => setEditAttributes(true) }
         className="hover:bg-black hover:text-[#f0e9d2] transition-colors duration-400 relative flex items-center justify-center w-full"
       >
         <div className="box__line box__line--top"></div>
