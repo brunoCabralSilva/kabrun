@@ -29,6 +29,9 @@ export default function Attributes() {
     setIntelligence(findPlayer.sheet.attributes.intelligence.value);
     setWisdom(findPlayer.sheet.attributes.wisdom.value);
     setCharisma(findPlayer.sheet.attributes.charisma.value);
+    if (findPlayer.sheet.chooseAttribute) {
+      setListNumbers([findPlayer.sheet.attributes.strength.value, findPlayer.sheet.attributes.dexterity.value, findPlayer.sheet.attributes.constitution.value, findPlayer.sheet.attributes.intelligence.value, findPlayer.sheet.attributes.wisdom.value, findPlayer.sheet.attributes.charisma.value]);
+    }
   }
 
   useEffect(() => findPlayer(), []);
@@ -400,7 +403,7 @@ export default function Attributes() {
               }
               {
                 provDataPlayer && (type === 'fixed' || type === 'personalized' || (dataPlayer && dataPlayer.sheet && dataPlayer.sheet.chooseAttribute)) &&
-                <div className="grid grid-cols-3 gap-4 w-full">
+                <div className="grid grid-cols-3 gap-4 w-full mb-5">
                   <div className="w-full gap-4 text-sm mt-3">
                     <div className=""> 
                       <div className="relative flex items-center justify-center w-full ">
@@ -410,9 +413,7 @@ export default function Attributes() {
                         <div className="box__line box__line--left"></div>
                         <div className="flex flex-col items-center justify-center">
                           {
-                            dataPlayer && dataPlayer.sheet && dataPlayer.sheet.chooseAttribute
-                            ? <div className="text-2xl font-bold bg-transparent text-center outline-none">{ strength }</div>
-                            : <select
+                            <select
                               value={strength}
                               className="text-2xl font-bold bg-transparent text-center outline-none"
                               onChange={ (e: any) => {
@@ -450,9 +451,7 @@ export default function Attributes() {
                         <div className="box__line box__line--left"></div>
                         <div className="flex flex-col items-center justify-center">
                           {
-                            dataPlayer && dataPlayer.sheet && dataPlayer.sheet.chooseAttribute
-                            ? <div className="text-2xl font-bold bg-transparent text-center outline-none">{ dexterity }</div>
-                            : <select
+                            <select
                               value={dexterity}
                               className="text-2xl font-bold bg-transparent text-center outline-none"
                               onChange={ (e: any) => {
@@ -490,9 +489,7 @@ export default function Attributes() {
                         <div className="box__line box__line--left"></div>
                         <div className="flex flex-col items-center justify-center">
                           {
-                            dataPlayer && dataPlayer.sheet && dataPlayer.sheet.chooseAttribute
-                            ? <div className="text-2xl font-bold bg-transparent text-center outline-none">{ constitution }</div>
-                            : <select
+                            <select
                                 value={constitution}
                                 className="text-2xl font-bold bg-transparent text-center outline-none"
                                 onChange={ (e: any) => {
@@ -530,30 +527,28 @@ export default function Attributes() {
                         <div className="box__line box__line--left"></div>
                         <div className="flex flex-col items-center justify-center">
                           {
-                              dataPlayer && dataPlayer.sheet && dataPlayer.sheet.chooseAttribute
-                              ? <div className="text-2xl font-bold bg-transparent text-center outline-none">{ intelligence }</div>
-                              : <select
-                                  value={intelligence}
-                                  className="text-2xl font-bold bg-transparent text-center outline-none"
-                                  onChange={ (e: any) => {
-                                    const selectedValue = parseInt(e.target.value);
-                                    if (type !== 'personalized') {
-                                      if (strength === selectedValue) setStrength(intelligence);
-                                      else if (dexterity === selectedValue) setDexterity(intelligence); 
-                                      else if (constitution === selectedValue) setConstitution(intelligence);
-                                      else if (wisdom === selectedValue) setWisdom(intelligence);
-                                      else if (charisma === selectedValue) setCharisma(intelligence);
-                                    }
-                                    setIntelligence(selectedValue);
-                                    calculateSumCosts('intelligence', selectedValue);
-                                  }}
-                                >
-                                  {
-                                    listNumbers.map((list: any, index: number) => (
-                                      <option key={index}>{list}</option>
-                                    ))
-                                  }
-                                </select>
+                            <select
+                              value={intelligence}
+                              className="text-2xl font-bold bg-transparent text-center outline-none"
+                              onChange={ (e: any) => {
+                                const selectedValue = parseInt(e.target.value);
+                                if (type !== 'personalized') {
+                                  if (strength === selectedValue) setStrength(intelligence);
+                                  else if (dexterity === selectedValue) setDexterity(intelligence); 
+                                  else if (constitution === selectedValue) setConstitution(intelligence);
+                                  else if (wisdom === selectedValue) setWisdom(intelligence);
+                                  else if (charisma === selectedValue) setCharisma(intelligence);
+                                }
+                                setIntelligence(selectedValue);
+                                calculateSumCosts('intelligence', selectedValue);
+                              }}
+                            >
+                              {
+                                listNumbers.map((list: any, index: number) => (
+                                  <option key={index}>{list}</option>
+                                ))
+                              }
+                            </select>
                           }
                           <p className="text-xs pb-1">Inteligência { provDataPlayer.sheet.attributes.intelligence.bonus !== 0 && `(+${provDataPlayer.sheet.attributes.intelligence.bonus})` }</p>
                           <p className="text-xs pb-1">({ calculateMod(intelligence + provDataPlayer.sheet.attributes.intelligence.bonus) })</p>
@@ -570,9 +565,7 @@ export default function Attributes() {
                         <div className="box__line box__line--left"></div>
                         <div className="flex flex-col items-center justify-center">
                           {
-                            dataPlayer && dataPlayer.sheet && dataPlayer.sheet.chooseAttribute
-                            ? <div className="text-2xl font-bold bg-transparent text-center outline-none">{ wisdom }</div>
-                            : <select
+                            <select
                                 value={wisdom}
                                 className="text-2xl font-bold bg-transparent text-center outline-none"
                                 onChange={ (e: any) => {
@@ -610,9 +603,7 @@ export default function Attributes() {
                         <div className="box__line box__line--left"></div>
                         <div className="flex flex-col items-center justify-center">
                           {
-                            dataPlayer && dataPlayer.sheet && dataPlayer.sheet.chooseAttribute
-                            ? <div className="text-2xl font-bold bg-transparent text-center outline-none">{ intelligence }</div>
-                            : <select
+                            <select
                                 value={charisma}
                                 className="text-2xl font-bold bg-transparent text-center outline-none"
                                 onChange={ (e: any) => {
@@ -649,7 +640,7 @@ export default function Attributes() {
                 </p>
               }
               {
-                !showConfirmation && (type === 'personalized' || type === 'fixed') &&
+                !showConfirmation &&
                 <div className="w-full flex justify-between col-span-10 py-3">
                   {
                     session.attributeDistribution.find((atrDist: any) => atrDist.name === 'fixed' || atrDist.name === 'personalized' || atrDist.name === 'rolling') &&

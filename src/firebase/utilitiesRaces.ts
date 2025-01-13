@@ -74,14 +74,13 @@ export const applyRace = (sheet: any, race: string, calculateMod: any, alt: any)
     sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
     sheet.attributes[sheet.alternative.list[0]].bonus = sheet.attributes[sheet.alternative.list[0]].bonus - 1;
     sheet.attributes[sheet.alternative.list[0]].mod = calculateMod(sheet.attributes[sheet.alternative.list[0]].value + sheet.attributes[sheet.alternative.list[0]].bonus);
-    sheet.attributes[sheet.alternative.list[1]].bonus = sheet.attributes[sheet.alternative.list[1]].bonus - 1;
-    sheet.attributes[sheet.alternative.list[1]].mod = calculateMod(sheet.attributes[sheet.alternative.list[1]].value + sheet.attributes[sheet.alternative.list[1]].bonus);
     const filterFont = sheet.skills[sheet.alternative.skill[0]].font.filter((data: any) => data !== 'meio elfo');
     sheet.skills[sheet.alternative.skill[0]].font = filterFont;
     if (filterFont.length === 0) sheet.skills[sheet.alternative.skill[0]].trained = false;
     const filterFont2 = sheet.skills[sheet.alternative.skill[1]].font.filter((data: any) => data !== 'meio elfo');
     sheet.skills[sheet.alternative.skill[1]].font = filterFont2;
     if (filterFont2.length === 0) sheet.skills[sheet.alternative.skill[1]].trained = false;
+  
     sheet.languages = sheet.languages.filter((language: any) => language.font !== 'meio elfo');
     sheet.conditions = sheet.conditions.filter((data: any) => data.font !== 'meio elfo');
     const { alternative, ...newSheet } = sheet;
@@ -313,8 +312,6 @@ export const applyRace = (sheet: any, race: string, calculateMod: any, alt: any)
     sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + sheet.attributes.charisma.bonus);
     sheet.attributes[alt.list[0]].bonus = sheet.attributes[alt.list[0]].bonus + 1;
     sheet.attributes[alt.list[0]].mod = calculateMod(sheet.attributes[alt.list[0]].value + sheet.attributes[alt.list[0]].bonus);
-    sheet.attributes[alt.list[1]].bonus = sheet.attributes[alt.list[1]].bonus + 1;
-    sheet.attributes[alt.list[1]].mod = calculateMod(sheet.attributes[alt.list[1]].value + sheet.attributes[alt.list[1]].bonus);
     sheet.alternative = alt;
     sheet.speed = 9;
     sheet.skills[alt.skill[0]].font = [ ...sheet.skills[alt.skill[0]].font, 'meio elfo'];

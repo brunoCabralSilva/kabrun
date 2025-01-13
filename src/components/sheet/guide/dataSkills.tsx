@@ -79,7 +79,7 @@ export default function DataSkills() {
             trained={ provDataPlayer.sheet.skills.investigation.trained }
           />
           <ItemSavingThrow
-            name="Lidar com Animais (Sab)"
+            name="Lid. com Animais (Sab)"
             mod={ provDataPlayer.sheet.attributes.wisdom.mod }
             proficiency={ provDataPlayer.sheet.proficiency }
             trained={ provDataPlayer.sheet.skills.animalHandling.trained }

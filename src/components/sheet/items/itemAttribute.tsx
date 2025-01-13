@@ -10,7 +10,7 @@ export default function ItemAttribute(props: { mod: number, attribute: number, n
         <div className="flex flex-col items-center justify-center">
           <p className="text-2xl font-bold">{ attribute }</p>
           <p className="text-xs pb-1 text-center">{ name } { bonus > 0 && `(+${bonus})`}</p>
-          <p className="text-xs pb-1">({ mod > 0 ? '+' : '' }{ mod })</p>
+          <p className="text-xs pb-1">Mod: ({ mod > 0 ? '+' : '' }{ mod })</p>
         </div>
       </div>
     </div>

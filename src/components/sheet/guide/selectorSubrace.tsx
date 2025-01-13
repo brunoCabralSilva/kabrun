@@ -25,7 +25,7 @@ export default function SelectorSubrace() {
       {
         provDataPlayer && provDataPlayer.sheet &&
         <select
-          value={ provDataPlayer.sheet.subrace }
+          value={ provDataPlayer.sheet.subRace }
           onChange={ (e: any) => setShowDataSelector({ show: true, type: 'subrace', value: e.target.value }) }
           className="w-full border-b-black border bg-transparent border-t-transparent border-l-transparent border-r-transparent outline-none cursor-pointer"
         >

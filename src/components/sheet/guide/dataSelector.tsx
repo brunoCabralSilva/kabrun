@@ -3,22 +3,21 @@ import contexto from "../../../context/context";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import listAlignments from '../../../data/alignment.json';
 import listRace from '../../../data/races.json';
+import { applyRace, applySubRace } from "../../../firebase/utilitiesRaces";
 
 export default function DataSelector() {
   const [text, setText] = useState('');
   const [data, setData] = useState<any>(null);
-  const { showDataSelector, setShowDataSelector, setProvDataPlayer, provDataPlayer, returnAttribute } = useContext(contexto);
+  const { showDataSelector, setShowDataSelector, setProvDataPlayer, provDataPlayer, returnAttribute, calculateMod } = useContext(contexto);
 
   useEffect(() => {
     if (showDataSelector.type === 'alignment') {
       const dataAlignment = listAlignments.find((alignment: any) => alignment.name === showDataSelector.value);
       if (dataAlignment) setText(dataAlignment.description);
     } else if (showDataSelector.type === 'race') {
-      console.log(provDataPlayer.sheet.race);
       const dataRace = listRace.find((race: any) => race.name === showDataSelector.value);
       if (dataRace) setData(dataRace);
     } else if (showDataSelector.type === 'subrace') {
-      console.log(provDataPlayer.sheet.race);
       const dataRace = listRace.find((race: any) => race.name === provDataPlayer.sheet.race);
       if (dataRace) setData(dataRace);
     }
@@ -28,9 +27,18 @@ export default function DataSelector() {
     if (showDataSelector.type === 'alignment') {
       setProvDataPlayer( { ...provDataPlayer, sheet: { ...provDataPlayer.sheet, alignment: showDataSelector.value } });
     } else if (showDataSelector.type === 'race') {
-      setProvDataPlayer({ ...provDataPlayer, sheet: { ...provDataPlayer.sheet, subrace: '', race: showDataSelector.value } });
+      let apply = {};
+      if (showDataSelector.value === 'Meio Elfo') {
+        apply = applyRace(provDataPlayer.sheet, showDataSelector.value, calculateMod, { list: ['strength'], skill: ['intimidation', 'nature'] });
+      } else apply = applyRace(provDataPlayer.sheet, showDataSelector.value, calculateMod, false);
+      const apply2 = applySubRace(apply, '', calculateMod);
+      setProvDataPlayer({
+        ...provDataPlayer,
+        sheet: { ...apply2, subRace: '', race: showDataSelector.value },
+      });
     } else if (showDataSelector.type === 'subrace') {
-      setProvDataPlayer({ ...provDataPlayer, sheet: { ...provDataPlayer.sheet, subrace: showDataSelector.value } });
+      const apply = applySubRace(provDataPlayer.sheet, showDataSelector.value, calculateMod);    
+      setProvDataPlayer({ ...provDataPlayer, sheet: { ...apply, subRace: showDataSelector.value } });
     } else if (showDataSelector.type === 'class') {
       setProvDataPlayer({ ...provDataPlayer, sheet: { ...provDataPlayer.sheet, class: showDataSelector.value } });
     }
@@ -87,7 +95,6 @@ export default function DataSelector() {
           <div className="flex flex-col items-center justify-center px-3 w-full">
             <div className="font-bold w-full text-center text-lg pb-3">{ returnTitleItem() } - { showDataSelector.value }</div>
             <div className="text-center w-full">{ text }</div>
-            { console.log(data) }
             {
               showDataSelector.type === 'race' &&
               data &&

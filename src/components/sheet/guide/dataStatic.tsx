@@ -32,7 +32,7 @@ export default function DataStatic() {
         <div className="box__line box__line--bottom"></div>
         <div className="box__line box__line--left"></div>
         <div className="flex flex-col items-center justify-center">
-          <p className="text-2xl font-bold">{ provDataPlayer.sheet.attributes.dexterity.mod }</p>
+          <p className="text-2xl font-bold">{ provDataPlayer.sheet.speed }</p>
           <p className="text-xs pb-1">Deslocamento</p>
         </div>
       </div>
@@ -42,7 +42,7 @@ export default function DataStatic() {
         <div className="box__line box__line--bottom"></div>
         <div className="box__line box__line--left"></div>
         <div className="flex flex-col items-center justify-center">
-          <p className="text-2xl font-bold">{ provDataPlayer.sheet.attributes.dexterity.mod }</p>
+          <p className="text-2xl font-bold">{ provDataPlayer.sheet.hitPoints.total }</p>
           <p className="text-xs pb-1">Pontos de Vida</p>
         </div>
       </div>
