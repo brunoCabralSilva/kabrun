@@ -5,7 +5,7 @@ import listOfRaces from '../../../data/races.json';
 export default function SelectorSubrace() {
   const { provDataPlayer, setShowDataSelector } = useContext(contexto);
 
-  const returnSubRaces = () => {
+  const returnSubraces = () => {
     const race = listOfRaces.find((race: any) => race.name === provDataPlayer.sheet.race);
     if (race)
       return race.subraces.map((item: any, index: number) => (
@@ -25,12 +25,12 @@ export default function SelectorSubrace() {
       {
         provDataPlayer && provDataPlayer.sheet &&
         <select
-          value={ provDataPlayer.sheet.subRace }
+          value={ provDataPlayer.sheet.subrace }
           onChange={ (e: any) => setShowDataSelector({ show: true, type: 'subrace', value: e.target.value }) }
           className="w-full border-b-black border bg-transparent border-t-transparent border-l-transparent border-r-transparent outline-none cursor-pointer"
         >
           <option disabled value="">Selecione uma Subraça</option>
-          { returnSubRaces() } 
+          { returnSubraces() } 
         </select>
       }
       <p className="text-sm font-bold pl-1">SubRaça</p>

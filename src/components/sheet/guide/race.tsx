@@ -6,7 +6,7 @@ import listLanguages from '../../../data/languages.json';
 import listBreaths from '../../../data/breaths.json';
 import skillsList from '../../../data/skills.json';
 import { updateDataPlayer } from "../../../firebase/players";
-import { applyRace, applySubRace } from "../../../firebase/utilitiesRaces";
+import { applyRace, applySubrace } from "../../../firebase/utilitiesRaces";
 
 export default function Race() {
   const [dataPlayer, setDataPlayer] = useState<any>(null);
@@ -50,10 +50,10 @@ export default function Race() {
       playerData.sheet.race = race;
       const listRacesData = listRaces.find((racesItem: any) => racesItem.name === playerData.sheet.race);
       if (listRacesData) {
-        const listSubRaces = listRacesData.subraces.find((subRaceItem: any) => subRaceItem.name === playerData.sheet.subRace);
-        if (!listSubRaces) {
-          playerData.sheet = applySubRace(playerData.sheet, '', calculateMod);
-          playerData.sheet.subRace = '';
+        const listSubraces = listRacesData.subraces.find((subraceItem: any) => subraceItem.name === playerData.sheet.subrace);
+        if (!listSubraces) {
+          playerData.sheet = applySubrace(playerData.sheet, '', calculateMod);
+          playerData.sheet.subrace = '';
         }
       }
       if (race === 'Humano' && alternativeHuman) {

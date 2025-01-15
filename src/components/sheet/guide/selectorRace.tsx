@@ -2,7 +2,7 @@ import { useContext } from "react";
 import contexto from "../../../context/context";
 
 export default function SelectorRace(props: { list: any }) {
-  const { provDataPlayer, setShowDataSelector } = useContext(contexto);
+  const { provDataPlayer, setShowDataSelector, session } = useContext(contexto);
   const { list } = props;
 
   return(
@@ -16,7 +16,12 @@ export default function SelectorRace(props: { list: any }) {
         >
           <option disabled value="">Selecione uma Raça</option>
           {
-            list.map((item: any, index: number) => (
+            list.filter((itemList: any) => {
+              if (session.books.includes("Fizban's Treasury of Dragons")) {
+                return !itemList.type || itemList.type !== 2
+              } return !itemList.type || itemList.type !== 1
+            })
+            .map((item: any, index: number) => (
             <option
               value={item.name}
               key={index}

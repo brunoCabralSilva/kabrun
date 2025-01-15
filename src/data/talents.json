@@ -4,7 +4,8 @@
     "book": "Dungeons & Dragons - Player's Handbook",
     "pg": 165,
     "prerequisite": "Capacidade de conjurar pelo menos uma magia",
-    "description": "Quando você ganha esse talento, escolha um dos tipos de dano a seguir: ácido elétrico, fogo, frio ou trovão. As magias que você conjurar ignoram resistência adano do tipo escolhido. Além disso, quando você rola o dano para uma magia que você conjurar que causar dano desse tipo, você pode tratar qualquer 1 num dado de dano como um 2. Você pode escolher esse talento diversas vezes. A cada vez que o fizer, você deve escolher um tipo diferente de dano."
+    "description": "Quando você ganha esse talento, escolha um dos tipos de dano a seguir: ácido elétrico, fogo, frio ou trovão. As magias que você conjurar ignoram resistência adano do tipo escolhido. Além disso, quando você rola o dano para uma magia que você conjurar que causar dano desse tipo, você pode tratar qualquer 1 num dado de dano como um 2. Você pode escolher esse talento diversas vezes. A cada vez que o fizer, você deve escolher um tipo diferente de dano.",
+    "benefits": []
   },
   {
     "name": "Adepto Marcial",
@@ -42,7 +43,8 @@
     "name": "Atacante Bestial",
     "book": "Dungeons & Dragons - Player's Handbook",
     "pg": 165,
-    "description": "Uma vez por turno, quando você rolar o dano para uma taque corpo-a-corpo com arma, você pode jogar novamente o dado de dano da arma e usar qualquer dos valores."
+    "description": "Uma vez por turno, quando você rolar o dano para uma taque corpo-a-corpo com arma, você pode jogar novamente o dado de dano da arma e usar qualquer dos valores.",
+    "benefits": []
   },
   {
     "name": "Atirador Aguçado", 
@@ -139,7 +141,8 @@
     "book": "Dungeons & Dragons - Player's Handbook",
     "pg": 169,
     "prerequisite": "Destreza 13 ou maior",
-    "description": "Quando você estiver empunhando uma arma de acuidade com a qual você seja proficiente e outra criatura atingir você com um ataque corpo-a-corpo, você pode usar sua reação para adicionar seu bônus de proficiência à sua CA para esse ataque, potencialmente fazendo o ataque errar."
+    "description": "Quando você estiver empunhando uma arma de acuidade com a qual você seja proficiente e outra criatura atingir você com um ataque corpo-a-corpo, você pode usar sua reação para adicionar seu bônus de proficiência à sua CA para esse ataque, potencialmente fazendo o ataque errar.",
+    "benefits": []
   },
   {
     "name": "Especialista em Besta",
@@ -189,20 +192,23 @@
     "name": "Iniciado em Magia",
     "book": "Dungeons & Dragons - Player's Handbook",
     "pg": 170,
-    "description": "Escolha uma classe: bardo, bruxo, clérigo, druida,feiticeiro ou mago. Você aprende dois truques da lista de magias da classe escolhida. Além disso, escolha uma magia de 1° nível da mesma lista. Você aprende essa magia e pode conjura-la com o menor nível possível. Uma vez que a conjure, você precisa terminar um descanso longo para poder conjura-la novamente. Essa restrição aplica-se apenas à magia adquirida através desse talento. Sua habilidade de conjuração depende da classe que você escolher: Carisma para bardo, bruxo ou feiticeiro; Sabedoria para clérigo ou druida; ou Inteligência para mago."
+    "description": "Escolha uma classe: bardo, bruxo, clérigo, druida,feiticeiro ou mago. Você aprende dois truques da lista de magias da classe escolhida. Além disso, escolha uma magia de 1° nível da mesma lista. Você aprende essa magia e pode conjura-la com o menor nível possível. Uma vez que a conjure, você precisa terminar um descanso longo para poder conjura-la novamente. Essa restrição aplica-se apenas à magia adquirida através desse talento. Sua habilidade de conjuração depende da classe que você escolher: Carisma para bardo, bruxo ou feiticeiro; Sabedoria para clérigo ou druida; ou Inteligência para mago.",
+    "benefits": []
   },
   {
     "name": "Investida Poderosa",
     "book": "Dungeons & Dragons - Player's Handbook",
     "pg": 170,
-    "description": "Quando você usa a ação de Disparada, você pode usar sua ação bônus para realizar um ataque corpo-a-corpo com arma ou para empurrar uma criatura. Se você se mover, pelo menos, 3 metros em linha reta, imediatamente antes de realizar essa ação bônus, você pode tanto ganhar +5 de bônus na jogada de dano do ataque (se você escolher realizar um ataque corpo-a-corpo e atingir) ou empurrar o alvo até 3 metros de você (se você escolher empurrar e for bem sucedido)."
+    "description": "Quando você usa a ação de Disparada, você pode usar sua ação bônus para realizar um ataque corpo-a-corpo com arma ou para empurrar uma criatura. Se você se mover, pelo menos, 3 metros em linha reta, imediatamente antes de realizar essa ação bônus, você pode tanto ganhar +5 de bônus na jogada de dano do ataque (se você escolher realizar um ataque corpo-a-corpo e atingir) ou empurrar o alvo até 3 metros de você (se você escolher empurrar e for bem sucedido).",
+    "benefits": []
   },
   {
     "name": "Líder Inspirador",
     "book": "Dungeons & Dragons - Player's Handbook",
     "pg": 170,
     "prerequisite": "Carisma 13 ou maior",
-    "description": "Você pode gastar 10 minutos inspirando seuscompanheiros, suportando a vontade deles de lutar. Quando fizer isso, escolha até seis criaturas amigáveis(que pode incluir você) a até 9 metros de você que possam ver ou ouvir você e possam te compreender. Cada criatura ganha pontos de vida temporários igual ao seu nível + seu modificador de Carisma. Uma criatura não pode ganhar pontos de vida temporários desse talento novamente até terminar um descanso curto ou longo."
+    "description": "Você pode gastar 10 minutos inspirando seuscompanheiros, suportando a vontade deles de lutar. Quando fizer isso, escolha até seis criaturas amigáveis(que pode incluir você) a até 9 metros de você que possam ver ou ouvir você e possam te compreender. Cada criatura ganha pontos de vida temporários igual ao seu nível + seu modificador de Carisma. Uma criatura não pode ganhar pontos de vida temporários desse talento novamente até terminar um descanso curto ou longo.",
+    "benefits": []
   },
   {
     "name": "Maestria Em Arma De Haste",
@@ -276,7 +282,7 @@
     "description": "Você aprendeu a usar o peso em sua vantagem, deixando o balanço potencializar seus golpes. Você recebe os seguintes benefícios: ",
     "benefits": [
       "No seu turno, quando você atingir um acerto crítico com uma arma corpo-a-corpo ou reduzir os pontos de vida de uma criatura a 0, você pode realizar um ataque corpo-a-corpo com arma, com uma ação bônus.",
-      "Antes de você realizar um ataque corpo-a-corpo com uma arma pesada na qual você seja proficiente, você pode escolher sofrer –5 de penalidade em sua jogada de ataque. Se o ataque atingir, você adiciona +10 ao dano do ataque."
+      "Antes de você realizar um ataque corpo-a-corpo com uma arma pesada na qual você seja proficiente, você pode escolher sofrer -5 de penalidade em sua jogada de ataque. Se o ataque atingir, você adiciona +10 ao dano do ataque."
     ]
   },
   {
@@ -316,7 +322,8 @@
     "name": "Perito",
     "book": "Dungeons & Dragons - Player's Handbook",
     "pg": 172,
-    "description": "Você ganha proficiência em qualquer combinação de três perícias ou ferramentas, à sua escolha."
+    "description": "Você ganha proficiência em qualquer combinação de três perícias ou ferramentas, à sua escolha.",
+    "benefits": []
   },
   {
     "name": "Poliglota",
@@ -385,7 +392,8 @@
     "name": "Robusto",
     "book": "Dungeons & Dragons - Player's Handbook",
     "pg": 172,
-    "description": "Seu máximo de pontos de vida aumenta em um valor igual a duas vezes seu nível quando você adquire esse talento. Toda vez que você ganhar um nível, após isso, seu máximo de pontos de vida aumenta em 2 pontos de vida adicionais."
+    "description": "Seu máximo de pontos de vida aumenta em um valor igual a duas vezes seu nível quando você adquire esse talento. Toda vez que você ganhar um nível, após isso, seu máximo de pontos de vida aumenta em 2 pontos de vida adicionais.",
+    "benefits": []
   },
   {
     "name": "Sentinela",
@@ -415,6 +423,7 @@
     "book": "Dungeons & Dragons - Player's Handbook",
     "pg": 172,
     "description": 
-    "Você tem uma sorte inexplicável que parece surgir nos momentos exatos. Você tem 3 pontos de sorte. A qualquer momento que você realizar uma jogada de ataque, teste de habilidade ou teste de resistência, você pode gastar um ponto de sorte para rolar um d20 adicional. Você pode escolher gastar um dos seus pontos de sorte depois de rolar o dado, mas antes de saber o resultado da jogada. Você escolhe qual dos d20s irá usar para a jogada de ataque, teste de habilidade ou teste de resistência. Você também pode gastar um ponto de sorte quando uma jogada de ataque for feita contra você. Role um d20, e então escolha se o ataque irá usar a jogada do atacante ou a sua. Se mais de uma criatura gastar um ponto de sorte para influenciar uma mesma jogada, os pontos se cancelam mutuamente; nenhum dado adicional é rolado. Você recupera seus pontos de sorte gastos após terminar um descanso longo."
+    "Você tem uma sorte inexplicável que parece surgir nos momentos exatos. Você tem 3 pontos de sorte. A qualquer momento que você realizar uma jogada de ataque, teste de habilidade ou teste de resistência, você pode gastar um ponto de sorte para rolar um d20 adicional. Você pode escolher gastar um dos seus pontos de sorte depois de rolar o dado, mas antes de saber o resultado da jogada. Você escolhe qual dos d20s irá usar para a jogada de ataque, teste de habilidade ou teste de resistência. Você também pode gastar um ponto de sorte quando uma jogada de ataque for feita contra você. Role um d20, e então escolha se o ataque irá usar a jogada do atacante ou a sua. Se mais de uma criatura gastar um ponto de sorte para influenciar uma mesma jogada, os pontos se cancelam mutuamente; nenhum dado adicional é rolado. Você recupera seus pontos de sorte gastos após terminar um descanso longo.",
+    "benefits": []
   }
 ]

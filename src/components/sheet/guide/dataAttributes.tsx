@@ -3,7 +3,7 @@ import ItemAttribute from "../items/itemAttribute";
 import contexto from "../../../context/context";
 
 export default function DataAttributes() {
-  const { provDataPlayer, setEditAttributes, calculateMod } = useContext(contexto);
+  const { provDataPlayer, setEditAttributes } = useContext(contexto);
 
   if (provDataPlayer && provDataPlayer.sheet)
   return(
@@ -23,42 +23,12 @@ export default function DataAttributes() {
           </div>
         </div>
       </button>
-      <ItemAttribute
-        bonus={provDataPlayer.sheet.attributes.strength.bonus}
-        mod={ calculateMod(provDataPlayer.sheet.attributes.strength.value + provDataPlayer.sheet.attributes.strength.bonus) }
-        attribute={ provDataPlayer.sheet.attributes.strength.value + provDataPlayer.sheet.attributes.strength.bonus }
-        name="Força"
-      />
-      <ItemAttribute
-        bonus={provDataPlayer.sheet.attributes.dexterity.bonus}
-        mod={ calculateMod(provDataPlayer.sheet.attributes.dexterity.value + provDataPlayer.sheet.attributes.dexterity.bonus) }
-        attribute={ provDataPlayer.sheet.attributes.dexterity.value + provDataPlayer.sheet.attributes.dexterity.bonus }
-        name="Destreza"
-      />
-      <ItemAttribute
-        bonus={provDataPlayer.sheet.attributes.constitution.bonus}
-        mod={ calculateMod(provDataPlayer.sheet.attributes.constitution.value + provDataPlayer.sheet.attributes.constitution.bonus) }
-        attribute={ provDataPlayer.sheet.attributes.constitution.value + provDataPlayer.sheet.attributes.constitution.bonus }
-        name="Constituição"
-      />
-      <ItemAttribute
-        bonus={provDataPlayer.sheet.attributes.intelligence.bonus}
-        mod={ calculateMod(provDataPlayer.sheet.attributes.intelligence.value + provDataPlayer.sheet.attributes.intelligence.bonus) }
-        attribute={ provDataPlayer.sheet.attributes.intelligence.value + provDataPlayer.sheet.attributes.intelligence.bonus }
-        name="Inteligência"
-      />
-      <ItemAttribute
-        bonus={provDataPlayer.sheet.attributes.wisdom.bonus}
-        mod={ calculateMod(provDataPlayer.sheet.attributes.wisdom.value + provDataPlayer.sheet.attributes.wisdom.bonus) }
-        attribute={ provDataPlayer.sheet.attributes.wisdom.value + provDataPlayer.sheet.attributes.wisdom.bonus }
-        name="Sabedoria"
-      />
-      <ItemAttribute
-        bonus={provDataPlayer.sheet.attributes.charisma.bonus}
-        mod={ calculateMod(provDataPlayer.sheet.attributes.charisma.value + provDataPlayer.sheet.attributes.charisma.bonus) }
-        attribute={ provDataPlayer.sheet.attributes.charisma.value + provDataPlayer.sheet.attributes.charisma.bonus }
-        name="Carisma"
-      />
+      <ItemAttribute type="strength" attribute={ provDataPlayer.sheet.attributes.strength.value } name="Força" />
+      <ItemAttribute type="dexterity" attribute={ provDataPlayer.sheet.attributes.dexterity.value } name="Destreza" />
+      <ItemAttribute type="constitution" attribute={ provDataPlayer.sheet.attributes.constitution.value } name="Constituição" />
+      <ItemAttribute type="intelligence" attribute={ provDataPlayer.sheet.attributes.intelligence.value } name="Inteligência" />
+      <ItemAttribute type="wisdom" attribute={ provDataPlayer.sheet.attributes.wisdom.value } name="Sabedoria" />
+      <ItemAttribute type="charisma" attribute={ provDataPlayer.sheet.attributes.charisma.value } name="Carisma" />
     </div>
   );
 }

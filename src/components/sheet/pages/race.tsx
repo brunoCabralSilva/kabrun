@@ -72,7 +72,7 @@ export default function Race() {
         </div>
         <div>
           {
-            race.subraces.filter((subrace: any) => subrace.name === dataPlayer.sheet.subRace)
+            race.subraces.filter((subrace: any) => subrace.name === dataPlayer.sheet.subrace)
               .map((subrace: any, index2: number) => (
               <div key={ index2 }>
                 <p className="text-xl pt-2 font-bold">{ subrace.name }</p>

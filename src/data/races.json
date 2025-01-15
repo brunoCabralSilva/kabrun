@@ -7,56 +7,119 @@
     "size": "Anões estão entre 1,20 e 1,50 metro de altura e pesam cerca de 75 kg. Seu tamanho é Médio",
     "sizeM": "M",
     "speed": 7.5,
+    "magics": [],
     "languages": ["Comum", "Anão"],
-    "skills": [
+    "characteristics": [
       {
-        "name": "deslocamento",
+        "tags": ["Anão", "race"],
+        "name": "Deslocamento",
         "description": "Seu deslocamento não é reduzido quando estiver usando armadura pesada."
       },
       {
+        "tags": ["Anão", "race"],
         "name": "Visão no Escuro",
-        "description": "Acostumado à vida subterrânea, você tem uma visão superior no escuro e na penumbra. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza."
+        "description": "Acostumado à vida subterrânea, você tem uma visão superior no escuro e na penumbra. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza.",
+        "value": 18
       },
       {
+        "tags": ["Anão", "race"],
         "name": "Resiliência Anã",
         "description": "Você possui vantagem em testes de resistência contra venenos e resistência contra dano de veneno (explicado no capítulo 9)."
       },
       {
+        "tags": ["Anão", "race"],
         "name": "Treinamento Anão em Combate",
-        "description": "Você tem proficiência com machados de batalha, machadinhas, martelos leves e martelos de guerra.",
-        "list": ["machados de batalha", "machadinhas", "martelos leves", "martelos de guerra"]
+        "description": "Você é proficiente com machados de batalha, machadinhas, martelos leves e martelos de guerra"
       },
       {
+        "tags": ["Anão", "race"],
         "name": "Proficiência com Ferramentas",
         "description": "Você tem proficiência em uma ferramenta de artesão à sua escolha entre: ferramentas de ferreiro, suprimentos de cervejeiro ou ferramentas de pedreiro."
       },
       {
+        "tags": ["Anão", "race"],
         "name": "Especialização em Rochas",
         "description": "Sempre que você realizar um teste de Inteligência (História) relacionado à origem de um trabalho em pedra, você é considerado proficiente na perícia História e adiciona o dobro do seu bônus de proficiência ao teste, ao invés do seu bônus de proficiência normal."
+      }
+    ],
+    "skills": {
+      "tags": ["Anão", "race"],
+      "mode": "none",
+      "items": []
+    },
+    "proficiencies": [
+      {
+        "tags": ["Anão", "race"],
+        "item": "weapon",
+        "name": "machados de batalha"
+      },
+      {
+        "tags": ["Anão", "race"],
+        "item": "weapon",
+        "name": "machadinhas"
+      },
+      {
+        "tags": ["Anão", "race"],
+        "item": "weapon",
+        "name": "martelos leves"
+      },
+      {
+        "tags": ["Anão", "race"],
+        "item": "weapon",
+        "name": "martelos de guerra"
       }
     ],
     "subraces": [
       {
         "name": "Anão da Colina",
-        "attribute": "wisdom",
-        "skills": [
+        "attribute": [{ "name": "wisdom", "value": 1 }],
+        "characteristics": [
           {
+            "tags": ["Anão da Colina", "subrace"],
             "name": "Tenacidade Anã",
             "description": "Seu máximo de pontos de vida aumentam em 1, e cada vez que o anão da colina sobe um nível, ele recebe 1 ponto de vida adicional."
           }
-        ]
+        ],
+        "speed": 7.5,
+        "magics": [],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Anão da Colina", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       },
       {
         "name": "Anão da Montanha",
-        "value": 2,
-        "attribute": "strength",
-        "skills": [
+        "attribute": [{ "name": "strength", "value": 2 }],
+        "characteristics": [
           {
+            "tags": ["Anão da Montanha", "subrace"],
             "name": "Treinamento Anão com Armaduras",
-            "description": "Você adquire proficiência em armaduras leves e médias.",
-            "list": ["armaduras leves", "armaduras médias"]
+            "description": "Você adquire proficiência em armaduras leves e médias."
           }
-        ]
+        ],
+        "speed": 7.5,
+        "magics": [],
+        "languages": [],
+        "proficiencies": [
+          {
+            "tags": ["Anão da Montanha", "subrace"],
+            "item": "armor",
+            "name": "armaduras leves"
+          },
+          {
+            "tags": ["Anão da Montanha", "subrace"],
+            "item": "armor",
+            "name": "armaduras médias"
+          }
+        ],
+        "skills": {
+          "tags": ["Anão da Montanha", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       }
     ]
   },
@@ -68,87 +131,191 @@
     "size": "Elfos medem entre 1,50 a 1,80 metro de altura e possuem constituição delgada. Seu tamanho é Médio.",
     "sizeM": "M",
     "speed": 9,
-    "languages": ["comum", "élfico"],
-    "skills": [
+    "magics": [],
+    "languages": ["Comum", "Élfico"],
+    "characteristics": [
       {
+        "tags": ["Elfo", "race"],
         "name": "Visão no Escuro",
-        "description": "Acostumado às florestas crepusculares e ao céu noturno, você possui uma visão superior em condições de escuridão e na penumbra. Você pode enxergar na penumbra a até 18 metros como se fosse na luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza."
+        "description": "Acostumado às florestas crepusculares e ao céu noturno, você possui uma visão superior em condições de escuridão e na penumbra. Você pode enxergar na penumbra a até 18 metros como se fosse na luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza.",
+        "value": 18
       },
       {
+        "tags": ["Elfo", "race"],
         "name": "Sentidos Aguçados",
         "description": "Você tem proficiência na perícia Percepção."
       },
       {
+        "tags": ["Elfo", "race"],
         "name": "Ancestral Feérico",
         "description": "Você tem vantagem nos testes de resistência para resistir a ser enfeitiçado e  magias não podem colocá-lo para dormir."
       },
       {
+        "tags": ["Elfo", "race"],
         "name": "Transe",
-        "description": "Elfos não precisam dormir. Ao invés disso, eles meditam profundamente, permanecendo semiconscientes, durante 4 horas por dia (a palavra em idioma comum para tal meditação é 'transe'). Enquanto medita, um elfo é capaz de sonhar de certo modo. Esses sonhos na verdade são exercícios mentais que se tornam reflexos através de anos de prática. Depois de descansar dessa forma, você ganha os mesmos benefícios que um humano depois de 8 horas de sono."
+        "description": "Elfos não precisam dormir. Ao invés disso, eles meditam profundamente, permanecendo semiconscientes, durante 4 horas por dia (a palavra em idioma Comum para tal meditação é 'transe'). Enquanto medita, um elfo é capaz de sonhar de certo modo. Esses sonhos na verdade são exercícios mentais que se tornam reflexos através de anos de prática. Depois de descansar dessa forma, você ganha os mesmos benefícios que um humano depois de 8 horas de sono."
       }
     ],
+    "skills": {
+      "tags": ["Elfo", "race"],
+      "mode": "all",
+      "items": ["perception"]
+    },
+    "proficiencies": [],
     "subraces": [
       {
         "name": "Alto Elfo",
-        "attribute": "intelligence",
-        "skills": [
+        "attribute": [{ "name": "intelligence", "value": 1 }],
+        "characteristics": [
           {
             "name": "Treinamento Élfico com Armas",
-            "description": "Você possui proficiência com espadas longas, espadas curtas, arcos longos e arcos curtos.",
-            "list": ["espadas longas", "espadas curtas", "arcos longos", "arcos curtos"]
+            "tags": ["Alto Elfo", "subrace"],
+            "description": "Você possui proficiência com espadas longas, espadas curtas, arcos longos e arcos curtos."
           },
           {
             "name": "Truque",
+            "tags": ["Alto Elfo", "subrace"],
             "description": "Você conhece um truque, à sua escolha, da lista de truques do mago. Inteligência é a habilidade usado para conjurar este truque"
           },
           {
             "name": "Idioma Adicional",
+            "tags": ["Alto Elfo", "subrace"],
             "description": "Você pode falar, ler e escrever um idioma adicional à sua escolha."
           }
-        ]
+        ],
+        "speed": 9,
+        "magics": [{ "level": 0, "type": "Mago"  }],
+        "languages": ["other"],
+        "proficiencies": [
+          {
+            "tags": ["Alto Elfo", "subrace"],
+            "item": "armor",
+            "name": "espadas longas"
+          },
+          {
+            "tags": ["Alto Elfo", "subrace"],
+            "item": "armor",
+            "name": "espadas curtas"
+          },
+          {
+            "tags": ["Alto Elfo", "subrace"],
+            "item": "armor",
+            "name": "arcos longos"
+          },
+          {
+            "tags": ["Alto Elfo", "subrace"],
+            "item": "armor",
+            "name": "arcos curtos"
+          }
+        ],
+        "skills": {
+          "tags": ["Alto Elfo", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       },
       {
         "name": "Elfo da Floresta",
-        "attribute": "wisdom",
-        "skills": [
+        "attribute": [{ "name": "intelligence", "value": 1 }],
+        "characteristics": [
           {
+            "tags": ["Elfo da Floresta", "subrace"],
             "name": "Treinamento Élfico com Armas",
-            "description": "Você possui proficiência com espadas longas, espadas curtas, arcos longos e arcos curtos.",
-            "list": ["espadas longas", "espadas curtas", "arcos longos", "arcos curtos"]
+            "description": "Você possui proficiência com espadas longas, espadas curtas, arcos longos e arcos curtos."
           },
           {
-            "name": "deslocamento",
-            "description": "Seu deslocamento base de caminhada aumenta para 10,5 metros",
-            "speed": 10.5
+            "tags": ["Elfo da Floresta", "subrace"],
+            "name": "Deslocamento",
+            "description": "Seu deslocamento base de caminhada aumenta para 10,5 metros"
           },
           {
+            "tags": ["Elfo da Floresta", "subrace"],
             "name": "Máscara da Natureza",
             "description": "Você pode tentar se esconder mesmo quando você está apenas levemente obscurecido por folhagem, chuva forte, neve caindo, névoa ou outro fenômeno natural"
           }
-        ]
+        ],
+        "speed": 10.5,
+        "magics": [],
+        "languages": [],
+        "proficiencies": [
+          {
+            "tags": ["Elfo da Floresta", "subrace"],
+            "item": "armor",
+            "name": "espadas longas"
+          },
+          {
+            "tags": ["Elfo da Floresta", "subrace"],
+            "item": "armor",
+            "name": "espadas curtas"
+          },
+          {
+            "tags": ["Elfo da Floresta", "subrace"],
+            "item": "armor",
+            "name": "arcos longos"
+          },
+          {
+            "tags": ["Elfo da Floresta", "subrace"],
+            "item": "armor",
+            "name": "arcos curtos"
+          }
+        ],
+        "skills": {
+          "tags": ["Elfo da Floresta", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       },
       {
         "name": "Elfo Negro (Drow)",
-        "attribute": "charisma",
-        "skills": [
+        "attribute": [{ "name": "charisma", "value": 1 }],
+        "characteristics": [
           {
+            "tags": ["Elfo Negro (Drow)", "subrace"],
             "name": "Visão no Escuro Superior",
-            "description": "Sua visão no escuro tem alcance de 36 metros de raio."
+            "description": "Sua visão no escuro tem alcance de 36 metros de raio.",
+            "value": 36
           },
           {
+            "tags": ["Elfo Negro (Drow)", "subrace"],
             "name": "Sensibilidade à Luz Solar",
             "description": "Você possui desvantagem nas jogadas de ataque e testes de Sabedoria (Percepção) relacionados a visão quando você, o alvo do seu ataque, ou qualquer coisa que você está tentando perceber, esteja sob luz solar direta."
           },
           {
+            "tags": ["Elfo Negro (Drow)", "subrace"],
             "name": "Magia Drow",
             "description": "Você possui o truque globos de luz. Quando você alcança o 3° nível, você pode conjurar a magia fogo das fadas. Quando você alcança o 5° nível, você pode conjurar escuridão. Você precisa terminar um descanso longo para poder conjurar as magias desse traço novamente. Carisma é sua habilidade chave para conjurar essas magias."
           },
           {
+            "tags": ["Elfo Negro (Drow)", "subrace"],
             "name": "Treinamento Drow com Armas",
-            "description": "Você possui proficiência com rapieiras, espadas curtas e bestas de mão.",
-            "list": ["rapieiras", "espadas curtas", "bestas de mão"]
+            "description": "Você possui proficiência com rapieiras, espadas curtas e bestas de mão."
           }
-        ]
+        ],
+        "speed": 9,
+        "magics": [{ "level": 0, "name": "Globos de Luz"  }],
+        "languages": [],
+        "proficiencies": [
+          {
+            "tags": ["Elfo Negro (Drow)", "subrace"],
+            "item": "armor",
+            "name": "rapieiras"
+          },
+          {
+            "tags": ["Elfo Negro (Drow)", "subrace"],
+            "item": "armor",
+            "name": "espadas curtas"
+          },
+          {
+            "tags": ["Elfo Negro (Drow)", "subrace"],
+            "item": "armor",
+            "name": "bestas de mão"
+          }
+        ],
+        "skills": {
+          "tags": ["Elfo Negro (Drow)", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       }
     ]
   },
@@ -160,41 +327,71 @@
     "size": "Halflings medem cerca de 0,90 metro de altura e pesam aproximadamente 20 kg. Seu tamanho é Pequeno.",
     "sizeM": "P",
     "speed": 7.5,
-    "languages": ["comum", "halfling"],
-    "skills": [
+    "magics": [],
+    "languages": ["Comum", "Halfling"],
+    "characteristics": [
       {
         "name": "Sortudo",
+        "tags": ["Halfling", "race"],
         "description": "Quando você obtiver um 1 natural em uma jogada de ataque, teste de habilidade ou teste de resistência, você pode jogar de novo o dado e deve utilizar o novo resultado."
       },
       {
         "name": "Bravura",
+        "tags": ["Halfling", "race"],
         "description": "Você tem vantagem em testes de resistência contra ficar amedrontado. "
       },
       {
         "name": "Agilidade Halfling",
+        "tags": ["Halfling", "race"],
         "description": "Você pode mover-se através do espaço de qualquer criatura que for de um  tamanho maior que o seu."
       }
     ],
+    "skills": {
+      "tags": ["Halfling", "race"],
+      "mode": "none",
+      "items": []
+    },
+    "proficiencies": [],
     "subraces": [
       {
         "name": "Halfling Pés Leves",
-        "attribute": "charisma",
-        "skills": [
+        "attribute": [{ "name": "charisma", "value": 1 }],
+        "characteristics": [
           {
             "name": "Furtividade Natural",
+            "tags": ["Halfling Pés Leves", "subrace"],
             "description": "Você pode tentar se esconder mesmo quando possuir apenas a cobertura de uma criatura que for no mínimo um tamanho maior que o seu."
           }
-        ]
+        ],
+        "speed": 7.5,
+        "magics": [],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Halfling Pés Leves", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       },
       {
         "name": "Halfling Robusto",
-        "attribute": "constitution",
-        "skills": [
+        "attribute": [{ "name": "constitution", "value": 1 }],
+        "characteristics": [
           {
+            "tags": ["Halfling Robusto", "subrace"],
             "name": "Resiliência dos Robustos",
             "description": "Você tem vantagem em testes de resistência contra veneno e tem resistência contra dano de veneno."
           }
-        ]
+        ],
+        "speed": 7.5,
+        "magics": [],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Halfling Robusto", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       }
     ]
   },
@@ -206,116 +403,234 @@
     "size": "Os humanos variam muito em altura e peso, podem ter quase 1,50 metro ou mais de 1,80 metro. Independentemente da sua posição entre esses valores, o seu tamanho é Médio.",
     "sizeM": "M",
     "speed": 9,
-    "languages": ["comum", "other"],
-    "skills": [],
+    "magics": [],
+    "languages": ["Comum", "other"],
+    "characteristics": [],
+    "proficiencies": [],
     "subraces": [],
-    "optionals": [
-      {
-       "name": "Aumento no Valor de Habilidade",
-       "description": "Dois valores de habilidade, à sua escolha, aumentam em 1."
+    "skills": {
+      "tags": ["Humano", "race"],
+      "mode": "none",
+      "items": []
+    },
+    "optionals": {
+      "attribute": [{ "name": "other", "value": 1 }, { "name": "other", "value": 1 }],
+      "skills": {
+        "tags": ["Humano", "race"],
+        "mode": "all",
+        "items": ["other"]
       },
-      {
-        "name": "Perícia",
-        "description": "Você ganha proficiência em uma perícia, à sua escolha."
-      },
-      {
-        "name": "talento",
-        "description": "Você adquire um talento de sua escolha."
-      }
-    ]
+      "characteristics": [
+        {
+         "name": "Aumento no Valor de Atributo",
+         "tags": ["Humano", "race"],
+         "description": "Dois valores de Atributo, à sua escolha, aumentam em 1."
+        },
+        {
+          "name": "Perícia",
+          "tags": ["Humano", "race"],
+          "description": "Você ganha proficiência em uma perícia, à sua escolha."
+        },
+        {
+          "name": "Talento",
+          "tags": ["Humano", "race"],
+          "description": "Você adquire um talento de sua escolha."
+        }
+      ]
+    }
   },
   {
     "name": "Draconato",
+    "type": 1,
     "attribute": [{ "name": "strength", "value": 2 }],
     "age": "Draconatos jovens crescem rapidamente. Eles caminham horas após nascerem, adquirindo o tamanho e desenvolvimento semelhante a de uma criança humana de 10 anos com 3 anos de idade e alcançam a maturidade aos 15. Eles costumam viver até os 80",
     "alignment": "Os draconatos tendem aos extremos, realizando uma escolha consciente de um lado ou do outro da guerra cósmica entre o bem e o mal (representada por Bahamut e Tiamat, respectivamente). A maioria dos draconatos é boa, mas os que vão para o lado de Tiamat podem se tornar vilões terríveis.",
     "size": "Os draconatos são mais altos e mais pesados que os humanos, geralmente possuindo mais de 1,80 metro e normalmente pesando mais de 125 kg. Seu tamanho é Médio.",
     "sizeM": "M",
     "speed": 9,
-    "languages": ["comum", "other"],
-    "skills": [
+    "magics": [],
+    "languages": ["Comum", "other"],
+    "characteristics": [
       {
         "name": "Arma de Sopro",
+        "tags": ["Draconato", "race"],
         "description": "Você pode usar uma ação para exalar energia destrutiva. Seu ancestral dracônico determina o tamanho, formato e tipo de dano que você expele. Quando você usa sua arma de sopro, cada criatura na área exalada deve realizar um teste de resistência, o tipo do teste é  determinado pelo seu ancestral dracônico. A CD do teste de resistência é 8 + seu modificador de Constituição + seu bônus de proficiência. Uma criatura sofre 2d6 de dano num fracasso e metade desse dano num sucesso. O dano aumenta para 3d6 no 6° nível, 4d6 no 11° nível e 5d6 no 16° nível. Depois de usar sua arma de sopro, você não poderá utilizá-la novamente até completar um descanso curto ou longo."
       },
       {
         "name": "Resistência a Dano",
+        "tags": ["Draconato", "race"],
         "description": "Você possui resistência ao tipo de dano associado ao seu ancestral dracônico"
       }
     ],
+    "skills": {
+      "tags": ["Draconato", "race"],
+      "mode": "none",
+      "items": []
+    },
+    "proficiencies": [],
     "subraces": [
       {
         "name": "Draconato Cromático",
-        "attribute": "charisma",
-        "skills": [
+        "attribute": [{ "name": "charisma", "value": 1 }],
+        "characteristics": [
           {
             "name": "Ancestral Cromático",
+            "tags": ["Draconato Cromático", "subrace"],
             "description": "Você possui um ancestral dracônico cromático. Escolha um tipo de dragão da tabela: Sua Arma de sopro e resistência a dano são determinadas pelo tipo de dragão, como mostrado na tabela"
           },
           {
             "name": "Proteção Cromática",
+            "tags": ["Draconato Cromático", "subrace"],
             "description": "A partir do 5º nível, como uma ação, você pode canalizar sua energia dracônica para se proteger. Por 1 minuto, você se torna imune ao tipo de dano associado à sua Ancestralidade Cromática. Uma vez que você usa esse traço, você não pode fazê-lo novamente até terminar um descanso longo."
           }
         ],
+        "speed": 9,
+        "magics": [],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Draconato Cromático", "subrace"],
+          "mode": "none",
+          "items": []
+        },
         "types": [
-          { "dragon": "Negro", "damage": "Ácido", "type": "linha", "size": 9 },
-          { "dragon": "Azul", "damage": "Elétrico", "type": "linha", "size": 9 },
-          { "dragon": "Verde", "damage": "Venenoso", "type": "linha", "size": 9 },
-          { "dragon": "Vermelho", "damage": "Fogo", "type": "linha", "size": 9 },
-          { "dragon": "Branco", "damage": "Congelante", "type": "linha", "size": 9 }
+          { "dragon": "Negro", "damage": "Ácido", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Azul", "damage": "Elétrico", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Verde", "damage": "Venenoso", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Vermelho", "damage": "Fogo", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Branco", "damage": "Congelante", "type": "linha", "size": [1.5, 9], "svg": "dexterity" }
         ]
       },
       {
         "name": "Draconato Metálico",
-        "attribute": "charisma",
-        "skills": [
+        "attribute": [{ "name": "charisma", "value": 1 }],
+        "characteristics": [
           {
             "name": "Ancestral Metálico",
+            "tags": ["Draconato Metálico", "subrace"],
             "description": "Você possui um ancestral dracônico Metálico. Escolha um tipo de dragão da tabela: Sua Arma de sopro e resistência a dano são determinadas pelo tipo de dragão, como mostrado na tabela"
           },
           {
             "name": "Sopro Enervante",
+            "tags": ["Draconato Metálico", "subrace"],
             "description": "Cada criatura no cone deve passar por uma Salvaguarda de Constituição para não ficar incapacitado até o início do seu próximo turno."
           },
           {
             "name": "Sopro Repulsor",
+            "tags": ["Draconato Metálico", "subrace"],
             "description": "Cada criatura no cone deve passar por uma Salvaguarda de Força para não ser puxada 6 metros até você e ser derrubada."
           }
         ],
+        "powers": [
+          {
+            "name": "Sopro Enervante",
+            "tags": ["Draconato Metálico", "subrace"],
+            "description": "Cada criatura no cone deve passar por uma Salvaguarda de Constituição para não ficar incapacitado até o início do seu próximo turno."
+          },
+          {
+            "name": "Sopro Repulsor",
+            "tags": ["Draconato Metálico", "subrace"],
+            "description": "Cada criatura no cone deve passar por uma Salvaguarda de Força para não ser puxada 6 metros até você e ser derrubada."
+          }
+        ],
+        "speed": 9,
+        "magics": [],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Draconato Metálico", "subrace"],
+          "mode": "none",
+          "items": []
+        },
         "types": [
-          { "dragon": "Latão", "damage": "Fogo", "type": "cone", "size": 4.5 },
-          { "dragon": "Bronze", "damage": "Elétrico", "type": "cone", "size": 4.5 },
-          { "dragon": "Cobre", "damage": "Ácido", "type": "cone", "size": 4.5 },
-          { "dragon": "Ouro", "damage": "Fogo", "type": "cone", "size": 4.5 },
-          { "dragon": "Prata", "damage": "Congelante", "type": "cone", "size": 4.5 }
+          { "dragon": "Latão", "damage": "Fogo", "type": "cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Bronze", "damage": "Elétrico", "type": "cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Cobre", "damage": "Ácido", "type": "cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Ouro", "damage": "Fogo", "type": "cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Prata", "damage": "Congelante", "type": "cone", "size": [4.5], "svg": "dexterity" }
         ]
       },
       {
         "name": "Draconato de Gema",
-        "attribute": "charisma",
-        "skills": [
+        "attribute": [{ "name": "charisma", "value": 1 }],
+        "characteristics": [
           {
             "name": "Ancestral de Gema",
+            "tags": ["Draconato de Gema", "subrace"],
             "description": "Você possui um ancestral dracônico de Gema. Escolha um tipo de dragão da tabela: Sua Arma de sopro e resistência a dano são determinadas pelo tipo de dragão, como mostrado na tabela"
           },
           {
             "name": "Mente Psiônica",
+            "tags": ["Draconato de Gema", "subrace"],
             "description": "Você pode enviar mensagens telepáticas para alguma criatura que você vê a até 9m de você. Você não precisa compartilhar um mesmo idioma com a criatura para que ela entenda a mensagem, mas ela precisa compreender pelo menos um idioma para compreender."
           },
           {
             "name": "Asas de Gema",
+            "tags": ["Draconato de Gema", "subrace"],
             "description": "A partir do 5º nível, você pode usar uma ação bônus para manifestar asas espectrais em seu corpo. Estas asas permanecem por 1 minuto. Pelo tempo em que durarem, você ganha velocidade de voo igual a sua velocidade de movimento e pode pairar/planar. Uma vez que você usa esse traço, você não pode fazê-lo novamente até terminar um descanso longo."
           }
         ],
+        "speed": 9,
+        "magics": [],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Draconato de Gema", "subrace"],
+          "mode": "none",
+          "items": []
+        },
         "types": [
-          { "dragon": "Ametista", "damage": "Energético", "type": "cone", "size": 4.5 },
-          { "dragon": "Cristal", "damage": "Radiante", "type": "cone", "size": 4.5 },
-          { "dragon": "Esmeralda", "damage": "Psíquico", "type": "cone", "size": 4.5 },
-          { "dragon": "Safira", "damage": "Trovejante", "type": "cone", "size": 4.5 },
-          { "dragon": "Topázio", "damage": "Necrótico", "type": "cone", "size": 4.5 }
+          { "dragon": "Ametista", "damage": "Energético", "type": "cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Cristal", "damage": "Radiante", "type": "cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Esmeralda", "damage": "Psíquico", "type": "cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Safira", "damage": "Trovejante", "type": "cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Topázio", "damage": "Necrótico", "type": "cone", "size": [4.5], "svg": "dexterity" }
         ]
       }
     ]
+  },
+  {
+    "name": "Draconato",
+    "type": 2,
+    "attribute": [{ "name": "strength", "value": 2 }, { "name": "charisma", "value": 1 } ],
+    "age": "Draconatos jovens crescem rapidamente. Eles caminham horas após nascerem, adquirindo o tamanho e desenvolvimento semelhante a de uma criança humana de 10 anos com 3 anos de idade e alcançam a maturidade aos 15. Eles costumam viver até os 80",
+    "alignment": "Os draconatos tendem aos extremos, realizando uma escolha consciente de um lado ou do outro da guerra cósmica entre o bem e o mal (representada por Bahamut e Tiamat, respectivamente). A maioria dos draconatos é boa, mas os que vão para o lado de Tiamat podem se tornar vilões terríveis.",
+    "size": "Os draconatos são mais altos e mais pesados que os humanos, geralmente possuindo mais de 1,80 metro e normalmente pesando mais de 125 kg. Seu tamanho é Médio.",
+    "sizeM": "M",
+    "speed": 9,
+    "magics": [],
+    "languages": ["Comum", "Dracônico"],
+    "characteristics": [
+      {
+        "name": "Arma de Sopro",
+        "tags": ["Draconato", "race"],
+        "description": "Você pode usar uma ação para exalar energia destrutiva. Seu ancestral dracônico determina o tamanho, formato e tipo de dano que você expele. Quando você usa sua arma de sopro, cada criatura na área exalada deve realizar um teste de resistência, o tipo do teste é  determinado pelo seu ancestral dracônico. A CD do teste de resistência é 8 + seu modificador de Constituição + seu bônus de proficiência. Uma criatura sofre 2d6 de dano num fracasso e metade desse dano num sucesso. O dano aumenta para 3d6 no 6° nível, 4d6 no 11° nível e 5d6 no 16° nível. Depois de usar sua arma de sopro, você não poderá utilizá-la novamente até completar um descanso curto ou longo."
+      },
+      {
+        "name": "Resistência a Dano",
+        "tags": ["Draconato", "race"],
+        "description": "Você possui resistência ao tipo de dano associado ao seu ancestral dracônico"
+      }
+    ],
+    "skills": {
+      "tags": ["Draconato", "race"],
+      "mode": "none",
+      "items": []
+    },
+    "proficiencies": [],
+    "subraces": [],
+    "types": [
+          { "dragon": "Azul", "damage": "Elétrico", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Branco", "damage": "Gélido", "type": "cone", "size": [4.5], "svg": "constitution" },
+          { "dragon": "Bronze", "damage": "Elétrico", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Cobre", "damage": "Ácido", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Latão", "damage": "Ígneo", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Negro", "damage": "Ácido", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Ouro", "damage": "Ígneo", "type": "cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Prata", "damage": "Gélido", "type": "cone", "size": [4.5], "svg": "constitution" },
+          { "dragon": "Verde", "damage": "Venenoso", "type": "cone", "size": [4.5], "svg": "constitution" },
+          { "dragon": "Vermelho", "damage": "Ígneo", "type": "cone", "size": [4.5], "svg": "dexterity" }
+        ]
   },
   {
     "name": "Gnomo",
@@ -325,45 +640,83 @@
     "size": "Os gnomos tem entre 0,90 e 1,20 metro e seu peso médio é de 20 kg. Seu tamanho é Pequeno.",
     "sizeM": "P",
     "speed": 7.5,
-    "languages": ["comum", "gnomico"],
-    "skills": [
+    "magics": [],
+    "languages": ["Comum", "Gnômico"],
+    "characteristics": [
       {
         "name": "Visão no Escuro",
-        "description": "Acostumado à vida subterrânea, você tem uma visão superior no escuro e na penumbra. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza."
+        "tags": ["Gnomo", "race"],
+        "description": "Acostumado à vida subterrânea, você tem uma visão superior no escuro e na penumbra. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza.",
+        "value": 18
       },
       {
         "name": "Esperteza Gnômica",
+        "tags": ["Gnomo", "race"],
         "description": "Você possui vantagem em todos os testes de resistência de Inteligência, Sabedoria e Carisma contra magia"
       }
     ],
+    "skills": {
+      "tags": ["Gnomo", "race"],
+      "mode": "none",
+      "items": []
+    },
+    "proficiencies": [],
     "subraces": [
       {
         "name": "Gnomo dos Bosques",
-        "attribute": "dexterity",
-        "skills": [
+        "attribute": [{ "name": "dexterity", "value": 1 }],
+        "characteristics": [
           {
+            "tags": ["Gnomo dos Bosques", "subrace"],
             "name": "Ilusionista Nato",
             "description": "Você conhece o truque ilusão menor. Inteligência é a sua habilidade usada para conjurá-la."
           },
           {
+            "tags": ["Gnomo dos Bosques", "subrace"],
             "name": "Falar com Bestas Pequenas",
             "description": "Através de sons e gestos, você pode comunicar ideias simples para Bestas pequenas ou menores. Gnomos da floresta amam os animais e normalmente possuem esquilos, doninhas, coelhos, toupeiras, pica-paus e outras criaturas como amados animais de estimação."
           }
-        ]
+        ],
+        "speed": 7.5,
+        "magics": [{ "level": 0, "name": "Ilusão Menor" }],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Gnomo dos Bosques", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       },
       {
         "name": "Gnomo das Rochas",
-        "attribute": "constitution",
-        "skills": [
+        "attribute": [{ "name": "constitution", "value": 1 }],
+        "characteristics": [
           {
+            "tags": ["Gnomo das Rochas", "subrace"],
             "name": "Conhecimento de Artífice",
             "description": "Toda vez que você fizer um teste de Inteligência (História) relacionado a itens mágicos, objetos alquímicos ou mecanismos tecnológicos, você pode adicionar o dobro do seu bônus de proficiência, ao invés de qualquer bônus de proficiência que você normalmente use."
           },
           {
+            "tags": ["Gnomo das Rochas", "subrace"],
             "name": "Engenhoqueiro",
             "description": "Você possui proficiência com ferramentas de artesão (ferramentas de engenhoqueiro). Usando essas ferramentas, você pode gastar 1 hora e 10 po em materiais para construir um mecanismo Miúdo (CA 5, 1 pv). O mecanismo para de funcionar após 24 horas (a não ser que você gaste 1 hora reparando-o para manter o mecanismo funcionando), ou quando você usa sua ação para desmantelá-lo; nesse momento, você pode recuperar o material usado para criá-lo. Você pode ter até três desses mecanismos ativos ao mesmo tempo. Quando você criar um mecanismo, escolha uma das seguintes opções: Brinquedo Mecânico (Esse brinquedo é um animal, monstro ou pessoa mecânica, como um sapo, rato, pássaro, dragão ou soldado. Quando colocado no chão, o brinquedo se move 1,5 metro pelo chão em cada um dos seus turnos em uma direção aleatória. Ele faz barulhos apropriados a criatura que ele representa),  Isqueiro Mecânico (O mecanismo produz uma miniatura de chama, que você pode usar para acender uma vela, tocha ou fogueira. Usar o mecanismo requer sua ação) ou Caixa de Música (Quando aberta, essa caixa de música toca uma canção a um volume moderado. A caixa para de tocar quando alcança o fim da música ou quando é fechada)."
           }
-        ]
+        ],
+        "speed": 7.5,
+        "magics": [],
+        "languages": [],
+        "proficiencies": [
+          {
+            "tags": ["Gnomo das Rochas", "subrace"],
+            "item": "others",
+            "name": "ferramentas de artesão"
+          }
+        ],
+        "skills": {
+          "tags": ["Gnomo dos Bosques", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       }
     ]
   },
@@ -379,21 +732,31 @@
     "size": "Meio-elfos tem aproximadamente a mesma altura dos humanos, variando entre 1,50 metro e 1,80 metro. Seu tamanho é Médio",
     "sizeM": "M",
     "speed": 9,
-    "languages": ["comum", "élfico", "other"],
-    "skills": [
+    "magics": [],
+    "languages": ["Comum", "Élfico", "other"],
+    "characteristics": [
       {
         "name": "Visão no Escuro",
-        "description": "Graças ao seu sangue élfico, você tem uma visão superior no escuro e na penumbra. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza."
+        "tags": ["Meio Elfo", "race"],
+        "description": "Graças ao seu sangue Élfico, você tem uma visão superior no escuro e na penumbra. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza."
       },
       {
         "name": "Ancestral Feérico",
+        "tags": ["Meio Elfo", "race"],
         "description": "Você possui vantagem em testes de resistência contra encantamento e magia não pode colocar você pra dormir."
       },
       {
         "name": "Versatilidade em Perícia",
+        "tags": ["Meio Elfo", "race"],
         "description": "Você ganha proficiência em duas perícias, à sua escolha."
       }
     ],
+    "skills": {
+      "tags": ["Meio Elfo", "race"],
+      "mode": "none",
+      "items": []
+    },
+    "proficiencies": [],
     "subraces": []
   },
   {
@@ -404,25 +767,36 @@
     "size": "Meio-orcs são de certa forma maiores e mais largos que os humanos, medindo entre 1,80 metro e 2,10 metros. Seu tamanho é Médio.",
     "sizeM": "M",
     "speed": 9,
-    "languages": ["comum", "orc"],
-    "skills": [
+    "magics": [],
+    "languages": ["Comum", "Orc"],
+    "characteristics": [
       {
         "name": "Visão no Escuro",
+        "tags": ["Meio Orc", "race"],
         "description": "Graças ao seu sangue orc, você tem uma visão superior no escuro e na penumbra. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza."
       },
       {
         "name": "Ameaçador",
+        "tags": ["Meio Orc", "race"],
         "description": "Você adquire proficiência na perícia Intimidação."
       },
       {
         "name": "Resistência Implacável",
+        "tags": ["Meio Orc", "race"],
         "description": "Quando você é reduzido a 0 pontos de vida mas não é completamente morto, você pode voltar para 1 ponto de vida. Você não pode usar essa característica novamente até completar um descanso longo."
       },
       {
         "name": "Ataques Selvagens",
+        "tags": ["Meio Orc", "race"],
         "description": "Quando você atinge um ataque crítico com uma arma corpo-a-corpo, você pode rolar um dos dados de dano da arma mais uma vez e adicioná-lo ao dano extra causado pelo acerto crítico."
       }
     ],
+    "skills": {
+      "tags": ["Meio Orc", "race"],
+      "mode": "none",
+      "items": []
+    },
+    "proficiencies": [],
     "subraces": []
   },
   {
@@ -433,107 +807,207 @@
     "size": "Os Tiferinos possuem o mesmo tamanho e compleição dos humanos. Seu tamanho é Médio.",
     "sizeM": "M",
     "speed": 9,
-    "languages": ["comum", "infernal"],
-    "skills": [
+    "magics": [],
+    "languages": ["Comum", "Infernal"],
+    "characteristics": [
       {
         "name": "Visão no Escuro",
-        "description": "Graças a sua herança infernal, você tem uma visão superior no escuro e na  penumbra. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza."
+        "tags": ["Tiferino", "race"],
+        "description": "Graças a sua herança infernal, você tem uma visão superior no escuro e na  penumbra. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza.",
+        "value": 18
       },
       {
         "name": "Resistência Infernal",
+        "tags": ["Tiferino", "race"],
         "description": "Você possui resistência a dano de fogo"
       }
     ],
+    "skills": {
+      "tags": ["Tiferino", "race"],
+      "mode": "none",
+      "items": []
+    },
+    "proficiencies": [],
     "subraces": [
       {
         "name": "Tiferino de Nessus (Asmodeus)",
-        "attribute": "intelligence",
-        "skills": [
+        "attribute": [{ "name": "intelligence", "value": 1 }],
+        "characteristics": [
           {
             "name": "Legado Infernal",
+            "tags": ["Tiferino de Nessus (Asmodeus)", "subrace"],
             "description": "Você conhece o truque taumaturgia. Quando você atingir o 3° nível, você poderá conjurar a magia repreensão infernal como uma magia de 2° nível. Quando você atingir o 5° nível, você também poderá conjurar a magia escuridão. Você precisa terminar um descanso longo para poder usar as magias desse traço novamente. Sua habilidade de conjuração para essas magias é Carisma."
           }
-        ]
+        ],
+        "speed": 9,
+        "magics": [{ "level": 0, "name": "Taumaturgia" }],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Tiferino de Nessus (Asmodeus)", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       },
       {
         "name": "Tiferino de Maladomini (Belzebu)",
-        "attribute": "intelligence",
-        "skills": [
+        "attribute": [{ "name": "intelligence", "value": 1 }],
+        "characteristics": [
           {
             "name": "Legado de Maladomini",
+            "tags": ["Tiferino de Maladomini (Belzebu)", "subrace"],
             "description": "Você conhece o truque taumaturgia. Quando chega ao 3° nível, você pode conjurar uma vez a magia raio adoecente como uma magia de 2° nível com este traço, readquirindo essa característica ao terminar um descanso longo. Quando você chega ao 5° nível, você pode conjurar uma vez a magia coroa da loucura com este traço, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias."
           }
-        ]
+        ],
+        "speed": 9,
+        "magics": [{ "level": 0, "name": "Taumaturgia" }],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Tiferino de Maladomini (Belzebu)", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       },
       {
         "name": "Tiferino de Dis (Dispater)",
-        "attribute": "dexterity",
-        "skills": [
+        "attribute": [{ "name": "dexterity", "value": 1 }],
+        "characteristics": [
           {
             "name": "Legado de Dis",
+            "tags": ["Tiferino de Dis (Dispater)", "subrace"],
             "description": "Você conhece o truque taumaturgia. Quando chega ao 3° nível, você pode conjurar uma vez a magia disfarçar com este traço, readquirindo essa característica ao terminar um descanso longo. Quando você chega ao 5° nível, você pode conjurar uma vez a magia detectar pensamentos com este traço, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias."
           }
-        ]
+        ],
+        "speed": 9,
+        "magics": [{ "level": 0, "name": "Taumaturgia" }],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Tiferino de Dis (Dispater)", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       },
       {
         "name": "Tiferino de Flegetos (Fierna)",
-        "attribute": "wisdom",
-        "skills": [
+        "attribute": [{ "name": "wisdom", "value": 1 }],
+        "characteristics": [
           {
             "name": "Legado de Flegetos",
+            "tags": ["Tiferino de Flegetos (Fierna)", "subrace"],
             "description": "Você conhece o truque Amizade. Quando chega ao 3° nível, você pode conjurar uma vez a magia enfeitiçar pessoa como uma magia de 2° nível com este traço, readquirindo essa característica ao terminar um descanso longo. Quando você chega ao 5° nível, você pode conjurar uma vez a magia sugestão com este traço, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias."
           }
-        ]
+        ],
+        "speed": 9,
+        "magics": [{ "level": 0, "name": "Amizade" }],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Tiferino de Flegetos (Fierna)", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       },
       {
         "name": "Tiferino de Malebólgia (Glasya)",
-        "attribute": "dexterity",
-        "skills": [
+        "attribute": [{ "name": "dexterity", "value": 1 }],
+        "characteristics": [
           {
             "name": "Legado de Malebólgia",
+            "tags": ["Tiferino de Malebólgia (Glasya)", "subrace"],
             "description": "Você conhece o truque Ilusão Menor. Quando chega ao 3° nível, você pode conjurar uma vez a magia disfarçar com este traço, readquirindo essa  característica ao terminar um descanso longo. Quando você chega ao 5° nível, você pode  conjurar uma vez a magia invisibilidade com este traço, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias."
           }
-        ]
+        ],
+        "speed": 9,
+        "magics": [{ "level": 0, "name": "Ilusão Menor" }],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Tiferino de Malebólgia (Glasya)", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       },
       {
         "name": "Tiferino de Estígia (Levisto)",
-        "attribute": "constitution",
-        "skills": [
+        "attribute": [{ "name": "constitution", "value": 1 }],
+        "characteristics": [
           {
             "name": "Legado de Estígia",
+            "tags": ["Tiferino de Estígia (Levisto)", "subrace"],
             "description": "Você conhece o truque raio de gelo. Quando chega ao 3° nível, você pode conjurar uma vez a magia armadura de Agathys como uma magia de 2° nível com este traço, readquirindo essa característica ao terminar um descanso longo. Quando você chega ao 5° nível, você pode conjurar uma vez a magia es curidão com este traço, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias"
           }
-        ]
+        ],
+        "speed": 9,
+        "magics": [{ "level": 0, "name": "Raio de Gelo" }],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Tiferino de Estígia (Levisto)", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       },
       {
         "name": "Tiferino de Minauros (Mammon)",
-        "attribute": "intelligence",
-        "skills": [
+        "attribute": [{ "name": "intelligence", "value": 1 }],
+        "characteristics": [
           {
             "name": "Legado de Minauros",
+            "tags": ["Tiferino de Minauros (Mammon)", "subrace"],
             "description": "Você conhece o truque Mãos Mágicas. Quando chega ao 3° nível, você pode conjurar uma vez a magia disco flutuante de Tenser com este traço, readquirindo essa característica ao terminar um descanso curto ou longo. Quando você chega ao 5° nível, você pode conjurar uma vez a magia t ranca arcana com este traço, sem a necessidade de componentes materiais, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias"
           }
-        ]
+        ],
+        "speed": 9,
+        "magics": [{ "level": 0, "name": "Mãos Mágicas" }],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Tiferino de Minauros (Mammon)", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       },
       {
         "name": "Tiferino de Cánia (Mefistófeles)",
-        "attribute": "intelligence",
-        "skills": [
+        "attribute": [{ "name": "intelligence", "value": 1 }],
+        "characteristics": [
           {
             "name": "Legado de Cánia",
+            "tags": ["Tiferino de Cánia (Mefistófeles)", "subrace"],
             "description": "Você conhece o truque Mãos Mágicas. Quando chega ao 3° nível, você pode conjurar uma vez a magia mãos flamejantes como uma magia de 2° nível com este traço, readquirindo essa característica ao terminar um descanso longo. Quando você chega ao 5° nível, você pode conjurar uma vez a magia lâmina flamejante uma vez com este traço, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias."
           }
-        ]
+        ],
+        "speed": 9,
+        "magics": [{ "level": 0, "name": "Mãos Mágicas" }],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Tiferino de Cánia (Mefistófeles)", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       },
       {
         "name": "Tiferino de Avernus (Zariel)",
-        "attribute": "strength",
-        "skills": [
+        "attribute": [{ "name": "strength", "value": 1 }],
+        "characteristics": [
           {
             "name": "Legado de Avernus",
+            "tags": ["Tiferino de Avernus (Zariel)", "subrace"],
             "description": "Você conhece o truque taumaturgia. Quando chega ao 3° nível, você pode conjurar uma vez a magia destruição lancinante como uma magia de 2° nível  com este traço, readquirindo essa característica ao terminar um descanso longo. Quando você chega ao 5° nível, você pode conjurar uma vez a magia destruição cegante com este traço, readquirindo essa característica ao terminar um descanso longo. Carisma é sua habilidade de conjuração para essas magias."
           }
-        ]
+        ],
+        "speed": 9,
+        "magics": [{ "level": 0, "name": "Mãos Mágicas" }],
+        "languages": [],
+        "proficiencies": [],
+        "skills": {
+          "tags": ["Tiferino de Avernus (Zariel)", "subrace"],
+          "mode": "none",
+          "items": []
+        }
       }
     ]
   }

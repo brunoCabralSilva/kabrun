@@ -83,6 +83,30 @@ export default function Provider({children }: IProvider) {
     return 0;
   };
 
+  const returnAttrSubrace = (data: any, subrace: string) => {
+    const filterSubrace = data.subraces.find((item: any) => {
+      return item.name === subrace;
+    });
+    if (filterSubrace) return `+${filterSubrace.value} em ${returnAttribute(filterSubrace.attribute)}`;
+    return '';
+  }
+
+  const returnDataAttribute = (data: any) => {
+    const filterOthers = data.attribute.filter((item: any) => item.name === 'other');
+    const filterAll = data.attribute.filter((item: any) => item.name === 'all');
+    const filterRest = data.attribute.filter((item: any) => item.name !== 'other' && item.name !== 'all');
+    let text2 = '';
+    if (filterOthers.length > 0) text2 = '+1 em ' + filterOthers.length + ' Atributos';
+    if (filterAll.length > 0) text2 = '+' + filterAll.length + ' em todos os Atributos';
+  
+    const text1 = filterRest
+      .map((item: any) => `+${item.value} em ${returnAttribute(item.name)}`)
+      .join(', ');
+  
+    return `${text1}${text1 && text2 ? ', ' : ''}${text2}`;
+  };
+  
+
   return (
     <contexto.Provider
       value={{
@@ -90,6 +114,8 @@ export default function Provider({children }: IProvider) {
         resetPopups,
         returnAttribute,
         calculateMod,
+        returnDataAttribute,
+        returnAttrSubrace,
         session, setSession,
         userEmail, setUserEmail,
         showMessage, setShowMessage,

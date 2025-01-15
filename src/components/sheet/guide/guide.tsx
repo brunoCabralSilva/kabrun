@@ -19,6 +19,9 @@ import SelectorRace from "./selectorRace";
 import SelectorSubrace from "./selectorSubrace";
 import Attributes from "./attributes";
 import EditImage from "./EditImage";
+import DataLanguages from "./dataLanguages";
+import DataRaceCharac from "./dataRaceCharac";
+import DataClassCharac from "./dataClassCharac";
 
 export default function Guide() {
   const { showSheet, session, players, setShowGuide, setShowSheet, provDataPlayer, setProvDataPlayer, showDataSelector, editAttributes, editPlayerImage } = useContext(contexto);
@@ -97,6 +100,9 @@ export default function Guide() {
           <DataImage />
           <DataSavingThrows />
           <DataSkills />
+          <DataRaceCharac />
+          <DataClassCharac />
+          <DataLanguages />
         </div>
       }
     </div>

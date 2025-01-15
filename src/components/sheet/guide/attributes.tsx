@@ -5,7 +5,7 @@ import { FaBackward } from "react-icons/fa";
 import { updateDataPlayer } from "../../../firebase/players";
 
 export default function Attributes() {
-  const { session, provDataPlayer, setShowMessage, calculateMod, setOptionGuide, setEditAttributes, setProvDataPlayer, players, showSheet, setShowSheet } = useContext(contexto);
+  const { session, provDataPlayer, setShowMessage, calculateMod, setEditAttributes, setProvDataPlayer, players, showSheet, setShowSheet } = useContext(contexto);
   const [type, setType] = useState('');
   const [listNumbers, setListNumbers] = useState<number[]>([]);
   const [strength, setStrength] = useState(0);
@@ -18,6 +18,12 @@ export default function Attributes() {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [selected, setSelected] = useState(false);
   const [dataPlayer, setDataPlayer] = useState<any>(null);
+  const [bonusStrength, setBonusStrength] = useState(0);
+  const [bonusDexterity, setBonusDexterity] = useState(0);
+  const [bonusConstitution, setBonusConstitution] = useState(0);
+  const [bonusIntelligence, setBonusIntelligence] = useState(0);
+  const [bonusWisdom, setBonusWisdom] = useState(0);
+  const [bonusCharisma, setBonusCharisma] = useState(0);
 
   const findPlayer = () => {
     const findPlayer = players.find((player: any) => player.id === showSheet.id);
@@ -32,9 +38,45 @@ export default function Attributes() {
     if (findPlayer.sheet.chooseAttribute) {
       setListNumbers([findPlayer.sheet.attributes.strength.value, findPlayer.sheet.attributes.dexterity.value, findPlayer.sheet.attributes.constitution.value, findPlayer.sheet.attributes.intelligence.value, findPlayer.sheet.attributes.wisdom.value, findPlayer.sheet.attributes.charisma.value]);
     }
+    const bonusItemStr = provDataPlayer.sheet.attributes.bonus.filter((bonusItem: any) => bonusItem.name === 'strength');
+    let bonusStr = 0;
+    for (let i = 0; i < bonusItemStr.length; i += 1) {
+      bonusStr += bonusItemStr[i].value;
+    }
+    const bonusItemDex = provDataPlayer.sheet.attributes.bonus.filter((bonusItem: any) => bonusItem.name === 'dexterity');
+    let bonusDex = 0;
+    for (let i = 0; i < bonusItemDex.length; i += 1) {
+      bonusDex += bonusItemDex[i].value;
+    }
+    const bonusItemCon = provDataPlayer.sheet.attributes.bonus.filter((bonusItem: any) => bonusItem.name === 'constitution');
+    let bonusCon = 0;
+    for (let i = 0; i < bonusItemCon.length; i += 1) {
+      bonusCon += bonusItemCon[i].value;
+    }
+    const bonusItemInt = provDataPlayer.sheet.attributes.bonus.filter((bonusItem: any) => bonusItem.name === 'intelligence');
+    let bonusInt = 0;
+    for (let i = 0; i < bonusItemInt.length; i += 1) {
+      bonusInt += bonusItemInt[i].value
+    }
+    const bonusItemWis = provDataPlayer.sheet.attributes.bonus.filter((bonusItem: any) => bonusItem.name === 'wisdom');
+    let bonusWis = 0;
+    for (let i = 0; i < bonusItemWis.length; i += 1) {
+      bonusWis += bonusItemWis[i].value;
+    }
+    const bonusItemCha = provDataPlayer.sheet.attributes.bonus.filter((bonusItem: any) => bonusItem.name === 'charisma');
+    let bonusCha = 0;
+    for (let i = 0; i < bonusItemCha.length; i += 1) {
+      bonusCha += bonusItemCha[i].value;
+    }
+    setBonusStrength(bonusStr);
+    setBonusDexterity(bonusDex);
+    setBonusConstitution(bonusCon);
+    setBonusIntelligence(bonusInt);
+    setBonusWisdom(bonusWis);
+    setBonusCharisma(bonusCha);
   }
 
-  useEffect(() => findPlayer(), []);
+  useEffect(() => findPlayer(), [provDataPlayer]);
 
   const roll4d6DropLowest = () => {
     const rolls = Array.from({ length: 4 }, () => Math.floor(Math.random() * 6) + 1);
@@ -114,32 +156,21 @@ export default function Attributes() {
   };
 
   const updateAttributes = async () => {
-    if (type === 'rolling') provDataPlayer.sheet.chooseAttribute = true;
-    provDataPlayer.sheet.attributes.strength.value = strength;
-    provDataPlayer.sheet.attributes.strength.mod = calculateMod(strength + provDataPlayer.sheet.attributes.strength.bonus);
-    provDataPlayer.sheet.attributes.dexterity.value = dexterity;
-    provDataPlayer.sheet.attributes.dexterity.mod = calculateMod(dexterity + provDataPlayer.sheet.attributes.dexterity.bonus);
-    provDataPlayer.sheet.attributes.constitution.value = constitution;
-    provDataPlayer.sheet.attributes.constitution.mod = calculateMod(constitution + provDataPlayer.sheet.attributes.constitution.bonus);
-    provDataPlayer.sheet.attributes.intelligence.value = intelligence;
-    provDataPlayer.sheet.attributes.intelligence.mod = calculateMod(intelligence + provDataPlayer.sheet.attributes.intelligence.bonus);
-    provDataPlayer.sheet.attributes.wisdom.value = wisdom;
-    provDataPlayer.sheet.attributes.wisdom.mod = calculateMod(wisdom + provDataPlayer.sheet.attributes.wisdom.bonus);
-    provDataPlayer.sheet.attributes.charisma.value = charisma;
-    provDataPlayer.sheet.attributes.charisma.mod = calculateMod(charisma + provDataPlayer.sheet.attributes.charisma.bonus);
-    provDataPlayer.sheet.hitPoints.total = provDataPlayer.sheet.hitPoints.class + (provDataPlayer.sheet.attributes.constitution.mod * provDataPlayer.sheet.level);
-    provDataPlayer.sheet.hitPoints.actual = provDataPlayer.sheet.hitPoints.total;
-    provDataPlayer.sheet.armorClass = 10 + provDataPlayer.sheet.attributes.dexterity.mod;
-    setProvDataPlayer({
-      ...provDataPlayer,
-      sheet: {
-        ...provDataPlayer.sheet,
-        attributes: provDataPlayer.sheet.attributes,
-        hidpoints: provDataPlayer.sheet.hitPoints,
-        armorClass: provDataPlayer.sheet.armorClass,
-      }
-    });
-    setOptionGuide('distribute-class');
+    const data = dataPlayer;
+    if (type === 'rolling') data.sheet.chooseAttribute = true;
+    data.sheet.attributes.strength.value = strength;
+    data.sheet.attributes.strength.mod = calculateMod(strength + bonusStrength);
+    data.sheet.attributes.dexterity.value = dexterity;
+    data.sheet.attributes.dexterity.mod = calculateMod(dexterity + bonusDexterity);
+    data.sheet.attributes.constitution.value = constitution;
+    data.sheet.attributes.constitution.mod = calculateMod(constitution + bonusConstitution);
+    data.sheet.attributes.intelligence.value = intelligence;
+    data.sheet.attributes.intelligence.mod = calculateMod(intelligence + bonusIntelligence);
+    data.sheet.attributes.wisdom.value = wisdom;
+    data.sheet.attributes.wisdom.mod = calculateMod(wisdom + bonusWisdom);
+    data.sheet.attributes.charisma.value = charisma;
+    data.sheet.attributes.charisma.mod = calculateMod(charisma + bonusCharisma);
+    setProvDataPlayer(data);
     setEditAttributes(false);
   }
 
@@ -155,17 +186,17 @@ export default function Attributes() {
     setCharisma(newNumbers[5]);
     dataPlayer.sheet.chooseAttribute = true;
     dataPlayer.sheet.attributes.strength.value = newNumbers[0];
-    dataPlayer.sheet.attributes.strength.mod = calculateMod(newNumbers[0] + dataPlayer.sheet.attributes.strength.bonus);
+    dataPlayer.sheet.attributes.strength.mod = calculateMod(newNumbers[0] + bonusStrength);
     dataPlayer.sheet.attributes.dexterity.value = newNumbers[1];
-    dataPlayer.sheet.attributes.dexterity.mod = calculateMod(newNumbers[1] + dataPlayer.sheet.attributes.dexterity.bonus);
+    dataPlayer.sheet.attributes.dexterity.mod = calculateMod(newNumbers[1] + bonusDexterity);
     dataPlayer.sheet.attributes.constitution.value = newNumbers[2];
-    dataPlayer.sheet.attributes.constitution.mod = calculateMod(newNumbers[2] + dataPlayer.sheet.attributes.constitution.bonus);
+    dataPlayer.sheet.attributes.constitution.mod = calculateMod(newNumbers[2] + bonusConstitution);
     dataPlayer.sheet.attributes.intelligence.value = newNumbers[3];
-    dataPlayer.sheet.attributes.intelligence.mod = calculateMod(newNumbers[3] + dataPlayer.sheet.attributes.intelligence.bonus);
+    dataPlayer.sheet.attributes.intelligence.mod = calculateMod(newNumbers[3] + bonusIntelligence);
     dataPlayer.sheet.attributes.wisdom.value = newNumbers[4];
-    dataPlayer.sheet.attributes.wisdom.mod = calculateMod(newNumbers[4] + dataPlayer.sheet.attributes.wisdom.bonus);
+    dataPlayer.sheet.attributes.wisdom.mod = calculateMod(newNumbers[4] + bonusWisdom);
     dataPlayer.sheet.attributes.charisma.value = newNumbers[5];
-    dataPlayer.sheet.attributes.charisma.mod = calculateMod(newNumbers[5] + dataPlayer.sheet.attributes.charisma.bonus);
+    dataPlayer.sheet.attributes.charisma.mod = calculateMod(newNumbers[5] + bonusCharisma);
     await updateDataPlayer(session.id, dataPlayer, setShowMessage);
     setShowConfirmation(false);
   }
@@ -436,8 +467,8 @@ export default function Attributes() {
                               }
                             </select>
                           }
-                          <p className="text-xs pb-1">Força { provDataPlayer.sheet.attributes.strength.bonus !== 0 && `(+${provDataPlayer.sheet.attributes.strength.bonus})` }</p>
-                          <p className="text-xs pb-1">({ calculateMod(strength + provDataPlayer.sheet.attributes.strength.bonus) })</p>
+                          <p className="text-xs pb-1">Força { bonusStrength !== 0 && `(+${bonusStrength})` }</p>
+                          <p className="text-xs pb-1">({ calculateMod(strength + bonusStrength) })</p>
                         </div>
                       </div>
                     </div>
@@ -474,8 +505,8 @@ export default function Attributes() {
                               }
                             </select>
                           }
-                          <p className="text-xs pb-1">Destreza { provDataPlayer.sheet.attributes.dexterity.bonus !== 0 && `(+${provDataPlayer.sheet.attributes.dexterity.bonus})` }</p>
-                          <p className="text-xs pb-1">({ calculateMod(dexterity + provDataPlayer.sheet.attributes.dexterity.bonus) })</p>
+                          <p className="text-xs pb-1">Destreza { bonusDexterity !== 0 && `(+${bonusDexterity})` }</p>
+                          <p className="text-xs pb-1">({ calculateMod(dexterity + bonusDexterity) })</p>
                         </div>
                       </div>
                     </div>
@@ -512,8 +543,8 @@ export default function Attributes() {
                                 }
                               </select>
                           }
-                          <p className="text-xs pb-1">Constituição { provDataPlayer.sheet.attributes.constitution.bonus !== 0 && `(+${provDataPlayer.sheet.attributes.constitution.bonus})` }</p>
-                          <p className="text-xs pb-1">({ calculateMod(constitution + provDataPlayer.sheet.attributes.constitution.bonus) })</p>
+                          <p className="text-xs pb-1">Constituição { bonusConstitution !== 0 && `(+${bonusConstitution})` }</p>
+                          <p className="text-xs pb-1">({ calculateMod(constitution + bonusConstitution) })</p>
                         </div>
                       </div>
                     </div>
@@ -550,8 +581,8 @@ export default function Attributes() {
                               }
                             </select>
                           }
-                          <p className="text-xs pb-1">Inteligência { provDataPlayer.sheet.attributes.intelligence.bonus !== 0 && `(+${provDataPlayer.sheet.attributes.intelligence.bonus})` }</p>
-                          <p className="text-xs pb-1">({ calculateMod(intelligence + provDataPlayer.sheet.attributes.intelligence.bonus) })</p>
+                          <p className="text-xs pb-1">Inteligência { bonusIntelligence !== 0 && `(+${bonusIntelligence})` }</p>
+                          <p className="text-xs pb-1">({ calculateMod(intelligence + bonusIntelligence) })</p>
                         </div>
                       </div>
                     </div>
@@ -588,8 +619,8 @@ export default function Attributes() {
                                 }
                               </select>
                           }
-                          <p className="text-xs pb-1">Sabedoria { provDataPlayer.sheet.attributes.wisdom.bonus !== 0 && `(+${provDataPlayer.sheet.attributes.wisdom.bonus})` }</p>
-                          <p className="text-xs pb-1">({ calculateMod(wisdom + provDataPlayer.sheet.attributes.wisdom.bonus) })</p>
+                          <p className="text-xs pb-1">Sabedoria { bonusWisdom !== 0 && `(+${bonusWisdom})` }</p>
+                          <p className="text-xs pb-1">({ calculateMod(wisdom + bonusWisdom) })</p>
                         </div>
                       </div>
                     </div>
@@ -626,8 +657,8 @@ export default function Attributes() {
                                 }
                               </select>
                           }
-                          <p className="text-xs pb-1">Carisma { provDataPlayer.sheet.attributes.charisma.bonus !== 0 && `(+${provDataPlayer.sheet.attributes.charisma.bonus})` }</p>
-                          <p className="text-xs pb-1">({ calculateMod(charisma + provDataPlayer.sheet.attributes.charisma.bonus) })</p>
+                          <p className="text-xs pb-1">Carisma { bonusCharisma !== 0 && `(+${bonusCharisma})` }</p>
+                          <p className="text-xs pb-1">({ calculateMod(charisma + bonusCharisma) })</p>
                         </div>
                       </div>
                     </div>

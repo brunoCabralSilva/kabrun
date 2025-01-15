@@ -94,19 +94,50 @@ export default function EditAttributes() {
   };
 
   const updateAttributes = async () => {
+    const bonusItemStr = dataPlayer.sheet.attributes.bonus.filter((bonusItem: any) => bonusItem.name === 'strength');
+    let bonusStr = 0;
+    for (let i = 0; i < bonusItemStr.length; i += 1) {
+      bonusStr += bonusItemStr[i].value;
+    }
+    const bonusItemDex = dataPlayer.sheet.attributes.bonus.filter((bonusItem: any) => bonusItem.name === 'dexterity');
+    let bonusDex = 0;
+    for (let i = 0; i < bonusItemDex.length; i += 1) {
+      bonusDex += bonusItemDex[i].value;
+    }
+    const bonusItemCon = dataPlayer.sheet.attributes.bonus.filter((bonusItem: any) => bonusItem.name === 'constitution');
+    let bonusCon = 0;
+    for (let i = 0; i < bonusItemCon.length; i += 1) {
+      bonusCon += bonusItemCon[i].value;
+    }
+    const bonusItemInt = dataPlayer.sheet.attributes.bonus.filter((bonusItem: any) => bonusItem.name === 'intelligence');
+    let bonusInt = 0;
+    for (let i = 0; i < bonusItemInt.length; i += 1) {
+      bonusInt += bonusItemInt[i].value
+    }
+    const bonusItemWis = dataPlayer.sheet.attributes.bonus.filter((bonusItem: any) => bonusItem.name === 'wisdom');
+    let bonusWis = 0;
+    for (let i = 0; i < bonusItemWis.length; i += 1) {
+      bonusWis += bonusItemWis[i].value;
+    }
+    const bonusItemCha = dataPlayer.sheet.attributes.bonus.filter((bonusItem: any) => bonusItem.name === 'charisma');
+    let bonusCha = 0;
+    for (let i = 0; i < bonusItemCha.length; i += 1) {
+      bonusCha += bonusItemCha[i].value;
+    }
+
     if (type === 'rolling') dataPlayer.sheet.chooseAttribute = true;
     dataPlayer.sheet.attributes.strength.value = strength;
-    dataPlayer.sheet.attributes.strength.mod = calculateMod(strength + dataPlayer.sheet.attributes.strength.bonus);
+    dataPlayer.sheet.attributes.strength.mod = calculateMod(strength + bonusStr);
     dataPlayer.sheet.attributes.dexterity.value = dexterity;
-    dataPlayer.sheet.attributes.dexterity.mod = calculateMod(dexterity + dataPlayer.sheet.attributes.dexterity.bonus);
+    dataPlayer.sheet.attributes.dexterity.mod = calculateMod(dexterity + bonusDex);
     dataPlayer.sheet.attributes.constitution.value = constitution;
-    dataPlayer.sheet.attributes.constitution.mod = calculateMod(constitution + dataPlayer.sheet.attributes.constitution.bonus);
+    dataPlayer.sheet.attributes.constitution.mod = calculateMod(constitution + bonusCon);
     dataPlayer.sheet.attributes.intelligence.value = intelligence;
-    dataPlayer.sheet.attributes.intelligence.mod = calculateMod(intelligence + dataPlayer.sheet.attributes.intelligence.bonus);
+    dataPlayer.sheet.attributes.intelligence.mod = calculateMod(intelligence + bonusInt);
     dataPlayer.sheet.attributes.wisdom.value = wisdom;
-    dataPlayer.sheet.attributes.wisdom.mod = calculateMod(wisdom + dataPlayer.sheet.attributes.wisdom.bonus);
+    dataPlayer.sheet.attributes.wisdom.mod = calculateMod(wisdom + bonusWis);
     dataPlayer.sheet.attributes.charisma.value = charisma;
-    dataPlayer.sheet.attributes.charisma.mod = calculateMod(charisma + dataPlayer.sheet.attributes.charisma.bonus);
+    dataPlayer.sheet.attributes.charisma.mod = calculateMod(charisma + bonusCha);
     await updateDataPlayer(session.id, dataPlayer, setShowMessage);
     setEditAttributes(false);
   }
@@ -219,6 +250,7 @@ export default function EditAttributes() {
             </div>
             <button
               onClick={ async () => {
+
                 const newNumbers = Array.from({ length: 6 }, () => roll4d6DropLowest());
                 setType('rolling');
                 setListNumbers(newNumbers.sort((a, b) => b - a));

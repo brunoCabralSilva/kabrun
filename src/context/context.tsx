@@ -60,6 +60,8 @@ interface RecipesContext {
   scrollToBottom: () => void,
   resetPopups: () => void,
   returnAttribute: (attribute: string) => string,
+  returnDataAttribute: (data: any) => string;
+  returnAttrSubrace: (data: any, subrace: string) => string;
   calculateMod: (state: number) => number,
 }
 
@@ -123,6 +125,8 @@ const initialValue: RecipesContext = {
   scrollToBottom: () => {},
   resetPopups: () => {},
   returnAttribute: () => '',
+  returnDataAttribute: () => '',
+  returnAttrSubrace: () => '',
   calculateMod: () => 0,
 }
 

@@ -28,7 +28,7 @@ export default function EditImage() {
     if (dataPlayer) {
       const newDataPlayer: any = dataPlayer;
       newDataPlayer.sheet.profileImage = updateStorage;
-      await updateDataPlayer(session.id, dataPlayer, setShowMessage);
+      await updateDataPlayer(session.id, newDataPlayer, setShowMessage);
     }
     setLoading(false);
     setEditPlayerImage(false);

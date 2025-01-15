@@ -1,12 +1,11 @@
 // import { useContext, useEffect, useState } from "react";
 // import contexto from "../../../context/context";
-// import races from '../../../data/races.json';
 // import listRaces from '../../../data/races.json';
 // import listMagics from '../../../data/magics.json';
 // import listClasses from '../../../data/classes.json';
 // import listLanguages from '../../../data/languages.json';
 // import { updateDataPlayer } from "../../../firebase/players";
-// import { applySubRace } from "../../../firebase/utilitiesRaces";
+// import { applySubrace } from "../../../firebase/utilitiesRaces";
 
 // interface IMagic {
 //   name: string;
@@ -18,10 +17,10 @@
 //   magics: string[];
 // }
 
-// export default function SubRaces() {
+// export default function Subraces() {
 //   const [dataPlayer, setDataPlayer] = useState<any>(null);
-//   const [subRace, setSubRace] = useState<any>(null);
-//   const [subRaceSelected, setSubRaceSelected] = useState<any>(null);
+//   const [subrace, setSubrace] = useState<any>(null);
+//   const [subraceSelected, setSubraceSelected] = useState<any>(null);
 //   const [race, setRace] = useState<any>(null);
 //   const [languagesNotAdded, setLanguagesNotAdded] = useState<any>([]);
 //   const [languagesAdded, setLanguagesAdded] = useState<any>([]);
@@ -36,9 +35,9 @@
 //       const listRacesData = listRaces.find((racesItem: any) => racesItem.name === findPlayer.sheet.race);
 //       setRace(listRacesData);
 //       if (listRacesData) {
-//         const listSubRaces = listRacesData.subraces.find((subRaceItem: any) => subRaceItem.name === findPlayer.sheet.subRace);
-//         setSubRaceSelected(listSubRaces);
-//         setSubRace(findPlayer.sheet.subRace);
+//         const listSubraces = listRacesData.subraces.find((subraceItem: any) => subraceItem.name === findPlayer.sheet.subrace);
+//         setSubraceSelected(listSubraces);
+//         setSubrace(findPlayer.sheet.subrace);
 //       }
 //       const filteredLanguages = listLanguages
 //         .filter(language => session.books.includes(language.book))
@@ -50,14 +49,14 @@
 //   }, [session, players]);
 
 //   const updateData = async () => {
-//     if (subRace === '' || subRace === null) setShowMessage({ show: true, text: 'Necessário preencher uma SubRaça para continuar' });
-//     else if (subRace === 'Alto Elfo' && newLanguage.name === '') setShowMessage({ show: true, text: 'Necessário inserir um Idioma Adicional' });
-//     else if (subRace === 'Alto Elfo' && newMagic.name === '') setShowMessage({ show: true, text: 'Necessário escolher um dos Truques de Mago listados Abaixo' });
+//     if (subrace === '' || subrace === null) setShowMessage({ show: true, text: 'Necessário preencher uma SubRaça para continuar' });
+//     else if (subrace === 'Alto Elfo' && newLanguage.name === '') setShowMessage({ show: true, text: 'Necessário inserir um Idioma Adicional' });
+//     else if (subrace === 'Alto Elfo' && newMagic.name === '') setShowMessage({ show: true, text: 'Necessário escolher um dos Truques de Mago listados Abaixo' });
 //     else {
 //       const playerData = dataPlayer;
-//       playerData.sheet = applySubRace(playerData.sheet, subRace, calculateMod);
-//       playerData.sheet.subRace = subRace;
-//       if (subRace === 'Alto Elfo') {
+//       playerData.sheet = applySubrace(playerData.sheet, subrace, calculateMod);
+//       playerData.sheet.subrace = subrace;
+//       if (subrace === 'Alto Elfo') {
 //         const magicHighElf: any = newMagic;
 //         magicHighElf.font = 'alto elfo';
 //         const languageHighElf: any = newLanguage;
@@ -85,45 +84,45 @@
 //           <span className="pr-3 pb-3">Escolha uma SubRaça</span>
 //           <div className="w-full grid grid-cols-4 gap-3 mt-3">
 //             {
-//               race && race.subraces.map((itemSubRace: any, index: number) => (
+//               race && race.subraces.map((itemSubrace: any, index: number) => (
 //               <button
 //                 type="button"
 //                 key={index}
 //                 onClick={ () => {
-//                   setSubRace(itemSubRace.name);
-//                   setSubRaceSelected(race.subraces.find((subRacesItem: any) => subRacesItem.name === itemSubRace.name));
+//                   setSubrace(itemSubrace.name);
+//                   setSubraceSelected(race.subraces.find((subracesItem: any) => subracesItem.name === itemSubrace.name));
 //                 }}
-//                 className={`${itemSubRace.name === subRace && 'bg-black'} box-select flex items-center justify-center w-full col-span-1 p-3`}
+//                 className={`${itemSubrace.name === subrace && 'bg-black'} box-select flex items-center justify-center w-full col-span-1 p-3`}
 //               >
 //                 <div className="box__line box__line--top" />
 //                 <div className="box__line box__line--right" />
 //                 <div className="box__line box__line--bottom" />
 //                 <div className="box__line box__line--left" />
-//                 <div>{ itemSubRace.name }</div>
+//                 <div>{ itemSubrace.name }</div>
 //               </button>
 //               ))
 //             }
 //           </div>
 //           <div className="">
 //             {
-//               subRaceSelected &&
+//               subraceSelected &&
 //               <div
 //                 className="mt-4 p-3 border-2 border-white text-justify h-full"
 //               >
-//                 <p className="text-xl pb-2 font-bold capitalize">{ subRaceSelected.name }</p>
+//                 <p className="text-xl pb-2 font-bold capitalize">{ subraceSelected.name }</p>
 //                 <div className="flex pt-1">
 //                   <span className="font-bold pr-1">Bônus em Habilidade:</span>
 //                   <div className="flex font-normal">
 //                     <div>
 //                       <span className="pr-1">
-//                         {`+ ${ subRaceSelected.value ? subRaceSelected.value : 1 } em ${ returnAttribute(subRaceSelected.attribute)}`}
+//                         {`+ ${ subraceSelected.value ? subraceSelected.value : 1 } em ${ returnAttribute(subraceSelected.attribute)}`}
 //                       </span>
 //                     </div>
 //                   </div>
 //                 </div>
 //                 <div>
 //                   {
-//                     subRaceSelected.skills.map((skill: any, index2: number) => (
+//                     subraceSelected.skills.map((skill: any, index2: number) => (
 //                       <div key={ index2 }>
 //                         {
 //                           skill.name !== ''
@@ -144,41 +143,7 @@
 //         </div> 
 //         <div className="h-full w-full flex flex-col justify-start items-center">
 //           {
-//             races
-//             .filter((itemRace: any) => itemRace.name === subRace)
-//             .flatMap((itemRace: any) => itemRace.subraces).length > 0
-//             &&
-//             <div className="mt-3 capitalize w-full">
-//               <span className="pr-3 mb-3">SubRaça</span>
-//               <div className="flex items-center gap-2">
-//                 <div className="box-select flex items-center justify-center w-full col-span-1 mt-2">
-//                   <div className="box__line box__line--top" />
-//                   <div className="box__line box__line--right" />
-//                   <div className="box__line box__line--bottom" />
-//                   <div className="box__line box__line--left" />
-//                   <select
-//                     className="w-full text-center py-1 bg-gray-whats-dark cursor-pointer outline-none"
-//                     value={subRace}
-//                     onChange={ (e) => setSubRace(e.target.value) }
-//                   >
-//                     <option disabled value="">Escolha uma SubRaça</option>
-//                     {
-//                       races
-//                       .filter((itemRace: any) => itemRace.name === subRace)
-//                       .flatMap((itemRace: any) =>
-//                         itemRace.subraces.map((subrace: any, index: number) => (
-//                           <option key={index} value={subrace.name}>
-//                             {subrace.name}
-//                           </option>
-//                         ))
-//                     )}
-//                   </select>
-//                 </div>
-//               </div>
-//             </div>
-//           } 
-//           {
-//             subRace === 'Alto Elfo' &&
+//             subrace === 'Alto Elfo' &&
 //             <div>
 //               <div>
 //                 <p>Escolha um Idioma adicional</p>
@@ -312,25 +277,10 @@
 //                       </button>
 //                     ))
 //                   }
-//                 </div>
-//               </div>
+//                 </div>              </div>
               
 //             </div>
 //           }
-//           <div className="w-full flex justify-between col-span-10 py-3">
-//             <button
-//               onClick={ () => setOptionGuide('race') }
-//               className="break-words items-center justify-center text-sm font-medium hover:text-white p-2 border-2 border-white"
-//               >
-//                 Anterior
-//             </button>
-//             <button
-//               onClick={ updateData }
-//               className="break-words items-center justify-center text-sm font-medium hover:text-white p-2 border-2 border-white"
-//               >
-//                 Próximo
-//             </button>
-//           </div>
 //         </div>
 //       </div>
 //   );

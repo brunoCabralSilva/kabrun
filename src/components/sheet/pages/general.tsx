@@ -110,7 +110,7 @@ export default function General() {
                     { 
                       dataPlayer.sheet.race === ''
                         ? <span>Sem Raça</span>
-                        : <span className="pr-1 ">{ dataPlayer.sheet.subRace ? dataPlayer.sheet.subRace : dataPlayer.sheet.race }</span>
+                        : <span className="pr-1 ">{ dataPlayer.sheet.subrace ? dataPlayer.sheet.subrace : dataPlayer.sheet.race }</span>
                     }
                     {
                       dataPlayer.sheet.class === ''

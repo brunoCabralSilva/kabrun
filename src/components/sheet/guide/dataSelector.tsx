@@ -3,19 +3,36 @@ import contexto from "../../../context/context";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import listAlignments from '../../../data/alignment.json';
 import listRace from '../../../data/races.json';
-import { applyRace, applySubRace } from "../../../firebase/utilitiesRaces";
+import listSkills from '../../../data/skills.json';
+import listTalents from '../../../data/talents.json';
+import listLanguages from '../../../data/languages.json';
+import { applyRace } from "../../../firebase/utilitiesRaces";
+import { insertRace, insertSubRace } from "../races/insertRace";
 
 export default function DataSelector() {
   const [text, setText] = useState('');
   const [data, setData] = useState<any>(null);
-  const { showDataSelector, setShowDataSelector, setProvDataPlayer, provDataPlayer, returnAttribute, calculateMod } = useContext(contexto);
+  const [optional, setOptional] = useState<any>(null);
+  const [talent, setTalent] = useState<any>(null);
+  const [skillList, setSkillList] = useState<any>([]);
+  const [newLanguage, setNewLanguage] = useState<string>('');
+  const [listAttributes, setListAttributes] = useState<any>([]);
+  const { showDataSelector, setShowDataSelector, setProvDataPlayer, provDataPlayer, session,
+    returnDataAttribute, returnAttrSubrace, calculateMod, setShowMessage } = useContext(contexto);
 
   useEffect(() => {
     if (showDataSelector.type === 'alignment') {
       const dataAlignment = listAlignments.find((alignment: any) => alignment.name === showDataSelector.value);
       if (dataAlignment) setText(dataAlignment.description);
     } else if (showDataSelector.type === 'race') {
-      const dataRace = listRace.find((race: any) => race.name === showDataSelector.value);
+      let dataRace: any = {};
+      if (showDataSelector.value === 'Draconato') {
+        dataRace = listRace.filter((itemList: any) => {
+          if (session.books.includes("Fizban's Treasury of Dragons")) {
+            return !itemList.type || itemList.type !== 2
+          } return !itemList.type || itemList.type !== 1
+        }).find((raceItem: any) => raceItem.name === showDataSelector.value);
+      } else dataRace = listRace.find((raceItem: any) => raceItem.name === showDataSelector.value);
       if (dataRace) setData(dataRace);
     } else if (showDataSelector.type === 'subrace') {
       const dataRace = listRace.find((race: any) => race.name === provDataPlayer.sheet.race);
@@ -23,33 +40,149 @@ export default function DataSelector() {
     }
   }, []);
 
+  const clearData = () => {
+    setShowDataSelector({ show: false, type: '', value: '' });
+    setOptional(false);
+    setTalent(null);
+    setSkillList([]);
+    setListAttributes([]);
+  }
+
   const setValue = () => {
     if (showDataSelector.type === 'alignment') {
       setProvDataPlayer( { ...provDataPlayer, sheet: { ...provDataPlayer.sheet, alignment: showDataSelector.value } });
+      clearData();
     } else if (showDataSelector.type === 'race') {
       let apply = {};
-      if (showDataSelector.value === 'Meio Elfo') {
-        apply = applyRace(provDataPlayer.sheet, showDataSelector.value, calculateMod, { list: ['strength'], skill: ['intimidation', 'nature'] });
-      } else apply = applyRace(provDataPlayer.sheet, showDataSelector.value, calculateMod, false);
-      const apply2 = applySubRace(apply, '', calculateMod);
-      setProvDataPlayer({
-        ...provDataPlayer,
-        sheet: { ...apply2, subRace: '', race: showDataSelector.value },
-      });
+      let findRace: any = {}
+      if (showDataSelector.value === 'Draconato') {
+        findRace = listRace.filter((itemList: any) => {
+          if (session.books.includes("Fizban's Treasury of Dragons")) {
+            return !itemList.type || itemList.type !== 2
+          } return !itemList.type || itemList.type !== 1
+        }).find((raceItem: any) => raceItem.name === showDataSelector.value);
+      } else findRace = listRace.find((raceItem: any) => raceItem.name === showDataSelector.value);
+      if (findRace) {
+        if (showDataSelector.value === 'Draconato' && session.books.includes("Fizban's Treasury of Dragons")) {
+          if (newLanguage === '') setShowMessage({ show: true, text: 'É necessário selecionar um Idioma Adicional' });
+          else {
+            setProvDataPlayer({
+              ...provDataPlayer,
+              sheet: insertRace(
+                provDataPlayer.sheet,
+                calculateMod,
+                showDataSelector.value,
+                findRace.attribute,
+                session,
+                skillList.map((itemSkill: any) => { return itemSkill.value }),
+                newLanguage,
+              ),
+            });
+            clearData();
+          }
+        } else if (showDataSelector.value === 'Humano') {
+          if (newLanguage === '') setShowMessage({ show: true, text: 'É necessário selecionar um Idioma Adicional' });
+          else if (optional) {
+            if (listAttributes.length !== 2) setShowMessage({ show: true, text: 'É necessário selecionar um total de 2 Atributos' });
+            else if (skillList.length !== 1) setShowMessage({ show: true, text: 'É necessário selecionar um total de 1 Perícia' });
+            else if (!talent) setShowMessage({ show: true, text: 'É necessário selecionar um Talento' });
+            else {
+              setProvDataPlayer({
+                ...provDataPlayer,
+                sheet: insertRace(
+                  provDataPlayer.sheet,
+                  calculateMod,
+                  showDataSelector.value,
+                  [{ name: listAttributes[0], value: 1 }, { name: listAttributes[1], value: 1 }],
+                  session,
+                  skillList.map((itemSkill: any) => { return itemSkill.value }),
+                  newLanguage,
+                ),
+              });
+              clearData();
+            }
+          } else {
+            setProvDataPlayer({
+              ...provDataPlayer,
+              sheet:
+                insertRace(
+                  provDataPlayer.sheet,
+                  calculateMod,
+                  showDataSelector.value,
+                  [
+                    { name: 'strength', value: 1},
+                    { name: 'dexterity', value: 1},
+                    { name: 'constitution', value: 1},
+                    { name: 'intelligence', value: 1},
+                    { name: 'wisdom', value: 1},
+                    { name: 'charisma', value: 1},
+                  ],
+                  session,
+                  null,
+                  newLanguage,
+                ),
+            });
+            clearData();
+          }
+        } else if (showDataSelector.value === 'Meio Elfo') {
+          if (newLanguage === '') setShowMessage({ show: true, text: 'É necessário selecionar um Idioma Adicional' });
+          else if (listAttributes.length !== 2) setShowMessage({ show: true, text: 'É necessário selecionar um total de 2 Atributos' });
+          else if (skillList.length !== 2) setShowMessage({ show: true, text: 'É necessário selecionar um total de 2 Perícias' });
+          else {
+            setProvDataPlayer({
+              ...provDataPlayer,
+              sheet: insertRace(
+                provDataPlayer.sheet,
+                calculateMod,
+                showDataSelector.value,
+                [{ name: listAttributes[0], value: 1 }, { name: listAttributes[1], value: 1 }],
+                session,
+                skillList.map((itemSkill: any) => { return itemSkill.value }),
+                newLanguage,
+              ),
+            });
+            clearData();
+          }
+        } else {
+          setProvDataPlayer({
+            ...provDataPlayer,
+            sheet:
+              insertRace(
+                provDataPlayer.sheet,
+                calculateMod,
+                showDataSelector.value,
+                findRace.attribute,
+                session,
+                null,
+                null,
+              ),
+          });
+          clearData();
+        }
+      }
     } else if (showDataSelector.type === 'subrace') {
-      const apply = applySubRace(provDataPlayer.sheet, showDataSelector.value, calculateMod);    
-      setProvDataPlayer({ ...provDataPlayer, sheet: { ...apply, subRace: showDataSelector.value } });
+      const findRace = listRace.find((raceItem: any) => raceItem.name === showDataSelector.value);
+      if (findRace) {
+        const findSubrace = findRace.subraces.find((raceItem: any) => raceItem.name === showDataSelector.value);
+        if (findSubrace) {
+          setProvDataPlayer({
+            ...provDataPlayer,
+            sheet: insertSubRace(provDataPlayer.sheet, calculateMod, showDataSelector.value, [{ value: findSubrace.value, name: findSubrace.attribute }]),
+          });
+          clearData();
+        }
+      }
     } else if (showDataSelector.type === 'class') {
       setProvDataPlayer({ ...provDataPlayer, sheet: { ...provDataPlayer.sheet, class: showDataSelector.value } });
+      clearData();
     }
-    setShowDataSelector({ show: false, type: '', value: '' });
   }
 
   const returnTitle = () => {
     switch(showDataSelector.type) {
       case 'alignment': return 'este Alinhamento';
       case 'race': return 'esta Raça';
-      case 'subrace': return "Subraça";
+      case 'subrace': return "esta Subraça";
       default: '';
     }
   }
@@ -63,20 +196,103 @@ export default function DataSelector() {
     }
   }
 
-  const returnDataAttribute = (list: any) => {
-    const filterOthers = list.filter((item: any) => item.name === 'other');
-    const filterAll = list.filter((item: any) => item.name === 'all');
-    const filterRest = list.filter((item: any) => item.name !== 'other' && item.name !== 'all');
-    let text2 = '';
-    if (filterOthers.length > 0) text2 = '+1 em ' + filterOthers.length + ' Atributos';
-    if (filterAll.length > 0) text2 = '+' + filterAll.length + ' em todos os Atributos';
+  const returnLanguageList = () => {
+    if (showDataSelector.value === "Humano" || showDataSelector.value === 'Meio Elfo' || (showDataSelector.value === "Draconato" && session.books.includes("Fizban's Treasury of Dragons"))) {
+      const findRace = listRace.find((raceItem: any) => raceItem.name === showDataSelector.value);
+      if (findRace) {
+        const filteredLanguages = listLanguages
+        .filter(language => session.books.includes(language.book)) // Filtra por livro
+        .filter(language => !findRace.languages.some((lang: any) => lang === language.name))
+        .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }));
+        return(
+          <div className="w-1/2">
+            <div className="w-full gap-1">
+              <p className="flex w-full mt-5 font-bold pb-2">Selecione um Idioma Adicional:</p>
+              <div className="w-1/2 pb-5"></div>
+              <div className="box-attributes flex items-center justify-center col-span-1 px-2 pt-1">
+                <div className="box__line box__line--top" />
+                <div className="box__line box__line--right" />
+                <div className="box__line box__line--bottom" />
+                <div className="box__line box__line--left" />
+                <div className="w-full">
+                  <select
+                    className="w-full text-left bg-transparent cursor-pointer outline-none pb-1"
+                    value={ newLanguage }
+                    onChange={ (e) => { setNewLanguage(e.target.value) }}
+                  >
+                    <option disabled value="">Idiomas</option>
+                    {
+                      filteredLanguages.map((language: any, index: number) => 
+                        <option value={language.name} key={index}>
+                          { language.name }
+                        </option>
+                      )
+                    }
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      }
+    } else return <div />
+    return <div />
+  }
 
-    const text1 = filterRest.map((item: any, index: number) => {
-      return `+${ item.value } em ${returnAttribute(item.name) } ${ index !== data.attribute.length - 1 ? ', ' : '' }`
-    });
+  const returnAttrAndSkills = () => {
+    if ((optional && showDataSelector.value === "Humano") || showDataSelector.value === "Meio Elfo") {
+      return (
+        <div>
+          <div className="w-full grid grid-cols-6 gap-1 px-10">
+            <p className="col-span-6 w-full mt-5 font-bold">Selecione dois Atributos para receber + 1:</p>
+            <button className={`${listAttributes.includes('strength') ? 'bg-black text-[#f0e9d2]' : 'bg-transparent text-black'} transition-colors duration-400 border border-black px-2 py-1 w-full`} type="button" onClick={ () => setNewAttribute('strength')}>
+              Força
+            </button>
+            <button className={`${listAttributes.includes('dexterity') ? 'bg-black text-[#f0e9d2]' : 'bg-transparent text-black'} transition-colors duration-400 border border-black px-2 py-1 w-full`} type="button" onClick={ () => setNewAttribute('dexterity')}>
+              Destreza
+            </button>
+            <button className={`${listAttributes.includes('constitution') ? 'bg-black text-[#f0e9d2]' : 'bg-transparent text-black'} transition-colors duration-400 border border-black px-2 py-1 w-full`} type="button" onClick={ () => setNewAttribute('constitution')}>
+              Constituição
+            </button>
+            <button className={`${listAttributes.includes('intelligence') ? 'bg-black text-[#f0e9d2]' : 'bg-transparent text-black'} transition-colors duration-400 border border-black px-2 py-1 w-full`} type="button" onClick={ () => setNewAttribute('intelligence')}>
+              Inteligência
+            </button>
+            <button className={`${listAttributes.includes('wisdom') ? 'bg-black text-[#f0e9d2]' : 'bg-transparent text-black'} transition-colors duration-400 border border-black px-2 py-1 w-full`} type="button" onClick={ () => setNewAttribute('wisdom')}>
+              Sabedoria
+            </button>
+            <button className={`${listAttributes.includes('charisma') ? 'bg-black text-[#f0e9d2]' : 'bg-transparent text-black'} transition-colors duration-400 border border-black px-2 py-1 w-full`} type="button" onClick={ () => setNewAttribute('charisma')}>
+              Carisma
+            </button>
+          </div>
+          <div className="w-full grid grid-cols-6 gap-1 px-10">
+            <p className="col-span-6 w-full mt-5 font-bold">Selecione { showDataSelector.value === "Humano" ? '1': '2' } Perícia:</p>
+            {
+              listSkills.map((skillItem: any, index: number) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    if (skillList.find((skl: any) => skl.name === skillItem.name)) {
+                      setSkillList(skillList.filter((skl2: any) => skl2.name !== skillItem.name));
+                    } else setSkillList([...skillList, skillItem]);
+                  }}
+                  className={`${skillList.find((skl: any) => skl.name === skillItem.name) ? 'bg-black text-[#f0e9d2]' : 'bg-transparent text-black'} transition-colors duration-400 border border-black px-2 py-1 w-full`}
+                  type="button"
+                >
+                  { skillItem.name }
+                </button>
+              ))
+            }
+          </div>
+        </div>
+      );
+    } else return <div />
+  }
 
-    return text1 + text2;
-  };
+  const setNewAttribute = (attr: string) => {
+    if (listAttributes.includes(attr))
+      setListAttributes(listAttributes.filter((attributeItem: any) => attributeItem !== attr));
+    else setListAttributes([...listAttributes, attr]);
+  }
 
   return(
     <div className={`z-70 fixed top-0 left-0 w-full h-screen overflow-y-auto flex ${showDataSelector.type === 'race' || showDataSelector.type === 'subrace' ? 'items-start' : 'items-center'} justify-center py-5 bg-black/80 px-10`}>
@@ -85,7 +301,13 @@ export default function DataSelector() {
           <div className="w-full flex items-center justify-end px-2 pt-2">
             <IoIosCloseCircleOutline
               className="text-4xl text-black cursor-pointer"
-              onClick={ () => setShowDataSelector({ show: false, type: '', value: '' }) }
+              onClick={ () => {
+                setShowDataSelector({ show: false, type: '', value: '' })
+                setOptional(false);
+                setTalent(null);
+                setSkillList([]);
+                setListAttributes([]);
+              }}
             />
           </div>
           <div className="box__line box__line--top"></div>
@@ -100,61 +322,76 @@ export default function DataSelector() {
               data &&
               data.name &&
               <div>
-                <div className="w-full justify-start">
-                  <span className="pr-1 font-bold">
-                    Bônus de Atributo{ data.attribute.length > 1 && 's'}: 
-                  </span>
-                  <span>{ returnDataAttribute(data.attribute) }</span>
-                </div>
-                <div className="text-justify pt-1">
-                  <span className="pr-1 font-bold">Idade:</span>
-                  <span>{ data.age }</span>
-                </div>
-                <div className="text-justify pt-1">
-                  <span className="pr-1 font-bold">Alinhamento:</span>
-                  <span>{ data.alignment }</span>
-                </div>
-                <div className="text-justify pt-1">
-                  <span className="pr-1 font-bold">Tamanho:</span>
-                  <span>{ data.size }</span>
-                </div>
-                <div className="w-full text-justify pt-1">
-                  <span className="pr-1 font-bold">Deslocamento:</span>
-                  <span>{ data.speed } metros</span>
-                </div>
-                <div className="w-full text-justify pt-1">
-                  <span className="pr-1 font-bold">Idiomas:</span>
-                  {
-                    data.languages.map((dataItem: any, index: number) => (
-                      <span className="capitalize" key={index}>
-                        { dataItem === 'other' ? 'outra' : dataItem }
-                        { index === data.languages.length - 1 ? '' : ', ' }
-                      </span>
-                    ))
-                  }
-                </div>
-                <div className="w-full text-justify pt-1">
-                  {
-                    data.skills.map((dataItem: any, index: number) => (
-                      <div className=""key={index}>
-                        <span className="pr-1 font-bold">{ dataItem.name }: </span>
-                        <span>{ dataItem.description }</span>
-                      </div>
-                    ))
-                  }
-                </div>
-                {
-                  data.optionals && data.optionals.length > 0 &&
+                <div>
+                  <div className="w-full justify-start">
+                    <span className="pr-1 font-bold">
+                      Bônus de Atributo{ data.attribute.length > 1 && 's'}: 
+                    </span>
+                    <span>{ returnDataAttribute(data) }</span>
+                  </div>
+                  <div className="text-justify pt-1">
+                    <span className="pr-1 font-bold">Idade:</span>
+                    <span>{ data.age }</span>
+                  </div>
+                  <div className="text-justify pt-1">
+                    <span className="pr-1 font-bold">Alinhamento:</span>
+                    <span>{ data.alignment }</span>
+                  </div>
+                  <div className="text-justify pt-1">
+                    <span className="pr-1 font-bold">Tamanho:</span>
+                    <span>{ data.size }</span>
+                  </div>
                   <div className="w-full text-justify pt-1">
-                    <div className="font-bold">Características Opcionais:</div>
+                    <span className="pr-1 font-bold">Deslocamento:</span>
+                    <span>{ data.speed } metros</span>
+                  </div>
+                  <div className="w-full text-justify pt-1">
+                    <span className="pr-1 font-bold">Idiomas:</span>
                     {
-                      data.optionals.map((dataItem: any, index: number) => (
-                        <div className="pl-2" key={index}>
+                      data.languages.map((dataItem: any, index: number) => (
+                        <span className="capitalize" key={index}>
+                          { dataItem === 'other' ? 'outra' : dataItem }
+                          { index === data.languages.length - 1 ? '' : ', ' }
+                        </span>
+                      ))
+                    }
+                  </div>
+                  <div className="w-full text-justify pt-1">
+                    {
+                      data.characteristics.map((dataItem: any, index: number) => (
+                        <div className=""key={index}>
                           <span className="pr-1 font-bold">{ dataItem.name }: </span>
                           <span>{ dataItem.description }</span>
                         </div>
                       ))
                     }
+                  </div>
+                </div>
+                <div className="w-full"> { returnLanguageList() } </div>
+                {
+                  data.optionals &&
+                  <div className="w-full text-justify pt-1">
+                    <div className="font-bold flex items-center gap-2 py-3">
+                      <div
+                        className={`w-5 cursor-pointer h-5 border-2 border-black ${optional ? 'bg-black' : 'bg-white'}`}
+                        onClick={ () => setOptional(!optional)}
+                      />
+                      <div className="w-full">
+                        Marque se você deseja aplicar as Características Opcionais da Raça {showDataSelector.value} listadas abaixo ao invés de utilizar as Características acima:
+                      </div>
+                    </div>
+                    <div>
+                      <div className="w-full text-justify pl-7">
+                        {
+                          data.optionals.characteristics.map((dataItem: any, index: number) => (
+                            <div className="pt-1" key={index}>
+                              <span className="pr-1 font-bold">{ dataItem.name }: </span>
+                              <span>{ dataItem.description }</span>
+                            </div>
+                          ))
+                        }
+                      </div>
+                    </div>
                   </div>
                 }
               </div>
@@ -168,7 +405,7 @@ export default function DataSelector() {
                   <span className="pr-1 font-bold">
                     Bônus de Atributo: 
                   </span>
-                  <span>{ returnDataAttribute(data.attribute) }</span>
+                  <span>{ returnAttrSubrace(data, showDataSelector.value) }</span>
                 </div>
                 <div className="w-full text-justify pt-1">
                   {
@@ -183,6 +420,37 @@ export default function DataSelector() {
               </div>
             }
           </div>
+          <div className="w-full">
+            { returnAttrAndSkills() }
+            {
+              optional && showDataSelector.value === "Humano" &&
+              <div className="w-full gap-1 px-10">
+                <p className="flex w-full mt-5 font-bold pb-2">Selecione um Talento:</p>
+                {
+                  listTalents.map((talentItem: any, index: number) => (
+                    <button
+                      onClick={ () => setTalent(talentItem) }
+                      key={index}
+                      className={`${talent && talentItem.name === talent.name ? 'bg-black text-[#f0e9d2]' : 'bg-transparent text-black' } transition-colors duration-500 border border-black p-3 w-full flex flex-col mb-2`}
+                      type="button"
+                    >
+                      <div className="font-bold pb-1">{ talentItem.name }</div>
+                      <hr className="w-full h-0.5 bg-gray-500 " />
+                      { talentItem.prerequisite && <div>Pré-Requisito: { talentItem.prerequisite }</div> }
+                      <div className="w-full text-left">Descrição: { talentItem.description }</div>
+                      <div className="w-full flex flex-col items-start">
+                        {
+                          talentItem.benefits.map((benefit: string, index2: number) => (
+                            <div className="w-full flex justify-start text-left" key={index2}> - { benefit }</div>
+                          ))
+                        }
+                      </div>
+                    </button>
+                  ))
+                }
+              </div>
+            }
+          </div>
           <div className="pt-5">Deseja selecionar { returnTitle() }?</div>
           <div className="w-full flex items-center justify-center px-5 gap-2 py-5">
             <button
@@ -194,7 +462,13 @@ export default function DataSelector() {
             </button>
             <button
               type="button"
-              onClick={ () => setShowDataSelector({ show: false, type: '', value: '' }) }
+              onClick={ () => {
+                setShowDataSelector({ show: false, type: '', value: '' });
+                setOptional(false);
+                setTalent(null);
+                setSkillList([]);
+                setListAttributes([]);
+              }}
               className="p-2 border border-black w-full bg-red-700 hover:bg-red-900 text-white font-bold transition-all duration-400"
             >
               Não
