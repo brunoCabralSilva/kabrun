@@ -22,6 +22,8 @@ import EditImage from "./EditImage";
 import DataLanguages from "./dataLanguages";
 import DataRaceCharac from "./dataRaceCharac";
 import DataClassCharac from "./dataClassCharac";
+import DataTalents from "./dataTalents";
+import DataPowers from "./dataPowers";
 
 export default function Guide() {
   const { showSheet, session, players, setShowGuide, setShowSheet, provDataPlayer, setProvDataPlayer, showDataSelector, editAttributes, editPlayerImage } = useContext(contexto);
@@ -36,9 +38,16 @@ export default function Guide() {
     if (provDataPlayer && provDataPlayer.sheet) {
       if (provDataPlayer.sheet.race === '') return <div />
       else {
-        const findRace = listRaces.find((race: any) => race.name === provDataPlayer.sheet.race);
-        if (findRace) {
-          if (findRace.subraces.length > 0) return <SelectorSubrace />
+        let race: any = {};
+        if (provDataPlayer.sheet.race === 'Draconato') {
+          race = listRaces.filter((itemList: any) => {
+            if (session.books.includes("Fizban's Treasury of Dragons")) {
+              return !itemList.type || itemList.type !== 2
+            } return !itemList.type || itemList.type !== 1
+          }).find((raceItem: any) => raceItem.name === provDataPlayer.sheet.race);
+        } else race = listRaces.find((raceItem: any) => raceItem.name === provDataPlayer.sheet.race);
+        if (race) {
+          if (race.subraces.length > 0) return <SelectorSubrace />
           return <div />
         } else <div />
       }
@@ -102,7 +111,11 @@ export default function Guide() {
           <DataSkills />
           <DataRaceCharac />
           <DataClassCharac />
-          <DataLanguages />
+          <div className="col-span-3">
+            { provDataPlayer.sheet.languages.length > 0 && <DataLanguages /> }
+            { provDataPlayer.sheet.powers.length > 0 && <DataPowers /> }
+            { provDataPlayer.sheet.talents.length > 0 && <DataTalents /> }
+          </div>
         </div>
       }
     </div>

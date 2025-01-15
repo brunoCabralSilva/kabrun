@@ -459,7 +459,7 @@
       {
         "name": "Resistência a Dano",
         "tags": ["Draconato", "race"],
-        "description": "Você possui resistência ao tipo de dano associado ao seu ancestral dracônico"
+        "description": "Você possui resistência ao tipo de dano associado à sua Herança Dracônica."
       }
     ],
     "skills": {
@@ -493,12 +493,12 @@
           "mode": "none",
           "items": []
         },
-        "types": [
-          { "dragon": "Negro", "damage": "Ácido", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
-          { "dragon": "Azul", "damage": "Elétrico", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
-          { "dragon": "Verde", "damage": "Venenoso", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
-          { "dragon": "Vermelho", "damage": "Fogo", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
-          { "dragon": "Branco", "damage": "Congelante", "type": "linha", "size": [1.5, 9], "svg": "dexterity" }
+        "breaths": [
+          { "dragon": "Negro", "damage": "Ácido", "type": "Linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Azul", "damage": "Elétrico", "type": "Linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Verde", "damage": "Venenoso", "type": "Linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Vermelho", "damage": "Fogo", "type": "Linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Branco", "damage": "Congelante", "type": "Linha", "size": [1.5, 9], "svg": "dexterity" }
         ]
       },
       {
@@ -542,12 +542,12 @@
           "mode": "none",
           "items": []
         },
-        "types": [
-          { "dragon": "Latão", "damage": "Fogo", "type": "cone", "size": [4.5], "svg": "dexterity" },
-          { "dragon": "Bronze", "damage": "Elétrico", "type": "cone", "size": [4.5], "svg": "dexterity" },
-          { "dragon": "Cobre", "damage": "Ácido", "type": "cone", "size": [4.5], "svg": "dexterity" },
-          { "dragon": "Ouro", "damage": "Fogo", "type": "cone", "size": [4.5], "svg": "dexterity" },
-          { "dragon": "Prata", "damage": "Congelante", "type": "cone", "size": [4.5], "svg": "dexterity" }
+        "breaths": [
+          { "dragon": "Latão", "damage": "Fogo", "type": "Cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Bronze", "damage": "Elétrico", "type": "Cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Cobre", "damage": "Ácido", "type": "Cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Ouro", "damage": "Fogo", "type": "Cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Prata", "damage": "Congelante", "type": "Cone", "size": [4.5], "svg": "dexterity" }
         ]
       },
       {
@@ -579,12 +579,12 @@
           "mode": "none",
           "items": []
         },
-        "types": [
-          { "dragon": "Ametista", "damage": "Energético", "type": "cone", "size": [4.5], "svg": "dexterity" },
-          { "dragon": "Cristal", "damage": "Radiante", "type": "cone", "size": [4.5], "svg": "dexterity" },
-          { "dragon": "Esmeralda", "damage": "Psíquico", "type": "cone", "size": [4.5], "svg": "dexterity" },
-          { "dragon": "Safira", "damage": "Trovejante", "type": "cone", "size": [4.5], "svg": "dexterity" },
-          { "dragon": "Topázio", "damage": "Necrótico", "type": "cone", "size": [4.5], "svg": "dexterity" }
+        "breaths": [
+          { "dragon": "Ametista", "damage": "Energético", "type": "Cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Cristal", "damage": "Radiante", "type": "Cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Esmeralda", "damage": "Psíquico", "type": "Cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Safira", "damage": "Trovejante", "type": "Cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Topázio", "damage": "Necrótico", "type": "Cone", "size": [4.5], "svg": "dexterity" }
         ]
       }
     ]
@@ -609,7 +609,12 @@
       {
         "name": "Resistência a Dano",
         "tags": ["Draconato", "race"],
-        "description": "Você possui resistência ao tipo de dano associado ao seu ancestral dracônico"
+        "description": "Você possui resistência ao tipo de dano associado à sua Herança Dracônica."
+      },
+      {
+        "name": "Herança Dracônica",
+        "tags": ["Draconato", "race"],
+        "description": "Você vem de uma linhagem dracônica. Escolha um tipo de dragão na tabela Herança Dracônica. Seu ataque de Sopro e resistência a dano são determinados pelo tipo de dragão, conforme mostrado na tabela."
       }
     ],
     "skills": {
@@ -619,17 +624,17 @@
     },
     "proficiencies": [],
     "subraces": [],
-    "types": [
-          { "dragon": "Azul", "damage": "Elétrico", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
-          { "dragon": "Branco", "damage": "Gélido", "type": "cone", "size": [4.5], "svg": "constitution" },
-          { "dragon": "Bronze", "damage": "Elétrico", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
-          { "dragon": "Cobre", "damage": "Ácido", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
-          { "dragon": "Latão", "damage": "Ígneo", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
-          { "dragon": "Negro", "damage": "Ácido", "type": "linha", "size": [1.5, 9], "svg": "dexterity" },
-          { "dragon": "Ouro", "damage": "Ígneo", "type": "cone", "size": [4.5], "svg": "dexterity" },
-          { "dragon": "Prata", "damage": "Gélido", "type": "cone", "size": [4.5], "svg": "constitution" },
-          { "dragon": "Verde", "damage": "Venenoso", "type": "cone", "size": [4.5], "svg": "constitution" },
-          { "dragon": "Vermelho", "damage": "Ígneo", "type": "cone", "size": [4.5], "svg": "dexterity" }
+    "breaths": [
+          { "dragon": "Azul", "damage": "Elétrico", "type": "Linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Branco", "damage": "Gélido", "type": "Cone", "size": [4.5], "svg": "constitution" },
+          { "dragon": "Bronze", "damage": "Elétrico", "type": "Linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Cobre", "damage": "Ácido", "type": "Linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Latão", "damage": "Ígneo", "type": "Linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Negro", "damage": "Ácido", "type": "Linha", "size": [1.5, 9], "svg": "dexterity" },
+          { "dragon": "Ouro", "damage": "Ígneo", "type": "Cone", "size": [4.5], "svg": "dexterity" },
+          { "dragon": "Prata", "damage": "Gélido", "type": "Cone", "size": [4.5], "svg": "constitution" },
+          { "dragon": "Verde", "damage": "Venenoso", "type": "Cone", "size": [4.5], "svg": "constitution" },
+          { "dragon": "Vermelho", "damage": "Ígneo", "type": "Cone", "size": [4.5], "svg": "dexterity" }
         ]
   },
   {
@@ -801,6 +806,7 @@
   },
   {
     "name": "Tiferino",
+    "type": 1,
     "attribute": [{ "name": "charisma", "value": 2 }],
     "age": "Os Tiferinos amadurecem ao mesmo tempo que os humanos, mas vivem alguns anos a mais.",
     "alignment": "Tiferinos não possuem uma tendência inata ao mal, mas muitos acabam por abraçá-lo. Maligno ou não, uma natureza independente inclina a maioria dos Tiferinos ao alinhamento caótico",
@@ -1010,5 +1016,37 @@
         }
       }
     ]
+  },
+  {
+    "name": "Tiferino",
+    "type": 2,
+    "attribute": [{ "name": "charisma", "value": 2 }, { "name": "intelligence", "value": 1 }],
+    "age": "Os Tiferinos amadurecem ao mesmo tempo que os humanos, mas vivem alguns anos a mais.",
+    "alignment": "Tiferinos não possuem uma tendência inata ao mal, mas muitos acabam por abraçá-lo. Maligno ou não, uma natureza independente inclina a maioria dos Tiferinos ao alinhamento caótico",
+    "size": "Os Tiferinos possuem o mesmo tamanho e compleição dos humanos. Seu tamanho é Médio.",
+    "sizeM": "M",
+    "speed": 9,
+    "magics": [],
+    "languages": ["Comum", "Infernal"],
+    "characteristics": [
+      {
+        "name": "Visão no Escuro",
+        "tags": ["Tiferino", "race"],
+        "description": "Graças a sua herança infernal, você tem uma visão superior no escuro e na  penumbra. Você enxerga na penumbra a até 18 metros como se fosse luz plena, e no escuro como se fosse na penumbra. Você não pode discernir cores no escuro, apenas tons de cinza.",
+        "value": 18
+      },
+      {
+        "name": "Resistência Infernal",
+        "tags": ["Tiferino", "race"],
+        "description": "Você possui resistência a dano de fogo"
+      }
+    ],
+    "skills": {
+      "tags": ["Tiferino", "race"],
+      "mode": "none",
+      "items": []
+    },
+    "proficiencies": [],
+    "subraces": []
   }
 ]

@@ -6,10 +6,24 @@ export default function DataRaceCharac() {
   const [race, setRace] = useState<any>(null);
   const [subrace, setSubrace] = useState<any>(null);
   const [attributes, setAttributes] = useState<string>('');
-  const { provDataPlayer, returnDataAttribute, returnAttrSubrace } = useContext(contexto);
+  const { provDataPlayer, returnDataAttribute, returnAttrSubrace, session } = useContext(contexto);
 
   useEffect(() => {
-    const findRace = listRaces.find((item: any) => item.name === provDataPlayer.sheet.race);
+    let findRace: any = {}
+    if (provDataPlayer.sheet.race === 'Draconato') {
+      findRace = listRaces.filter((itemList: any) => {
+        if (session.books.includes("Fizban's Treasury of Dragons")) {
+          return !itemList.type || itemList.type !== 2
+        } return !itemList.type || itemList.type !== 1
+      }).find((raceItem: any) => raceItem.name === provDataPlayer.sheet.race);
+    } else if (provDataPlayer.sheet.race === 'Tiferino') {
+      findRace = listRaces.filter((itemList: any) => {
+        if (session.books.includes("Mordenkainen's Tome of Foes")) {
+          return !itemList.type || itemList.type !== 2
+        } return !itemList.type || itemList.type !== 1
+      }).find((raceItem: any) => raceItem.name === provDataPlayer.sheet.race);
+    } else findRace = listRaces.find((raceItem: any) => raceItem.name === provDataPlayer.sheet.race);
+    
     if (findRace) {
       let textAttribute = returnDataAttribute(findRace);
       if (provDataPlayer.sheet.subrace !== '') {

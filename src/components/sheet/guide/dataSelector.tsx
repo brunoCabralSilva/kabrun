@@ -17,8 +17,9 @@ export default function DataSelector() {
   const [skillList, setSkillList] = useState<any>([]);
   const [newLanguage, setNewLanguage] = useState<string>('');
   const [listAttributes, setListAttributes] = useState<any>([]);
+  const [dataBreath, setDataBreath] = useState<any>(null);
   const { showDataSelector, setShowDataSelector, setProvDataPlayer, provDataPlayer, session,
-    returnDataAttribute, returnAttrSubrace, calculateMod, setShowMessage } = useContext(contexto);
+    returnDataAttribute, returnAttrSubrace, calculateMod, setShowMessage, returnAttribute } = useContext(contexto);
 
   useEffect(() => {
     if (showDataSelector.type === 'alignment') {
@@ -29,6 +30,12 @@ export default function DataSelector() {
       if (showDataSelector.value === 'Draconato') {
         dataRace = listRace.filter((itemList: any) => {
           if (session.books.includes("Fizban's Treasury of Dragons")) {
+            return !itemList.type || itemList.type !== 2
+          } return !itemList.type || itemList.type !== 1
+        }).find((raceItem: any) => raceItem.name === showDataSelector.value);
+      } else if (showDataSelector.value === 'Tiferino') {
+        dataRace = listRace.filter((itemList: any) => {
+          if (session.books.includes("Mordenkainen's Tome of Foes")) {
             return !itemList.type || itemList.type !== 2
           } return !itemList.type || itemList.type !== 1
         }).find((raceItem: any) => raceItem.name === showDataSelector.value);
@@ -61,6 +68,12 @@ export default function DataSelector() {
             return !itemList.type || itemList.type !== 2
           } return !itemList.type || itemList.type !== 1
         }).find((raceItem: any) => raceItem.name === showDataSelector.value);
+      } else if (showDataSelector.value === 'Tiferino') {
+        findRace = listRace.filter((itemList: any) => {
+          if (session.books.includes("Mordenkainen's Tome of Foes")) {
+            return !itemList.type || itemList.type !== 2
+          } return !itemList.type || itemList.type !== 1
+        }).find((raceItem: any) => raceItem.name === showDataSelector.value);
       } else findRace = listRace.find((raceItem: any) => raceItem.name === showDataSelector.value);
       if (findRace) {
         if (showDataSelector.value === 'Draconato' && session.books.includes("Fizban's Treasury of Dragons")) {
@@ -71,11 +84,34 @@ export default function DataSelector() {
               sheet: insertRace(
                 provDataPlayer.sheet,
                 calculateMod,
+                returnAttribute,
                 showDataSelector.value,
                 findRace.attribute,
                 session,
                 skillList.map((itemSkill: any) => { return itemSkill.value }),
                 newLanguage,
+                null,
+                null,
+              ),
+            });
+            clearData();
+          }
+        } else if (showDataSelector.value === 'Draconato' && !session.books.includes("Fizban's Treasury of Dragons")) {
+          if (!dataBreath) setShowMessage({ show: true, text: 'É necessário selecionar uma Herença Dracônica' });
+          else {
+            setProvDataPlayer({
+              ...provDataPlayer,
+              sheet: insertRace(
+                provDataPlayer.sheet,
+                calculateMod,
+                returnAttribute,
+                showDataSelector.value,
+                findRace.attribute,
+                session,
+                skillList.map((itemSkill: any) => { return itemSkill.value }),
+                newLanguage,
+                dataBreath,
+                null,
               ),
             });
             clearData();
@@ -92,11 +128,14 @@ export default function DataSelector() {
                 sheet: insertRace(
                   provDataPlayer.sheet,
                   calculateMod,
+                  returnAttribute,
                   showDataSelector.value,
                   [{ name: listAttributes[0], value: 1 }, { name: listAttributes[1], value: 1 }],
                   session,
                   skillList.map((itemSkill: any) => { return itemSkill.value }),
                   newLanguage,
+                  null,
+                  talent,
                 ),
               });
               clearData();
@@ -108,6 +147,7 @@ export default function DataSelector() {
                 insertRace(
                   provDataPlayer.sheet,
                   calculateMod,
+                  returnAttribute,
                   showDataSelector.value,
                   [
                     { name: 'strength', value: 1},
@@ -120,6 +160,8 @@ export default function DataSelector() {
                   session,
                   null,
                   newLanguage,
+                  null,
+                  null,
                 ),
             });
             clearData();
@@ -134,11 +176,14 @@ export default function DataSelector() {
               sheet: insertRace(
                 provDataPlayer.sheet,
                 calculateMod,
+                returnAttribute,
                 showDataSelector.value,
                 [{ name: listAttributes[0], value: 1 }, { name: listAttributes[1], value: 1 }],
                 session,
                 skillList.map((itemSkill: any) => { return itemSkill.value }),
                 newLanguage,
+                null,
+                null,
               ),
             });
             clearData();
@@ -150,9 +195,12 @@ export default function DataSelector() {
               insertRace(
                 provDataPlayer.sheet,
                 calculateMod,
+                returnAttribute,
                 showDataSelector.value,
                 findRace.attribute,
                 session,
+                null,
+                null,
                 null,
                 null,
               ),
@@ -239,6 +287,45 @@ export default function DataSelector() {
     return <div />
   }
 
+  const returnBreathsDragonborn = () => {
+    const findRace = listRace.find((raceItemFind: any) => raceItemFind.name === 'Draconato' && raceItemFind.type === 2);
+    if (findRace && findRace.breaths) {
+      return (
+        <table className="w-full mt-3">
+          <th className="border border-black p-1">Dragão</th>
+          <th className="border border-black p-1">Tipo de Dano</th>
+          <th className="border border-black p-1">Arma de Sopro</th>
+          <th className="border border-black p-1">Salvaguarda</th>
+          {
+            findRace.breaths.map((breath: any, index: number) => (
+              <tr
+                key={ index }
+                className={`${dataBreath && dataBreath.dragon === breath.dragon ? 'bg-black text-[#f0e9d2]' : 'bg-transparent text-black hover:bg-black/20 hover:text-black' } cursor-pointer transition-colors duration-400`}
+                onClick={ () => setDataBreath(breath) }
+              >
+                <td className="text-center border border-black p-1">
+                  { breath.dragon }
+                </td>
+                <td className="text-center border border-black p-1">
+                  { breath.damage }
+                </td>
+                <td className="text-center border border-black p-1">
+                  <span className="pr-1">{ breath.type } -</span>
+                  <span  className="pr-1">
+                    { breath.size.length > 1 ? `${breath.size[0] } x ${breath.size[1] } m`: `${breath.size[0]} m` }
+                  </span>
+                </td>
+                <td className="text-center border border-black p-1">
+                  { returnAttribute(breath.svg) }
+                </td>
+              </tr>
+            ))
+          }
+        </table>
+      )
+    } return <div />
+  }
+
   const returnAttrAndSkills = () => {
     if ((optional && showDataSelector.value === "Humano") || showDataSelector.value === "Meio Elfo") {
       return (
@@ -265,7 +352,7 @@ export default function DataSelector() {
             </button>
           </div>
           <div className="w-full grid grid-cols-6 gap-1 px-10">
-            <p className="col-span-6 w-full mt-5 font-bold">Selecione { showDataSelector.value === "Humano" ? '1': '2' } Perícia:</p>
+            <p className="col-span-6 w-full mt-5 font-bold">Selecione { showDataSelector.value === "Humano" ? '1 Perícia:': '2 Perícias:' }</p>
             {
               listSkills.map((skillItem: any, index: number) => (
                 <button
@@ -368,6 +455,14 @@ export default function DataSelector() {
                   </div>
                 </div>
                 <div className="w-full"> { returnLanguageList() } </div>
+                {
+                  showDataSelector.value === 'Draconato' && !session.books.includes("Fizban's Treasury of Dragons")
+                  &&
+                  <div>
+                    <p className="font-bold w-full pt-3">Escolha a sua Herança Dracônica: </p>
+                    <div>{ returnBreathsDragonborn() }</div>
+                  </div>
+                }
                 {
                   data.optionals &&
                   <div className="w-full text-justify pt-1">

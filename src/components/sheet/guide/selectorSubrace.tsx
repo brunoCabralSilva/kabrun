@@ -3,10 +3,18 @@ import contexto from "../../../context/context";
 import listOfRaces from '../../../data/races.json';
 
 export default function SelectorSubrace() {
-  const { provDataPlayer, setShowDataSelector } = useContext(contexto);
+  const { provDataPlayer, setShowDataSelector, session } = useContext(contexto);
 
   const returnSubraces = () => {
-    const race = listOfRaces.find((race: any) => race.name === provDataPlayer.sheet.race);
+    let race: any = {};
+    if (provDataPlayer.sheet.race === 'Draconato') {
+      race = listOfRaces.filter((itemList: any) => {
+        if (session.books.includes("Fizban's Treasury of Dragons")) {
+          return !itemList.type || itemList.type !== 2
+        } return !itemList.type || itemList.type !== 1
+      }).find((raceItem: any) => raceItem.name === provDataPlayer.sheet.race);
+    } else race = listOfRaces.find((raceItem: any) => raceItem.name === provDataPlayer.sheet.race);
+    console.log(race);
     if (race)
       return race.subraces.map((item: any, index: number) => (
         <option

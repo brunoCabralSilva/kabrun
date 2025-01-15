@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import contexto from "../../../context/context";
 
-export default function DataLanguages() {
+export default function DataPowers() {
   const { provDataPlayer } = useContext(contexto);
 
   return(
@@ -13,18 +13,18 @@ export default function DataLanguages() {
         <div className="box__line box__line--left relative" />
         <div className="w-full p-5">
           <div className="w-full text-center pb-3 col-span-3">
-            Idiomas
+            Poderes
             <hr className="bg-black h-[0.05rem] border-0" />
           </div>
           <div className="flex flex-col w-full">
             {
-              provDataPlayer.sheet.languages.map((language: any, index: number) => (
+              provDataPlayer.sheet.powers.map((power: any, index: number) => (
                 <div
                   key={ index }
-                  className="w-full"
+                  className="w-full mb-3"
                 >
-                  <span className="pr-1 font-bold">{ language.name }</span>
-                  <span>- { language.title }</span>
+                  <span className="pr-1 font-bold">{ power.name }</span>
+                  <span>- { power.description }</span>
                 </div>
               ))
             }

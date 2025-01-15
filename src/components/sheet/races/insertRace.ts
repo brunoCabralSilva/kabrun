@@ -9,11 +9,14 @@ interface IAttributesToAdd {
 export const insertRace = (
   sheet: any,
   calculateMod: any,
+  returnAttribute: any,
   race: string,
   attributes: IAttributesToAdd[],
   session: any,
   skillData: string[] | null,
   languagesText: string | null,
+  powerData: any | null,
+  talentData: any | null,
 ) => {
     //Remove todos os Bônus Raciais e SubRaciais existentes
     sheet.attributes.bonus = sheet.attributes.bonus.filter((item: any) => item.type !== 'race' && item.type !== 'subrace');
@@ -61,10 +64,10 @@ export const insertRace = (
     sheet.attributes.charisma.mod = calculateMod(sheet.attributes.charisma.value + bonusCha);
 
     //Remove todos os Talentos Raciais e SubRaciais existentes
-    sheet.talents = sheet.talents.filter((item: any) => item.type !== 'race' && item.type !== 'subrace');
+    sheet.talents = sheet.talents.filter((item: any) => !item.tags.includes('race') && !item.tags.includes('subrace'));
 
     //Remove todos os Poderes Raciais e SubRaciais existentes
-    sheet.powers = sheet.powers.filter((item: any) => item.type !== 'race' && item.type !== 'subrace');
+    sheet.powers = sheet.powers.filter((item: any) => !item.tags.includes('race') && !item.tags.includes('subrace'));
     
     //Remove todas as magias advindas de Raças ou Subraças
     sheet.magics = sheet.magics.filter((magic: any) => !magic.type || magic.type !== 'race' || magic.type !== 'subrace');
@@ -102,6 +105,11 @@ export const insertRace = (
         sheet.languages = [...sheet.languages, { type: 'race', ...findLanguage }];
       }
     }
+
+    //Adiciona o Talento se a Raça for Humana e escolheu Características Opcionais
+    if (race === 'Humano' && talentData) {
+      sheet.talents = [...sheet.talents, {...talentData, tags: ["Humano", "race"] }];
+    }
     
     //Encontra os dados da Raça selecionada
     let findRace: any = {};
@@ -111,9 +119,26 @@ export const insertRace = (
           return !itemList.type || itemList.type !== 2
         } return !itemList.type || itemList.type !== 1
       }).find((raceItem: any) => raceItem.name === race);
+    } else if (race === 'Tiferino') {
+      findRace = listRaces.filter((itemList: any) => {
+        if (session.books.includes("Mordenkainen's Tome of Foes")) {
+          return !itemList.type || itemList.type !== 2
+        } return !itemList.type || itemList.type !== 1
+      }).find((raceItem: any) => raceItem.name === race);
     } else findRace = listRaces.find((raceName: any) => raceName.name === race);
     if (findRace) {
-      //Adiciona Linguagens
+
+      //Adiciona o Sopro do Dragão
+      if (race === 'Draconato' && !session.books.includes("Fizban's Treasury of Dragons")) {
+        const newPower = {
+          name: "Sopro Dracônico",
+          tags: ["Draconato", "race"],
+          description: `Você pode usar uma ação para exalar um Sopro ${powerData.damage} destrutivo. Seu ancestral dracônico (${powerData.dragon}) determina o tamanho e formato do Sopro que você expele (${ powerData.size.length > 1 ? `${powerData.size[0] } x ${powerData.size[1] } m`: `${powerData.size[0]} m` }). Quando você usa sua arma de sopro, cada criatura na área exalada deve realizar uma Salvaguarda de ${ returnAttribute(powerData.svg)}. A CD do teste de resistência é 8 + seu modificador de Constituição + seu bônus de proficiência. Uma criatura sofre 2d6 de dano num fracasso e metade desse dano num sucesso. O dano aumenta para 3d6 no 6° nível, 4d6 no 11° nível e 5d6 no 16° nível. Depois de usar sua arma de sopro, você não poderá utilizá-la novamente até completar um descanso curto ou longo.`
+        }
+        sheet.powers = [...sheet.powers, newPower];
+      }
+
+      //Adiciona Linguagens da Raça
       let allLanguages = [];
       for (let i = 0; i < findRace.languages.length; i += 1) {
         if (findRace.languages[i] !== 'other') {
@@ -205,7 +230,7 @@ export const insertSubRace = (
   //Remove todas as magias advindas de Subraças
   sheet.magics = sheet.magics.filter((magic: any) => !magic.type || magic.type !== 'subrace');
 
-  //Remove todos os Poderes SubRaciais existentes
+  //Remove todos os Talentos SubRaciais existentes
   sheet.talents = sheet.talents.filter((item: any) => item.type !== 'subrace');
 
   //Remove todos os Poderes SubRaciais existentes
